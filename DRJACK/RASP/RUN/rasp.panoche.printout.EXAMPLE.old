@@ -1,0 +1,1480 @@
+START: ./rasp.panoche -M 0 at 23:10 MON 01/01 : process 31403 & perl 5.008 & $Revision: 2.67 $ $Date: 2006/12/24 19:34:17 $Z
+FLAGS:  LPRINT=3  LGETGRIB=2  LMODELINIT=1   LMODELRUN=1  LSEND=2  LSAVE=2
+--- Run parameters were read from file:  rasp.run.parameters.PANOCHE 
+  >  #############################################################################
+   >  ################## RUN-ARGUMENT-SPECIFIC RASP PARAMETERS ####################
+   >  #############################################################################
+   >  ### For updated information on these model parameters see                 ###
+   >  ### http://www.drjack.info/twiki/bin/view/RASPop/RunParametersDescription ###
+   >  #############################################################################
+   >  ###### SET REGIONS PROCESSED BY THIS RUN
+   >    @REGION_DOLIST = ( 'PANOCHE' );
+   >  ###### SET MODEL USED FOR DOWNLOADED GRIB FILES
+   >    ###    ( USA=ETA WORLD=GFS/AVN )
+   >    $GRIBFILE_MODEL = 'RUCH' ;      ### must agree with INIT_ROOT,LBC_ROOT in ../WRF/WRFSI/domains/REGIONXYZ/static/wrfsi.nl and if windowed run also in WRF/WRFSI/domains/REGIONXYZ-WINDOW/static/wrfsi.nl
+   >  ###### SET OPTIONAL WEBSITE FILE CREATION (can be bypassed by certain run arguments)
+   >    ### $LSEND=  0 = images produced only in local "RASP/RUN/OUT" subdirectory
+   >    ##           1 = copy images to web directory using filenames pre-pended with "test"
+   >    ##           2 = copy images to web directory using normal filenames 
+   >    ##           -1,-2 = ftp images to remote server (NOT OPERATIONALLY TESTED)
+   >    ##           3 = also do firstofday processing (NOT IMPLEMENTED)
+   >    ### uses test so will not overwrite if set by run argument
+   >    if( ! defined $LSEND ) { $LSEND =  2; }
+   >  ###### SET OPTIONAL ARCHIVE FILE CREATION (can be bypassed by certain run arguments)
+   >    ### $LSAVE=  0 = inhibits all archive saves to preserve disk space
+   >    ##           1 = saves data files (for a single forecast hour only) - uses least disk space
+   >    ##           2 = saves data files and images (for a single forecast hour only) - uses much less disk space than $LSAVE=2
+   >    ##           3 = saves data files and image files (for a single forecast hour only) and initial condition files to a storage directory 
+   >    ### uses test so will not overwrite if set by run argument
+   >    if( ! defined $LSAVE ) { $LSAVE =  2; }
+   >  ##################################################################
+   >  #############  START OF REGION DEPENDENT PARAMETERS  #############
+   >  ###### SET RUN TYPE
+   >    ### LRUN_WINDOW 0= no_windowing 2= windowing_run 
+   >    $LRUN_WINDOW{'PANOCHE'} = 0 ;
+   >    #ACTIVATE THIS LINE TO PRODUCE 2-STAGE RUN: 
+   >   $LRUN_WINDOW{'PANOCHE'} = 2 ;
+   >  ###### SET BASIC PARAMETER LIST
+   >    @{$PARAMETER_DOLIST{'PANOCHE'}} = ( 'hbl','dbl','hwcrit','dwcrit','wstar','bsratio', 'sfcsunpct','sfcshf', 'blwind','sfcwind', 'zsfclcl','zsfclcldif','zsfclclmask', 'zblcl','zblcldif','zblclmask','blcloudpct','blcwbase', 'boxwmax','press850','press700','press500', 'bltopvariab','bltopwind','wblmaxmin','zwblmaxmin', 'blwindshear', 'sfctemp','sfcdewpt', 'cape', 'wstar_bsratio', 'experimental1','experimental2','hglider' );
+   >    #old @{$PARAMETER_DOLIST{'PANOCHE'}} = ( 'hbl','dbl','hwcrit','dwcrit','wstar','bsratio', 'sfcsunpct','sfcshf', 'blwind','sfcwind', 'zsfclcl','zsfclcldif','zsfclclmask', 'zblcl','zblcldif','zblclmask','blcloudpct','blcwbase', 'boxwmax','press850','press700','press500', 'bltopvariab','bltopwind','wblmaxmin','zwblmaxmin', 'blwindshear', 'sfctemp','sfcdewpt', 'cape', 'wstar_bsratio', 'experimental1','experimental2' );
+   >    #older @{$PARAMETER_DOLIST{'PANOCHE'}} = ( 'hbl','dbl','hwcrit','dwcrit','wstar','bsratio', 'sfcsun','sfcshf', 'blwind','sfcwind', 'zsfclcl','zsfclcldif','zsfclclmask', 'zblcl','zblcldif','zblclmask','blcloudpct','blcwbase', 'boxwmax','press850','press700','press500', 'bltopvariab','bltopwind','wblmaxmin','zwblmaxmin', 'blwindshear', 'sfctemp','sfcdewpt', 'cape', 'wstar_bsratio', 'experimental1','experimental2' );
+   >    ###### ADD POSSIBLE SOUNDINGS  (corresponding data must be set in file ../WRF/NCL/rasp.ncl.region.data)
+   >    push @{$PARAMETER_DOLIST{'PANOCHE'}}, ( 'sounding1','sounding2','sounding3' );  
+   >  ######  SET GRID LOCAL TIME
+   >    $LOCALTIME_ID{'PANOCHE'} = 'PST' ;
+   >    $LOCALTIME_ADJ{'PANOCHE'} = -8 ; 
+   >  ###### SET GRIB FILE PROCESSING 
+   >    ### GRIBFILES_PER_FORECAST_PERIOD IS NUMBER OF GRIB FILES PROCESSED AT SAME TIME
+   >    #12hr:
+   >    $GRIBFILES_PER_FORECAST_PERIOD{'PANOCHE'} = 5 ;
+   >    #15hr:  $GRIBFILES_PER_FORECAST_PERIOD{'PANOCHE'} = 6 ;
+   >    ### BLIPMAPFILEDOLIST LISTS ALL GRIB FILES NEEDED
+   >    %GRIBFILE_DOLIST = 
+   >    (
+   >      #once-daily_12_hr (earlyAM):      'PANOCHE'   => [ '6Z+6','6Z+9','6Z+12','6Z+15','6Z+18' ],
+   >      #once-daily_15_hr (earlyAM):      'PANOCHE'   => [ '6Z+6','6Z+9','6Z+12','6Z+15','6Z+18','6Z+21' ],
+   >      #once-daily_15_hr (lateAM):      'PANOCHE'   => [ '12Z+0','12Z+3','12Z+6','12Z+9','12Z+12','12Z+15' ],
+   >      #twice-daily_12hr (earlyAM+lateAM):      'PANOCHE'   => [ '12Z+0','12Z+3','12Z+6','12Z+9','12Z+12', '6Z+6','6Z+9','6Z+12','6Z+15','6Z+18' ],
+   >      #twice-daily_15hr (earlyAM+lateAM):      'PANOCHE'   => [ '12Z+0','12Z+3','12Z+6','12Z+9','12Z+12','12Z+15', '6Z+6','6Z+9','6Z+12','6Z+15','6Z+18','6Z+21' ],
+   >      #thrice-daily_12hr:
+   >       'PANOCHE'   => [ '12Z+0','12Z+3','12Z+6','12Z+9','12Z+12', '6Z+6','6Z+9','6Z+12','6Z+15','6Z+18', '0Z+12','0Z+15','0Z+18','0Z+21','0Z+24' ],
+   >      #4TEST RUCH day 92_2005: 'PANOCHE'   => [ '12Z+0','12Z+3','12Z+6','12Z+9','12Z+12' ],
+   >      #4test: 'PANOCHE'   => [ '0Z+12','0Z+15','0Z+18','0Z+21','0Z+24' ],
+   >    );
+   >    #4TEST: RUCH day 92: $GRIBFILES_PER_FORECAST_PERIOD{'PANOCHE'} = 5 ;
+   >  ###### SET DOMAIN PARAMETERS FOR STAGE1 [NON-WINDOW] ITERATION
+   >    $FORECAST_PERIODHRS{'PANOCHE'}[0] = 12;       # used only by initialization programs
+   >    $BOUNDARY_UPDATE_PERIODHRS{'PANOCHE'}[0] = 3;       # used only by initialization programs
+   >    $NDOWN_BOUNDARY_UPDATE_PERIODHRS{'PANOCHE'}[0] = 0 ;    ### should always be 0 for non-windowed case
+   >    ### SET DOMAIN START/END TIMES
+   >    $DOMAIN1_STARTHH{'PANOCHE'}[0] = '12';             # must have grib file available for this time
+   >    $DOMAIN1_ENDHH{'PANOCHE'}[0] = '00';              # 
+   >    $DOMAIN2_START_DELTAMINS{'PANOCHE'}[0] = 0;     # if non-zero, must set namelist.template INPUT_FROM_FILE=false
+   >    $DOMAIN2_END_DELTAMINS{'PANOCHE'}[0] = 0;     # relative to domain1
+   >    $DOMAIN3_START_DELTAMINS{'PANOCHE'}[0] = 420;     # if non-zero, must set namelist.template INPUT_FROM_FILE=false
+   >    $DOMAIN3_END_DELTAMINS{'PANOCHE'}[0] = -120;     # relative to domain1
+   >    ### SET BLIPMAP IMAGE SIZES  - 1st,2nd value for 1st,2nd domain - blank=NOplot
+   >    @{$PLOT_IMAGE_SIZE{'PANOCHE'}[0]} = ( '', '800x800' );
+   >    ### SET HISTORY HOUR FOR IMAGES PLOTTED WHEN $PLOT_IMAGE_SIZE FOR THAT DOMAIN NOT BLANK
+   >    @{$PLOT_HHMMLIST{'PANOCHE'}[0]} =  ( '1200', '1500', '1800', '2100', '0000' );
+   >    ### SET HISTORY HOUR FOR IMAGES SAVED WHEN LSAVE>0 AND $PLOT_IMAGE_SIZE FOR THAT DOMAIN NOT BLANK
+   >    @{$SAVE_PLOT_HHMMLIST{'PANOCHE'}[0]} = ( '1800','2100','0000' );
+   >  ###### SET DOMAIN PARAMETERS FOR STAGE2 [WINDOWED] ITERATION (not used if no windowing done)
+   >    $FORECAST_PERIODHRS{'PANOCHE'}[1] = 3;       
+   >    $BOUNDARY_UPDATE_PERIODHRS{'PANOCHE'}[1] = 1;     
+   >    ### NDOWN_BOUNDARY_UPDATE_PERIODHRS must agree with stage 1 output interval (in hours)
+   >    $NDOWN_BOUNDARY_UPDATE_PERIODHRS{'PANOCHE'}[1] = 1 ;  
+   >    ### SET DOMAIN START/END TIMES
+   >    $DOMAIN1_STARTHH{'PANOCHE'}[1] = '18';          # must have grib file available at or prior to this time
+   >    $DOMAIN1_ENDHH{'PANOCHE'}[1] = '21';          
+   >    $DOMAIN2_START_DELTAMINS{'PANOCHE'}[1] = 0;     # if non-zero, must set namelist.template INPUT_FROM_FILE=false
+   >    $DOMAIN2_END_DELTAMINS{'PANOCHE'}[1] = 0;     # relative to domain1
+   >    $DOMAIN3_START_DELTAMINS{'PANOCHE'}[1] = 0;     # if non-zero, must set namelist.template INPUT_FROM_FILE=false
+   >    $DOMAIN3_END_DELTAMINS{'PANOCHE'}[1] = 0;     # relative to domain1
+   >    ### SET BLIPMAP IMAGE SIZES  - 1st,2nd value for 1st,2nd domain - blank=NOplot
+   >    @{$PLOT_IMAGE_SIZE{'PANOCHE'}[1]} = ( '', '800x800' );
+   >    ### SET HISTORY HOUR FOR IMAGES PLOTTED WHEN $PLOT_IMAGE_SIZE FOR THAT DOMAIN NOT BLANK
+   >    @{$PLOT_HHMMLIST{'PANOCHE'}[1]} =  ( '2000', '2030', '2100' );
+   >    ### SET HISTORY HOUR FOR IMAGES SAVED WHEN LSAVE>0 AND $PLOT_IMAGE_SIZE FOR THAT DOMAIN NOT BLANK
+   >    @{$SAVE_PLOT_HHMMLIST{'PANOCHE'}[1]} = ( '2100' );
+   >  ##############  END OF REGION DEPENDENT PARAMETERS  ##############
+   >  ##################################################################
+   >  ##########    ADDITIONS MUST BE MADE ABOVE THIS LINE    ##########
+   >  ##################################################################
+   >  1.;
+--- SITE ALTERATIONS were read from file: rasp.site.parameters 
+  >  ############################################################################
+   >  ###############  THIS FILE READ AFTER NORMAL PARAMETERS SET  ############### 
+   >  ###############         SO CAN BE USED TO ALTER THEM         ############### 
+   >  ###############            (utilizes perl coding)            ############### 
+   >  ############################################################################
+   >  ############  SITE-SPECIFIC PARAMETERS FOLLOW  ################## 
+   >  ### EMAIL ADDRESS where fatal error messages are sent (when std.err file not empty)
+   >  ### also used for anonymous ftp login password so CANNOT BE BLANK!
+   >    $ADMIN_EMAIL_ADDRESS = 'rasp_admin@drjack.info';
+   >  #################################################################
+   >  ######  PUT LOCAL SITE PARAMETERS CHANGES BELOW THIS LINE  ######
+   >  ######        ADDITIONS MUST BE MADE ABOVE THIS LINE       ######
+   >  #################################################################
+   >  1.;
+RUNDATE= MON 01/01  JULIANDAY= 001 
+  PANOCHE  GRIBFILE_DOLIST= ( 12Z+0 12Z+3 12Z+6 12Z+9 12Z+12 6Z+6 6Z+9 6Z+12 6Z+15 6Z+18 0Z+12 0Z+15 0Z+18 0Z+21 0Z+24 )
+*WARNING: PANOCHE-WINDOW wrfsi.nl ALTERED so consistent with GRIBFILE_MODEL
+   Scheduled availability:   12Z+0 @ 13:28Z
+   Scheduled availability:   12Z+3 @ 13:31Z
+   Scheduled availability:   12Z+6 @ 13:34Z
+   Scheduled availability:   12Z+9 @ 13:37Z
+   Scheduled availability:  12Z+12 @ 13:40Z
+   Scheduled availability:    6Z+6 @ 07:19Z
+   Scheduled availability:    6Z+9 @ 07:22Z
+   Scheduled availability:   6Z+12 @ 07:25Z
+   Scheduled availability:   6Z+15 @ 07:28Z
+   Scheduled availability:   6Z+18 @ 07:31Z
+   Scheduled availability:   0Z+12 @ 01:40Z
+   Scheduled availability:   0Z+15 @ 01:43Z
+   Scheduled availability:   0Z+18 @ 01:46Z
+   Scheduled availability:   0Z+21 @ 01:49Z
+   Scheduled availability:   0Z+24 @ 01:52Z
+   filenamedolist=   12Z+0 =>  0700112000000.grib
+   filenamedolist=   12Z+3 =>  0700112000003.grib
+   filenamedolist=   12Z+6 =>  0700112000006.grib
+   filenamedolist=   12Z+9 =>  0700112000009.grib
+   filenamedolist=  12Z+12 =>  0700112000012.grib
+   filenamedolist=    6Z+6 =>  0700106000006.grib
+   filenamedolist=    6Z+9 =>  0700106000009.grib
+   filenamedolist=   6Z+12 =>  0700106000012.grib
+   filenamedolist=   6Z+15 =>  0700106000015.grib
+   filenamedolist=   6Z+18 =>  0700106000018.grib
+   filenamedolist=   0Z+12 =>  0700100000012.grib
+   filenamedolist=   0Z+15 =>  0700100000015.grib
+   filenamedolist=   0Z+18 =>  0700100000018.grib
+   filenamedolist=   0Z+21 =>  0700100000021.grib
+   filenamedolist=   0Z+24 =>  0700100000024.grib
+FILENAMEdolist   count = 15
+   filename= 0 12Z+0 1  0700112000000.grib
+   filename= 1 12Z+3 1  0700112000003.grib
+   filename= 2 12Z+6 1  0700112000006.grib
+   filename= 3 12Z+9 1  0700112000009.grib
+   filename= 4 12Z+12 1  0700112000012.grib
+   filename= 5 6Z+6 1  0700106000006.grib
+   filename= 6 6Z+9 1  0700106000009.grib
+   filename= 7 6Z+12 1  0700106000012.grib
+   filename= 8 6Z+15 1  0700106000015.grib
+   filename= 9 6Z+18 1  0700106000018.grib
+   filename= 10 0Z+12 1  0700100000012.grib
+   filename= 11 0Z+15 1  0700100000015.grib
+   filename= 12 0Z+18 1  0700100000018.grib
+   filename= 13 0Z+21 1  0700100000021.grib
+   filename= 14 0Z+24 1  0700100000024.grib
+Begin CYCLE loop over Time/Filename
+   Created SAVE directory /home/admin/DRJACK/RASP/SAVE/PANOCHE/20070101 
+CYCLE: TOP 1/708  0.0/23.6hr 00(00/15) - last=  at 23:10:03
+   PS: 31403  39  16 19.0  0.4 3688 5136 1669 10  6676
+SCHEDULED GETGRIB: 1 trialfile =   0Z+12 (0) =>  0700100000012.grib
+0Z+12: pre-grib-download rm of previous grib file: removed `/home/admin/DRJACK/RASP/RUN/RUCH/GRIB/0636500000012.grib'
+0Z+12: FTP REQUEST /home/admin/DRJACK/RASP/RUN/UTIL/gribftpget.pl at 23:10:030Z+12: call child ftp routine: 900 0700100000012.grib nomads.fsl.noaa.gov 13kmruc/maps_fcst20/
+CYCLE: TOP 2/708  0.0/23.6hr 00(00/15) - last=  at 23:10:03
+-> 0Z+12 CHILDFTP 31551 23:10:03 1/60 >> GRIBFTPGET LOOP TOP: 0700100000012.grib
+   PS: 31403  39  16 11.0  0.5 3688 5180 1669 10  6676
+SCHEDULED GETGRIB: 1 trialfile =   0Z+15 (0) =>  0700100000015.grib
+0Z+15: pre-grib-download rm of previous grib file: removed `/home/admin/DRJACK/RASP/RUN/RUCH/GRIB/0636500000015.grib'
+0Z+15: FTP REQUEST /home/admin/DRJACK/RASP/RUN/UTIL/gribftpget.pl at 23:10:030Z+15: call child ftp routine: 900 0700100000015.grib nomads.fsl.noaa.gov 13kmruc/maps_fcst20/
+CYCLE: TOP 3/708  0.0/23.6hr 00(00/15) - last=  at 23:10:03
+-> 0Z+15 CHILDFTP 31570 23:10:03 1/60 >> GRIBFTPGET LOOP TOP: 0700100000015.grib
+   PS: 31403  39  16 12.5  0.5 3688 5184 1669 10  6676
+SCHEDULED GETGRIB: 1 trialfile =   0Z+18 (0) =>  0700100000018.grib
+0Z+18: pre-grib-download rm of previous grib file: removed `/home/admin/DRJACK/RASP/RUN/RUCH/GRIB/0636500000018.grib'
+0Z+18: FTP REQUEST /home/admin/DRJACK/RASP/RUN/UTIL/gribftpget.pl at 23:10:040Z+18: call child ftp routine: 900 0700100000018.grib nomads.fsl.noaa.gov 13kmruc/maps_fcst20/
+CYCLE: TOP 4/708  0.0/23.6hr 00(00/15) - last=  at 23:10:04
+-> 0Z+18 CHILDFTP 31608 23:10:04 1/60 >> GRIBFTPGET LOOP TOP: 0700100000018.grib
+   PS: 31403  39  16 14.5  0.5 3688 5184 1669 10  6676
+SCHEDULED GETGRIB: 1 trialfile =   0Z+21 (0) =>  0700100000021.grib
+0Z+21: pre-grib-download rm of previous grib file: removed `/home/admin/DRJACK/RASP/RUN/RUCH/GRIB/0636500000021.grib'
+0Z+21: FTP REQUEST /home/admin/DRJACK/RASP/RUN/UTIL/gribftpget.pl at 23:10:040Z+21: call child ftp routine: 900 0700100000021.grib nomads.fsl.noaa.gov 13kmruc/maps_fcst20/
+CYCLE: TOP 5/708  0.0/23.6hr 00(00/15) - last=  at 23:10:04
+-> 0Z+21 CHILDFTP 31630 23:10:04 1/60 >> GRIBFTPGET LOOP TOP: 0700100000021.grib
+   PS: 31403  39  16 14.5  0.5 3688 5184 1669 10  6676
+SCHEDULED GETGRIB: 1 trialfile =   0Z+24 (0) =>  0700100000024.grib
+-> 0Z+15 CHILDFTP 31570 23:10:04 1/60 -->> GRIBFTPGET LOOP WARNING - BAD USER/PW (no connection made) - CONTINUE AFTER 180 sec
+0Z+24: pre-grib-download rm of previous grib file: removed `/home/admin/DRJACK/RASP/RUN/RUCH/GRIB/0636500000024.grib'
+0Z+24: FTP REQUEST /home/admin/DRJACK/RASP/RUN/UTIL/gribftpget.pl at 23:10:040Z+24: call child ftp routine: 900 0700100000024.grib nomads.fsl.noaa.gov 13kmruc/maps_fcst20/
+-> 0Z+24 CHILDFTP 31730 23:10:04 1/60 >> GRIBFTPGET LOOP TOP: 0700100000024.grib
+CYCLE: TOP 6/708  0.0/23.6hr 00(00/15) - last=  at 23:10:04
+   PS: 31403  39  16 10.6  0.5 3688 5184 1669 10  6676
+   PAUSE CYCLE LOOP FOR 180 sec
+-> 0Z+18 CHILDFTP 31608 23:10:04 1/60 -->> GRIBFTPGET LOOP WARNING - BAD USER/PW (no connection made) - CONTINUE AFTER 180 sec
+-> 0Z+21 CHILDFTP 31630 23:10:04 1/60 -->> GRIBFTPGET LOOP WARNING - BAD USER/PW (no connection made) - CONTINUE AFTER 180 sec
+-> 0Z+15 CHILDFTP 31570 23:13:04 2/60 >> GRIBFTPGET LOOP TOP: 0700100000015.grib
+GRIB FULL_Download 23:10:04 - 23:13:04 PT =   3.0 min for /0700100000024.grib[ 55587578] & 55587578 b = 309 Kb/s  @ nomads.fsl.noaa.gov 61264
+-> 0Z+18 CHILDFTP 31608 23:13:04 2/60 >> GRIBFTPGET LOOP TOP: 0700100000018.grib
+vvvvvv NEW_FILE_RECEIVED vvvvvv  23:13:04  01(00/15)    0Z+24 => curr+1.  0Z   0700100000024.grib
+-> 0Z+21 CHILDFTP 31630 23:13:04 2/60 >> GRIBFTPGET LOOP TOP: 0700100000021.grib
+      Removed yesterday's grib_prep output file /home/admin/DRJACK/WRF/WRFSI/extdata/extprd/RUCH:2007-01-01_00-> 0Z+18 CHILDFTP 31608 23:13:06 2/60 -->> GRIBFTPGET LOOP WARNING - LOGIN DENIED (NCEP/NWS=>missing_directory FSL=>too_many_connections) - CONTINUE AFTER 180 sec
+   Grib Prep using 2007010200 
+   Check for needed PANOCHE files received at 23:14:10 
+^^^^^ FILE_PROCESSING_END ^^^^^  23:14:11 
+GRIB FULL_Download 23:10:03 - 23:14:12 PT =   4.2 min for /0700100000012.grib[ 55477500] & 55477500 b = 223 Kb/s  @ nomads.fsl.noaa.gov 61554
+vvvvvv NEW_FILE_RECEIVED vvvvvv  23:14:12  02(01/15)    0Z+12 =>   curr. 12Z   0700100000012.grib
+      Removed yesterday's grib_prep output file /home/admin/DRJACK/WRF/WRFSI/extdata/extprd/RUCH:2006-12-31_12   Grib Prep using 2007010112 
+   Check for needed PANOCHE files received at 23:15:12 
+^^^^^ FILE_PROCESSING_END ^^^^^  23:15:13 
+CYCLE: TOP 7/708  0.0/23.6hr 02(02/15) - last= 0700100000012.grib at 23:15:14
+   PS: 31403  37  16  0.1  0.3 3688 4108 1669 10  6676
+   PAUSE CYCLE LOOP FOR 180 sec
+-> 0Z+18 CHILDFTP 31608 23:16:07 3/60 >> GRIBFTPGET LOOP TOP: 0700100000018.grib
+GRIB FULL_Download 23:10:04 - 23:18:16 PT =   8.2 min for /0700100000021.grib[ 55892338] & 55892338 b = 114 Kb/s  @ nomads.fsl.noaa.gov 61723
+vvvvvv NEW_FILE_RECEIVED vvvvvv  23:18:17  03(02/15)    0Z+21 =>   curr. 21Z   0700100000021.grib
+      Removed yesterday's grib_prep output file /home/admin/DRJACK/WRF/WRFSI/extdata/extprd/RUCH:2006-12-31_21   Grib Prep using 2007010121 
+   Check for needed PANOCHE files received at 23:19:53 
+^^^^^ FILE_PROCESSING_END ^^^^^  23:19:53 
+GRIB FULL_Download 23:10:03 - 23:19:53 PT =   9.8 min for /0700100000018.grib[ 55875384] & 55875384 b =  95 Kb/s  @ nomads.fsl.noaa.gov 62336
+vvvvvv NEW_FILE_RECEIVED vvvvvv  23:19:53  04(03/15)    0Z+18 =>   curr. 18Z   0700100000018.grib
+      Removed yesterday's grib_prep output file /home/admin/DRJACK/WRF/WRFSI/extdata/extprd/RUCH:2006-12-31_18   Grib Prep using 2007010118 
+   Check for needed PANOCHE files received at 23:20:25 
+^^^^^ FILE_PROCESSING_END ^^^^^  23:20:25 
+GRIB FULL_Download 23:10:03 - 23:20:26 PT =  10.4 min for /0700100000015.grib[ 55105032] & 55105032 b =  88 Kb/s  @ nomads.fsl.noaa.gov 62808
+vvvvvv NEW_FILE_RECEIVED vvvvvv  23:20:27  05(04/15)    0Z+15 =>   curr. 15Z   0700100000015.grib
+      Removed yesterday's grib_prep output file /home/admin/DRJACK/WRF/WRFSI/extdata/extprd/RUCH:2006-12-31_15   Grib Prep using 2007010115 
+   Check for needed PANOCHE files received at 23:21:11 
+   ALL needed files received so processing PANOCHE 
+>>> PANOCHE CHILD RUNMODEL 4190 SPUN OFF by 31403 for ./rasp.panoche PANOCHE 
+>>> PANOCHE THREADED CHILD RUNMODEL STARTED under 31403 for PANOCHE at 23:21 
+   > LOOK FOR RUNNING RUNMODEL CHILDREN with #children = 1 & 1 and sleepsec= 180 sec at 23:21:11 
+   START PANOCHE MODEL RUN LOOP 0 FOR PANOCHE at 23:21:11
+      PANOCHE DOMAIN 1 START-END = 2007-01-01:12Z - 2007-01-02:00Z 
+      PANOCHE DOMAIN 2 START-END = 2007-01-01:12Z - 2007-01-02:00Z 
+      Existing PANOCHE real.out* files found and pre-pended with "previous." 
+      Existing PANOCHE wrf.out file found and pre-pended with "previous." 
+      Existing PANOCHE namelist.input file found and pre-pended with "previous." 
+      Existing PANOCHE wrfout files found and pre-pended with "previous." (older previous files deleted)
+      Existing PANOCHE-WINDOW wrfout files found and pre-pended with "previous." after deleting existing previous files 
+   PANOCHE MODEL PREPARATION using 2007010112 at 23:21:14 
+      Successful PANOCHE real.exe for domain 2 - existing PANOCHE links deleted 
+      Successful PANOCHE real.exe for domain 1 - existing PANOCHE links deleted 
+   PANOCHE MODEL RUN BEGINS at 23:23:24 
+      NEW FORECAST DATAFILE FOUND at 23:24:12 : /home/admin/DRJACK/WRF/WRFV2/RASP/PANOCHE/wrfout_d02_2007-01-01_12:00:00 => PANOCHE  & 2 & d & 1200 & 1200 & 12.0 & 2 
+      PLOTTED hbl for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED dbl for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED hwcrit for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED dwcrit for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wstar for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bsratio for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcsunpct for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcshf for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blwind for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcwind for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclcl for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclcldif for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclclmask for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblcl for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblcldif for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblclmask for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blcloudpct for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blcwbase for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED boxwmax for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press850 for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press700 for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press500 for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bltopvariab for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bltopwind for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wblmaxmin for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zwblmaxmin for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blwindshear for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfctemp for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcdewpt for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED cape for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wstar_bsratio for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED experimental1 for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED experimental2 for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED hglider for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding1 for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding2 for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding3 for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      POSTED PANOCHE d2 plots for 1200Z = curr. 04:00 PST 1 Jan 2007 at 23:25:27
+      NEW FORECAST DATAFILE FOUND at 23:58:42 : /home/admin/DRJACK/WRF/WRFV2/RASP/PANOCHE/wrfout_d02_2007-01-01_15:00:00 => PANOCHE  & 2 & d & 1500 & 1500 & 15.0 & 2 
+      PLOTTED hbl for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED dbl for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED hwcrit for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED dwcrit for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wstar for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bsratio for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcsunpct for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcshf for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blwind for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcwind for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclcl for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclcldif for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclclmask for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblcl for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblcldif for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblclmask for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blcloudpct for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blcwbase for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED boxwmax for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press850 for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press700 for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press500 for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bltopvariab for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bltopwind for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wblmaxmin for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zwblmaxmin for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blwindshear for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfctemp for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcdewpt for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED cape for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wstar_bsratio for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED experimental1 for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED experimental2 for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED hglider for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding1 for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding2 for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding3 for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      POSTED PANOCHE d2 plots for 1500Z = curr. 07:00 PST 1 Jan 2007 at 00:01:25
+      NEW FORECAST DATAFILE FOUND at 01:22:49 : /home/admin/DRJACK/WRF/WRFV2/RASP/PANOCHE/wrfout_d02_2007-01-01_18:00:00 => PANOCHE  & 2 & d & 1800 & 1800 & 18.0 & 2 
+      PLOTTED hbl for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED dbl for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED hwcrit for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED dwcrit for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wstar for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bsratio for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcsunpct for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcshf for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blwind for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcwind for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclcl for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclcldif for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclclmask for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblcl for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblcldif for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblclmask for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blcloudpct for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blcwbase for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED boxwmax for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press850 for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press700 for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press500 for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bltopvariab for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bltopwind for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wblmaxmin for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zwblmaxmin for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blwindshear for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfctemp for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcdewpt for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED cape for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wstar_bsratio for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED experimental1 for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED experimental2 for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED hglider for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding1 for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding2 for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding3 for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      POSTED PANOCHE d2 plots for 1800Z = curr. 10:00 PST 1 Jan 2007 at 01:24:42
+      SAVED PANOCHE d2 plot images for 1800Z = curr. 10:00 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/SAVE/PANOCHE/20070101 at 01:24:46
+      SAVED PANOCHE d2 plot data for 1800Z = curr. 10:00 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/SAVE/PANOCHE/20070101 at 01:24:47
+      NEW FORECAST DATAFILE FOUND at 02:34:00 : /home/admin/DRJACK/WRF/WRFV2/RASP/PANOCHE/wrfout_d02_2007-01-01_21:00:00 => PANOCHE  & 2 & d & 2100 & 2100 & 21.0 & 2 
+      PLOTTED hbl for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED dbl for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED hwcrit for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED dwcrit for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wstar for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bsratio for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcsunpct for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcshf for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blwind for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcwind for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclcl for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclcldif for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclclmask for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblcl for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblcldif for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblclmask for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blcloudpct for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blcwbase for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED boxwmax for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press850 for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press700 for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press500 for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bltopvariab for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bltopwind for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wblmaxmin for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zwblmaxmin for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blwindshear for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfctemp for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcdewpt for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED cape for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wstar_bsratio for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED experimental1 for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED experimental2 for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED hglider for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding1 for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding2 for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding3 for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      POSTED PANOCHE d2 plots for 2100Z = curr. 13:00 PST 1 Jan 2007 at 02:36:12
+      SAVED PANOCHE d2 plot images for 2100Z = curr. 13:00 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/SAVE/PANOCHE/20070101 at 02:36:19
+      SAVED PANOCHE d2 plot data for 2100Z = curr. 13:00 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/SAVE/PANOCHE/20070101 at 02:36:20
+      Successful PANOCHE wrf.exe 
+   END PANOCHE MODEL RUN LOOP 0 FOR PANOCHE at 03:42:34
+   START PANOCHE MODEL RUN LOOP 1 FOR PANOCHE-WINDOW at 03:42:34
+      PANOCHE-WINDOW DOMAIN 1 START-END = 2007-01-01:18Z - 2007-01-01:21Z 
+      PANOCHE-WINDOW DOMAIN 2 START-END = 2007-01-01:18Z - 2007-01-01:21Z 
+      Existing PANOCHE-WINDOW real.out* files found and pre-pended with "previous." 
+      Existing PANOCHE-WINDOW wrf.out file found and pre-pended with "previous." 
+      Existing PANOCHE-WINDOW namelist.input file found and pre-pended with "previous." 
+   PANOCHE-WINDOW MODEL PREPARATION using 2007010118 at 03:42:34 
+      NEW FORECAST DATAFILE FOUND at 03:43:04 : /home/admin/DRJACK/WRF/WRFV2/RASP/PANOCHE/wrfout_d02_2007-01-02_00:00:00 => PANOCHE  & 2 & d & 0000 & 2400 & 24.0 & 2 
+      Successful wrfprep.pl  
+      Successful PANOCHE-WINDOW real.exe for domain 2 - existing PANOCHE-WINDOW links deleted 
+      PLOTTED hbl for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED dbl for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED hwcrit for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED dwcrit for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wstar for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bsratio for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcsunpct for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcshf for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blwind for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcwind for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclcl for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclcldif for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclclmask for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblcl for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblcldif for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblclmask for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blcloudpct for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blcwbase for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED boxwmax for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press850 for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press700 for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press500 for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bltopvariab for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      Successful PANOCHE-WINDOW ndown.exe for domain 2 - input wrfout links removed 
+      PLOTTED bltopwind for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wblmaxmin for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zwblmaxmin for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blwindshear for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfctemp for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcdewpt for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED cape for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wstar_bsratio for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED experimental1 for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED experimental2 for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED hglider for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding1 for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding2 for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding3 for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      Successful PANOCHE-WINDOW real.exe for domain 1 - existing PANOCHE-WINDOW links deleted 
+      POSTED PANOCHE d2 plots for 2400Z = curr. 16:00 PST 1 Jan 2007 at 03:45:21
+      SAVED PANOCHE d2 plot images for 2400Z = curr. 16:00 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/SAVE/PANOCHE/20070101 at 03:45:28
+      SAVED PANOCHE d2 plot data for 2400Z = curr. 16:00 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/SAVE/PANOCHE/20070101 at 03:45:29
+      Successful PANOCHE-WINDOW ndown.exe for domain 1 - input wrfout links removed 
+   PANOCHE-WINDOW MODEL RUN BEGINS at 03:46:24 
+      NEW FORECAST DATAFILE FOUND at 04:54:31 : /home/admin/DRJACK/WRF/WRFV2/RASP/PANOCHE-WINDOW/wrfout_d02_2007-01-01_20:00:00 => PANOCHE-WINDOW  & 2 & w & 2000 & 2000 & 20.0 & 2 
+      PLOTTED hbl for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED dbl for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED hwcrit for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED dwcrit for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED wstar for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED bsratio for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcsunpct for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcshf for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blwind for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcwind for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zsfclcl for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zsfclcldif for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zsfclclmask for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zblcl for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zblcldif for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zblclmask for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blcloudpct for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blcwbase for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED boxwmax for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED press850 for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED press700 for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED press500 for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED bltopvariab for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED bltopwind for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED wblmaxmin for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zwblmaxmin for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blwindshear for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfctemp for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcdewpt for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED cape for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED wstar_bsratio for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED experimental1 for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED experimental2 for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED hglider for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sounding1 for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sounding2 for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+  *** ERROR: SKIPPING BAD PLOT METAFILE /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW/sounding3.ncgm 
+      POSTED PANOCHE-WINDOW w2 plots for 2000Z = curr. 12:00 PST 1 Jan 2007 at 04:55:41
+      NEW FORECAST DATAFILE FOUND at 05:10:43 : /home/admin/DRJACK/WRF/WRFV2/RASP/PANOCHE-WINDOW/wrfout_d02_2007-01-01_20:30:00 => PANOCHE-WINDOW  & 2 & w & 2030 & 2030 & 20.5 & 2 
+      PLOTTED hbl for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED dbl for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED hwcrit for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED dwcrit for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED wstar for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED bsratio for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcsunpct for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcshf for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blwind for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcwind for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zsfclcl for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zsfclcldif for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zsfclclmask for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zblcl for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zblcldif for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zblclmask for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blcloudpct for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blcwbase for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED boxwmax for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED press850 for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED press700 for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED press500 for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED bltopvariab for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED bltopwind for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED wblmaxmin for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zwblmaxmin for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blwindshear for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfctemp for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcdewpt for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED cape for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED wstar_bsratio for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED experimental1 for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED experimental2 for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED hglider for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sounding1 for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sounding2 for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+  *** ERROR: SKIPPING BAD PLOT METAFILE /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW/sounding3.ncgm 
+      POSTED PANOCHE-WINDOW w2 plots for 2030Z = curr. 12:30 PST 1 Jan 2007 at 05:11:51
+      Successful PANOCHE-WINDOW wrf.exe 
+   END PANOCHE MODEL RUN LOOP 1 FOR PANOCHE-WINDOW at 05:24:56
+>>> PANOCHE THREADED CHILD RUNMODEL ENDED for PANOCHE at 05:24 under 31403 
+   > 0 JUST-FINISHED CHILD RUNMODEL PID= 4190 = 4190  RCs= 0 & 0 at 05:26:53 
+      NEW FORECAST DATAFILE FOUND at 05:26:53 : /home/admin/DRJACK/WRF/WRFV2/RASP/PANOCHE-WINDOW/wrfout_d02_2007-01-01_21:00:00 => PANOCHE-WINDOW  & 2 & w & 2100 & 2100 & 21.0 & 2 
+      PLOTTED hbl for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED dbl for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED hwcrit for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED dwcrit for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED wstar for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED bsratio for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcsunpct for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcshf for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blwind for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcwind for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zsfclcl for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zsfclcldif for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zsfclclmask for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zblcl for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zblcldif for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zblclmask for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blcloudpct for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blcwbase for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED boxwmax for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED press850 for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED press700 for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED press500 for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED bltopvariab for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED bltopwind for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED wblmaxmin for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zwblmaxmin for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blwindshear for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfctemp for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcdewpt for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED cape for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED wstar_bsratio for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED experimental1 for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED experimental2 for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED hglider for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sounding1 for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sounding2 for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+  *** ERROR: SKIPPING BAD PLOT METAFILE /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW/sounding3.ncgm 
+      POSTED PANOCHE-WINDOW w2 plots for 2100Z = curr. 13:00 PST 1 Jan 2007 at 05:27:59
+      SAVED PANOCHE-WINDOW w2 plot images for 2100Z = curr. 13:00 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/SAVE/PANOCHE/20070101 at 05:28:00
+      SAVED PANOCHE-WINDOW w2 plot data for 2100Z = curr. 13:00 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/SAVE/PANOCHE/20070101 at 05:28:01
+   > END CHILD RUNMODEL PROCESSING WITH 1/1 CHILDREN ENDED - AFTER 117 ITERS OF 180 sec at 05:28:01 
+^^^^^ FILE_PROCESSING_END ^^^^^  05:28:01 
+CYCLE: TOP 8/708  0.1/23.6hr 05(05/15) - last= wrfout_d02_2007-01-01_21:00:00 at 05:28:01
+   PS: 31403  39  16  0.0  0.2 3816 2960 1701 10  6804
+SCHEDULED GETGRIB: 1 trialfile =    6Z+6 (0) =>  0700106000006.grib
+6Z+6: pre-grib-download rm of previous grib file: removed `/home/admin/DRJACK/RASP/RUN/RUCH/GRIB/0636506000006.grib'
+6Z+6: FTP REQUEST /home/admin/DRJACK/RASP/RUN/UTIL/gribftpget.pl at 05:28:016Z+6: call child ftp routine: 900 0700106000006.grib nomads.fsl.noaa.gov 13kmruc/maps_fcst20/
+CYCLE: TOP 9/708  6.3/23.6hr 05(05/15) - last= wrfout_d02_2007-01-01_21:00:00 at 05:28:01
+   PS: 31403  39  16  0.0  0.3 3816 3240 1701 10  6804
+-> 6Z+6 CHILDFTP 24789 05:28:01 1/60 >> GRIBFTPGET LOOP TOP: 0700106000006.grib
+SCHEDULED GETGRIB: 1 trialfile =    6Z+9 (0) =>  0700106000009.grib
+6Z+9: pre-grib-download rm of previous grib file: removed `/home/admin/DRJACK/RASP/RUN/RUCH/GRIB/0636506000009.grib'
+6Z+9: FTP REQUEST /home/admin/DRJACK/RASP/RUN/UTIL/gribftpget.pl at 05:28:026Z+9: call child ftp routine: 900 0700106000009.grib nomads.fsl.noaa.gov 13kmruc/maps_fcst20/
+CYCLE: TOP 10/708  6.3/23.6hr 05(05/15) - last= wrfout_d02_2007-01-01_21:00:00 at 05:28:02
+-> 6Z+9 CHILDFTP 24808 05:28:02 1/60 >> GRIBFTPGET LOOP TOP: 0700106000009.grib
+   PS: 31403  39  16  0.0  0.3 3816 3240 1701 10  6804
+SCHEDULED GETGRIB: 1 trialfile =   6Z+12 (0) =>  0700106000012.grib
+6Z+12: pre-grib-download rm of previous grib file: removed `/home/admin/DRJACK/RASP/RUN/RUCH/GRIB/0636506000012.grib'
+6Z+12: FTP REQUEST /home/admin/DRJACK/RASP/RUN/UTIL/gribftpget.pl at 05:28:026Z+12: call child ftp routine: 900 0700106000012.grib nomads.fsl.noaa.gov 13kmruc/maps_fcst20/
+CYCLE: TOP 11/708  6.3/23.6hr 05(05/15) - last= wrfout_d02_2007-01-01_21:00:00 at 05:28:02
+-> 6Z+12 CHILDFTP 24831 05:28:02 1/60 >> GRIBFTPGET LOOP TOP: 0700106000012.grib
+   PS: 31403  39  16  0.0  0.3 3816 3240 1701 10  6804
+SCHEDULED GETGRIB: 1 trialfile =   6Z+15 (0) =>  0700106000015.grib
+6Z+15: pre-grib-download rm of previous grib file: removed `/home/admin/DRJACK/RASP/RUN/RUCH/GRIB/0636506000015.grib'
+6Z+15: FTP REQUEST /home/admin/DRJACK/RASP/RUN/UTIL/gribftpget.pl at 05:28:026Z+15: call child ftp routine: 900 0700106000015.grib nomads.fsl.noaa.gov 13kmruc/maps_fcst20/
+-> 6Z+15 CHILDFTP 24852 05:28:02 1/60 >> GRIBFTPGET LOOP TOP: 0700106000015.grib
+CYCLE: TOP 12/708  6.3/23.6hr 05(05/15) - last= wrfout_d02_2007-01-01_21:00:00 at 05:28:02
+-> 6Z+9 CHILDFTP 24808 05:28:02 1/60 -->> GRIBFTPGET LOOP WARNING - BAD USER/PW (no connection made) - CONTINUE AFTER 180 sec
+   PS: 31403  39  16  0.0  0.3 3816 3240 1701 10  6804
+SCHEDULED GETGRIB: 1 trialfile =   6Z+18 (0) =>  0700106000018.grib
+-> 6Z+12 CHILDFTP 24831 05:28:02 1/60 -->> GRIBFTPGET LOOP WARNING - BAD USER/PW (no connection made) - CONTINUE AFTER 180 sec
+6Z+18: pre-grib-download rm of previous grib file: removed `/home/admin/DRJACK/RASP/RUN/RUCH/GRIB/0636506000018.grib'
+6Z+18: FTP REQUEST /home/admin/DRJACK/RASP/RUN/UTIL/gribftpget.pl at 05:28:026Z+18: call child ftp routine: 900 0700106000018.grib nomads.fsl.noaa.gov 13kmruc/maps_fcst20/
+-> 6Z+18 CHILDFTP 24879 05:28:02 1/60 >> GRIBFTPGET LOOP TOP: 0700106000018.grib
+CYCLE: TOP 13/708  6.3/23.6hr 05(05/15) - last= wrfout_d02_2007-01-01_21:00:00 at 05:28:02
+   PS: 31403  39  16  0.0  0.3 3816 3240 1701 10  6804
+   PAUSE CYCLE LOOP FOR 180 sec
+-> 6Z+18 CHILDFTP 24879 05:28:03 1/60 -->> GRIBFTPGET LOOP WARNING - LOGIN DENIED (NCEP/NWS=>missing_directory FSL=>too_many_connections) - CONTINUE AFTER 180 sec
+-> 6Z+9 CHILDFTP 24808 05:31:02 2/60 >> GRIBFTPGET LOOP TOP: 0700106000009.grib
+-> 6Z+12 CHILDFTP 24831 05:31:02 2/60 >> GRIBFTPGET LOOP TOP: 0700106000012.grib
+GRIB FULL_Download 05:28:02 - 05:31:02 PT =   3.0 min for /0700106000015.grib[ 55951598] & 55951598 b = 311 Kb/s  @ nomads.fsl.noaa.gov 61370
+vvvvvv NEW_FILE_RECEIVED vvvvvv  05:31:03  06(05/15)    6Z+15 =>   curr. 21Z   0700106000015.grib
+      Removed yesterday's grib_prep output file /home/admin/DRJACK/WRF/WRFSI/extdata/extprd/RUCH:2006-12-31_21-> 6Z+18 CHILDFTP 24879 05:31:03 2/60 >> GRIBFTPGET LOOP TOP: 0700106000018.grib
+   Grib Prep using 2007010121 
+-> 6Z+18 CHILDFTP 24879 05:31:03 2/60 -->> GRIBFTPGET LOOP WARNING - LOGIN DENIED (NCEP/NWS=>missing_directory FSL=>too_many_connections) - CONTINUE AFTER 180 sec
+   Check for needed PANOCHE files received at 05:31:41 
+^^^^^ FILE_PROCESSING_END ^^^^^  05:31:42 
+GRIB FULL_Download 05:28:01 - 05:31:42 PT =   3.7 min for /0700106000006.grib[ 55240480] & 55240480 b = 250 Kb/s  @ nomads.fsl.noaa.gov 61649
+vvvvvv NEW_FILE_RECEIVED vvvvvv  05:31:42  07(06/15)     6Z+6 =>   curr. 12Z   0700106000006.grib
+      Removed yesterday's grib_prep output file /home/admin/DRJACK/WRF/WRFSI/extdata/extprd/RUCH:2006-12-31_12   Grib Prep using 2007010112 
+   Check for needed PANOCHE files received at 05:32:12 
+^^^^^ FILE_PROCESSING_END ^^^^^  05:32:12 
+CYCLE: TOP 14/708  6.3/23.6hr 07(07/15) - last= 0700106000006.grib at 05:32:12
+   PS: 31403  38  16  0.0  0.2 3816 2864 1701 10  6804
+SCHEDULED GETGRIB: 1 trialfile =   12Z+0 (0) =>  0700112000000.grib
+12Z+0: pre-grib-download rm of previous grib file: removed `/home/admin/DRJACK/RASP/RUN/RUCH/GRIB/0636512000000.grib'
+12Z+0: FTP REQUEST /home/admin/DRJACK/RASP/RUN/UTIL/gribftpget.pl at 05:32:1212Z+0: call child ftp routine: 900 0700112000000.grib nomads.fsl.noaa.gov 13kmruc/maps_fcst20/
+-> 12Z+0 CHILDFTP 376 05:32:13 1/60 >> GRIBFTPGET LOOP TOP: 0700112000000.grib
+CYCLE: TOP 15/708  6.4/23.6hr 07(07/15) - last= 0700106000006.grib at 05:32:13
+   PS: 31403  39  16  0.0  0.3 3816 3248 1701 10  6804
+SCHEDULED GETGRIB: 1 trialfile =   12Z+3 (0) =>  0700112000003.grib
+12Z+3: pre-grib-download rm of previous grib file: removed `/home/admin/DRJACK/RASP/RUN/RUCH/GRIB/0636512000003.grib'
+12Z+3: FTP REQUEST /home/admin/DRJACK/RASP/RUN/UTIL/gribftpget.pl at 05:32:1312Z+3: call child ftp routine: 900 0700112000003.grib nomads.fsl.noaa.gov 13kmruc/maps_fcst20/
+-> 12Z+3 CHILDFTP 398 05:32:13 1/60 >> GRIBFTPGET LOOP TOP: 0700112000003.grib
+CYCLE: TOP 16/708  6.4/23.6hr 07(07/15) - last= 0700106000006.grib at 05:32:13
+   PS: 31403  39  16  0.0  0.3 3816 3256 1701 10  6804
+   PAUSE CYCLE LOOP FOR 180 sec
+-> 12Z+0 CHILDFTP 376 05:32:13 1/60 -->> GRIBFTPGET LOOP WARNING - LOGIN DENIED (NCEP/NWS=>missing_directory FSL=>too_many_connections) - CONTINUE AFTER 180 sec
+-> 12Z+3 CHILDFTP 398 05:32:14 1/60 -->> GRIBFTPGET LOOP WARNING - LOGIN DENIED (NCEP/NWS=>missing_directory FSL=>too_many_connections) - CONTINUE AFTER 180 sec
+-> 6Z+18 CHILDFTP 24879 05:34:03 3/60 >> GRIBFTPGET LOOP TOP: 0700106000018.grib
+GRIB FULL_Download 05:28:02 - 05:35:13 PT =   7.2 min for /0700106000012.grib[ 55155836] & 55155836 b = 128 Kb/s  @ nomads.fsl.noaa.gov 61261
+-> 12Z+0 CHILDFTP 376 05:35:13 2/60 >> GRIBFTPGET LOOP TOP: 0700112000000.grib
+vvvvvv NEW_FILE_RECEIVED vvvvvv  05:35:13  08(07/15)    6Z+12 =>   curr. 18Z   0700106000012.grib
+      Removed yesterday's grib_prep output file /home/admin/DRJACK/WRF/WRFSI/extdata/extprd/RUCH:2006-12-31_18   Grib Prep using 2007010118 
+-> 12Z+3 CHILDFTP 398 05:35:14 2/60 >> GRIBFTPGET LOOP TOP: 0700112000003.grib
+-> 12Z+3 CHILDFTP 398 05:35:14 2/60 -->> GRIBFTPGET LOOP WARNING - LOGIN DENIED (NCEP/NWS=>missing_directory FSL=>too_many_connections) - CONTINUE AFTER 180 sec
+   Check for needed PANOCHE files received at 05:36:30 
+^^^^^ FILE_PROCESSING_END ^^^^^  05:36:30 
+GRIB FULL_Download 05:28:01 - 05:36:31 PT =   8.5 min for /0700106000009.grib[ 54495520] & 54495520 b = 107 Kb/s  @ nomads.fsl.noaa.gov 62385
+vvvvvv NEW_FILE_RECEIVED vvvvvv  05:36:31  09(08/15)     6Z+9 =>   curr. 15Z   0700106000009.grib
+      Removed yesterday's grib_prep output file /home/admin/DRJACK/WRF/WRFSI/extdata/extprd/RUCH:2006-12-31_15   Grib Prep using 2007010115 
+   Check for needed PANOCHE files received at 05:37:28 
+^^^^^ FILE_PROCESSING_END ^^^^^  05:37:28 
+CYCLE: TOP 17/708  6.4/23.6hr 09(09/15) - last= 0700106000009.grib at 05:37:28
+   PS: 31403  38  16  0.0  0.2 3816 2948 1701 10  6804
+SCHEDULED GETGRIB: 1 trialfile =   12Z+6 (0) =>  0700112000006.grib
+12Z+6: pre-grib-download rm of previous grib file: removed `/home/admin/DRJACK/RASP/RUN/RUCH/GRIB/0636512000006.grib'
+12Z+6: FTP REQUEST /home/admin/DRJACK/RASP/RUN/UTIL/gribftpget.pl at 05:37:29-> 12Z+6 CHILDFTP 2011 05:37:30 1/60 >> GRIBFTPGET LOOP TOP: 0700112000006.grib
+12Z+6: call child ftp routine: 900 0700112000006.grib nomads.fsl.noaa.gov 13kmruc/maps_fcst20/
+GRIB FULL_Download 05:28:02 - 05:37:30 PT =   9.5 min for /0700106000018.grib[ 56129386] & 56129386 b =  99 Kb/s  @ nomads.fsl.noaa.gov 61121
+vvvvvv NEW_FILE_RECEIVED vvvvvv  05:37:30  10(09/15)    6Z+18 => curr+1.  0Z   0700106000018.grib
+      Removed yesterday's grib_prep output file /home/admin/DRJACK/WRF/WRFSI/extdata/extprd/RUCH:2007-01-01_00   Grib Prep using 2007010200 
+-> 12Z+6 CHILDFTP 2011 05:37:31 1/60 -->> GRIBFTPGET LOOP WARNING - REMOTE GRIB FILE NOT FOUND 0700112000006.grib - CONTINUE AFTER 180 sec
+   Check for needed PANOCHE files received at 05:38:13 
+   ALL needed files received so processing PANOCHE 
+>>> PANOCHE THREADED CHILD RUNMODEL STARTED under 31403 for PANOCHE at 05:38 
+>>> PANOCHE CHILD RUNMODEL 2096 SPUN OFF by 31403 for ./rasp.panoche PANOCHE 
+   > LOOK FOR RUNNING RUNMODEL CHILDREN with #children = 1 & 1 and sleepsec= 180 sec at 05:38:14 
+   START PANOCHE MODEL RUN LOOP 0 FOR PANOCHE at 05:38:14
+      PANOCHE DOMAIN 1 START-END = 2007-01-01:12Z - 2007-01-02:00Z 
+      PANOCHE DOMAIN 2 START-END = 2007-01-01:12Z - 2007-01-02:00Z 
+      Existing PANOCHE real.out* files found and pre-pended with "previous." 
+      Existing PANOCHE wrf.out file found and pre-pended with "previous." 
+      Existing PANOCHE namelist.input file found and pre-pended with "previous." 
+-> 12Z+3 CHILDFTP 398 05:38:15 3/60 >> GRIBFTPGET LOOP TOP: 0700112000003.grib
+-> 12Z+3 CHILDFTP 398 05:38:17 3/60 -->> GRIBFTPGET LOOP WARNING - REMOTE GRIB FILE NOT FOUND 0700112000003.grib - CONTINUE AFTER 180 sec
+      Existing PANOCHE wrfout files found and pre-pended with "previous." (older previous files deleted)
+      Existing PANOCHE-WINDOW wrfout files found and pre-pended with "previous." after deleting existing previous files 
+   PANOCHE MODEL PREPARATION using 2007010112 at 05:38:21 
+-> 12Z+6 CHILDFTP 2011 05:40:32 2/60 >> GRIBFTPGET LOOP TOP: 0700112000006.grib
+-> 12Z+6 CHILDFTP 2011 05:40:34 2/60 -->> GRIBFTPGET LOOP WARNING - REMOTE GRIB FILE NOT FOUND 0700112000006.grib - CONTINUE AFTER 180 sec
+-> 12Z+3 CHILDFTP 398 05:41:17 4/60 >> GRIBFTPGET LOOP TOP: 0700112000003.grib
+-> 12Z+3 CHILDFTP 398 05:41:18 4/60 -->> GRIBFTPGET LOOP WARNING - REMOTE GRIB FILE NOT FOUND 0700112000003.grib - CONTINUE AFTER 180 sec
+      Successful PANOCHE real.exe for domain 2 - existing PANOCHE links deleted 
+      Successful PANOCHE real.exe for domain 1 - existing PANOCHE links deleted 
+   PANOCHE MODEL RUN BEGINS at 05:41:51 
+-> 12Z+6 CHILDFTP 2011 05:43:34 3/60 >> GRIBFTPGET LOOP TOP: 0700112000006.grib
+-> 12Z+6 CHILDFTP 2011 05:43:35 3/60 -->> GRIBFTPGET LOOP WARNING - REMOTE GRIB FILE NOT FOUND 0700112000006.grib - CONTINUE AFTER 180 sec
+      NEW FORECAST DATAFILE FOUND at 05:44:16 : /home/admin/DRJACK/WRF/WRFV2/RASP/PANOCHE/wrfout_d02_2007-01-01_12:00:00 => PANOCHE  & 2 & d & 1200 & 1200 & 6.0 & 2 
+-> 12Z+3 CHILDFTP 398 05:44:18 5/60 >> GRIBFTPGET LOOP TOP: 0700112000003.grib
+-> 12Z+3 CHILDFTP 398 05:44:19 5/60 -->> GRIBFTPGET LOOP WARNING - REMOTE GRIB FILE NOT FOUND 0700112000003.grib - CONTINUE AFTER 180 sec
+      PLOTTED hbl for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED dbl for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED hwcrit for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED dwcrit for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wstar for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bsratio for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcsunpct for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcshf for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blwind for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcwind for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclcl for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclcldif for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclclmask for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblcl for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblcldif for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblclmask for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blcloudpct for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blcwbase for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED boxwmax for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press850 for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press700 for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press500 for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bltopvariab for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bltopwind for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wblmaxmin for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zwblmaxmin for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blwindshear for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfctemp for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcdewpt for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED cape for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wstar_bsratio for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED experimental1 for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED experimental2 for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED hglider for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding1 for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding2 for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding3 for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      POSTED PANOCHE d2 plots for 1200Z = curr. 04:00 PST 1 Jan 2007 at 05:45:28
+-> 12Z+6 CHILDFTP 2011 05:46:35 4/60 >> GRIBFTPGET LOOP TOP: 0700112000006.grib
+-> 12Z+6 CHILDFTP 2011 05:46:36 4/60 -->> GRIBFTPGET LOOP WARNING - REMOTE GRIB FILE NOT FOUND 0700112000006.grib - CONTINUE AFTER 180 sec
+-> 12Z+3 CHILDFTP 398 05:47:19 6/60 >> GRIBFTPGET LOOP TOP: 0700112000003.grib
+-> 12Z+3 CHILDFTP 398 05:47:20 6/60 -->> GRIBFTPGET LOOP WARNING - REMOTE GRIB FILE NOT FOUND 0700112000003.grib - CONTINUE AFTER 180 sec
+-> 12Z+6 CHILDFTP 2011 05:49:36 5/60 >> GRIBFTPGET LOOP TOP: 0700112000006.grib
+-> 12Z+6 CHILDFTP 2011 05:49:38 5/60 -->> GRIBFTPGET LOOP WARNING - REMOTE GRIB FILE NOT FOUND 0700112000006.grib - CONTINUE AFTER 180 sec
+-> 12Z+3 CHILDFTP 398 05:50:20 7/60 >> GRIBFTPGET LOOP TOP: 0700112000003.grib
+-> 12Z+3 CHILDFTP 398 05:50:21 7/60 -->> GRIBFTPGET LOOP WARNING - REMOTE GRIB FILE NOT FOUND 0700112000003.grib - CONTINUE AFTER 180 sec
+-> 12Z+6 CHILDFTP 2011 05:52:38 6/60 >> GRIBFTPGET LOOP TOP: 0700112000006.grib
+-> 12Z+6 CHILDFTP 2011 05:52:39 6/60 -->> GRIBFTPGET LOOP WARNING - REMOTE GRIB FILE NOT FOUND 0700112000006.grib - CONTINUE AFTER 180 sec
+-> 12Z+3 CHILDFTP 398 05:53:22 8/60 >> GRIBFTPGET LOOP TOP: 0700112000003.grib
+-> 12Z+3 CHILDFTP 398 05:53:23 8/60 -->> GRIBFTPGET LOOP WARNING - REMOTE GRIB FILE NOT FOUND 0700112000003.grib - CONTINUE AFTER 180 sec
+-> 12Z+6 CHILDFTP 2011 05:55:39 7/60 >> GRIBFTPGET LOOP TOP: 0700112000006.grib
+-> 12Z+6 CHILDFTP 2011 05:55:40 7/60 -->> GRIBFTPGET LOOP WARNING - REMOTE GRIB FILE NOT FOUND 0700112000006.grib - CONTINUE AFTER 180 sec
+-> 12Z+3 CHILDFTP 398 05:56:23 9/60 >> GRIBFTPGET LOOP TOP: 0700112000003.grib
+-> 12Z+6 CHILDFTP 2011 05:58:40 8/60 >> GRIBFTPGET LOOP TOP: 0700112000006.grib
+-> 12Z+6 CHILDFTP 2011 05:58:41 8/60 -->> GRIBFTPGET LOOP WARNING - REMOTE GRIB FILE NOT FOUND 0700112000006.grib - CONTINUE AFTER 180 sec
+-> 12Z+6 CHILDFTP 2011 06:01:41 9/60 >> GRIBFTPGET LOOP TOP: 0700112000006.grib
+-> 12Z+6 CHILDFTP 2011 06:01:43 9/60 -->> GRIBFTPGET LOOP WARNING - REMOTE GRIB FILE NOT FOUND 0700112000006.grib - CONTINUE AFTER 180 sec
+-> 12Z+6 CHILDFTP 2011 06:04:43 10/60 >> GRIBFTPGET LOOP TOP: 0700112000006.grib
+-> 12Z+6 CHILDFTP 2011 06:04:44 10/60 -->> GRIBFTPGET LOOP WARNING - REMOTE GRIB FILE NOT FOUND 0700112000006.grib - CONTINUE AFTER 180 sec
+-> 12Z+6 CHILDFTP 2011 06:07:44 11/60 >> GRIBFTPGET LOOP TOP: 0700112000006.grib
+-> 12Z+6 CHILDFTP 2011 06:07:46 11/60 -->> GRIBFTPGET LOOP WARNING - REMOTE GRIB FILE NOT FOUND 0700112000006.grib - CONTINUE AFTER 180 sec
+-> 12Z+6 CHILDFTP 2011 06:10:46 12/60 >> GRIBFTPGET LOOP TOP: 0700112000006.grib
+      NEW FORECAST DATAFILE FOUND at 06:21:33 : /home/admin/DRJACK/WRF/WRFV2/RASP/PANOCHE/wrfout_d02_2007-01-01_15:00:00 => PANOCHE  & 2 & d & 1500 & 1500 & 9.0 & 2 
+      PLOTTED hbl for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED dbl for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED hwcrit for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED dwcrit for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wstar for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bsratio for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcsunpct for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcshf for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blwind for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcwind for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclcl for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclcldif for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclclmask for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblcl for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblcldif for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblclmask for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blcloudpct for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blcwbase for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED boxwmax for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press850 for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press700 for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press500 for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bltopvariab for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bltopwind for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wblmaxmin for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zwblmaxmin for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blwindshear for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfctemp for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcdewpt for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED cape for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wstar_bsratio for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED experimental1 for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED experimental2 for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED hglider for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding1 for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding2 for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding3 for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      POSTED PANOCHE d2 plots for 1500Z = curr. 07:00 PST 1 Jan 2007 at 06:23:14
+      NEW FORECAST DATAFILE FOUND at 06:59:18 : /home/admin/DRJACK/WRF/WRFV2/RASP/PANOCHE/wrfout_d02_2007-01-01_18:00:00 => PANOCHE  & 2 & d & 1800 & 1800 & 12.0 & 2 
+      PLOTTED hbl for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED dbl for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED hwcrit for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED dwcrit for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wstar for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bsratio for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcsunpct for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcshf for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blwind for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcwind for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclcl for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclcldif for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclclmask for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblcl for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblcldif for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblclmask for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blcloudpct for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blcwbase for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED boxwmax for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press850 for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press700 for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press500 for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bltopvariab for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bltopwind for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wblmaxmin for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zwblmaxmin for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blwindshear for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfctemp for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcdewpt for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED cape for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wstar_bsratio for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED experimental1 for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED experimental2 for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED hglider for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding1 for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding2 for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding3 for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      POSTED PANOCHE d2 plots for 1800Z = curr. 10:00 PST 1 Jan 2007 at 07:00:30
+      SAVED PANOCHE d2 plot images for 1800Z = curr. 10:00 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/SAVE/PANOCHE/20070101 at 07:00:32
+      SAVED PANOCHE d2 plot data for 1800Z = curr. 10:00 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/SAVE/PANOCHE/20070101 at 07:00:33
+      NEW FORECAST DATAFILE FOUND at 07:36:34 : /home/admin/DRJACK/WRF/WRFV2/RASP/PANOCHE/wrfout_d02_2007-01-01_21:00:00 => PANOCHE  & 2 & d & 2100 & 2100 & 15.0 & 2 
+      PLOTTED hbl for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED dbl for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED hwcrit for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED dwcrit for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wstar for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bsratio for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcsunpct for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcshf for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blwind for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcwind for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclcl for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclcldif for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclclmask for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblcl for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblcldif for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblclmask for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blcloudpct for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blcwbase for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED boxwmax for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press850 for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press700 for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press500 for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bltopvariab for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bltopwind for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wblmaxmin for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zwblmaxmin for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blwindshear for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfctemp for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcdewpt for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED cape for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wstar_bsratio for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED experimental1 for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED experimental2 for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED hglider for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding1 for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding2 for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding3 for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      POSTED PANOCHE d2 plots for 2100Z = curr. 13:00 PST 1 Jan 2007 at 07:37:46
+      SAVED PANOCHE d2 plot images for 2100Z = curr. 13:00 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/SAVE/PANOCHE/20070101 at 07:37:48
+      SAVED PANOCHE d2 plot data for 2100Z = curr. 13:00 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/SAVE/PANOCHE/20070101 at 07:37:48
+      Successful PANOCHE wrf.exe 
+   END PANOCHE MODEL RUN LOOP 0 FOR PANOCHE at 08:12:39
+   START PANOCHE MODEL RUN LOOP 1 FOR PANOCHE-WINDOW at 08:12:39
+      PANOCHE-WINDOW DOMAIN 1 START-END = 2007-01-01:18Z - 2007-01-01:21Z 
+      PANOCHE-WINDOW DOMAIN 2 START-END = 2007-01-01:18Z - 2007-01-01:21Z 
+      Existing PANOCHE-WINDOW real.out* files found and pre-pended with "previous." 
+      Existing PANOCHE-WINDOW wrf.out file found and pre-pended with "previous." 
+      Existing PANOCHE-WINDOW namelist.input file found and pre-pended with "previous." 
+   PANOCHE-WINDOW MODEL PREPARATION using 2007010118 at 08:12:40 
+      NEW FORECAST DATAFILE FOUND at 08:13:52 : /home/admin/DRJACK/WRF/WRFV2/RASP/PANOCHE/wrfout_d02_2007-01-02_00:00:00 => PANOCHE  & 2 & d & 0000 & 2400 & 18.0 & 2 
+      Successful wrfprep.pl  
+      Successful PANOCHE-WINDOW real.exe for domain 2 - existing PANOCHE-WINDOW links deleted 
+      PLOTTED hbl for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED dbl for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED hwcrit for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED dwcrit for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wstar for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bsratio for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcsunpct for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcshf for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blwind for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcwind for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclcl for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclcldif for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclclmask for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblcl for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblcldif for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblclmask for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blcloudpct for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blcwbase for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED boxwmax for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press850 for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press700 for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press500 for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bltopvariab for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bltopwind for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wblmaxmin for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zwblmaxmin for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blwindshear for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfctemp for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcdewpt for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      Successful PANOCHE-WINDOW ndown.exe for domain 2 - input wrfout links removed 
+      PLOTTED cape for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wstar_bsratio for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED experimental1 for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED experimental2 for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED hglider for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding1 for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding2 for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding3 for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      POSTED PANOCHE d2 plots for 2400Z = curr. 16:00 PST 1 Jan 2007 at 08:16:08
+      SAVED PANOCHE d2 plot images for 2400Z = curr. 16:00 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/SAVE/PANOCHE/20070101 at 08:16:18
+      Successful PANOCHE-WINDOW real.exe for domain 1 - existing PANOCHE-WINDOW links deleted 
+      SAVED PANOCHE d2 plot data for 2400Z = curr. 16:00 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/SAVE/PANOCHE/20070101 at 08:16:18
+      Successful PANOCHE-WINDOW ndown.exe for domain 1 - input wrfout links removed 
+   PANOCHE-WINDOW MODEL RUN BEGINS at 08:17:11 
+      NEW FORECAST DATAFILE FOUND at 09:25:22 : /home/admin/DRJACK/WRF/WRFV2/RASP/PANOCHE-WINDOW/wrfout_d02_2007-01-01_20:00:00 => PANOCHE-WINDOW  & 2 & w & 2000 & 2000 & 14.0 & 2 
+      PLOTTED hbl for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED dbl for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED hwcrit for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED dwcrit for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED wstar for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED bsratio for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcsunpct for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcshf for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blwind for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcwind for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zsfclcl for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zsfclcldif for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zsfclclmask for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zblcl for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zblcldif for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zblclmask for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blcloudpct for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blcwbase for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED boxwmax for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED press850 for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED press700 for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED press500 for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED bltopvariab for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED bltopwind for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED wblmaxmin for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zwblmaxmin for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blwindshear for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfctemp for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcdewpt for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED cape for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED wstar_bsratio for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED experimental1 for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED experimental2 for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED hglider for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sounding1 for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sounding2 for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+  *** ERROR: SKIPPING BAD PLOT METAFILE /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW/sounding3.ncgm 
+      POSTED PANOCHE-WINDOW w2 plots for 2000Z = curr. 12:00 PST 1 Jan 2007 at 09:26:32
+      NEW FORECAST DATAFILE FOUND at 09:41:33 : /home/admin/DRJACK/WRF/WRFV2/RASP/PANOCHE-WINDOW/wrfout_d02_2007-01-01_20:30:00 => PANOCHE-WINDOW  & 2 & w & 2030 & 2030 & 14.5 & 2 
+      PLOTTED hbl for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED dbl for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED hwcrit for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED dwcrit for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED wstar for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED bsratio for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcsunpct for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcshf for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blwind for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcwind for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zsfclcl for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zsfclcldif for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zsfclclmask for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zblcl for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zblcldif for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zblclmask for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blcloudpct for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blcwbase for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED boxwmax for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED press850 for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED press700 for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED press500 for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED bltopvariab for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED bltopwind for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED wblmaxmin for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zwblmaxmin for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blwindshear for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfctemp for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcdewpt for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED cape for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED wstar_bsratio for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED experimental1 for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED experimental2 for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED hglider for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sounding1 for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sounding2 for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+  *** ERROR: SKIPPING BAD PLOT METAFILE /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW/sounding3.ncgm 
+      POSTED PANOCHE-WINDOW w2 plots for 2030Z = curr. 12:30 PST 1 Jan 2007 at 09:42:42
+      Successful PANOCHE-WINDOW wrf.exe 
+   END PANOCHE MODEL RUN LOOP 1 FOR PANOCHE-WINDOW at 09:57:01
+>>> PANOCHE THREADED CHILD RUNMODEL ENDED for PANOCHE at 09:57 under 31403 
+   > 0 JUST-FINISHED CHILD RUNMODEL PID= 2096 = 2096  RCs= 0 & 0 at 09:57:43 
+      NEW FORECAST DATAFILE FOUND at 09:57:43 : /home/admin/DRJACK/WRF/WRFV2/RASP/PANOCHE-WINDOW/wrfout_d02_2007-01-01_21:00:00 => PANOCHE-WINDOW  & 2 & w & 2100 & 2100 & 15.0 & 2 
+      PLOTTED hbl for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED dbl for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED hwcrit for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED dwcrit for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED wstar for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED bsratio for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcsunpct for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcshf for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blwind for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcwind for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zsfclcl for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zsfclcldif for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zsfclclmask for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zblcl for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zblcldif for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zblclmask for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blcloudpct for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blcwbase for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED boxwmax for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED press850 for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED press700 for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED press500 for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED bltopvariab for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED bltopwind for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED wblmaxmin for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zwblmaxmin for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blwindshear for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfctemp for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcdewpt for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED cape for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED wstar_bsratio for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED experimental1 for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED experimental2 for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED hglider for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sounding1 for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sounding2 for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+  *** ERROR: SKIPPING BAD PLOT METAFILE /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW/sounding3.ncgm 
+      POSTED PANOCHE-WINDOW w2 plots for 2100Z = curr. 13:00 PST 1 Jan 2007 at 09:58:49
+      SAVED PANOCHE-WINDOW w2 plot images for 2100Z = curr. 13:00 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/SAVE/PANOCHE/20070101 at 09:58:51
+      SAVED PANOCHE-WINDOW w2 plot data for 2100Z = curr. 13:00 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/SAVE/PANOCHE/20070101 at 09:58:52
+   > END CHILD RUNMODEL PROCESSING WITH 1/1 CHILDREN ENDED - AFTER 83 ITERS OF 180 sec at 09:58:52 
+^^^^^ FILE_PROCESSING_END ^^^^^  09:58:52 
+CYCLE: TOP 18/708  6.5/23.6hr 10(10/15) - last= wrfout_d02_2007-01-01_21:00:00 at 09:58:52
+   PS: 31403  39  16  0.0  0.2 3816 2964 1701 10  6804
+SCHEDULED GETGRIB: 1 trialfile =   12Z+9 (0) =>  0700112000009.grib
+12Z+9: pre-grib-download rm of previous grib file: removed `/home/admin/DRJACK/RASP/RUN/RUCH/GRIB/0636512000009.grib'
+12Z+9: FTP REQUEST /home/admin/DRJACK/RASP/RUN/UTIL/gribftpget.pl at 09:58:5212Z+9: call child ftp routine: 900 0700112000009.grib nomads.fsl.noaa.gov 13kmruc/maps_fcst20/
+-> 12Z+9 CHILDFTP 13422 09:58:52 1/60 >> GRIBFTPGET LOOP TOP: 0700112000009.grib
+GRIB FULL_Download 05:37:29 - 09:58:52 PT = 261.4 min for /0700112000006.grib[ 54681752] & 54681752 b =   3 Kb/s  @ nomads.fsl.noaa.gov 62146
+vvvvvv NEW_FILE_RECEIVED vvvvvv  09:58:52  11(10/15)    12Z+6 =>   curr. 18Z   0700112000006.grib
+      Removed yesterday's grib_prep output file /home/admin/DRJACK/WRF/WRFSI/extdata/extprd/RUCH:2006-12-31_18   Grib Prep using 2007010118 
+   Check for needed PANOCHE files received at 09:59:14 
+^^^^^ FILE_PROCESSING_END ^^^^^  09:59:14 
+GRIB FULL_Download 05:32:13 - 09:59:14 PT = 267.0 min for /0700112000003.grib[ 54774850] & 54774850 b =   3 Kb/s  @ nomads.fsl.noaa.gov 61571
+vvvvvv NEW_FILE_RECEIVED vvvvvv  09:59:14  12(11/15)    12Z+3 =>   curr. 15Z   0700112000003.grib
+      Removed yesterday's grib_prep output file /home/admin/DRJACK/WRF/WRFSI/extdata/extprd/RUCH:2006-12-31_15   Grib Prep using 2007010115 
+   Check for needed PANOCHE files received at 09:59:47 
+^^^^^ FILE_PROCESSING_END ^^^^^  09:59:47 
+GRIB FULL_Download 05:32:12 - 09:59:48 PT = 267.6 min for /0700112000000.grib[ 54419320] & 54419320 b =   3 Kb/s  @ nomads.fsl.noaa.gov 62289
+vvvvvv NEW_FILE_RECEIVED vvvvvv  09:59:48  13(12/15)    12Z+0 =>   curr. 12Z   0700112000000.grib
+      Removed yesterday's grib_prep output file /home/admin/DRJACK/WRF/WRFSI/extdata/extprd/RUCH:2006-12-31_12   Grib Prep using 2007010112 
+   Check for needed PANOCHE files received at 10:00:25 
+^^^^^ FILE_PROCESSING_END ^^^^^  10:00:25 
+CYCLE: TOP 19/708 10.8/23.6hr 13(13/15) - last= 0700112000000.grib at 10:00:25
+   PS: 31403  38  16  0.0  0.2 3816 2776 1701 10  6804
+SCHEDULED GETGRIB: 1 trialfile =  12Z+12 (0) =>  0700112000012.grib
+12Z+12: pre-grib-download rm of previous grib file: removed `/home/admin/DRJACK/RASP/RUN/RUCH/GRIB/0636512000012.grib'
+12Z+12: FTP REQUEST /home/admin/DRJACK/RASP/RUN/UTIL/gribftpget.pl at 10:00:26-> 12Z+12 CHILDFTP 13575 10:00:26 1/60 >> GRIBFTPGET LOOP TOP: 0700112000012.grib
+12Z+12: call child ftp routine: 900 0700112000012.grib nomads.fsl.noaa.gov 13kmruc/maps_fcst20/
+CYCLE: TOP 20/708 10.8/23.6hr 13(13/15) - last= 0700112000000.grib at 10:00:27
+   PS: 31403  39  16  0.0  0.3 3816 3180 1701 10  6804
+   PAUSE CYCLE LOOP FOR 180 sec
+GRIB FULL_Download 10:00:25 - 10:03:27 PT =   3.0 min for /0700112000012.grib[ 55342068] & 55342068 b = 304 Kb/s  @ nomads.fsl.noaa.gov 61374
+vvvvvv NEW_FILE_RECEIVED vvvvvv  10:03:27  14(13/15)   12Z+12 => curr+1.  0Z   0700112000012.grib
+      Removed yesterday's grib_prep output file /home/admin/DRJACK/WRF/WRFSI/extdata/extprd/RUCH:2007-01-01_00   Grib Prep using 2007010200 
+   Check for needed PANOCHE files received at 10:03:54 
+^^^^^ FILE_PROCESSING_END ^^^^^  10:03:54 
+GRIB FULL_Download 09:58:52 - 10:03:55 PT =   5.0 min for /0700112000009.grib[ 55866944] & 55866944 b = 184 Kb/s  @ nomads.fsl.noaa.gov 61270
+vvvvvv NEW_FILE_RECEIVED vvvvvv  10:03:56  15(14/15)    12Z+9 =>   curr. 21Z   0700112000009.grib
+      Removed yesterday's grib_prep output file /home/admin/DRJACK/WRF/WRFSI/extdata/extprd/RUCH:2006-12-31_21   Grib Prep using 2007010121 
+   Check for needed PANOCHE files received at 10:04:24 
+   ALL needed files received so processing PANOCHE 
+>>> PANOCHE THREADED CHILD RUNMODEL STARTED under 31403 for PANOCHE at 10:04 
+>>> PANOCHE CHILD RUNMODEL 13707 SPUN OFF by 31403 for ./rasp.panoche PANOCHE 
+   > LOOK FOR RUNNING RUNMODEL CHILDREN with #children = 1 & 1 and sleepsec= 180 sec at 10:04:25 
+   START PANOCHE MODEL RUN LOOP 0 FOR PANOCHE at 10:04:25
+      PANOCHE DOMAIN 1 START-END = 2007-01-01:12Z - 2007-01-02:00Z 
+      PANOCHE DOMAIN 2 START-END = 2007-01-01:12Z - 2007-01-02:00Z 
+      Existing PANOCHE real.out* files found and pre-pended with "previous." 
+      Existing PANOCHE wrf.out file found and pre-pended with "previous." 
+      Existing PANOCHE namelist.input file found and pre-pended with "previous." 
+      Existing PANOCHE wrfout files found and pre-pended with "previous." (older previous files deleted)
+      Existing PANOCHE-WINDOW wrfout files found and pre-pended with "previous." after deleting existing previous files 
+   PANOCHE MODEL PREPARATION using 2007010112 at 10:04:28 
+      Successful PANOCHE real.exe for domain 2 - existing PANOCHE links deleted 
+      Successful PANOCHE real.exe for domain 1 - existing PANOCHE links deleted 
+   PANOCHE MODEL RUN BEGINS at 10:06:43 
+      NEW FORECAST DATAFILE FOUND at 10:07:25 : /home/admin/DRJACK/WRF/WRFV2/RASP/PANOCHE/wrfout_d02_2007-01-01_12:00:00 => PANOCHE  & 2 & d & 1200 & 1200 & 0.0 & 2 
+      PLOTTED hbl for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED dbl for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED hwcrit for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED dwcrit for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wstar for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bsratio for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcsunpct for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcshf for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blwind for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcwind for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclcl for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclcldif for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclclmask for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblcl for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblcldif for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblclmask for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blcloudpct for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blcwbase for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED boxwmax for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press850 for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press700 for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press500 for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bltopvariab for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bltopwind for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wblmaxmin for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zwblmaxmin for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blwindshear for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfctemp for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcdewpt for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED cape for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wstar_bsratio for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED experimental1 for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED experimental2 for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED hglider for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding1 for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding2 for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding3 for PANOCHE d2 at 1200Z = curr. 0400 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      POSTED PANOCHE d2 plots for 1200Z = curr. 04:00 PST 1 Jan 2007 at 10:08:34
+      NEW FORECAST DATAFILE FOUND at 10:38:36 : /home/admin/DRJACK/WRF/WRFV2/RASP/PANOCHE/wrfout_d02_2007-01-01_15:00:00 => PANOCHE  & 2 & d & 1500 & 1500 & 3.0 & 2 
+      PLOTTED hbl for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED dbl for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED hwcrit for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED dwcrit for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wstar for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bsratio for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcsunpct for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcshf for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blwind for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcwind for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclcl for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclcldif for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclclmask for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblcl for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblcldif for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblclmask for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blcloudpct for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blcwbase for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED boxwmax for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press850 for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press700 for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press500 for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bltopvariab for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bltopwind for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wblmaxmin for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zwblmaxmin for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blwindshear for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfctemp for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcdewpt for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED cape for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wstar_bsratio for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED experimental1 for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED experimental2 for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED hglider for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding1 for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding2 for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding3 for PANOCHE d2 at 1500Z = curr. 0700 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      POSTED PANOCHE d2 plots for 1500Z = curr. 07:00 PST 1 Jan 2007 at 10:39:44
+      NEW FORECAST DATAFILE FOUND at 11:12:47 : /home/admin/DRJACK/WRF/WRFV2/RASP/PANOCHE/wrfout_d02_2007-01-01_18:00:00 => PANOCHE  & 2 & d & 1800 & 1800 & 6.0 & 2 
+      PLOTTED hbl for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED dbl for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED hwcrit for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED dwcrit for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wstar for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bsratio for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcsunpct for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcshf for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blwind for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcwind for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclcl for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclcldif for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclclmask for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblcl for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblcldif for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblclmask for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blcloudpct for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blcwbase for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED boxwmax for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press850 for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press700 for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press500 for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bltopvariab for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bltopwind for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wblmaxmin for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zwblmaxmin for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blwindshear for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfctemp for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcdewpt for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED cape for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wstar_bsratio for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED experimental1 for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED experimental2 for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED hglider for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding1 for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding2 for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding3 for PANOCHE d2 at 1800Z = curr. 1000 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      POSTED PANOCHE d2 plots for 1800Z = curr. 10:00 PST 1 Jan 2007 at 11:13:59
+      SAVED PANOCHE d2 plot images for 1800Z = curr. 10:00 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/SAVE/PANOCHE/20070101 at 11:14:03
+      SAVED PANOCHE d2 plot data for 1800Z = curr. 10:00 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/SAVE/PANOCHE/20070101 at 11:14:04
+      NEW FORECAST DATAFILE FOUND at 11:44:06 : /home/admin/DRJACK/WRF/WRFV2/RASP/PANOCHE/wrfout_d02_2007-01-01_21:00:00 => PANOCHE  & 2 & d & 2100 & 2100 & 9.0 & 2 
+      PLOTTED hbl for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED dbl for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED hwcrit for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED dwcrit for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wstar for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bsratio for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcsunpct for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcshf for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blwind for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcwind for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclcl for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclcldif for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclclmask for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblcl for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblcldif for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblclmask for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blcloudpct for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blcwbase for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED boxwmax for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press850 for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press700 for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press500 for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bltopvariab for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bltopwind for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wblmaxmin for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zwblmaxmin for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blwindshear for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfctemp for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcdewpt for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED cape for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wstar_bsratio for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED experimental1 for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED experimental2 for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED hglider for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding1 for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding2 for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding3 for PANOCHE d2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      POSTED PANOCHE d2 plots for 2100Z = curr. 13:00 PST 1 Jan 2007 at 11:45:15
+      SAVED PANOCHE d2 plot images for 2100Z = curr. 13:00 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/SAVE/PANOCHE/20070101 at 11:45:17
+      SAVED PANOCHE d2 plot data for 2100Z = curr. 13:00 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/SAVE/PANOCHE/20070101 at 11:45:18
+      Successful PANOCHE wrf.exe 
+   END PANOCHE MODEL RUN LOOP 0 FOR PANOCHE at 12:15:36
+   START PANOCHE MODEL RUN LOOP 1 FOR PANOCHE-WINDOW at 12:15:36
+      PANOCHE-WINDOW DOMAIN 1 START-END = 2007-01-01:18Z - 2007-01-01:21Z 
+      PANOCHE-WINDOW DOMAIN 2 START-END = 2007-01-01:18Z - 2007-01-01:21Z 
+      Existing PANOCHE-WINDOW real.out* files found and pre-pended with "previous." 
+      Existing PANOCHE-WINDOW wrf.out file found and pre-pended with "previous." 
+      Existing PANOCHE-WINDOW namelist.input file found and pre-pended with "previous." 
+   PANOCHE-WINDOW MODEL PREPARATION using 2007010118 at 12:15:36 
+      Successful wrfprep.pl  
+      Successful PANOCHE-WINDOW real.exe for domain 2 - existing PANOCHE-WINDOW links deleted 
+      Successful PANOCHE-WINDOW ndown.exe for domain 2 - input wrfout links removed 
+      Successful PANOCHE-WINDOW real.exe for domain 1 - existing PANOCHE-WINDOW links deleted 
+      NEW FORECAST DATAFILE FOUND at 12:18:19 : /home/admin/DRJACK/WRF/WRFV2/RASP/PANOCHE/wrfout_d02_2007-01-02_00:00:00 => PANOCHE  & 2 & d & 0000 & 2400 & 12.0 & 2 
+      Successful PANOCHE-WINDOW ndown.exe for domain 1 - input wrfout links removed 
+   PANOCHE-WINDOW MODEL RUN BEGINS at 12:18:23 
+      PLOTTED hbl for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED dbl for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED hwcrit for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED dwcrit for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wstar for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bsratio for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcsunpct for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcshf for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blwind for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcwind for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclcl for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclcldif for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zsfclclmask for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblcl for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblcldif for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zblclmask for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blcloudpct for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blcwbase for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED boxwmax for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press850 for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press700 for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED press500 for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bltopvariab for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED bltopwind for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wblmaxmin for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED zwblmaxmin for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED blwindshear for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfctemp for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sfcdewpt for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED cape for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED wstar_bsratio for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED experimental1 for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED experimental2 for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED hglider for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding1 for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding2 for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      PLOTTED sounding3 for PANOCHE d2 at 2400Z = curr. 1600 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE
+      POSTED PANOCHE d2 plots for 2400Z = curr. 16:00 PST 1 Jan 2007 at 12:20:02
+      SAVED PANOCHE d2 plot images for 2400Z = curr. 16:00 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/SAVE/PANOCHE/20070101 at 12:20:07
+      SAVED PANOCHE d2 plot data for 2400Z = curr. 16:00 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/SAVE/PANOCHE/20070101 at 12:20:08
+      NEW FORECAST DATAFILE FOUND at 13:35:11 : /home/admin/DRJACK/WRF/WRFV2/RASP/PANOCHE-WINDOW/wrfout_d02_2007-01-01_20:00:00 => PANOCHE-WINDOW  & 2 & w & 2000 & 2000 & 8.0 & 2 
+      PLOTTED hbl for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED dbl for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED hwcrit for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED dwcrit for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED wstar for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED bsratio for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcsunpct for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcshf for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blwind for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcwind for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zsfclcl for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zsfclcldif for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zsfclclmask for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zblcl for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zblcldif for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zblclmask for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blcloudpct for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blcwbase for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED boxwmax for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED press850 for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED press700 for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED press500 for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED bltopvariab for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED bltopwind for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED wblmaxmin for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zwblmaxmin for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blwindshear for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfctemp for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcdewpt for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED cape for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED wstar_bsratio for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED experimental1 for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED experimental2 for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED hglider for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sounding1 for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sounding2 for PANOCHE-WINDOW w2 at 2000Z = curr. 1200 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+  *** ERROR: SKIPPING BAD PLOT METAFILE /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW/sounding3.ncgm 
+      POSTED PANOCHE-WINDOW w2 plots for 2000Z = curr. 12:00 PST 1 Jan 2007 at 13:37:06
+      NEW FORECAST DATAFILE FOUND at 14:04:33 : /home/admin/DRJACK/WRF/WRFV2/RASP/PANOCHE-WINDOW/wrfout_d02_2007-01-01_20:30:00 => PANOCHE-WINDOW  & 2 & w & 2030 & 2030 & 8.5 & 2 
+      PLOTTED hbl for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED dbl for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED hwcrit for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED dwcrit for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED wstar for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED bsratio for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcsunpct for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcshf for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blwind for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcwind for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zsfclcl for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zsfclcldif for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zsfclclmask for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zblcl for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zblcldif for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zblclmask for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blcloudpct for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blcwbase for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED boxwmax for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED press850 for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED press700 for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED press500 for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED bltopvariab for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED bltopwind for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED wblmaxmin for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zwblmaxmin for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blwindshear for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfctemp for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcdewpt for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED cape for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED wstar_bsratio for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED experimental1 for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED experimental2 for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED hglider for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sounding1 for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sounding2 for PANOCHE-WINDOW w2 at 2030Z = curr. 1230 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+  *** ERROR: SKIPPING BAD PLOT METAFILE /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW/sounding3.ncgm 
+      POSTED PANOCHE-WINDOW w2 plots for 2030Z = curr. 12:30 PST 1 Jan 2007 at 14:06:42
+      Successful PANOCHE-WINDOW wrf.exe 
+   END PANOCHE MODEL RUN LOOP 1 FOR PANOCHE-WINDOW at 14:43:41
+>>> PANOCHE THREADED CHILD RUNMODEL ENDED for PANOCHE at 14:43 under 31403 
+   > 0 JUST-FINISHED CHILD RUNMODEL PID= 13707 = 13707  RCs= 0 & 0 at 14:43:46 
+      NEW FORECAST DATAFILE FOUND at 14:43:46 : /home/admin/DRJACK/WRF/WRFV2/RASP/PANOCHE-WINDOW/wrfout_d02_2007-01-01_21:00:00 => PANOCHE-WINDOW  & 2 & w & 2100 & 2100 & 9.0 & 2 
+      PLOTTED hbl for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED dbl for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED hwcrit for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED dwcrit for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED wstar for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED bsratio for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcsunpct for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcshf for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blwind for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcwind for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zsfclcl for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zsfclcldif for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zsfclclmask for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zblcl for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zblcldif for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zblclmask for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blcloudpct for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blcwbase for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED boxwmax for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED press850 for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED press700 for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED press500 for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED bltopvariab for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED bltopwind for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED wblmaxmin for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED zwblmaxmin for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED blwindshear for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfctemp for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sfcdewpt for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED cape for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED wstar_bsratio for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED experimental1 for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED experimental2 for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED hglider for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sounding1 for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+      PLOTTED sounding2 for PANOCHE-WINDOW w2 at 2100Z = curr. 1300 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW
+  *** ERROR: SKIPPING BAD PLOT METAFILE /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE-WINDOW/sounding3.ncgm 
+      POSTED PANOCHE-WINDOW w2 plots for 2100Z = curr. 13:00 PST 1 Jan 2007 at 14:45:35
+      SAVED PANOCHE-WINDOW w2 plot images for 2100Z = curr. 13:00 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/SAVE/PANOCHE/20070101 at 14:45:38
+      SAVED PANOCHE-WINDOW w2 plot data for 2100Z = curr. 13:00 PST 1 Jan 2007 to /home/admin/DRJACK/RASP/SAVE/PANOCHE/20070101 at 14:45:41
+   > END CHILD RUNMODEL PROCESSING WITH 1/1 CHILDREN ENDED - AFTER 89 ITERS OF 180 sec at 14:45:41 
+^^^^^ FILE_PROCESSING_END ^^^^^  14:45:41 
+LOOP-END CYCLE EXIT: OKtimescount = DOfilecount = 15 
+Doing BLIP - call final blip processing
+FINALPROCESSING-TESTING finalprocessing0 2 
+UN-PROCESSED TIMES AT FINAL PROCESSING:
+PROCESSED BUT UNSUCCESFUL TIMES AT FINAL PROCESSING:
+14:46 : END ./rasp.panoche for PANOCHE & -M on MON 01/01 : process 31403 (runhr=10.8/23.6 cycle=20/708 files=15/15)

@@ -1,0 +1,1 @@
+/home/admin/DRJACK/WRF/wrfsi/domains/MOJAVE/static/static.wrfsi.d03

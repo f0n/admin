@@ -1,0 +1,169 @@
+Preparing a WRFSI localization 
+Copying file /home/admin/DRJACK/WRF/wrfsi/data/cdl/wrfsi.rotlat.cdl to /home/admin/DRJACK/WRF/wrfsi/domains/PANOCHE/cdl/wrfsi.rotlat.cdl
+cp /home/admin/DRJACK/WRF/wrfsi/data/cdl/wrfsi.rotlat.cdl /home/admin/DRJACK/WRF/wrfsi/domains/PANOCHE/cdl/wrfsi.rotlat.cdl completed 
+Copying file /home/admin/DRJACK/WRF/wrfsi/data/cdl/README to /home/admin/DRJACK/WRF/wrfsi/domains/PANOCHE/cdl/README
+cp /home/admin/DRJACK/WRF/wrfsi/data/cdl/README /home/admin/DRJACK/WRF/wrfsi/domains/PANOCHE/cdl/README completed 
+Copying file /home/admin/DRJACK/WRF/wrfsi/data/cdl/wrfsi.cdl to /home/admin/DRJACK/WRF/wrfsi/domains/PANOCHE/cdl/wrfsi.cdl
+cp /home/admin/DRJACK/WRF/wrfsi/data/cdl/wrfsi.cdl /home/admin/DRJACK/WRF/wrfsi/domains/PANOCHE/cdl/wrfsi.cdl completed 
+Copying file /home/admin/DRJACK/WRF/wrfsi/data/cdl/WRFSI-V2.0-Nesting-Ter-Proc.pdf to /home/admin/DRJACK/WRF/wrfsi/domains/PANOCHE/cdl/WRFSI-V2.0-Nesting-Ter-Proc.pdf
+cp /home/admin/DRJACK/WRF/wrfsi/data/cdl/WRFSI-V2.0-Nesting-Ter-Proc.pdf /home/admin/DRJACK/WRF/wrfsi/domains/PANOCHE/cdl/WRFSI-V2.0-Nesting-Ter-Proc.pdf completed 
+Copying file /home/admin/DRJACK/WRF/wrfsi/data/siprd/README to /home/admin/DRJACK/WRF/wrfsi/domains/PANOCHE/siprd/README
+cp /home/admin/DRJACK/WRF/wrfsi/data/siprd/README /home/admin/DRJACK/WRF/wrfsi/domains/PANOCHE/siprd/README completed 
+Copying file /home/admin/DRJACK/WRF/wrfsi/data/static/last.wrf.nl to /home/admin/DRJACK/WRF/wrfsi/domains/PANOCHE/static/last.wrf.nl
+cp /home/admin/DRJACK/WRF/wrfsi/data/static/last.wrf.nl /home/admin/DRJACK/WRF/wrfsi/domains/PANOCHE/static/last.wrf.nl completed 
+Copying file /home/admin/DRJACK/WRF/wrfsi/data/static/last.wrfsi.nl to /home/admin/DRJACK/WRF/wrfsi/domains/PANOCHE/static/last.wrfsi.nl
+cp /home/admin/DRJACK/WRF/wrfsi/data/static/last.wrfsi.nl /home/admin/DRJACK/WRF/wrfsi/domains/PANOCHE/static/last.wrfsi.nl completed 
+In localize_domain:update_nl
+Processing wrfsi.nl
+Found existing wrfsi.nl in dataroot, reading...
+End of namelist found
+End of namelist found
+End of namelist found
+End of namelist found
+End of namelist found
+End of namelist found
+Processing last.wrf.nl
+Found existing last.wrf.nl in dataroot, reading...
+End of namelist found
+End of namelist found
+End of namelist found
+End of namelist found
+End of namelist found
+End of namelist found
+Processing last.wrfsi.nl
+Found existing last.wrfsi.nl in dataroot, reading...
+End of namelist found
+End of namelist found
+End of namelist found
+End of namelist found
+End of namelist found
+End of namelist found
+Processing wrf.nl
+Found existing wrf.nl in dataroot, reading...
+End of namelist found
+End of namelist found
+End of namelist found
+End of namelist found
+End of namelist found
+End of namelist found
+End of namelist found
+End of namelist found
+cp /home/admin/DRJACK/WRF/wrfsi/data/cdl/wrfsi.cdl /home/admin/DRJACK/WRF/wrfsi/domains/PANOCHE/cdl/wrfsi.d01.cdl completed 
+cp /home/admin/DRJACK/WRF/wrfsi/data/cdl/wrfsi.cdl /home/admin/DRJACK/WRF/wrfsi/domains/PANOCHE/cdl/wrfsi.d02.cdl completed 
+cp /home/admin/DRJACK/WRF/wrfsi/data/cdl/wrfsi.cdl /home/admin/DRJACK/WRF/wrfsi/domains/PANOCHE/cdl/wrfsi.d03.cdl completed 
+dims for domain 01: x,y = 43,49
+dims for domain 02: x,y = 52,70
+dims for domain 03: x,y = 70,64
+command = /home/admin/DRJACK/WRF/wrfsi/bin/gridgen_model.exe 
+
+  gridgen_model: start
+  Sort_fn: names sorted, non_numeric/total =            15           15
+ in config, past hgridspec call
+Static file not found: 
+/home/admin/DRJACK/WRF/wrfsi/domains/PANOCHE/static/static.wrfsi.d01
+Static file not found: 
+/home/admin/DRJACK/WRF/wrfsi/domains/PANOCHE/static/static.wrfsi.d01
+  Eval Localization: Did not read WRF static file
+  Status =             0
+ Here: get_grid_dim_xy
+
+ ---------------------------------------------
+ Domain #         =             1
+ Parent of nest   =             1
+ Ratio to parent  =             1
+ Grid_spacing(m)  =     12000.00    
+ Grid dims (nx/ny)=            43           49
+ Lower left  i/j  =             1            1
+ Upper right i/j  =            43           49
+
+  Initializing elapsed timer at    1672794995
+  c6_maproj = lambrt
+ path to topt30s:        /home/glendeni/DRJACK/WRF/wrfsi/extdata/GEOG/topo_30s
+ path to soiltype_top:   
+ /home/glendeni/DRJACK/WRF/wrfsi/extdata/GEOG/soiltype_top_30s
+ path to soiltype_bot:   
+ /home/glendeni/DRJACK/WRF/wrfsi/extdata/GEOG/soiltype_bot_30s
+ path to landuse 30s: /home/glendeni/DRJACK/WRF/wrfsi/extdata/GEOG/landuse_30s
+ path to green frac:     /home/glendeni/DRJACK/WRF/wrfsi/extdata/GEOG/greenfrac
+ path to soiltemp 1deg:  
+ /home/glendeni/DRJACK/WRF/wrfsi/extdata/GEOG/soiltemp_1deg
+ path to albedo:         
+ /home/glendeni/DRJACK/WRF/wrfsi/extdata/GEOG/albedo_ncep
+ path to max snow albedo: 
+ /home/glendeni/DRJACK/WRF/wrfsi/extdata/GEOG/maxsnowalb
+ path to islope categorical: 
+ /home/glendeni/DRJACK/WRF/wrfsi/extdata/GEOG/islope
+  standard_lats =     30.00000        60.00000    
+  grid_spacing =     12000.00    
+ get grid center from namelist
+  Gridmap_sub: grid_center =     36.50000       -120.7000    
+  c6_maproj = lambrt
+  std_lon =    -73.00000    
+  Earth Radius =     6371200.    
+  deltax, deltay (in projection plane)     12000.00        12000.00    
+ calculate lat/lon at stagger grid points.
+ ns [staggers array index] =             4
+  Using C-stagger grid for LSM fields and other output
+
+ Corner points.
+ lat/lon at     1,    1 =    33.09862  -121.19327
+ lat/lon at    43,    1 =    35.59587  -116.50241
+ lat/lon at     1,   49 =    37.37926  -124.97849
+ lat/lon at    43,   49 =    40.08347  -120.13141
+
+  subroutine check_domain: checking latlon_to_rlapsgrid
+  Initializing latlon_to_rlapsgrid  -0.36520  -0.32109  -0.53166  -0.48124
+  check_domain: max_diff (gridpoints) =    2.3005354E-04  at i/j            3 
+            5
+  check_domain: max_diff (approx m)   =     2.760643    
+  Checking rlapsgrid_to_latlon
+  Initializing rlapsgrid_to_latlon  -0.36520  -0.32109  -0.53166  -0.48124
+  check_domain: max_diff (degrees) =    3.1130272E-05  at i/j           10 
+           30
+  check_domain: max_diff (approx m)   =     3.424330    
+  measured grid spacing on earths surface at domain center is:    12277.08    
+  calculated grid spacing on earths surface at domain center is: 
+    12277.66    
+  grid spacing on projection plane using "latlon_to_xy" is:    11998.75    
+
+ deltax =     12000.00    
+ check_domain:status =             1
+ Elapsed time -     0:00      3-JAN-2013 01:16:35
+
+  Processing 30s topo data....
+  Opening input unit            29  file name 
+ /home/glendeni/DRJACK/WRF/wrfsi/extdata/GEOG/topo_30s/UHEADER
+ 		format  FORMATTED
+  Warning in gridgen_model opening HEADER:  geog path = 
+ /home/glendeni/DRJACK/WRF/wrfsi/extdata/GEOG/topo_30s/UHEADER
+ WARNING: File(s) missing for 30s terrain data
+  >>>> Try Processing 10m topo data <<<<
+
+
+  Calling GEODAT:  10m terrain data ....
+  Opening input unit            29  file name HEADER
+ 		format  FORMATTED
+  Warning in gridgen_model opening HEADER:  geog path = HEADER
+
+ Error: File(s) missing for both 10m and            30s terrain data
+ Error: Aborting --- No static file created
+  Gridmap_sub finished 
+
+  Gridmap_sub finish successfully
+Static file not found: 
+/home/admin/DRJACK/WRF/wrfsi/domains/PANOCHE/static/static.wrfsi.d02
+Static file not found: 
+/home/admin/DRJACK/WRF/wrfsi/domains/PANOCHE/static/static.wrfsi.d02
+  Eval Localization: Did not read WRF static file
+  Status =             0
+  Reading in lat/lon for nest =             2
+open_cdf: cannot open file as netCDF /home/admin/DRJACK/WRF/wrfsi/domains/PANOCHE/static/static.wrfsi.d01.
+ Error opening file to be read.
+  Error reading LAC field
+
+ Error reading MOTHER lat, lon data.
+ Abort
+
+/home/admin/DRJACK/WRF/wrfsi/bin/gridgen_model.exe completed 
+gridgen_model.exe finished
+/home/admin/DRJACK/WRF/wrfsi/etc/localize_domain.pl complete

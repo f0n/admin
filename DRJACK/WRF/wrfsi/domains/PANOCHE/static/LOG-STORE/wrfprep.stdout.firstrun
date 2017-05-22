@@ -1,0 +1,11 @@
+Routine: wrfprep.pl
+INSTALLROOT = /home/glendeni/DRJACK/WRF/WRFSI
+MOAD_DATAROOT = /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche
+Start time: 2005/01/01 12:00:00
+End time:   2005/01/02 00:00:00
+CYCLE.0500112000012
+ictime = 2005-01-01_12
+lbctime = 2005-01-01_18
+lbctime = 2005-01-02_00
+/home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/siprd/hinterp.d01.2005-01-02_00:00:00
+/home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/siprd/wrf_real_input_em.d01.2005-01-02_00:00:00

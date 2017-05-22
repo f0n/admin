@@ -1,0 +1,17 @@
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LANG = "en_US"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+Routine: wrfprep.pl
+INSTALLROOT = /home/admin/DRJACK/WRF/WRFSI
+MOAD_DATAROOT = /home/admin/DRJACK/WRF/WRFSI/domains/PANOCHE-WINDOW
+Start time: 2017/05/22 18:00:00
+End time:   2017/05/22 21:00:00
+CYCLE.1714218000003
+ictime = 2017-05-22_18
+lbctime = 2017-05-22_21
+/home/admin/DRJACK/WRF/WRFSI/domains/PANOCHE-WINDOW/siprd/hinterp.d01.2017-05-22_21:00:00
+/home/admin/DRJACK/WRF/WRFSI/domains/PANOCHE-WINDOW/siprd/wrf_real_input_em.d01.2017-05-22_21:00:00

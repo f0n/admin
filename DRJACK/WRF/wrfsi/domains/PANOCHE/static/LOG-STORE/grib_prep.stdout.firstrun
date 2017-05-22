@@ -1,0 +1,7 @@
+Routine: grib_prep.pl
+WORKDIR = /home/glendeni/DRJACK/WRF/WRFSI/extdata/work/ETA 
+Opening /home/glendeni/DRJACK/WRF/WRFSI/extdata/static/grib_prep.nl 
+Copying /home/glendeni/DRJACK/WRF/WRFSI/extdata/static/Vtable.ETA 
+Writing /home/glendeni/DRJACK/WRF/WRFSI/extdata/work/ETA/grib_prep.nl 
+FSLfilter = 050011200 
+Filters returned zero gribfiles; linking all.

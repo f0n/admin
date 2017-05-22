@@ -1,0 +1,243 @@
+############################################
+##########  SET SITE DIRECTORIES  ##########
+############################################
+sub site_directories ()
+{
+### SET SITE-DEPENDENT BASEDIR FOR APACHE SERVER RUN
+###  (USED AS GLOBAL VARIABLES)
+  if ( ! defined $ENV{'HOME'} )
+  { $ENV{'HOME'} = '/home/admin' ;  }
+  else
+  {
+    ### UNTAINT ENVIRON VARIABLE
+    if ( $ENV{'HOME'} =~ m|^([A-Za-z0-9/][A-Za-z0-9_.:/-]*)$| ) { $ENV{'HOME'} = $1 ; }  # filename chars only
+  }
+  $HOME = $ENV{'HOME'}; 
+  $BASEDIR = "$ENV{'HOME'}/DRJACK"; 
+}
+
+#############################################
+##########  SET REGION PARAMETERS  ##########
+#############################################
+sub region_params ()
+{
+  my ($REGION) = @_;
+  my $routinename = 'region_params' ;
+  my ( $localtime_id, $localtime_adj ); 
+
+  if( $REGION eq 'PANOCHE' )  
+  {
+    $localtime_id = 'PST' ;
+    $localtime_adj = -8 ;
+  }
+  elsif( $REGION eq 'WILLIAMS' )  
+  {
+    $localtime_id = 'PST' ;
+    $localtime_adj = -8 ;
+  }
+  elsif( $REGION eq 'GREATBRITAIN' )  
+  {
+    $localtime_id = 'GMT' ;
+    $localtime_adj = 0 ;
+  }
+
+  else
+  { die "*** $routinename ERROR EXIT:  unknown region = $REGION"; }
+
+  return ( $localtime_id, $localtime_adj ); 
+}
+
+###########################################
+##########  SET GRID PARAMETERS  ##########
+###########################################
+sub grid_params ()
+{
+
+  my ($REGION,$GRID) = @_;
+  my $routinename = 'grid_params' ;
+  my ( $grid_imin,$grid_imax, $grid_jmin,$grid_jmax ) ;
+
+  $grid_imin = 1 ;
+  $grid_jmin = 1 ; 
+
+  ### "$grid_imax" VALUES OBTAINED BY SUBTRACTING 1 FROM "e_we" VALUES IN $BASEDIR/WRF/WRFV2/RASP/REGIONXYZ/namelist.template
+  ### "$grid_jmax" VALUES OBTAINED BY SUBTRACTING 1 FROM "e_sn" VALUES IN $BASEDIR/WRF/WRFV2/RASP/REGIONXYZ/namelist.template
+   
+  ### *** N*B *** DATAFILE GRID INDEX MAX IS ONE LESS THAN THAT OF WRF INIT FILE !!!
+
+  if( $REGION eq 'PANOCHE' )  
+  {
+    if( $GRID eq 'd1' || $GRID eq '1' )
+    {
+      ### SET GRID SIZE
+      $grid_imax = 42 ;
+      $grid_jmax = 48 ;
+    }
+    elsif( $GRID eq 'd2' || $GRID eq 'w1' || $GRID eq '2' )
+    {
+      ### SET GRID SIZE
+      $grid_imax = 51 ;
+      $grid_jmax = 69 ;
+     }
+    elsif( $GRID eq 'w2' || $GRID eq '3' )
+    {
+      ### SET GRID SIZE
+      $grid_imax = 69 ;
+      $grid_jmax = 63 ;
+    }
+    else
+    { die "*** $routinename ERROR EXIT:  $REGION unknown grid = $GRID"; }
+  }
+
+  elsif( $REGION eq 'WILLIAMS' )  
+  {
+    if( $GRID eq 'd1' || $GRID eq '1' )
+    {
+      ### SET GRID SIZE
+      $grid_imax = 32 ;
+      $grid_jmax = 48 ;
+    }
+    elsif( $GRID eq 'd2' || $GRID eq 'w1' || $GRID eq '2' )
+    {
+      ### SET GRID SIZE
+      $grid_imax = 36 ;
+      $grid_jmax = 66 ;
+     }
+    elsif( $GRID eq 'w2' || $GRID eq '3' )
+    {
+      ### SET GRID SIZE
+      $grid_imax = 66 ;
+      $grid_jmax = 111 ;
+    }
+    else
+    { die "*** $routinename ERROR EXIT:  $REGION unknown grid = $GRID"; }
+  }
+
+  elsif( $REGION eq 'GREATBRITAIN' )  
+  {
+    if( $GRID eq 'd1' || $GRID eq '1' )
+    {
+      ### SET GRID SIZE
+      $grid_imax = 27 ;
+      $grid_jmax = 40 ;
+    }
+    elsif( $GRID eq 'd2' || $GRID eq 'w1' || $GRID eq '2' )
+    {
+      ### SET GRID SIZE
+      $grid_imax = 51 ;
+      $grid_jmax = 87 ;
+     }
+    elsif( $GRID eq 'w2' || $GRID eq '3' )
+    {
+      ### SET GRID SIZE
+      $grid_imax = 69 ;
+      $grid_jmax = 186 ;
+    }
+    else
+    { die "*** $routinename ERROR EXIT:  $REGION unknown grid = $GRID"; }
+  }
+
+  else
+  { die "*** $routinename ERROR EXIT:  unknown region = $REGION"; }
+
+  return ( $grid_imin,$grid_imax, $grid_jmin,$grid_jmax ) ;
+
+}
+
+############################################
+##########  SET IMAGE PARAMETERS  ##########
+############################################
+sub image_params ()
+{
+
+  my ($REGION,$GRID) = @_;
+  my $routinename = 'image_params' ;
+  my ( $image_mapwidth,$image_mapheight, $image_maporiginx, $image_maporiginy );
+
+  ### GRID 2 VALUES OBTAINED BY FINDING LINES ala "VIEWPORT: 0.602933x0.82@0.198534,0.89" in $BASEDIR/WRF/NCL/rasp.ncl.out.REGIONXYZ.02
+  ### GRID 3 VALUES OBTAINED BY FINDING LINES ala "VIEWPORT: 0.602933x0.82@0.198534,0.89" in $BASEDIR/WRF/NCL/rasp.ncl.out.REGIONXYZ-WINDOW.02
+  ###    where the VIEWPORT values represent:  $image_mapwidth x $image_mapheight @ $image_maporiginx , $image_maporiginy
+
+  if( $REGION eq 'PANOCHE' )
+  {
+    if( $GRID eq 'd1' || $GRID eq '1' )
+    {
+      die "$routinename - no data for $REGION  $GRID ";
+    }
+    elsif( $GRID eq 'd2' || $GRID eq 'w1' || $GRID eq '2' )
+    {
+      ### SET IMAGE VIEWPORT SIZE, ORIGIN
+      ### here "map" is same as "viewport", with values between 0.0 and 1.0
+      $image_mapwidth = 0.6029 ;
+      $image_mapheight = 0.82 ;
+      $image_maporiginx = 0.1985 ;
+      $image_maporiginy = 0.89 ;
+     }
+    elsif( $GRID eq 'w2' || $GRID eq '3' )
+    {
+      ### SET IMAGE VIEWPORT SIZE, ORIGIN
+      ### here "map" is same as "viewport", with values between 0.0 and 1.0
+      $image_mapwidth = 0.82 ;
+      $image_mapheight = 0.7478 ;
+      $image_maporiginx = 0.09 ;
+      $image_maporiginy = 0.8539 ;
+    }
+    else
+    { die "*** $routinename ERROR EXIT:  $REGION unknown grid = $GRID"; }
+  }
+    
+  elsif( $REGION eq 'WILLIAMS' )
+  {
+    if( $GRID eq 'd1' || $GRID eq '1' )
+    {
+      die "$routinename - no data for $REGION  $GRID ";
+    }
+    elsif( $GRID eq 'd2' || $GRID eq 'w1' || $GRID eq '2' )
+    {
+      ### SET IMAGE VIEWPORT SIZE, ORIGIN
+      ### here "map" is same as "viewport", with values between 0.0 and 1.0
+      $image_mapwidth = 0.44154 ;
+      $image_mapheight = 0.82 ;
+      $image_maporiginx = 0.27923 ;
+      $image_maporiginy = 0.89 ;
+     }
+    elsif( $GRID eq 'w2' || $GRID eq '3' )
+    {
+      die "$routinename - no data for $REGION  $GRID ";
+    }
+    else
+    { die "*** $routinename ERROR EXIT:  $REGION unknown grid = $GRID"; }
+  }
+
+  elsif( $REGION eq 'GREATBRITAIN' )
+  {
+    if( $GRID eq 'd1' || $GRID eq '1' )
+    {
+      die "$routinename - no data for $REGION  $GRID ";
+    }
+    elsif( $GRID eq 'd2' || $GRID eq 'w1' || $GRID eq '2' )
+    {
+      ### SET IMAGE VIEWPORT SIZE, ORIGIN
+      ### here "map" is same as "viewport", with values between 0.0 and 1.0
+      $image_mapwidth = 0.476745 ;
+      $image_mapheight = 0.82 ;
+      $image_maporiginx = 0.261628 ;
+      $image_maporiginy = 0.89 ;
+     }
+    elsif( $GRID eq 'w2' || $GRID eq '3' )
+    {
+      die "$routinename - no data for $REGION  $GRID ";
+    }
+    else
+    { die "*** $routinename ERROR EXIT:  $REGION unknown grid = $GRID"; }
+  }
+
+  else
+  { die "*** $routinename ERROR EXIT:  unknown region = $REGION"; }
+
+  return ( $image_mapwidth,$image_mapheight, $image_maporiginx, $image_maporiginy );
+
+}
+
+### FILE MUST END WITH FOLLOWING LINE:
+1;

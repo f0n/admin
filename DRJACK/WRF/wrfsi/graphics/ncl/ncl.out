@@ -1,0 +1,9 @@
+ Copyright (C) 1995-2004 - All Rights Reserved   
+ University Corporation for Atmospheric Research   
+ NCAR Command Language Version 4.2.0.a032   
+ The use of this software is governed by a License Agreement.
+ See http://ngwww.ucar.edu/ncl/ for more details.
+fatal:MapRGDHDrawMapList: MDRGOL/MDRGOF - ERROR OPENING RANGS/GSHHS CAT FILE
+fatal:PlotManagerPostDraw: error in plot post-draw
+fatal:_NhlPlotManagerDraw: PostDraw error
+

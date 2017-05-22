@@ -1,0 +1,12 @@
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LANG = "en_US"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+Routine: grib_prep.pl
+WORKDIR = /home/admin/DRJACK/WRF/WRFSI/extdata/work/ETA 
+Opening /home/admin/DRJACK/WRF/WRFSI/extdata/static/grib_prep.nl 
+Copying /home/admin/DRJACK/WRF/WRFSI/extdata/static/Vtable.ETA 
+Writing /home/admin/DRJACK/WRF/WRFSI/extdata/work/ETA/grib_prep.nl 

@@ -1,0 +1,285 @@
+ Copyright (C) 1995-2007 - All Rights Reserved
+ University Corporation for Atmospheric Research
+ NCAR Command Language Version 5.0.0
+ The use of this software is governed by a License Agreement.
+ See http://www.ncl.ucar.edu/ for more details.
+(0)	ENV_NCL_ID= Valid 1600 PST ~Z75~(0000Z)~Z~ MON 22 May 2017 ~Z75~[24hrFcst@1242z]~Z~ = 
+(0)	ENV_NCL_REGIONNAME= PANOCHE = 
+(0)	ENV_NCL_FILENAME= /home/admin/DRJACK/WRF/WRFV2/RASP/PANOCHE/wrfout_d02_2017-05-23_00:00:00 = 
+(0)	ENV_NCL_OUTDIR= /home/admin/DRJACK/RASP/RUN/OUT/PANOCHE = 
+(0)	ENV_NCL_PARAMS= hbl:dbl:hwcrit:dwcrit:wstar:bsratio:sfcsunpct:sfcshf:blwind:sfcwind:zsfclcl:zsfclcldif:zsfclclmask:zblcl:zblcldif:zblclmask:blcloudpct:blcwbase:boxwmax:press850:press700:press500:bltopvariab:bltopwind:wblmaxmin:zwblmaxmin:blwindshear:sfctemp:sfcdewpt:cape:wstar_bsratio = 
+(0)	ENV_NCL_DATIME= Day= 2017 5 22 MON ValidLST= 1600 PST ValidZ= 000 Fcst= 24.0 Init= 12  = 
+(0)	ENV_NCL_CONTOURS= missing = 
+(0)	ENV_NCL_INFOFILENAME= missing = 
+(0)	>>> using NON-FIXED COLORS
+(0)	PLOT PARAMS = hbl
+(1)	PLOT PARAMS = dbl
+(2)	PLOT PARAMS = hwcrit
+(3)	PLOT PARAMS = dwcrit
+(4)	PLOT PARAMS = wstar
+(5)	PLOT PARAMS = bsratio
+(6)	PLOT PARAMS = sfcsunpct
+(7)	PLOT PARAMS = sfcshf
+(8)	PLOT PARAMS = blwind
+(9)	PLOT PARAMS = sfcwind
+(10)	PLOT PARAMS = zsfclcl
+(11)	PLOT PARAMS = zsfclcldif
+(12)	PLOT PARAMS = zsfclclmask
+(13)	PLOT PARAMS = zblcl
+(14)	PLOT PARAMS = zblcldif
+(15)	PLOT PARAMS = zblclmask
+(16)	PLOT PARAMS = blcloudpct
+(17)	PLOT PARAMS = blcwbase
+(18)	PLOT PARAMS = boxwmax
+(19)	PLOT PARAMS = press850
+(20)	PLOT PARAMS = press700
+(21)	PLOT PARAMS = press500
+(22)	PLOT PARAMS = bltopvariab
+(23)	PLOT PARAMS = bltopwind
+(24)	PLOT PARAMS = wblmaxmin
+(25)	PLOT PARAMS = zwblmaxmin
+(26)	PLOT PARAMS = blwindshear
+(27)	PLOT PARAMS = sfctemp
+(28)	PLOT PARAMS = sfcdewpt
+(29)	PLOT PARAMS = cape
+(30)	PLOT PARAMS = wstar_bsratio
+(0)	PLOTTING FROM wrfout file (ldatatype=0)
+(0)	REGION PLOT INFO READ for PANOCHE
+(0)	   UNITS= american
+(0)	   SOUNDING 1 : ID= HOLLISTER LAT= 36.893 LON= -121.41
+(0)	   SOUNDING 2 : ID= PANOCHE LAT= 36.62 LON= -120.84
+(0)	   SOUNDING 3 : ID= EL4 LAT= 36.34 LON= -120.76
+(0)	RUNID= Valid 1600 PST ~Z75~(0000Z)~Z~ MON 22 May 2017 ~Z75~[24hrFcst@1242z]~Z~=
+(0)	REGION= PANOCHE
+(0)	RASP FILE= /home/admin/DRJACK/WRF/WRFV2/RASP/PANOCHE/wrfout_d02_2017-05-23_00:00:00.nc  DOMAIN=d2 GRIDSPACINGkm=4.0 INITmodel= ETA SfcPhysics= NOAH
+(0)	SUBTITLE= DrJack BLIPMAP from RASP 4.0km ETA NOAH WRF-ARW model
+(0)	LOUT= 3
+(0)	=== PARAMETER LOOP: 1 hbl
+(0)	    wrf_plot.ncl wrf_new_map VIEWPORT: 0.602933x0.82@0.198534,0.89 
+(0)	   > BACK_TER_MAP CREATED
+(0)	    2017-05-23_00:00 1= PARAMETER hbl  MIN,MAX= 36.2253  12641.5
+(0)	    wrf_plot.ncl wrf_new_map VIEWPORT: 0.602933x0.82@0.198534,0.89 
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 25 500,12500,500
+(0)	--- Single Parameter Plot end - Mon May 22 05:42:41 PDT 2017 WallClockElapseTime= 1 sec
+(0)	=== PARAMETER LOOP: 2 dbl
+(0)	    2017-05-23_00:00 2= PARAMETER dbl  MIN,MAX= 32.818  10662
+(0)	    wrf_plot.ncl wrf_new_map VIEWPORT: 0.602933x0.82@0.198534,0.89 
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 26 400,10400,400
+(0)	--- Single Parameter Plot end - Mon May 22 05:42:41 PDT 2017 WallClockElapseTime= 1 sec
+(0)	=== PARAMETER LOOP: 3 hwcrit
+(0)	    2017-05-23_00:00 3= PARAMETER hwcrit  MIN,MAX= 3.28084  10184.2
+(0)	    wrf_plot.ncl wrf_new_map VIEWPORT: 0.602933x0.82@0.198534,0.89 
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 25 400,10000,400
+(0)	--- Single Parameter Plot end - Mon May 22 05:42:42 PDT 2017 WallClockElapseTime= 2 sec
+(0)	=== PARAMETER LOOP: 4 dwcrit
+(0)	    2017-05-23_00:00 4= PARAMETER dwcrit  MIN,MAX= 0  7721.07
+(0)	    wrf_plot.ncl wrf_new_map VIEWPORT: 0.602933x0.82@0.198534,0.89 
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 19 400,7600,400
+(0)	--- Single Parameter Plot end - Mon May 22 05:42:42 PDT 2017 WallClockElapseTime= 2 sec
+(0)	=== PARAMETER LOOP: 5 wstar
+(0)	    2017-05-23_00:00 5= PARAMETER wstar  MIN,MAX= 0  563.398
+(0)	    wrf_plot.ncl wrf_new_map VIEWPORT: 0.602933x0.82@0.198534,0.89 
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 12 50,600,50
+(0)	--- Single Parameter Plot end - Mon May 22 05:42:42 PDT 2017 WallClockElapseTime= 2 sec
+(0)	=== PARAMETER LOOP: 6 bsratio
+(0)	    2017-05-23_00:00 6= PARAMETER bsratio  MIN,MAX= 0  20
+(0)	    wrf_plot.ncl wrf_new_map VIEWPORT: 0.602933x0.82@0.198534,0.89 
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 19 1,19,1
+(0)	--- Single Parameter Plot end - Mon May 22 05:42:42 PDT 2017 WallClockElapseTime= 2 sec
+(0)	=== PARAMETER LOOP: 7 sfcsunpct
+(0)	    2017-05-23_00:00 7= PARAMETER sfcsunpct  MIN,MAX= 30.5475  100
+(0)	    wrf_plot.ncl wrf_new_map VIEWPORT: 0.602933x0.82@0.198534,0.89 
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 14 35,100,5
+(0)	--- Single Parameter Plot end - Mon May 22 05:42:43 PDT 2017 WallClockElapseTime= 3 sec
+(0)	=== PARAMETER LOOP: 8 sfcshf
+(0)	    2017-05-23_00:00 8= PARAMETER sfcshf  MIN,MAX= -33.0356  342.075
+(0)	    wrf_plot.ncl wrf_new_map VIEWPORT: 0.602933x0.82@0.198534,0.89 
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 19 -20,340,20
+(0)	--- Single Parameter Plot end - Mon May 22 05:42:43 PDT 2017 WallClockElapseTime= 3 sec
+(0)	=== PARAMETER LOOP: 9 blwind
+(0)	2017-05-23_00:00 9= PARAMETER blwind  MIN,MAX= 0.0469612  22.2428
+(0)	    wrf_plot.ncl wrf_new_map VIEWPORT: 0.602933x0.82@0.198534,0.89 
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 11 2,22,2
+(0)	--- Single Parameter Plot end - Mon May 22 05:42:43 PDT 2017 WallClockElapseTime= 3 sec
+(0)	=== PARAMETER LOOP: 10 sfcwind
+(0)	2017-05-23_00:00 10= PARAMETER sfcwind  MIN,MAX= 0.447936  16.7278
+(0)	    wrf_plot.ncl wrf_new_map VIEWPORT: 0.602933x0.82@0.198534,0.89 
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 8 2,16,2
+(0)	--- Single Parameter Plot end - Mon May 22 05:42:43 PDT 2017 WallClockElapseTime= 3 sec
+(0)	=== PARAMETER LOOP: 11 zsfclcl
+(0)	    2017-05-23_00:00 11= PARAMETER zsfclcl  MIN,MAX= 32.932  16767.5
+(0)	    wrf_plot.ncl wrf_new_map VIEWPORT: 0.602933x0.82@0.198534,0.89 
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 34 500,17000,500
+(0)	--- Single Parameter Plot end - Mon May 22 05:42:44 PDT 2017 WallClockElapseTime= 4 sec
+(0)	=== PARAMETER LOOP: 12 zsfclcldif
+(0)	    2017-05-23_00:00 12= PARAMETER zsfclcldif  MIN,MAX= -9678.8  145.91
+(0)	    wrf_plot.ncl wrf_new_map VIEWPORT: 0.602933x0.82@0.198534,0.89 
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 23 -10000,1000,500
+(0)	--- Single Parameter Plot end - Mon May 22 05:42:44 PDT 2017 WallClockElapseTime= 4 sec
+(0)	=== PARAMETER LOOP: 13 zsfclclmask
+(0)	    2017-05-23_00:00 13= PARAMETER zsfclclmask  MIN,MAX= 32.932  16767.5
+(0)	    wrf_plot.ncl wrf_new_map VIEWPORT: 0.602933x0.82@0.198534,0.89 
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 1 500,500,500
+warning:ContourPlotSetValues: Invalid level values set: using AUTOMATICLEVELS mode 
+warning:ContourPlotSetValues: Data values out of range of levels set by MANUALLEVELS mode
+warning:ContourPlotSetValues: cnLevelSpacingF value exceeds or equals data range: defaulting
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 2 -304.8,304.8,609.6
+(0)	--- Single Parameter Plot end - Mon May 22 05:42:44 PDT 2017 WallClockElapseTime= 4 sec
+(0)	=== PARAMETER LOOP: 14 zblcl
+(0)	    2017-05-23_00:00 14= PARAMETER zblcl  MIN,MAX= 32.9195  23706.4
+(0)	    wrf_plot.ncl wrf_new_map VIEWPORT: 0.602933x0.82@0.198534,0.89 
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 48 500,24000,500
+(0)	--- Single Parameter Plot end - Mon May 22 05:42:45 PDT 2017 WallClockElapseTime= 5 sec
+(0)	=== PARAMETER LOOP: 15 zblcldif
+(0)	    2017-05-23_00:00 15= PARAMETER zblcldif  MIN,MAX= -17430.6  144.362
+(0)	    wrf_plot.ncl wrf_new_map VIEWPORT: 0.602933x0.82@0.198534,0.89 
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 39 -18000,1000,500
+(0)	--- Single Parameter Plot end - Mon May 22 05:42:45 PDT 2017 WallClockElapseTime= 5 sec
+(0)	=== PARAMETER LOOP: 16 zblclmask
+(0)	    2017-05-23_00:00 16= PARAMETER zblclmask  MIN,MAX= 32.9195  23706.4
+(0)	    wrf_plot.ncl wrf_new_map VIEWPORT: 0.602933x0.82@0.198534,0.89 
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 1 500,500,500
+warning:ContourPlotSetValues: Invalid level values set: using AUTOMATICLEVELS mode 
+warning:ContourPlotSetValues: Data values out of range of levels set by MANUALLEVELS mode
+warning:ContourPlotSetValues: cnLevelSpacingF value exceeds or equals data range: defaulting
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 2 -304.8,304.8,609.6
+(0)	--- Single Parameter Plot end - Mon May 22 05:42:45 PDT 2017 WallClockElapseTime= 5 sec
+(0)	=== PARAMETER LOOP: 17 blcloudpct
+(0)	    2017-05-23_00:00 17= PARAMETER blcloudpct  MIN,MAX= 0  100
+(0)	    wrf_plot.ncl wrf_new_map VIEWPORT: 0.602933x0.82@0.198534,0.89 
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 24 4,96,4
+(0)	--- Single Parameter Plot end - Mon May 22 05:42:46 PDT 2017 WallClockElapseTime= 6 sec
+(0)	=== PARAMETER LOOP: 18 blcwbase
+(0)	    2017-05-23_00:00 18= PARAMETER blcwbase  MIN,MAX= 29.6419  118.597
+(0)	    wrf_plot.ncl wrf_new_map VIEWPORT: 0.602933x0.82@0.198534,0.89 
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 22 32,116,4
+(0)	--- Single Parameter Plot end - Mon May 22 05:42:46 PDT 2017 WallClockElapseTime= 6 sec
+(0)	=== PARAMETER LOOP: 19 boxwmax
+(0)	    DOING BL SECTION PLOT
+(0)	    DOING BOXwMAX ANALYSIS
+(0)	    DIMs= 51 69 51
+(0)	    SIZEs= 51 69 51
+(0)	    BOX= 10-40 10-58 14-14
+(0)	    I,Jmaxw= 29 22
+(0)	    Zlevels @ij(0based)=29,22
+(0)	    @k=50  Z= 19705.8  P= 60.1673
+(0)	    @k=49  Z= 17883.7  P= 80.2984
+(0)	    @k=48  Z= 16520.3  P= 100.186
+(0)	    @k=47  Z= 15430  P= 119.871
+(0)	    @k=46  Z= 14525.3  P= 139.272
+(0)	    @k=45  Z= 13744.8  P= 158.469
+(0)	    @k=44  Z= 13053.3  P= 177.421
+(0)	    @k=43  Z= 12429.4  P= 196.089
+(0)	    @k=42  Z= 11858.7  P= 214.472
+(0)	    @k=41  Z= 11331.4  P= 232.612
+(0)	    @k=40  Z= 10841.2  P= 250.507
+(0)	    @k=39  Z= 10382.8  P= 268.2
+(0)	    @k=38  Z= 9953.13  P= 285.65
+(0)	    @k=37  Z= 9550.14  P= 302.814
+(0)	    @k=36  Z= 9124.6  P= 321.851
+(0)	    @k=35  Z= 8613.95  P= 345.935
+(0)	    @k=34  Z= 8020.17  P= 375.642
+(0)	    @k=33  Z= 7389.68  P= 409.265
+(0)	    @k=32  Z= 6760.38  P= 445.087
+(0)	    @k=31  Z= 6183.8  P= 479.923
+(0)	    @k=30  Z= 5693.65  P= 511.17
+(0)	    @k=29  Z= 5278.41  P= 538.871
+(0)	    @k=28  Z= 4943.73  P= 562.057
+(0)	    @k=27  Z= 4680.83  P= 580.851
+(0)	    @k=26  Z= 4462.03  P= 596.882
+(0)	    @k=25  Z= 4268.55  P= 611.369
+(0)	    @k=24  Z= 4087.86  P= 625.163
+(0)	    @k=23  Z= 3916.81  P= 638.47
+(0)	    @k=22  Z= 3754.18  P= 651.404
+(0)	    @k=21  Z= 3599.5  P= 663.921
+(0)	    @k=20  Z= 3452.95  P= 675.979
+(0)	    @k=19  Z= 3314.62  P= 687.5
+(0)	    @k=18  Z= 3182.28  P= 698.653
+(0)	    @k=17  Z= 3053.85  P= 709.602
+(0)	    @k=16  Z= 2927.3  P= 720.51
+(0)	    @k=15  Z= 2801.65  P= 731.46
+(0)	    @k=14  Z= 2679.64  P= 742.206
+(0)	    @k=13  Z= 2561.64  P= 752.708
+(0)	    @k=12  Z= 2445.72  P= 763.128
+(0)	    @k=11  Z= 2331.37  P= 773.509
+(0)	    @k=10  Z= 2218.56  P= 783.849
+(0)	    @k=9  Z= 2107.25  P= 794.148
+(0)	    @k=8  Z= 1996.53  P= 804.489
+(0)	    @k=7  Z= 1886.82  P= 814.83
+(0)	    @k=6  Z= 1779.8  P= 825.007
+(0)	    @k=5  Z= 1679.22  P= 834.653
+(0)	    @k=4  Z= 1589.14  P= 843.359
+(0)	    @k=3  Z= 1512.67  P= 850.797
+(0)	    @k=2  Z= 1452.07  P= 856.722
+(0)	    @k=1  Z= 1409.18  P= 860.931
+(0)	    @k=0  Z= 1382.17  P= 863.587
+(0)	       W MAX= 165cm/s @ijk29,22,14 =36.35,-120.62,2679m - angle=100
+(0)	    2017-05-23_00:00 19= BL CROSS-SECTION: W [cm/s] MIN,MAX= -38.7495  166.847
+(0)	                                           Theta [C] MIN,MAX= 10.5642  202.823
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 20 -30,160,10
+(0)	--- BL cross-section Plot end - Mon May 22 05:42:46 PDT 2017 WallClockElapseTime= 6 sec
+(0)	=== PARAMETER LOOP: 20 press850
+(0)	    DOING PRESSURE PLOT of W [cm/sec] for mb= 850
+(0)	    2017-05-23_00:00 20= 850mb PRESSURE CROSS-SECTION: W [cm/sec] MIN,MAX= -81.9171  134.137
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 11 -100,150,25
+(0)	    wrf_plot.ncl wrf_new_map VIEWPORT: 0.602933x0.82@0.198534,0.89 
+(0)	--- Pressure-Level Plot end - Mon May 22 05:42:46 PDT 2017 WallClockElapseTime= 6 sec
+(0)	=== PARAMETER LOOP: 21 press700
+(0)	    DOING PRESSURE PLOT of W [cm/sec] for mb= 700
+(0)	    2017-05-23_00:00 21= 700mb PRESSURE CROSS-SECTION: W [cm/sec] MIN,MAX= -39.5118  125.498
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 8 -25,150,25
+(0)	    wrf_plot.ncl wrf_new_map VIEWPORT: 0.602933x0.82@0.198534,0.89 
+(0)	--- Pressure-Level Plot end - Mon May 22 05:42:47 PDT 2017 WallClockElapseTime= 7 sec
+(0)	=== PARAMETER LOOP: 22 press500
+(0)	    DOING PRESSURE PLOT of W [cm/sec] for mb= 500
+(0)	    2017-05-23_00:00 22= 500mb PRESSURE CROSS-SECTION: W [cm/sec] MIN,MAX= -16.5609  15.922
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 5 -50,50,25
+(0)	    wrf_plot.ncl wrf_new_map VIEWPORT: 0.602933x0.82@0.198534,0.89 
+(0)	--- Pressure-Level Plot end - Mon May 22 05:42:47 PDT 2017 WallClockElapseTime= 7 sec
+(0)	=== PARAMETER LOOP: 23 bltopvariab
+(0)	    2017-05-23_00:00 23= PARAMETER bltopvariab  MIN,MAX= 31.4109  4576.28
+(0)	    wrf_plot.ncl wrf_new_map VIEWPORT: 0.602933x0.82@0.198534,0.89 
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 22 200,4400,200
+(0)	--- Single Parameter Plot end - Mon May 22 05:42:47 PDT 2017 WallClockElapseTime= 7 sec
+(0)	=== PARAMETER LOOP: 24 bltopwind
+(0)	2017-05-23_00:00 24= PARAMETER bltopwind  MIN,MAX= 0.297308  21.4008
+(0)	    wrf_plot.ncl wrf_new_map VIEWPORT: 0.602933x0.82@0.198534,0.89 
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 11 2,22,2
+(0)	--- Single Parameter Plot end - Mon May 22 05:42:47 PDT 2017 WallClockElapseTime= 7 sec
+(0)	=== PARAMETER LOOP: 25 wblmaxmin
+(0)	    2017-05-23_00:00 25= PARAMETER wblmaxmin  MIN,MAX= -98.555  166.94
+(0)	    wrf_plot.ncl wrf_new_map VIEWPORT: 0.602933x0.82@0.198534,0.89 
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 26 -90,160,10
+(0)	--- Single Parameter Plot end - Mon May 22 05:42:48 PDT 2017 WallClockElapseTime= 8 sec
+(0)	=== PARAMETER LOOP: 26 zwblmaxmin
+(0)	    2017-05-23_00:00 26= PARAMETER zwblmaxmin  MIN,MAX= 10.6006  10766.3
+(0)	    wrf_plot.ncl wrf_new_map VIEWPORT: 0.602933x0.82@0.198534,0.89 
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 12 1000,12000,1000
+(0)	--- Single Parameter Plot end - Mon May 22 05:42:48 PDT 2017 WallClockElapseTime= 8 sec
+(0)	=== PARAMETER LOOP: 27 blwindshear
+(0)	    2017-05-23_00:00 27= PARAMETER blwindshear  MIN,MAX= 0  24.4294
+(0)	    wrf_plot.ncl wrf_new_map VIEWPORT: 0.602933x0.82@0.198534,0.89 
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 24 1,24,1
+(0)	--- Single Parameter Plot end - Mon May 22 05:42:48 PDT 2017 WallClockElapseTime= 8 sec
+(0)	=== PARAMETER LOOP: 28 sfctemp
+(0)	    2017-05-23_00:00 28= PARAMETER sfctemp  MIN,MAX= 50.2686  101.827
+(0)	    wrf_plot.ncl wrf_new_map VIEWPORT: 0.602933x0.82@0.198534,0.89 
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 25 52,100,2
+(0)	--- Single Parameter Plot end - Mon May 22 05:42:48 PDT 2017 WallClockElapseTime= 8 sec
+(0)	=== PARAMETER LOOP: 29 sfcdewpt
+(0)	    2017-05-23_00:00 29= PARAMETER sfcdewpt  MIN,MAX= 26.4293  62.4297
+(0)	    wrf_plot.ncl wrf_new_map VIEWPORT: 0.602933x0.82@0.198534,0.89 
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 18 28,62,2
+(0)	--- Single Parameter Plot end - Mon May 22 05:42:49 PDT 2017 WallClockElapseTime= 9 sec
+(0)	=== PARAMETER LOOP: 30 cape
+(0)	    2017-05-23_00:00 30= PARAMETER cape  MIN,MAX= 0  779.557
+(0)	    wrf_plot.ncl wrf_new_map VIEWPORT: 0.602933x0.82@0.198534,0.89 
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 19 40,760,40
+(0)	--- Single Parameter Plot end - Mon May 22 05:42:51 PDT 2017 WallClockElapseTime= 11 sec
+(0)	=== PARAMETER LOOP: 31 wstar_bsratio
+(0)	    2017-05-23_00:00 31= PARAMETER wstar_bsratio  MIN,MAX= 0  563.398
+(0)	    wrf_plot.ncl wrf_new_map VIEWPORT: 0.602933x0.82@0.198534,0.89 
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 12 50,600,50
+(0)	    wrf_plot.ncl wrf_new_fill_contour NCLEV,CLEVELS= 2 0,7,4
+(0)	--- Single Parameter Plot end - Mon May 22 05:42:51 PDT 2017 WallClockElapseTime= 11 sec
+(0)	=== NORMAL END OF NCL PLOTTING SCRIPT

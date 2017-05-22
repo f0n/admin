@@ -1,0 +1,4 @@
+#
+# Set password in the ~/.passwd-s3fs
+#
+s3fs raspbucket /home/admin/DRJACK/RASP/HTML

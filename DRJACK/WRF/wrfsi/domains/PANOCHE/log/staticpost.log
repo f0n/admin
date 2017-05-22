@@ -1,0 +1,233 @@
+Using a creation time of 2013-01-03_00:00:00
+Input file: /home/admin/DRJACK/WRF/wrfsi/domains/PANOCHE/static/static.wrfsi.d01
+Output file: /home/admin/DRJACK/WRF/wrfsi/domains/PANOCHE/static/wrfstatic.d01
+WRF Lat1 =      33.02 WRF lon1 =    -121.21
+WRF Delta-x =   12000.00 WRF Delta-y =   12000.00
+WRF Standard Lon =    -73.000
+WRF Standard Lats =     30.000    60.000
+MOAD CENTER LAT/LON =   36.5007 -120.6999
+ Populating domain metadata for domain:             1
+INITIALIZATING NEW WRF OUTPUT FILE FOR DOMAIN 1
+ Calling ext_ncd_open_for_write_begin: 
+ /home/admin/DRJACK/WRF/wrfsi/domains/PANOCHE/static/wrfstatic_d01                                                                                                                                                                                              
+ WRF Name XLAT     NAME LAT_M    Stagger           
+ WRF Name XLONG    NAME LON_M    Stagger           
+landmask inq_varid status and vid =    0  14
+ WRF Name LANDMASK NAME LANDMASK Stagger           
+ WRF Name HGT      NAME TOPO_M   Stagger           
+ WRF Name TOPOSTDV NAME TOPOSTDV Stagger           
+ WRF Name TOPOSLPX NAME TOPOSLPX Stagger           
+ WRF Name TOPOSLPY NAME TOPOSLPY Stagger           
+ WRF Name COSALPHA NAME COSALPHA Stagger           
+ WRF Name SINALPHA NAME SINALPHA Stagger           
+ WRF Name F        NAME H_CORIOL Stagger           
+ WRF Name E        NAME V_CORIOL Stagger           
+ WRF Name MAPFAC_M NAME MAPFAC_M Stagger           
+ WRF Name MAPFAC_U NAME MAPFAC_U Stagger           
+ WRF Name MAPFAC_V NAME MAPFAC_V Stagger           
+ WRF Name SHDMAX   NAME SHDMAX   Stagger           
+ WRF Name SHDMIN   NAME SHDMIN   Stagger           
+ WRF Name SNOALB   NAME SNOALB   Stagger           
+ WRF Name TMN      NAME T_AVGANN Stagger           
+ WRF Name SLOPECAT NAME SLOPECAT Stagger           
+Attempting to read categorical landuse fractions...
+Source = USGS
+Number of categories = 24
+Index used for water = 16
+Index used for ice = 24
+ WRF Name LANDUSEF NAME LANDUSEF Stagger           
+Attempting to read categorical soil type fractions...
+Source = FAO 
+Number of categories = 16
+ WRF Name SOILCTOP NAME SOILCTOP Stagger           
+ WRF Name SOILCBOT NAME SOILCBOT Stagger           
+ WRF Name GREEN12M NAME GREEN12M Stagger           
+ WRF Name ALBDO12M NAME ALBDO12M Stagger           
+INITIALIZATING NEW WRF OUTPUT FILE FOR DOMAIN 1
+ WRF Name XLAT     NAME LAT_M    Stagger           
+ WRF Name XLONG    NAME LON_M    Stagger           
+landmask inq_varid status and vid =    0  14
+ WRF Name LANDMASK NAME LANDMASK Stagger           
+ WRF Name HGT      NAME TOPO_M   Stagger           
+ WRF Name TOPOSTDV NAME TOPOSTDV Stagger           
+ WRF Name TOPOSLPX NAME TOPOSLPX Stagger           
+ WRF Name TOPOSLPY NAME TOPOSLPY Stagger           
+ WRF Name COSALPHA NAME COSALPHA Stagger           
+ WRF Name SINALPHA NAME SINALPHA Stagger           
+ WRF Name F        NAME H_CORIOL Stagger           
+ WRF Name E        NAME V_CORIOL Stagger           
+ WRF Name MAPFAC_M NAME MAPFAC_M Stagger           
+ WRF Name MAPFAC_U NAME MAPFAC_U Stagger           
+ WRF Name MAPFAC_V NAME MAPFAC_V Stagger           
+ WRF Name SHDMAX   NAME SHDMAX   Stagger           
+ WRF Name SHDMIN   NAME SHDMIN   Stagger           
+ WRF Name SNOALB   NAME SNOALB   Stagger           
+ WRF Name TMN      NAME T_AVGANN Stagger           
+ WRF Name SLOPECAT NAME SLOPECAT Stagger           
+Attempting to read categorical landuse fractions...
+Source = USGS
+Number of categories = 24
+Index used for water = 16
+Index used for ice = 24
+ WRF Name LANDUSEF NAME LANDUSEF Stagger           
+Attempting to read categorical soil type fractions...
+Source = FAO 
+Number of categories = 16
+ WRF Name SOILCTOP NAME SOILCTOP Stagger           
+ WRF Name SOILCBOT NAME SOILCBOT Stagger           
+ WRF Name GREEN12M NAME GREEN12M Stagger           
+ WRF Name ALBDO12M NAME ALBDO12M Stagger           
+Input file: /home/admin/DRJACK/WRF/wrfsi/domains/PANOCHE/static/static.wrfsi.d02
+Output file: /home/admin/DRJACK/WRF/wrfsi/domains/PANOCHE/static/wrfstatic.d02
+WRF Lat1 =      35.06 WRF lon1 =    -121.13
+WRF Delta-x =    4000.00 WRF Delta-y =    4000.00
+WRF Standard Lon =    -73.000
+WRF Standard Lats =     30.000    60.000
+ Populating domain metadata for domain:             2
+INITIALIZATING NEW WRF OUTPUT FILE FOR DOMAIN 2
+ Calling ext_ncd_open_for_write_begin: 
+ /home/admin/DRJACK/WRF/wrfsi/domains/PANOCHE/static/wrfstatic_d02                                                                                                                                                                                              
+ WRF Name XLAT     NAME LAT_M    Stagger           
+ WRF Name XLONG    NAME LON_M    Stagger           
+landmask inq_varid status and vid =    0  14
+ WRF Name LANDMASK NAME LANDMASK Stagger           
+ WRF Name HGT      NAME TOPO_M   Stagger           
+ WRF Name TOPOSTDV NAME TOPOSTDV Stagger           
+ WRF Name TOPOSLPX NAME TOPOSLPX Stagger           
+ WRF Name TOPOSLPY NAME TOPOSLPY Stagger           
+ WRF Name COSALPHA NAME COSALPHA Stagger           
+ WRF Name SINALPHA NAME SINALPHA Stagger           
+ WRF Name F        NAME H_CORIOL Stagger           
+ WRF Name E        NAME V_CORIOL Stagger           
+ WRF Name MAPFAC_M NAME MAPFAC_M Stagger           
+ WRF Name MAPFAC_U NAME MAPFAC_U Stagger           
+ WRF Name MAPFAC_V NAME MAPFAC_V Stagger           
+ WRF Name SHDMAX   NAME SHDMAX   Stagger           
+ WRF Name SHDMIN   NAME SHDMIN   Stagger           
+ WRF Name SNOALB   NAME SNOALB   Stagger           
+ WRF Name TMN      NAME T_AVGANN Stagger           
+ WRF Name SLOPECAT NAME SLOPECAT Stagger           
+Attempting to read categorical landuse fractions...
+Source = USGS
+Number of categories = 24
+Index used for water = 16
+Index used for ice = 24
+ WRF Name LANDUSEF NAME LANDUSEF Stagger           
+Attempting to read categorical soil type fractions...
+Source = FAO 
+Number of categories = 16
+ WRF Name SOILCTOP NAME SOILCTOP Stagger           
+ WRF Name SOILCBOT NAME SOILCBOT Stagger           
+ WRF Name GREEN12M NAME GREEN12M Stagger           
+ WRF Name ALBDO12M NAME ALBDO12M Stagger           
+INITIALIZATING NEW WRF OUTPUT FILE FOR DOMAIN 2
+ WRF Name XLAT     NAME LAT_M    Stagger           
+ WRF Name XLONG    NAME LON_M    Stagger           
+landmask inq_varid status and vid =    0  14
+ WRF Name LANDMASK NAME LANDMASK Stagger           
+ WRF Name HGT      NAME TOPO_M   Stagger           
+ WRF Name TOPOSTDV NAME TOPOSTDV Stagger           
+ WRF Name TOPOSLPX NAME TOPOSLPX Stagger           
+ WRF Name TOPOSLPY NAME TOPOSLPY Stagger           
+ WRF Name COSALPHA NAME COSALPHA Stagger           
+ WRF Name SINALPHA NAME SINALPHA Stagger           
+ WRF Name F        NAME H_CORIOL Stagger           
+ WRF Name E        NAME V_CORIOL Stagger           
+ WRF Name MAPFAC_M NAME MAPFAC_M Stagger           
+ WRF Name MAPFAC_U NAME MAPFAC_U Stagger           
+ WRF Name MAPFAC_V NAME MAPFAC_V Stagger           
+ WRF Name SHDMAX   NAME SHDMAX   Stagger           
+ WRF Name SHDMIN   NAME SHDMIN   Stagger           
+ WRF Name SNOALB   NAME SNOALB   Stagger           
+ WRF Name TMN      NAME T_AVGANN Stagger           
+ WRF Name SLOPECAT NAME SLOPECAT Stagger           
+Attempting to read categorical landuse fractions...
+Source = USGS
+Number of categories = 24
+Index used for water = 16
+Index used for ice = 24
+ WRF Name LANDUSEF NAME LANDUSEF Stagger           
+Attempting to read categorical soil type fractions...
+Source = FAO 
+Number of categories = 16
+ WRF Name SOILCTOP NAME SOILCTOP Stagger           
+ WRF Name SOILCBOT NAME SOILCBOT Stagger           
+ WRF Name GREEN12M NAME GREEN12M Stagger           
+ WRF Name ALBDO12M NAME ALBDO12M Stagger           
+Input file: /home/admin/DRJACK/WRF/wrfsi/domains/PANOCHE/static/static.wrfsi.d03
+Output file: /home/admin/DRJACK/WRF/wrfsi/domains/PANOCHE/static/wrfstatic.d03
+WRF Lat1 =      36.32 WRF lon1 =    -121.27
+WRF Delta-x =    1333.33 WRF Delta-y =    1333.33
+WRF Standard Lon =    -73.000
+WRF Standard Lats =     30.000    60.000
+ Populating domain metadata for domain:             3
+INITIALIZATING NEW WRF OUTPUT FILE FOR DOMAIN 3
+ Calling ext_ncd_open_for_write_begin: 
+ /home/admin/DRJACK/WRF/wrfsi/domains/PANOCHE/static/wrfstatic_d03                                                                                                                                                                                              
+ WRF Name XLAT     NAME LAT_M    Stagger           
+ WRF Name XLONG    NAME LON_M    Stagger           
+landmask inq_varid status and vid =    0  14
+ WRF Name LANDMASK NAME LANDMASK Stagger           
+ WRF Name HGT      NAME TOPO_M   Stagger           
+ WRF Name TOPOSTDV NAME TOPOSTDV Stagger           
+ WRF Name TOPOSLPX NAME TOPOSLPX Stagger           
+ WRF Name TOPOSLPY NAME TOPOSLPY Stagger           
+ WRF Name COSALPHA NAME COSALPHA Stagger           
+ WRF Name SINALPHA NAME SINALPHA Stagger           
+ WRF Name F        NAME H_CORIOL Stagger           
+ WRF Name E        NAME V_CORIOL Stagger           
+ WRF Name MAPFAC_M NAME MAPFAC_M Stagger           
+ WRF Name MAPFAC_U NAME MAPFAC_U Stagger           
+ WRF Name MAPFAC_V NAME MAPFAC_V Stagger           
+ WRF Name SHDMAX   NAME SHDMAX   Stagger           
+ WRF Name SHDMIN   NAME SHDMIN   Stagger           
+ WRF Name SNOALB   NAME SNOALB   Stagger           
+ WRF Name TMN      NAME T_AVGANN Stagger           
+ WRF Name SLOPECAT NAME SLOPECAT Stagger           
+Attempting to read categorical landuse fractions...
+Source = USGS
+Number of categories = 24
+Index used for water = 16
+Index used for ice = 24
+ WRF Name LANDUSEF NAME LANDUSEF Stagger           
+Attempting to read categorical soil type fractions...
+Source = FAO 
+Number of categories = 16
+ WRF Name SOILCTOP NAME SOILCTOP Stagger           
+ WRF Name SOILCBOT NAME SOILCBOT Stagger           
+ WRF Name GREEN12M NAME GREEN12M Stagger           
+ WRF Name ALBDO12M NAME ALBDO12M Stagger           
+INITIALIZATING NEW WRF OUTPUT FILE FOR DOMAIN 3
+ WRF Name XLAT     NAME LAT_M    Stagger           
+ WRF Name XLONG    NAME LON_M    Stagger           
+landmask inq_varid status and vid =    0  14
+ WRF Name LANDMASK NAME LANDMASK Stagger           
+ WRF Name HGT      NAME TOPO_M   Stagger           
+ WRF Name TOPOSTDV NAME TOPOSTDV Stagger           
+ WRF Name TOPOSLPX NAME TOPOSLPX Stagger           
+ WRF Name TOPOSLPY NAME TOPOSLPY Stagger           
+ WRF Name COSALPHA NAME COSALPHA Stagger           
+ WRF Name SINALPHA NAME SINALPHA Stagger           
+ WRF Name F        NAME H_CORIOL Stagger           
+ WRF Name E        NAME V_CORIOL Stagger           
+ WRF Name MAPFAC_M NAME MAPFAC_M Stagger           
+ WRF Name MAPFAC_U NAME MAPFAC_U Stagger           
+ WRF Name MAPFAC_V NAME MAPFAC_V Stagger           
+ WRF Name SHDMAX   NAME SHDMAX   Stagger           
+ WRF Name SHDMIN   NAME SHDMIN   Stagger           
+ WRF Name SNOALB   NAME SNOALB   Stagger           
+ WRF Name TMN      NAME T_AVGANN Stagger           
+ WRF Name SLOPECAT NAME SLOPECAT Stagger           
+Attempting to read categorical landuse fractions...
+Source = USGS
+Number of categories = 24
+Index used for water = 16
+Index used for ice = 24
+ WRF Name LANDUSEF NAME LANDUSEF Stagger           
+Attempting to read categorical soil type fractions...
+Source = FAO 
+Number of categories = 16
+ WRF Name SOILCTOP NAME SOILCTOP Stagger           
+ WRF Name SOILCBOT NAME SOILCBOT Stagger           
+ WRF Name GREEN12M NAME GREEN12M Stagger           
+ WRF Name ALBDO12M NAME ALBDO12M Stagger           

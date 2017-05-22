@@ -1,0 +1,1146 @@
+Preparing a WRFSI localization 
+Copying file /home/glendeni/DRJACK/WRF/WRFSI/data/cdl/README to /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/cdl/README
+cp /home/glendeni/DRJACK/WRF/WRFSI/data/cdl/README /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/cdl/README completed 
+Copying file /home/glendeni/DRJACK/WRF/WRFSI/data/cdl/wrfsi.cdl to /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/cdl/wrfsi.cdl
+cp /home/glendeni/DRJACK/WRF/WRFSI/data/cdl/wrfsi.cdl /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/cdl/wrfsi.cdl completed 
+Copying file /home/glendeni/DRJACK/WRF/WRFSI/data/cdl/wrfsi.rotlat.cdl to /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/cdl/wrfsi.rotlat.cdl
+cp /home/glendeni/DRJACK/WRF/WRFSI/data/cdl/wrfsi.rotlat.cdl /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/cdl/wrfsi.rotlat.cdl completed 
+Copying file /home/glendeni/DRJACK/WRF/WRFSI/data/cdl/WRFSI-V2.0-Nesting-Ter-Proc.pdf to /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/cdl/WRFSI-V2.0-Nesting-Ter-Proc.pdf
+cp /home/glendeni/DRJACK/WRF/WRFSI/data/cdl/WRFSI-V2.0-Nesting-Ter-Proc.pdf /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/cdl/WRFSI-V2.0-Nesting-Ter-Proc.pdf completed 
+Copying file /home/glendeni/DRJACK/WRF/WRFSI/data/README to /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/README
+cp /home/glendeni/DRJACK/WRF/WRFSI/data/README /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/README completed 
+Copying file /home/glendeni/DRJACK/WRF/WRFSI/data/log/README to /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/log/README
+cp /home/glendeni/DRJACK/WRF/WRFSI/data/log/README /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/log/README completed 
+Copying file /home/glendeni/DRJACK/WRF/WRFSI/data/log/2000012412.wrfprep to /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/log/2000012412.wrfprep
+cp /home/glendeni/DRJACK/WRF/WRFSI/data/log/2000012412.wrfprep /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/log/2000012412.wrfprep completed 
+Copying Directory /home/glendeni/DRJACK/WRF/WRFSI/data/wrfprd to /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/wrfprd
+cp -r /home/glendeni/DRJACK/WRF/WRFSI/data/wrfprd /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/wrfprd completed 
+In localize_domain:update_nl
+Processing wrf.nl
+Found existing wrf.nl in dataroot, reading...
+End of namelist found
+End of namelist found
+End of namelist found
+End of namelist found
+End of namelist found
+End of namelist found
+Processing wrfsi.nl
+Found existing wrfsi.nl in dataroot, reading...
+End of namelist found
+End of namelist found
+End of namelist found
+End of namelist found
+End of namelist found
+End of namelist found
+cp /home/glendeni/DRJACK/WRF/WRFSI/data/cdl/wrfsi.cdl /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/cdl/wrfsi.d01.cdl completed 
+dims for domain 01: x,y = 40,49
+command = /home/glendeni/DRJACK/WRF/WRFSI/bin/gridgen_model.exe 
+
+  gridgen_model: start
+  Sort_fn: names sorted, non_numeric/total =             8            8
+ in config, past hgridspec call
+Static file not found: 
+/home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/static/static.wrfsi.d01
+Static file not found: 
+/home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/static/static.wrfsi.d01
+  Eval Localization: Did not read WRF static file
+  Status =             0
+ Here: get_grid_dim_xy
+
+ ---------------------------------------------
+ Domain #         =             1
+ Parent of nest   =             1
+ Ratio to parent  =             1
+ Grid_spacing(m)  =     4000.000    
+ Grid dims (nx/ny)=            40           49
+ Lower left  i/j  =             1            1
+ Upper right i/j  =             1            1
+
+  Initializing elapsed timer at    1420249818
+  c6_maproj = lambrt
+ path to topt30s:        /home/glendeni/DRJACK/WRF/WRFSI/extdata/GEOG/topo_30s
+ path to soiltype_top:   
+ /home/glendeni/DRJACK/WRF/WRFSI/extdata/GEOG/soiltype_top_30s
+ path to soiltype_bot:   
+ /home/glendeni/DRJACK/WRF/WRFSI/extdata/GEOG/soiltype_bot_30s
+ path to landuse 30s: /home/glendeni/DRJACK/WRF/WRFSI/extdata/GEOG/landuse_30s
+ path to green frac:     /home/glendeni/DRJACK/WRF/WRFSI/extdata/GEOG/greenfrac
+ path to soiltemp 1deg:  
+ /home/glendeni/DRJACK/WRF/WRFSI/extdata/GEOG/soiltemp_1deg
+ path to albedo:         
+ /home/glendeni/DRJACK/WRF/WRFSI/extdata/GEOG/albedo_ncep
+ path to max snow albedo: 
+ /home/glendeni/DRJACK/WRF/WRFSI/extdata/GEOG/maxsnowalb
+ path to islope categorical: 
+ /home/glendeni/DRJACK/WRF/WRFSI/extdata/GEOG/islope
+  standard_lats =     30.00000        60.00000    
+  grid_spacing =     4000.000    
+ get grid center from namelist
+  Gridmap_sub: grid_center =     36.75000       -120.2260    
+  c6_maproj = lambrt
+  std_lon =    -98.00000    
+  Earth Radius =     6371200.    
+  deltax, deltay (in projection plane)     4000.000        4000.000    
+ calculate lat/lon at stagger grid points.
+ ns [staggers array index] =             4
+  Using C-stagger grid for LSM fields and other output
+
+ Corner points.
+ lat/lon at     1,    1 =    35.72607  -120.76123
+ lat/lon at    40,    1 =    36.11327  -119.05777
+ lat/lon at     1,   49 =    37.41976  -121.38638
+ lat/lon at    40,   49 =    37.81909  -119.65717
+
+  subroutine check_domain: checking latlon_to_rlapsgrid
+  Initializing latlon_to_rlapsgrid  -0.17384  -0.16018  -0.59498  -0.57817
+  check_domain: max_diff (gridpoints) =    1.6635798E-03  at i/j           37 
+           26
+  check_domain: max_diff (approx m)   =     6.654319    
+  Checking rlapsgrid_to_latlon
+  Initializing rlapsgrid_to_latlon  -0.17384  -0.16018  -0.59498  -0.57817
+  check_domain: max_diff (degrees) =    4.8579481E-05  at i/j           39 
+           40
+  check_domain: max_diff (approx m)   =     5.343743    
+  measured grid spacing on earths surface at domain center is:    4094.492    
+  calculated grid spacing on earths surface at domain center is: 
+    4094.671    
+  grid spacing on projection plane using "latlon_to_xy" is:    4002.750    
+
+ deltax =     4000.000    
+ check_domain:status =             1
+ Elapsed time -     0:00      2-JAN-2005 01:50:18
+
+  Processing 30s topo data....
+  Opening input unit            29  file name 
+ /home/glendeni/DRJACK/WRF/WRFSI/extdata/GEOG/topo_30s/UHEADER
+ 		format  FORMATTED
+ title=
+ /home/glendeni/DRJACK/WRF/WRFSI/extdata/GEOG/topo_30s/UHEADER                                                                                                                       
+ rsoff,rwoff =    0.0000000       0.0000000    
+ isbego,iwbego =            0            0
+ iblksizo,no =           10         1200
+ deltaxq,deltayq=    4000.000        4000.000    
+  np=            4
+ no,mof,np,niq,njq=         1200            4            4           43 
+           52
+   -1987900.       -1831900.       -1909900.    
+ deltaxp=    1000.000    
+ SFCOPQR: cdatatype = topography
+ jq,njq,niq,nofr=            1           52           43            0
+ jq,njq,niq,nofr=            2           52           43            2
+ jq,njq,niq,nofr=            3           52           43            2
+ jq,njq,niq,nofr=            4           52           43            2
+ jq,njq,niq,nofr=            5           52           43            2
+ jq,njq,niq,nofr=            6           52           43            2
+ jq,njq,niq,nofr=            7           52           43            2
+ jq,njq,niq,nofr=            8           52           43            2
+ jq,njq,niq,nofr=            9           52           43            2
+ jq,njq,niq,nofr=           10           52           43            2
+ jq,njq,niq,nofr=           11           52           43            2
+ jq,njq,niq,nofr=           12           52           43            2
+  Reset RIO for Machine Epsilon
+ jq,njq,niq,nofr=           13           52           43            2
+ jq,njq,niq,nofr=           14           52           43            2
+ jq,njq,niq,nofr=           15           52           43            2
+ jq,njq,niq,nofr=           16           52           43            2
+ jq,njq,niq,nofr=           17           52           43            2
+ jq,njq,niq,nofr=           18           52           43            2
+ jq,njq,niq,nofr=           19           52           43            2
+ jq,njq,niq,nofr=           20           52           43            2
+ jq,njq,niq,nofr=           21           52           43            2
+ jq,njq,niq,nofr=           22           52           43            2
+  Reset RIO for Machine Epsilon
+ jq,njq,niq,nofr=           23           52           43            2
+ jq,njq,niq,nofr=           24           52           43            2
+ jq,njq,niq,nofr=           25           52           43            2
+ jq,njq,niq,nofr=           26           52           43            2
+ jq,njq,niq,nofr=           27           52           43            2
+ jq,njq,niq,nofr=           28           52           43            2
+ jq,njq,niq,nofr=           29           52           43            2
+ jq,njq,niq,nofr=           30           52           43            2
+ jq,njq,niq,nofr=           31           52           43            2
+ jq,njq,niq,nofr=           32           52           43            2
+ jq,njq,niq,nofr=           33           52           43            2
+ jq,njq,niq,nofr=           34           52           43            2
+ jq,njq,niq,nofr=           35           52           43            2
+ jq,njq,niq,nofr=           36           52           43            2
+ jq,njq,niq,nofr=           37           52           43            2
+ jq,njq,niq,nofr=           38           52           43            2
+ jq,njq,niq,nofr=           39           52           43            2
+ jq,njq,niq,nofr=           40           52           43            2
+ jq,njq,niq,nofr=           41           52           43            2
+ jq,njq,niq,nofr=           42           52           43            2
+ jq,njq,niq,nofr=           43           52           43            2
+ jq,njq,niq,nofr=           44           52           43            2
+ jq,njq,niq,nofr=           45           52           43            2
+ jq,njq,niq,nofr=           46           52           43            2
+ jq,njq,niq,nofr=           47           52           43            2
+ jq,njq,niq,nofr=           48           52           43            2
+ jq,njq,niq,nofr=           49           52           43            2
+ jq,njq,niq,nofr=           50           52           43            2
+  Reset RIO for Machine Epsilon
+ jq,njq,niq,nofr=           51           52           43            2
+ jq,njq,niq,nofr=           52           52           43            2
+ after 15
+
+ Before GDTOST2
+ --------------
+ datq(1,1)/(niq,njq)=     545.1340        2596.851    
+ datqs(1,1,1)/(niq,njq)=     34.09410        85.49653    
+ datsln(1,1)/(niq,njq)=    4.3124999E-03   4.0937499E-03
+ datslt(1,1)/(niq,njq)=    1.3375000E-02   5.0093751E-02
+ Mean/Max topo at IQ,JQ (1,1)/(niq,njq):     514.0335        594.7765     
+    2524.690        2710.074    
+ After GDTOST2
+ -------------
+ datr(1,1)/(n2,n3)=     366.6963        2555.460    
+ dats(1,1,1)/(n2,n3)=     38.58850        104.6830    
+ datln(1,1)/(n2,n3)=   -7.8280028E-03  -7.7817393E-03
+ datlt(1,1)/(n2,n3)=   -1.3710083E-02   7.5673829E-03
+ Topo SW and NE corner values
+ topt_30    =    366.6963        2555.460    
+
+ Elapsed time -     0:01      2-JAN-2005 01:50:19
+
+  Calling GEODAT: Processing 30s landuse data.
+  Re-allocate GEODAT3D            40           49  24
+
+  Opening input unit            29  file name 
+ /home/glendeni/DRJACK/WRF/WRFSI/extdata/GEOG/landuse_30s/VHEADER
+ 		format  FORMATTED
+ title=
+ /home/glendeni/DRJACK/WRF/WRFSI/extdata/GEOG/landuse_30s/VHEADER                                                                                                                    
+ rsoff,rwoff =    0.0000000       0.0000000    
+ isbego,iwbego =            0            0
+ iblksizo,no =           10         1200
+ deltaxq,deltayq=    4000.000        4000.000    
+  np=            4
+ no,mof,np,niq,njq=         1200            4            4           43 
+           52
+   -1985900.       -1829900.       -1907900.    
+ deltaxp=    1000.000    
+ SFCOPQR: cdatatype = landuse   
+ jq,njq,niq,nofr=            1           52           43            0
+ jq,njq,niq,nofr=            2           52           43            2
+ jq,njq,niq,nofr=            3           52           43            2
+ jq,njq,niq,nofr=            4           52           43            2
+ jq,njq,niq,nofr=            5           52           43            2
+ jq,njq,niq,nofr=            6           52           43            2
+ jq,njq,niq,nofr=            7           52           43            2
+ jq,njq,niq,nofr=            8           52           43            2
+ jq,njq,niq,nofr=            9           52           43            2
+ jq,njq,niq,nofr=           10           52           43            2
+ jq,njq,niq,nofr=           11           52           43            2
+ jq,njq,niq,nofr=           12           52           43            2
+  Reset RIO for Machine Epsilon
+ jq,njq,niq,nofr=           13           52           43            2
+ jq,njq,niq,nofr=           14           52           43            2
+ jq,njq,niq,nofr=           15           52           43            2
+ jq,njq,niq,nofr=           16           52           43            2
+ jq,njq,niq,nofr=           17           52           43            2
+ jq,njq,niq,nofr=           18           52           43            2
+ jq,njq,niq,nofr=           19           52           43            2
+ jq,njq,niq,nofr=           20           52           43            2
+ jq,njq,niq,nofr=           21           52           43            2
+ jq,njq,niq,nofr=           22           52           43            2
+  Reset RIO for Machine Epsilon
+ jq,njq,niq,nofr=           23           52           43            2
+ jq,njq,niq,nofr=           24           52           43            2
+ jq,njq,niq,nofr=           25           52           43            2
+ jq,njq,niq,nofr=           26           52           43            2
+ jq,njq,niq,nofr=           27           52           43            2
+ jq,njq,niq,nofr=           28           52           43            2
+ jq,njq,niq,nofr=           29           52           43            2
+ jq,njq,niq,nofr=           30           52           43            2
+ jq,njq,niq,nofr=           31           52           43            2
+ jq,njq,niq,nofr=           32           52           43            2
+ jq,njq,niq,nofr=           33           52           43            2
+ jq,njq,niq,nofr=           34           52           43            2
+ jq,njq,niq,nofr=           35           52           43            2
+ jq,njq,niq,nofr=           36           52           43            2
+ jq,njq,niq,nofr=           37           52           43            2
+ jq,njq,niq,nofr=           38           52           43            2
+ jq,njq,niq,nofr=           39           52           43            2
+ jq,njq,niq,nofr=           40           52           43            2
+ jq,njq,niq,nofr=           41           52           43            2
+ jq,njq,niq,nofr=           42           52           43            2
+ jq,njq,niq,nofr=           43           52           43            2
+ jq,njq,niq,nofr=           44           52           43            2
+ jq,njq,niq,nofr=           45           52           43            2
+ jq,njq,niq,nofr=           46           52           43            2
+ jq,njq,niq,nofr=           47           52           43            2
+ jq,njq,niq,nofr=           48           52           43            2
+ jq,njq,niq,nofr=           49           52           43            2
+  Reset RIO for Machine Epsilon
+ jq,njq,niq,nofr=           50           52           43            2
+ jq,njq,niq,nofr=           51           52           43            2
+ jq,njq,niq,nofr=           52           52           43            2
+ after 15
+
+ terrain  =     304.9307       9.9999999E+36
+
+
+  Create from 30s land use fractional dist
+
+ Filter land fraction with 2dx             2
+ pctlandfrac=    1.000000        1.000000    
+ idx, indxter:            10           51
+ Elapsed time -     0:02      2-JAN-2005 01:50:20
+
+  Processing 30s soil type top layer data....
+  Opening input unit            29  file name 
+ /home/glendeni/DRJACK/WRF/WRFSI/extdata/GEOG/soiltype_top_30s/OHEADER
+ 		format  FORMATTED
+ title=
+ /home/glendeni/DRJACK/WRF/WRFSI/extdata/GEOG/soiltype_top_30s/OHEADER                                                                                                               
+ rsoff,rwoff =    0.0000000       0.0000000    
+ isbego,iwbego =            0            0
+ iblksizo,no =           10         1200
+ deltaxq,deltayq=    4000.000        4000.000    
+  np=            4
+ no,mof,np,niq,njq=         1200            4            4           43 
+           52
+   -1985900.       -1829900.       -1907900.    
+ deltaxp=    1000.000    
+ SFCOPQR: cdatatype = soiltype  
+ jq,njq,niq,nofr=            1           52           43            0
+ jq,njq,niq,nofr=            2           52           43            2
+ jq,njq,niq,nofr=            3           52           43            2
+ jq,njq,niq,nofr=            4           52           43            2
+ jq,njq,niq,nofr=            5           52           43            2
+ jq,njq,niq,nofr=            6           52           43            2
+ jq,njq,niq,nofr=            7           52           43            2
+ jq,njq,niq,nofr=            8           52           43            2
+ jq,njq,niq,nofr=            9           52           43            2
+ jq,njq,niq,nofr=           10           52           43            2
+ jq,njq,niq,nofr=           11           52           43            2
+ jq,njq,niq,nofr=           12           52           43            2
+  Reset RIO for Machine Epsilon
+ jq,njq,niq,nofr=           13           52           43            2
+ jq,njq,niq,nofr=           14           52           43            2
+ jq,njq,niq,nofr=           15           52           43            2
+ jq,njq,niq,nofr=           16           52           43            2
+ jq,njq,niq,nofr=           17           52           43            2
+ jq,njq,niq,nofr=           18           52           43            2
+ jq,njq,niq,nofr=           19           52           43            2
+ jq,njq,niq,nofr=           20           52           43            2
+ jq,njq,niq,nofr=           21           52           43            2
+ jq,njq,niq,nofr=           22           52           43            2
+  Reset RIO for Machine Epsilon
+ jq,njq,niq,nofr=           23           52           43            2
+ jq,njq,niq,nofr=           24           52           43            2
+ jq,njq,niq,nofr=           25           52           43            2
+ jq,njq,niq,nofr=           26           52           43            2
+ jq,njq,niq,nofr=           27           52           43            2
+ jq,njq,niq,nofr=           28           52           43            2
+ jq,njq,niq,nofr=           29           52           43            2
+ jq,njq,niq,nofr=           30           52           43            2
+ jq,njq,niq,nofr=           31           52           43            2
+ jq,njq,niq,nofr=           32           52           43            2
+ jq,njq,niq,nofr=           33           52           43            2
+ jq,njq,niq,nofr=           34           52           43            2
+ jq,njq,niq,nofr=           35           52           43            2
+ jq,njq,niq,nofr=           36           52           43            2
+ jq,njq,niq,nofr=           37           52           43            2
+ jq,njq,niq,nofr=           38           52           43            2
+ jq,njq,niq,nofr=           39           52           43            2
+ jq,njq,niq,nofr=           40           52           43            2
+ jq,njq,niq,nofr=           41           52           43            2
+ jq,njq,niq,nofr=           42           52           43            2
+ jq,njq,niq,nofr=           43           52           43            2
+ jq,njq,niq,nofr=           44           52           43            2
+ jq,njq,niq,nofr=           45           52           43            2
+ jq,njq,niq,nofr=           46           52           43            2
+ jq,njq,niq,nofr=           47           52           43            2
+ jq,njq,niq,nofr=           48           52           43            2
+ jq,njq,niq,nofr=           49           52           43            2
+  Reset RIO for Machine Epsilon
+ jq,njq,niq,nofr=           50           52           43            2
+ jq,njq,niq,nofr=           51           52           43            2
+ jq,njq,niq,nofr=           52           52           43            2
+ after 15
+ Average category:     5.891863    
+
+ Soil Type Category stats
+ --------------------------
+ Fixed             3   points with rep land value
+ Fixed             0   points with missing value = water
+ Elapsed time -     0:03      2-JAN-2005 01:50:21
+
+  Processing 30s soil type bottom layer data
+  Opening input unit            29  file name 
+ /home/glendeni/DRJACK/WRF/WRFSI/extdata/GEOG/soiltype_bot_30s/OHEADER
+ 		format  FORMATTED
+ title=
+ /home/glendeni/DRJACK/WRF/WRFSI/extdata/GEOG/soiltype_bot_30s/OHEADER                                                                                                               
+ rsoff,rwoff =    0.0000000       0.0000000    
+ isbego,iwbego =            0            0
+ iblksizo,no =           10         1200
+ deltaxq,deltayq=    4000.000        4000.000    
+  np=            4
+ no,mof,np,niq,njq=         1200            4            4           43 
+           52
+   -1985900.       -1829900.       -1907900.    
+ deltaxp=    1000.000    
+ SFCOPQR: cdatatype = soiltype  
+ jq,njq,niq,nofr=            1           52           43            0
+ jq,njq,niq,nofr=            2           52           43            2
+ jq,njq,niq,nofr=            3           52           43            2
+ jq,njq,niq,nofr=            4           52           43            2
+ jq,njq,niq,nofr=            5           52           43            2
+ jq,njq,niq,nofr=            6           52           43            2
+ jq,njq,niq,nofr=            7           52           43            2
+ jq,njq,niq,nofr=            8           52           43            2
+ jq,njq,niq,nofr=            9           52           43            2
+ jq,njq,niq,nofr=           10           52           43            2
+ jq,njq,niq,nofr=           11           52           43            2
+ jq,njq,niq,nofr=           12           52           43            2
+  Reset RIO for Machine Epsilon
+ jq,njq,niq,nofr=           13           52           43            2
+ jq,njq,niq,nofr=           14           52           43            2
+ jq,njq,niq,nofr=           15           52           43            2
+ jq,njq,niq,nofr=           16           52           43            2
+ jq,njq,niq,nofr=           17           52           43            2
+ jq,njq,niq,nofr=           18           52           43            2
+ jq,njq,niq,nofr=           19           52           43            2
+ jq,njq,niq,nofr=           20           52           43            2
+ jq,njq,niq,nofr=           21           52           43            2
+ jq,njq,niq,nofr=           22           52           43            2
+  Reset RIO for Machine Epsilon
+ jq,njq,niq,nofr=           23           52           43            2
+ jq,njq,niq,nofr=           24           52           43            2
+ jq,njq,niq,nofr=           25           52           43            2
+ jq,njq,niq,nofr=           26           52           43            2
+ jq,njq,niq,nofr=           27           52           43            2
+ jq,njq,niq,nofr=           28           52           43            2
+ jq,njq,niq,nofr=           29           52           43            2
+ jq,njq,niq,nofr=           30           52           43            2
+ jq,njq,niq,nofr=           31           52           43            2
+ jq,njq,niq,nofr=           32           52           43            2
+ jq,njq,niq,nofr=           33           52           43            2
+ jq,njq,niq,nofr=           34           52           43            2
+ jq,njq,niq,nofr=           35           52           43            2
+ jq,njq,niq,nofr=           36           52           43            2
+ jq,njq,niq,nofr=           37           52           43            2
+ jq,njq,niq,nofr=           38           52           43            2
+ jq,njq,niq,nofr=           39           52           43            2
+ jq,njq,niq,nofr=           40           52           43            2
+ jq,njq,niq,nofr=           41           52           43            2
+ jq,njq,niq,nofr=           42           52           43            2
+ jq,njq,niq,nofr=           43           52           43            2
+ jq,njq,niq,nofr=           44           52           43            2
+ jq,njq,niq,nofr=           45           52           43            2
+ jq,njq,niq,nofr=           46           52           43            2
+ jq,njq,niq,nofr=           47           52           43            2
+ jq,njq,niq,nofr=           48           52           43            2
+ jq,njq,niq,nofr=           49           52           43            2
+  Reset RIO for Machine Epsilon
+ jq,njq,niq,nofr=           50           52           43            2
+ jq,njq,niq,nofr=           51           52           43            2
+ jq,njq,niq,nofr=           52           52           43            2
+ after 15
+ Average category:     6.572270    
+
+ Soil Type Category stats
+ --------------------------
+ Fixed             3   points with rep land value
+ Fixed             0   points with missing value = water
+ Elapsed time -     0:04      2-JAN-2005 01:50:22
+
+  Calling PROC_GEODAT: Process green frac data.
+  Re-allocate GEODAT3D            40           49  12
+
+ Calling proc_geodat
+ Start proc_geodat
+ tile type to process = G
+  Opening input unit            29  file name 
+ /home/glendeni/DRJACK/WRF/WRFSI/extdata/GEOG/greenfrac/GHEADER
+ 		format  FORMATTED
+ title=/home/glendeni/DRJACK/WRF/WRFSI/extdata/GEOG/greenfrac/GHEADER
+ RWOFF,RSOFF =    7.2200000E-02   7.2200000E-02
+ isbego,iwbego=          -90            0
+ iblksizo,no=          180         1250
+ Maxtiles =             2
+ max/min lats:     37.89129        35.65387    
+ max/min lons:    -118.9856       -121.4586    
+ allocate ctile_name_list lat/lon arrays
+ with maxtiles =             2
+ Noddy IWOC1, IWOC2          -180         -180
+ S/N tile lat points =           -90          -90
+ W/E tile lon points =          -180         -180
+ allocate data_proc: nx/ny/ncat          2500         1250           12
+ generate supertile for domain
+ number of small tiles needed=             1
+
+ processing tile: 
+ /home/glendeni/DRJACK/WRF/WRFSI/extdata/GEOG/greenfrac/G90S180W
+ allocate idata in read_dem_g
+ read_dem_g: tile type = G
+ itilex/itiley             1            1
+ itx/ity             1            1
+ initializing hinterp grx/gry arrays
+ nxst=          2500
+ nyst=          1250
+ dlat=    0.1440000    
+ dlon=    0.1440000    
+ lat0=    -89.92780    
+ lon0=    -179.9278    
+ horiz mapping tolerance x/y:    0.3070455       0.2459076    
+ grid rx/ry computed
+ SW: grx/gry    1,1:     411.8789        873.5964    
+ SE: grx/gry   nx,1:     423.7085        876.2853    
+ NW: grx/gry   1,ny:     407.5376        885.3581    
+ NE: grx/gry  nx,ny:     419.6590        888.1312    
+ is/ie/js/je           408          424          874          888
+INTERPOLATE_MASKED_VAL: Making source data land mask...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1960
+  POINTS NEEDING VALUES:            1959
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+INTERPOLATE_MASKED_VAL: Making source data land mask...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1960
+  POINTS NEEDING VALUES:            1959
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+INTERPOLATE_MASKED_VAL: Making source data land mask...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1960
+  POINTS NEEDING VALUES:            1959
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+INTERPOLATE_MASKED_VAL: Making source data land mask...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1960
+  POINTS NEEDING VALUES:            1959
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+INTERPOLATE_MASKED_VAL: Making source data land mask...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1960
+  POINTS NEEDING VALUES:            1959
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+INTERPOLATE_MASKED_VAL: Making source data land mask...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1960
+  POINTS NEEDING VALUES:            1959
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+INTERPOLATE_MASKED_VAL: Making source data land mask...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1960
+  POINTS NEEDING VALUES:            1959
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+INTERPOLATE_MASKED_VAL: Making source data land mask...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1960
+  POINTS NEEDING VALUES:            1959
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+INTERPOLATE_MASKED_VAL: Making source data land mask...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1960
+  POINTS NEEDING VALUES:            1959
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+INTERPOLATE_MASKED_VAL: Making source data land mask...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1960
+  POINTS NEEDING VALUES:            1959
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+INTERPOLATE_MASKED_VAL: Making source data land mask...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1960
+  POINTS NEEDING VALUES:            1959
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+INTERPOLATE_MASKED_VAL: Making source data land mask...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1960
+  POINTS NEEDING VALUES:            1959
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+  compute max/min greenness frac at grid points
+ Domain Annual Max/Min Green Fraction    74.58479       0.0000000    
+ Elapsed time -     0:08      2-JAN-2005 01:50:26
+
+  Call PROC_GEODAT: Process 1 deg soiltemp data.
+ Start proc_geodat
+ tile type to process = T
+  Opening input unit            29  file name 
+ /home/glendeni/DRJACK/WRF/WRFSI/extdata/GEOG/soiltemp_1deg/THEADER
+ 		format  FORMATTED
+ title=/home/glendeni/DRJACK/WRF/WRFSI/extdata/GEOG/soiltemp_1deg/THEADER
+ RWOFF,RSOFF =    0.5000000       0.5000000    
+ isbego,iwbego=          -90            0
+ iblksizo,no=          180          180
+ Maxtiles =             2
+ max/min lats:     38.31909        35.22607    
+ max/min lons:    -118.5578       -121.8864    
+ allocate ctile_name_list lat/lon arrays
+ with maxtiles =             2
+ Noddy IWOC1, IWOC2          -180         -180
+ S/N tile lat points =           -90          -90
+ W/E tile lon points =          -180         -180
+ allocate data_proc: nx/ny/ncat           360          180            1
+ generate supertile for domain
+ number of small tiles needed=             1
+
+ processing tile: 
+ /home/glendeni/DRJACK/WRF/WRFSI/extdata/GEOG/soiltemp_1deg/T90S180W
+ itilex/itiley             1            1
+ itx/ity             1            1
+ initializing hinterp grx/gry arrays
+ nxst=           360
+ nyst=           180
+ dlat=     1.000000    
+ dlon=     1.000000    
+ lat0=    -89.50000    
+ lon0=    -179.5000    
+ horiz mapping tolerance x/y:    4.4214055E-02   3.5411358E-02
+ grid rx/ry computed
+ SW: grx/gry    1,1:     59.73877        126.2261    
+ SE: grx/gry   nx,1:     61.44223        126.6133    
+ NW: grx/gry   1,ny:     59.11362        127.9198    
+ NE: grx/gry  nx,ny:     60.85910        128.3191    
+ is/ie/js/je            59           61          126          128
+INTERPOLATE_MASKED_VAL: Making source data land mask...
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1960
+  POINTS NEEDING VALUES:            1959
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+ Filering Deep Soil Temp with 1-2-1
+ Domain average annual mean temp =     291.6454    
+
+ Soil Temp stats
+ --------------------------
+ Fixed             0   points with rep land value
+ Fixed             1   points with missing value = water
+ idst=            96
+ idst written
+ Elapsed time -     0:08      2-JAN-2005 01:50:26
+
+  Processing 1 deg islope data
+  Opening input unit            29  file name 
+ /home/glendeni/DRJACK/WRF/WRFSI/extdata/GEOG/islope/IHEADER
+ 		format  FORMATTED
+ title=
+ /home/glendeni/DRJACK/WRF/WRFSI/extdata/GEOG/islope/IHEADER                                                                                                                         
+ rsoff,rwoff =    0.0000000       0.0000000    
+ isbego,iwbego =          -90            0
+ iblksizo,no =          180          180
+ deltaxq,deltayq=    4000.000        4000.000    
+  np=            1
+ no,mof,np,niq,njq=          180            5            1           43 
+           52
+   -1985900.       -1829900.       -1907900.    
+ deltaxp=    4000.000    
+ SFCOPQR: cdatatype = islope    
+ jq,njq,niq,nofr=            1           52           43            0
+ allocate idata in read_dem_g
+ read_dem_g: tile type = I
+ jq,njq,niq,nofr=            2           52           43            1
+ jq,njq,niq,nofr=            3           52           43            1
+ jq,njq,niq,nofr=            4           52           43            1
+ jq,njq,niq,nofr=            5           52           43            1
+ jq,njq,niq,nofr=            6           52           43            1
+ jq,njq,niq,nofr=            7           52           43            1
+ jq,njq,niq,nofr=            8           52           43            1
+ jq,njq,niq,nofr=            9           52           43            1
+ jq,njq,niq,nofr=           10           52           43            1
+ jq,njq,niq,nofr=           11           52           43            1
+ jq,njq,niq,nofr=           12           52           43            1
+ jq,njq,niq,nofr=           13           52           43            1
+ jq,njq,niq,nofr=           14           52           43            1
+ jq,njq,niq,nofr=           15           52           43            1
+ jq,njq,niq,nofr=           16           52           43            1
+ jq,njq,niq,nofr=           17           52           43            1
+ jq,njq,niq,nofr=           18           52           43            1
+ jq,njq,niq,nofr=           19           52           43            1
+ jq,njq,niq,nofr=           20           52           43            1
+ jq,njq,niq,nofr=           21           52           43            1
+ jq,njq,niq,nofr=           22           52           43            1
+ jq,njq,niq,nofr=           23           52           43            1
+ jq,njq,niq,nofr=           24           52           43            1
+ jq,njq,niq,nofr=           25           52           43            1
+ jq,njq,niq,nofr=           26           52           43            1
+ jq,njq,niq,nofr=           27           52           43            1
+ jq,njq,niq,nofr=           28           52           43            1
+ jq,njq,niq,nofr=           29           52           43            1
+ jq,njq,niq,nofr=           30           52           43            1
+ jq,njq,niq,nofr=           31           52           43            1
+ jq,njq,niq,nofr=           32           52           43            1
+ jq,njq,niq,nofr=           33           52           43            1
+ jq,njq,niq,nofr=           34           52           43            1
+ jq,njq,niq,nofr=           35           52           43            1
+ jq,njq,niq,nofr=           36           52           43            1
+ jq,njq,niq,nofr=           37           52           43            1
+ jq,njq,niq,nofr=           38           52           43            1
+ jq,njq,niq,nofr=           39           52           43            1
+ jq,njq,niq,nofr=           40           52           43            1
+ jq,njq,niq,nofr=           41           52           43            1
+ jq,njq,niq,nofr=           42           52           43            1
+ jq,njq,niq,nofr=           43           52           43            1
+ jq,njq,niq,nofr=           44           52           43            1
+ jq,njq,niq,nofr=           45           52           43            1
+ jq,njq,niq,nofr=           46           52           43            1
+ jq,njq,niq,nofr=           47           52           43            1
+ jq,njq,niq,nofr=           48           52           43            1
+ jq,njq,niq,nofr=           49           52           43            1
+ jq,njq,niq,nofr=           50           52           43            1
+ jq,njq,niq,nofr=           51           52           43            1
+ jq,njq,niq,nofr=           52           52           43            1
+ after 15
+ Average category:     3.232906    
+
+ Terrain Slope Index stats
+ --------------------------
+ Fixed             0   points with rep land value
+ Fixed             1   points with missing value = water
+ Elapsed time -     0:08      2-JAN-2005 01:50:26
+
+  Processing albedo climo data
+ Start proc_geodat
+ tile type to process = A
+  Opening input unit            29  file name 
+ /home/glendeni/DRJACK/WRF/WRFSI/extdata/GEOG/albedo_ncep/AHEADER
+ 		format  FORMATTED
+ title=/home/glendeni/DRJACK/WRF/WRFSI/extdata/GEOG/albedo_ncep/AHEADER
+ RWOFF,RSOFF =    7.2200000E-02   7.2200000E-02
+ isbego,iwbego=          -90            0
+ iblksizo,no=          180         1250
+ Maxtiles =             2
+ max/min lats:     37.89129        35.65387    
+ max/min lons:    -118.9856       -121.4586    
+ allocate ctile_name_list lat/lon arrays
+ with maxtiles =             2
+ Noddy IWOC1, IWOC2          -180         -180
+ S/N tile lat points =           -90          -90
+ W/E tile lon points =          -180         -180
+ allocate data_proc: nx/ny/ncat          1250         1250           12
+ generate supertile for domain
+ number of small tiles needed=             1
+
+ processing tile: 
+ /home/glendeni/DRJACK/WRF/WRFSI/extdata/GEOG/albedo_ncep/A90S180W
+ allocate idata in read_dem_g
+ read_dem_g: tile type = A
+ itilex/itiley             1            1
+ itx/ity             1            1
+ initializing hinterp grx/gry arrays
+ nxst=          1250
+ nyst=          1250
+ dlat=    0.1440000    
+ dlon=    0.1440000    
+ lat0=    -89.92780    
+ lon0=    -179.9278    
+ horiz mapping tolerance x/y:    0.3070455       0.2459076    
+ grid rx/ry computed
+ SW: grx/gry    1,1:     411.8789        873.5964    
+ SE: grx/gry   nx,1:     423.7085        876.2853    
+ NW: grx/gry   1,ny:     407.5376        885.3581    
+ NE: grx/gry  nx,ny:     419.6590        888.1312    
+ is/ie/js/je           408          424          874          888
+INTERPOLATE_MASKED_VAL: Making source data land mask...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1960
+  POINTS NEEDING VALUES:            1959
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+INTERPOLATE_MASKED_VAL: Making source data land mask...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1960
+  POINTS NEEDING VALUES:            1959
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+INTERPOLATE_MASKED_VAL: Making source data land mask...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1960
+  POINTS NEEDING VALUES:            1959
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+INTERPOLATE_MASKED_VAL: Making source data land mask...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1960
+  POINTS NEEDING VALUES:            1959
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+INTERPOLATE_MASKED_VAL: Making source data land mask...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1960
+  POINTS NEEDING VALUES:            1959
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+INTERPOLATE_MASKED_VAL: Making source data land mask...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1960
+  POINTS NEEDING VALUES:            1959
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+INTERPOLATE_MASKED_VAL: Making source data land mask...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1960
+  POINTS NEEDING VALUES:            1959
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+INTERPOLATE_MASKED_VAL: Making source data land mask...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1960
+  POINTS NEEDING VALUES:            1959
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+INTERPOLATE_MASKED_VAL: Making source data land mask...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1960
+  POINTS NEEDING VALUES:            1959
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+INTERPOLATE_MASKED_VAL: Making source data land mask...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1960
+  POINTS NEEDING VALUES:            1959
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+INTERPOLATE_MASKED_VAL: Making source data land mask...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1960
+  POINTS NEEDING VALUES:            1959
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+INTERPOLATE_MASKED_VAL: Making source data land mask...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1960
+  POINTS NEEDING VALUES:            1959
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+ Done in proc_geodat: albedo
+ Start proc_geodat
+ tile type to process = M
+  Opening input unit            29  file name 
+ /home/glendeni/DRJACK/WRF/WRFSI/extdata/GEOG/maxsnowalb/MHEADER
+ 		format  FORMATTED
+ title=/home/glendeni/DRJACK/WRF/WRFSI/extdata/GEOG/maxsnowalb/MHEADER
+ RWOFF,RSOFF =    0.5000000       0.5000000    
+ isbego,iwbego=          -90            0
+ iblksizo,no=          180          180
+ Maxtiles =             2
+ max/min lats:     38.31909        35.22607    
+ max/min lons:    -118.5578       -121.8864    
+ allocate ctile_name_list lat/lon arrays
+ with maxtiles =             2
+ Noddy IWOC1, IWOC2          -180         -180
+ S/N tile lat points =           -90          -90
+ W/E tile lon points =          -180         -180
+ allocate data_proc: nx/ny/ncat           180          180            1
+ generate supertile for domain
+ number of small tiles needed=             1
+
+ processing tile: 
+ /home/glendeni/DRJACK/WRF/WRFSI/extdata/GEOG/maxsnowalb/M90S180W
+ allocate idata in read_dem_g
+ read_dem_g: tile type = M
+ itilex/itiley             1            1
+ itx/ity             1            1
+ initializing hinterp grx/gry arrays
+ nxst=           180
+ nyst=           180
+ dlat=     1.000000    
+ dlon=     1.000000    
+ lat0=    -89.50000    
+ lon0=    -179.5000    
+ horiz mapping tolerance x/y:    4.4214055E-02   3.5411358E-02
+ grid rx/ry computed
+ SW: grx/gry    1,1:     59.73877        126.2261    
+ SE: grx/gry   nx,1:     61.44223        126.6133    
+ NW: grx/gry   1,ny:     59.11362        127.9198    
+ NE: grx/gry  nx,ny:     60.85910        128.3191    
+ is/ie/js/je            59           61          126          128
+INTERPOLATE_MASKED_VAL: Making source data land mask...
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1960
+  POINTS NEEDING VALUES:            1959
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+ Done in proc_geodat: Max Snow Albedo
+ Total number of gridpoints (nx*ny) =          1960
+
+ Array Comparison:   Terrain
+ ============================================
+ ============================================
+ land mask=water, data array = water        :             0
+ land mask=not water, data array = not water:          1959
+ land mask=water, data array = not water    :             1
+ land mask=not water, data array = water    :             0
+
+ Array Comparison:   Soil Texture
+ ============================================
+ ============================================
+ land mask=water, data array = water        :             1
+ land mask=not water, data array = not water:          1958
+ land mask=water, data array = not water    :             0
+ land mask=not water, data array = water    :             1
+
+ Array Comparison:   Soil Texture
+ ============================================
+ ============================================
+ land mask=water, data array = water        :             1
+ land mask=not water, data array = not water:          1958
+ land mask=water, data array = not water    :             0
+ land mask=not water, data array = water    :             1
+
+ Array Comparison:   Greeness: mo 6
+ ============================================
+ ============================================
+ land mask=water, data array = water        :             1
+ land mask=not water, data array = not water:          1959
+ land mask=water, data array = not water    :             0
+ land mask=not water, data array = water    :             0
+
+ Array Comparison:   Min Greenness
+ ============================================
+ ============================================
+ land mask=water, data array = water        :             1
+ land mask=not water, data array = not water:          1959
+ land mask=water, data array = not water    :             0
+ land mask=not water, data array = water    :             0
+
+ Array Comparison:   Deep Soil Temp
+ ============================================
+ ============================================
+ land mask=water, data array = water        :             1
+ land mask=not water, data array = not water:          1959
+ land mask=water, data array = not water    :             0
+ land mask=not water, data array = water    :             0
+
+ Array Comparison:   Terrain Slope Index
+ ============================================
+ ============================================
+ land mask=water, data array = water        :             1
+ land mask=not water, data array = not water:          1959
+ land mask=water, data array = not water    :             0
+ land mask=not water, data array = water    :             0
+
+ Array Comparison:   Albedo: month 6
+ ============================================
+ ============================================
+ land mask=water, data array = water        :             1
+ land mask=not water, data array = not water:          1959
+ land mask=water, data array = not water    :             0
+ land mask=not water, data array = water    :             0
+
+ Array Comparison:   Max Snow Albedo
+ ============================================
+ ============================================
+ land mask=water, data array = water        :             1
+ land mask=not water, data array = not water:          1959
+ land mask=water, data array = not water    :             0
+ land mask=not water, data array = water    :             0
+
+ Array Comparison:   Dominant Cat Landuse
+ ============================================
+ ============================================
+ land mask=water, data array = water        :             1
+ land mask=not water, data array = not water:          1959
+ land mask=water, data array = not water    :             0
+ land mask=not water, data array = water    :             0
+
+ using filename: 
+ wrfsi.d01.cdl                                                                                                                                                                                                                                                  
+ file= /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/cdl/wrfsi.d01.cdl
+
+  subroutine check_domain: checking latlon_to_rlapsgrid
+  check_domain: max_diff (gridpoints) =    1.6635798E-03  at i/j           37 
+           26
+  check_domain: max_diff (approx m)   =     6.654319    
+  Checking rlapsgrid_to_latlon
+  check_domain: max_diff (degrees) =    4.8579481E-05  at i/j           39 
+           40
+  check_domain: max_diff (approx m)   =     5.343743    
+  measured grid spacing on earths surface at domain center is:    4094.492    
+  calculated grid spacing on earths surface at domain center is: 
+    4094.671    
+  grid spacing on projection plane using "latlon_to_xy" is:    4002.750    
+
+ deltax =     4000.000    
+ check_domain: status =             1
+ call put_laps_static           112
+ model= 
+ MODEL 4 delta x smoothed filter                                                                                                    
+ Static domain file name: wrfsi.d01       
+ /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/static/           55
+ calling wrt_laps_static
+ wrt_laps_static
+ make_static_fname
+ dir= /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/static/
+ laps_dom_file= wrfsi.d01
+ file_name= 
+                                                                                                                                                       
+ f_len=             0
+ after make_static_fname
+ dir= /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/static/
+ laps_dom_file= wrfsi.d01
+ file_name= 
+ /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/static/static.wrfsi.d01                                                                               
+ f_len=            71
+ call i4time_now_gg
+ i4time =    1420249828
+ call get_grid_dim_xy: 
+ Here: get_grid_dim_xy
+ return get_grid_dim_xy, status:             1
+ Dimensions used in wrt_cdf_static:            40           49
+ map_projection: secant lambert conformal      
+ lov =    -98.00000    
+ call write_cdf_static using: 
+ laps_dom_file= wrfsi.d01
+ return wrt_laps_static             1
+ wrt_laps_static: status =             1
+ rd_laps_static: status =             1
+ Elapsed time -     0:10      2-JAN-2005 01:50:28
+  -------------------------------
+  Total Elapsed time:            10
+  -------------------------------
+  Gridmap_sub finished 
+
+  Gridmap_sub finish successfully
+  gridgen_model finish: istatus =             1
+
+/home/glendeni/DRJACK/WRF/WRFSI/bin/gridgen_model.exe completed 
+gridgen_model.exe finished
+/home/glendeni/DRJACK/WRF/WRFSI/etc/localize_domain.pl complete

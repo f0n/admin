@@ -1,0 +1,58 @@
+* About to connect() to ftpprd.ncep.noaa.gov port 21 (#0)
+*   Trying 140.90.101.61... connected
+< 220-******************************************************************
+< 220-                 **WARNING**WARNING**WARNING**
+< 220-This is a United States (Agency) computer system, which may be accessed
+< 220-and used only for official Government business by authorized personnel.
+< 220-Unauthorized access or use of this computer system may subject violators
+< 220-to criminal, civil, and/or administrative action.
+< 220-All information on this computer system may be intercepted, recorded,
+< 220-read, copied, and disclosed by and to authorized personnel for official
+< 220-purposes, including criminal investigations. Access or use of this
+< 220-computer system by any person whether authorized or unauthorized,
+< 220-constitutes consent to these terms.
+< 220-                **WARNING**WARNING**WARNING**
+< 220-******************************************************************
+< 220-
+< 220 
+> USER anonymous
+< 331 Please specify the password.
+> PASS drjack@drjack.info
+< 230 Login successful.
+> PWD
+< 257 "/"
+* Entry path is '/'
+> CWD pub
+< 250 Directory successfully changed.
+> CWD data
+< 250 Directory successfully changed.
+> CWD nccf
+< 250 Directory successfully changed.
+> CWD com
+< 250 Directory successfully changed.
+> CWD nam
+< 250 Directory successfully changed.
+> CWD prod
+< 250 Directory successfully changed.
+> CWD nam.20170522
+< 250 Directory successfully changed.
+> PASV
+* Connect data stream passively
+< 227 Entering Passive Mode (140,90,101,61,163,132).
+*   Trying 140.90.101.61... connected
+* Connecting to 140.90.101.61 (140.90.101.61) port 41860
+> TYPE I
+< 200 Switching to Binary mode.
+> SIZE nam.t00z.awip3d24.tm00.grib2
+< 213 11997944
+> RETR nam.t00z.awip3d24.tm00.grib2
+< 150 Opening BINARY mode data connection for nam.t00z.awip3d24.tm00.grib2 (11997944 bytes).
+* Maxdownload = -1
+* Getting file with size: 11997944
+{ [data not shown]
+* Remembering we are in dir "pub/data/nccf/com/nam/prod/nam.20170522/"
+< 226 Transfer complete.
+* Connection #0 to host ftpprd.ncep.noaa.gov left intact
+> QUIT
+< 221 Goodbye.
+* Closing connection #0

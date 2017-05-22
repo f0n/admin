@@ -1,0 +1,510 @@
+ extracted moad_dataroot= 
+ /home/admin/DRJACK/WRF/WRFSI/domains/PANOCHE-WINDOW                                                                                                                                                     
+Trying to open file: wrfsi.nl
+Successfully READ the NAMELIST file.
+Using specified mass-Eta level values.  Checking...
+LEVELS ON ETAP COORDINATES
+-----------------------------------------
+ K            FULL             HALF
+-----------------------------------------
+   1              1.000000       0.998750
+   2              0.997500       0.995500
+   3              0.993500       0.990350
+   4              0.987200       0.983100
+   5              0.979000       0.974000
+   6              0.969000       0.963350
+   7              0.957700       0.951550
+   8              0.945400       0.939100
+   9              0.932800       0.926450
+  10              0.920100       0.913800
+  11              0.907500       0.901200
+  12              0.894900       0.888550
+  13              0.882200       0.875850
+  14              0.869500       0.863100
+  15              0.856700       0.850250
+  16              0.843800       0.837100
+  17              0.830400       0.823700
+  18              0.817000       0.810350
+  19              0.803700       0.796950
+  20              0.790200       0.783300
+  21              0.776400       0.769200
+  22              0.762000       0.754450
+  23              0.746900       0.739100
+  24              0.731300       0.723250
+  25              0.715200       0.706900
+  26              0.698600       0.689950
+  27              0.681300       0.672150
+  28              0.663000       0.652450
+  29              0.641900       0.629350
+  30              0.616800       0.600850
+  31              0.584900       0.566800
+  32              0.548700       0.528400
+  33              0.508100       0.485600
+  34              0.463100       0.441600
+  35              0.420100       0.400300
+  36              0.380500       0.363800
+  37              0.347100       0.334200
+  38              0.321300       0.310800
+  39              0.300300       0.289700
+  40              0.279100       0.268250
+  41              0.257400       0.246500
+  42              0.235600       0.224500
+  43              0.213400       0.202200
+  44              0.191000       0.179600
+  45              0.168200       0.156650
+  46              0.145100       0.133350
+  47              0.121600       0.109750
+  48              0.097900       0.085900
+  49              0.073900       0.061700
+  50              0.049500       0.037250
+  51              0.025000       0.012500
+  52              0.000000      -0.012500
+ moad_dataroot: 
+ /home/admin/DRJACK/WRF/WRFSI/domains/PANOCHE-WINDOW                                                                                                                                                     
+ setup_info%input_prefix: 
+ /home/admin/DRJACK/WRF/WRFSI/domains/PANOCHE-WINDOW/siprd/hinterp                                                                                                                                                                                              
+Pertinent global metadata: 
+Simulation Name: Panoche                                                                         
+User Description: DrJack                                                                          
+Number of domains:  2
+Input Vertical Coordinate: PRESSURE
+Initial Date/Time of Metadata:  2017139 64800.0
+Ending Date/Time of Metadata:  2017139 64800.0
+ VINTERP: Processing domain             1
+
+
+Starting current time:        2017-05-19_18:00:00
+ Nest info:  parent_id         =              1
+             parent_grid_ratio =              3
+             i_parent_start    =             12
+             j_parent_start    =             16
+             i_parent_end      =             29
+             j_parent_end      =             39
+             nest dims         =             52           70
+ Starting current time: 2017-05-19_18:00:00
+ DryRun =   T
+Finished EtaP driver for  1
+ calling proc_static
+landmask inq_varid status and vid =    0  14
+ Getting time-interpolated greenness.
+ Time-interpolating to day #           139
+ Getting time-interpolated albedo.
+ Time-interpolating to day #           139
+Attempting to read categorical landuse fractions...
+Source = USGS
+Number of categories = 24
+Index used for water = 16
+Index used for ice = 24
+Attempting to read categorical soil type fractions...
+Source = FAO 
+Number of categories = 16
+ DryRun =   F
+ Calling etap_driver
+INTERP_STATE_ETAP: Getting 3D temperature field...
+Min/Max values =     205.6    301.6
+INTERP_STATE_ETAP: Getting 3D height field...
+Min/Max values =       0.0  20708.9
+INTERP_STATE_ETAP: Getting 3D RH field...
+Min/Max values =       1.0     97.7
+INTERP_STATE_ETAP: Getting 2D PSFC_BG field...
+Min/Max values =      94240.6    101567.0
+INTERP_STATE_ETAP: Getting pressure array
+ Creating 3D pressure array from 1D
+ Levels found =     200100.0        100000.0        97500.00     
+    95000.00        92500.00        90000.00        87500.00     
+    85000.00        82500.00        80000.00        77500.00     
+    75000.00        72500.00        70000.00        67500.00     
+    65000.00        62500.00        60000.00        57500.00     
+    55000.00        52500.00        50000.00        47500.00     
+    45000.00        42500.00        40000.00        37500.00     
+    35000.00        32500.00        30000.00        27500.00     
+    25000.00        22500.00        20000.00        17500.00     
+    15000.00        12500.00        10000.00        7500.000     
+    5000.000    
+ Sorting using PSFC
+ Number of columns where Zsfc had to be adjusted:            26
+ Eta values on background grid center column:
+ TOPO/PSFC/MU =     951.6296        90809.82        85707.70    
+ Z          PRESS      PRESSDRY   IQVAPORP   ETA
+ ---------- ---------- ---------- ---------- ----------
+     116.8   100000.0    99849.4 150.635132   1.106661
+     335.5    97500.0    97363.4 136.617874   1.077656
+     561.9    95000.0    94876.8 123.200378   1.048643
+     592.6    94673.2    94551.8 121.422997   1.044851
+     793.0    92500.0    92389.7 110.291718   1.019625
+    1028.7    90000.0    89901.7  98.336555   0.990596
+    1269.0    87500.0    87413.0  87.037361   0.961558
+    1514.5    85000.0    84923.9  76.065277   0.932518
+    1765.3    82500.0    82434.1  65.922539   0.903467
+    2022.3    80000.0    79943.2  56.804226   0.874404
+    2285.7    77500.0    77451.4  48.619030   0.845331
+    2555.9    75000.0    74957.7  42.334911   0.816235
+    2833.3    72500.0    72462.8  37.162262   0.787127
+    3119.2    70000.0    69967.4  32.613869   0.758011
+    3414.5    67500.0    67470.3  29.716898   0.728876
+    3720.1    65000.0    64971.4  28.562696   0.699721
+    4036.4    62500.0    62472.0  27.954634   0.670559
+    4363.7    60000.0    59973.9  26.125736   0.641411
+    4702.2    57500.0    57478.0  21.962893   0.612291
+    5052.4    55000.0    54983.9  16.111029   0.583190
+    5415.6    52500.0    52489.2  10.761798   0.554084
+    5793.3    50000.0    49992.5   7.478606   0.524953
+    6186.9    47500.0    47494.6   5.389223   0.495809
+    6596.2    45000.0    44996.4   3.625962   0.466660
+    7023.1    42500.0    42497.5   2.467728   0.437505
+    7469.8    40000.0    39998.2   1.823278   0.408343
+    7938.9    37500.0    37498.6   1.435372   0.379179
+    8433.4    35000.0    34998.8   1.195699   0.350013
+    8956.2    32500.0    32499.0   0.951917   0.320847
+    9510.0    30000.0    29999.3   0.668798   0.291681
+   10098.6    27500.0    27499.6   0.426158   0.262515
+   10729.7    25000.0    24999.7   0.270520   0.233348
+   11411.0    22500.0    22499.8   0.178136   0.204180
+   12154.7    20000.0    19999.9   0.119627   0.175012
+   12977.6    17500.0    17499.9   0.082489   0.145844
+   13910.4    15000.0    14999.9   0.054089   0.116675
+   15016.5    12500.0    12500.0   0.032891   0.087506
+   16385.4    10000.0    10000.0   0.022513   0.058338
+   18162.5     7500.0     7500.0   0.015314   0.029169
+   20704.3     5000.0     5000.0   0.000000   0.000000
+  
+ Staggering to T grid (Arakawa C)
+ Staggering to T grid (Arakawa C)
+ Staggering to T grid (Arakawa C)
+INTERP_STATE_ETAP: Getting 3D U field...
+Min/Max values =      -8.2      6.1
+INTERP_STATE_ETAP: Getting 3D V field...
+Min/Max values =     -20.9      4.6
+ Staggering to U grid (Arakawa C)
+ Staggering to V Grid (Arakawa C)
+ Here is what we have processed so far: 
+ ETAPFULL
+ T       
+ HGT     
+ RH      
+ PSFC    
+ PRESSURE
+ U       
+ V       
+         
+Other Variable: PMSL    
+ Staggering to T grid (Arakawa C)
+Other Variable: SNOW    
+Other Variable: SKINTEMP
+Other Variable: ST000010
+Other Variable: ST010040
+Other Variable: ST040100
+Other Variable: ST100200
+Other Variable: SM000010
+Other Variable: SM010040
+Other Variable: SM040100
+Other Variable: SM100200
+Other Variable: SEAICE  
+Other Variable: SST     
+Other Variable: CANWAT  
+Other Variable: SOILHGT 
+ETAP_PROCESS_OTHERS: Reached end of file.
+Finished EtaP driver for  1
+ calling proc_static
+landmask inq_varid status and vid =    0  14
+ Getting time-interpolated greenness.
+ Time-interpolating to day #           139
+ Getting time-interpolated albedo.
+ Time-interpolating to day #           139
+Attempting to read categorical landuse fractions...
+Source = USGS
+Number of categories = 24
+Index used for water = 16
+Index used for ice = 24
+Attempting to read categorical soil type fractions...
+Source = FAO 
+Number of categories = 16
+Ending current time:          2017-05-19_18:00:00
+ Creating CDL file: 
+  ncdump -h /home/admin/DRJACK/WRF/WRFSI/domains/PANOCHE-WINDOW/siprd/wrf_real_input_em.d01.2017-05-19_18:00:00 > /home/admin/DRJACK/WRF/WRFSI/domains/PANOCHE-WINDOW/siprd/wrf_real_input_em.d01.cdl
+
+
+Starting current time:        2017-05-19_21:00:00
+ Nest info:  parent_id         =              1
+             parent_grid_ratio =              3
+             i_parent_start    =             12
+             j_parent_start    =             16
+             i_parent_end      =             29
+             j_parent_end      =             39
+             nest dims         =             52           70
+ Starting current time: 2017-05-19_21:00:00
+ DryRun =   T
+ /home/admin/DRJACK/WRF/WRFSI/domains/PANOCHE-WINDOW/siprd/wrf_real_input_em.d01.2017-05-19_21:00:00
+  created from cdl 
+ /home/admin/DRJACK/WRF/WRFSI/domains/PANOCHE-WINDOW/siprd/wrf_real_input_em.d01.cdl
+INTERP_STATE_ETAP: Getting 3D temperature field...
+Min/Max values =     205.1    305.7
+INTERP_STATE_ETAP: Getting 3D height field...
+Min/Max values =       0.0  20724.0
+INTERP_STATE_ETAP: Getting 3D RH field...
+Min/Max values =       1.0     97.6
+INTERP_STATE_ETAP: Getting 2D PSFC_BG field...
+Min/Max values =      94186.0    101570.4
+INTERP_STATE_ETAP: Getting pressure array
+ Creating 3D pressure array from 1D
+ Levels found =     200100.0        100000.0        97500.00     
+    95000.00        92500.00        90000.00        87500.00     
+    85000.00        82500.00        80000.00        77500.00     
+    75000.00        72500.00        70000.00        67500.00     
+    65000.00        62500.00        60000.00        57500.00     
+    55000.00        52500.00        50000.00        47500.00     
+    45000.00        42500.00        40000.00        37500.00     
+    35000.00        32500.00        30000.00        27500.00     
+    25000.00        22500.00        20000.00        17500.00     
+    15000.00        12500.00        10000.00        7500.000     
+    5000.000    
+ Sorting using PSFC
+ Number of columns where Zsfc had to be adjusted:            31
+ Eta values on background grid center column:
+ TOPO/PSFC/MU =     951.6296        90791.61        85677.89    
+ Z          PRESS      PRESSDRY   IQVAPORP   ETA
+ ---------- ---------- ---------- ---------- ----------
+     108.5   100000.0    99837.2 162.835602   1.106904
+     328.5    97500.0    97351.1 148.922440   1.077887
+     556.9    95000.0    94864.5 135.534683   1.048864
+     592.6    94623.3    94489.8 133.466278   1.044491
+     789.9    92500.0    92377.7 122.339119   1.019839
+    1027.6    90000.0    89890.2 109.819885   0.990806
+    1269.9    87500.0    87402.4  97.562302   0.961770
+    1517.2    85000.0    84914.3  85.670647   0.932730
+    1769.8    82500.0    82425.8  74.252083   0.903684
+    2028.0    80000.0    79936.8  63.242565   0.874634
+    2292.1    77500.0    77447.6  52.374207   0.845581
+    2562.6    75000.0    74958.4  41.621971   0.816528
+    2839.9    72500.0    72467.4  32.602283   0.787454
+    3125.7    70000.0    69972.9  27.086382   0.758339
+    3421.4    67500.0    67475.4  24.598015   0.729189
+    3727.5    65000.0    64976.4  23.549492   0.700022
+    4044.0    62500.0    62477.6  22.418573   0.670857
+    4371.5    60000.0    59980.0  19.958452   0.641706
+    4710.1    57500.0    57484.4  15.550059   0.612579
+    5060.6    55000.0    54989.7  10.322769   0.583461
+    5423.8    52500.0    52493.5   6.477101   0.554326
+    5801.5    50000.0    49995.2   4.791403   0.525167
+    6195.3    47500.0    47495.8   4.236949   0.495994
+    6604.7    45000.0    44996.3   3.679816   0.466822
+    7031.5    42500.0    42497.0   2.976835   0.437651
+    7478.5    40000.0    39997.6   2.388751   0.408479
+    7948.5    37500.0    37498.0   2.013781   0.379304
+    8443.7    35000.0    34998.4   1.638158   0.350130
+    8966.2    32500.0    32498.9   1.121519   0.320957
+    9518.9    30000.0    29999.3   0.664868   0.291783
+   10107.9    27500.0    27499.6   0.407243   0.262607
+   10739.3    25000.0    24999.7   0.266692   0.233429
+   11420.7    22500.0    22499.8   0.174748   0.204251
+   12164.2    20000.0    19999.9   0.118251   0.175073
+   12986.9    17500.0    17499.9   0.081974   0.145894
+   13918.5    15000.0    14999.9   0.053695   0.116716
+   15019.1    12500.0    12500.0   0.031411   0.087537
+   16380.6    10000.0    10000.0   0.020029   0.058358
+   18160.8     7500.0     7500.0   0.014634   0.029179
+   20721.9     5000.0     5000.0   0.000000   0.000000
+  
+ Staggering to T grid (Arakawa C)
+ Staggering to T grid (Arakawa C)
+ Staggering to T grid (Arakawa C)
+INTERP_STATE_ETAP: Getting 3D U field...
+Min/Max values =      -7.9      6.2
+INTERP_STATE_ETAP: Getting 3D V field...
+Min/Max values =     -18.7      3.6
+ Staggering to U grid (Arakawa C)
+ Staggering to V Grid (Arakawa C)
+ Here is what we have processed so far: 
+ ETAPFULL
+ T       
+ HGT     
+ RH      
+ PSFC    
+ PRESSURE
+ U       
+ V       
+         
+Other Variable: PMSL    
+ Staggering to T grid (Arakawa C)
+Other Variable: SNOW    
+Other Variable: SKINTEMP
+Other Variable: ST000010
+Other Variable: ST010040
+Other Variable: ST040100
+Other Variable: ST100200
+Other Variable: SM000010
+Other Variable: SM010040
+Other Variable: SM040100
+Other Variable: SM100200
+Other Variable: SEAICE  
+Other Variable: SST     
+Other Variable: CANWAT  
+Other Variable: SOILHGT 
+ETAP_PROCESS_OTHERS: Reached end of file.
+Finished EtaP driver for  1
+ calling proc_static
+landmask inq_varid status and vid =    0  14
+ Getting time-interpolated greenness.
+ Time-interpolating to day #           139
+ Getting time-interpolated albedo.
+ Time-interpolating to day #           139
+Attempting to read categorical landuse fractions...
+Source = USGS
+Number of categories = 24
+Index used for water = 16
+Index used for ice = 24
+Attempting to read categorical soil type fractions...
+Source = FAO 
+Number of categories = 16
+Ending current time:          2017-05-19_21:00:00
+ removing cdl: 
+  rm /home/admin/DRJACK/WRF/WRFSI/domains/PANOCHE-WINDOW/siprd/wrf_real_input_em.d01.cdl                                                                                                                                                                        
+ VINTERP: Processing domain             2
+
+
+Starting current time:        2017-05-19_18:00:00
+ Nest info:  parent_id         =              2
+             parent_grid_ratio =              3
+             i_parent_start    =             18
+             j_parent_start    =             31
+             i_parent_end      =             41
+             j_parent_end      =             52
+             nest dims         =             70           64
+ Starting current time: 2017-05-19_18:00:00
+ DryRun =   T
+Finished EtaP driver for  2
+ calling proc_static
+landmask inq_varid status and vid =    0  14
+ Getting time-interpolated greenness.
+ Time-interpolating to day #           139
+ Getting time-interpolated albedo.
+ Time-interpolating to day #           139
+Attempting to read categorical landuse fractions...
+Source = USGS
+Number of categories = 24
+Index used for water = 16
+Index used for ice = 24
+Attempting to read categorical soil type fractions...
+Source = FAO 
+Number of categories = 16
+ DryRun =   F
+ Calling etap_driver
+INTERP_STATE_ETAP: Getting 3D temperature field...
+Min/Max values =     205.9    299.4
+INTERP_STATE_ETAP: Getting 3D height field...
+Min/Max values =     116.0  20705.6
+INTERP_STATE_ETAP: Getting 3D RH field...
+Min/Max values =       1.2     54.9
+INTERP_STATE_ETAP: Getting 2D PSFC_BG field...
+Min/Max values =      94065.4    101064.5
+INTERP_STATE_ETAP: Getting pressure array
+ Creating 3D pressure array from 1D
+ Levels found =     100000.0        97500.00        95000.00     
+    92500.00        90000.00        87500.00        85000.00     
+    82500.00        80000.00        77500.00        75000.00     
+    72500.00        70000.00        67500.00        65000.00     
+    62500.00        60000.00        57500.00        55000.00     
+    52500.00        50000.00        47500.00        45000.00     
+    42500.00        40000.00        37500.00        35000.00     
+    32500.00        30000.00        27500.00        25000.00     
+    22500.00        20000.00        17500.00        15000.00     
+    12500.00        10000.00        7500.000        5000.000    
+ Appears as if no surface data is present.
+ Setting use_sfc = false and skipping array sorting.
+ Eta values on background grid center column:
+ TOPO/PSFC/MU =     446.1118        96294.00        91170.09    
+ Z          PRESS      PRESSDRY   IQVAPORP   ETA
+ ---------- ---------- ---------- ---------- ----------
+     118.5   100000.0    99853.7 146.288757   1.040404
+     337.9    97500.0    97368.9 131.102844   1.013149
+     563.7    95000.0    94883.5 116.527374   0.985888
+     793.8    92500.0    92397.3 102.727699   0.958618
+    1028.5    90000.0    89909.2  90.797989   0.931327
+    1268.2    87500.0    87418.8  81.205002   0.904011
+    1513.6    85000.0    84927.7  72.254608   0.876688
+    1764.7    82500.0    82436.5  63.469608   0.849363
+    2021.9    80000.0    79944.1  55.880802   0.822025
+    2285.3    77500.0    77451.1  48.898266   0.794681
+    2555.5    75000.0    74958.1  41.872166   0.767336
+    2833.1    72500.0    72464.7  35.333870   0.739987
+    3119.0    70000.0    69969.6  30.417698   0.712619
+    3414.4    67500.0    67472.2  27.773876   0.685227
+    3719.6    65000.0    64973.2  26.795504   0.657817
+    4035.6    62500.0    62473.8  26.251478   0.630401
+    4362.8    60000.0    59975.7  24.310156   0.603001
+    4701.3    57500.0    57479.8  20.182840   0.575625
+    5051.4    55000.0    54985.2  14.773306   0.548263
+    5414.1    52500.0    52490.4   9.628705   0.520899
+    5791.7    50000.0    49993.5   6.503501   0.493512
+    6184.9    47500.0    47495.2   4.794351   0.466109
+    6594.3    45000.0    44996.7   3.319334   0.438704
+    7021.4    42500.0    42497.6   2.389905   0.411293
+    7467.9    40000.0    39998.1   1.872441   0.383877
+    7937.0    37500.0    37498.5   1.542438   0.356460
+    8431.7    35000.0    34998.7   1.302399   0.329041
+    8954.6    32500.0    32499.0   1.019000   0.301623
+    9508.1    30000.0    29999.3   0.684806   0.274205
+   10096.6    27500.0    27499.6   0.419951   0.246787
+   10727.9    25000.0    24999.7   0.267407   0.219367
+   11409.1    22500.0    22499.8   0.177095   0.191947
+   12152.7    20000.0    19999.9   0.117642   0.164526
+   12975.6    17500.0    17499.9   0.080634   0.137105
+   13908.4    15000.0    14999.9   0.052658   0.109685
+   15014.2    12500.0    12500.0   0.031886   0.082263
+   16383.8    10000.0    10000.0   0.022222   0.054842
+   18161.6     7500.0     7500.0   0.015676   0.027421
+   20704.1     5000.0     5000.0   0.000000   0.000000
+  
+ Staggering to T grid (Arakawa C)
+ Staggering to T grid (Arakawa C)
+ Staggering to T grid (Arakawa C)
+INTERP_STATE_ETAP: Getting 3D U field...
+Min/Max values =      -6.9      4.5
+INTERP_STATE_ETAP: Getting 3D V field...
+Min/Max values =     -18.0      2.1
+ Staggering to U grid (Arakawa C)
+ Staggering to V Grid (Arakawa C)
+ Here is what we have processed so far: 
+ ETAPFULL
+ T       
+ HGT     
+ RH      
+ PSFC    
+ PRESSURE
+ U       
+ V       
+         
+Other Variable: PMSL    
+ Staggering to T grid (Arakawa C)
+Other Variable: SNOW    
+Other Variable: SKINTEMP
+Other Variable: ST000010
+Other Variable: ST010040
+Other Variable: ST040100
+Other Variable: ST100200
+Other Variable: SM000010
+Other Variable: SM010040
+Other Variable: SM040100
+Other Variable: SM100200
+Other Variable: SEAICE  
+Other Variable: SST     
+Other Variable: CANWAT  
+Other Variable: SOILHGT 
+ETAP_PROCESS_OTHERS: Reached end of file.
+Finished EtaP driver for  2
+ calling proc_static
+landmask inq_varid status and vid =    0  14
+ Getting time-interpolated greenness.
+ Time-interpolating to day #           139
+ Getting time-interpolated albedo.
+ Time-interpolating to day #           139
+Attempting to read categorical landuse fractions...
+Source = USGS
+Number of categories = 24
+Index used for water = 16
+Index used for ice = 24
+Attempting to read categorical soil type fractions...
+Source = FAO 
+Number of categories = 16
+Ending current time:          2017-05-19_18:00:00
+ **** VINTERP COMPLETE *****

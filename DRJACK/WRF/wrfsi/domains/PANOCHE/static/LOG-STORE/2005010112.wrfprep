@@ -1,0 +1,24 @@
+Log for wrfprep.pl
+----------------------------------------------------------
+Opened Sun Jan  2 06:09:00 UTC 2005
+----------------------------------------------------------
+INSTALLROOT: /home/glendeni/DRJACK/WRF/WRFSI
+MOAD_DATAROOT: /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche
+CYCLE START: 2005/01/01 12:00:00
+CYCLE END:   2005/01/02 00:00:00
+FCST LENGTH: 12
+INTERVAL:    6
+
+===) Searching for init files...
+found and linking /home/glendeni/DRJACK/WRF/WRFSI/extdata/extprd/ETA:2005-01-01_12
+===) Searching for LBC files...
+found and linking /home/glendeni/DRJACK/WRF/WRFSI/extdata/extprd/ETA:2005-01-01_18
+found and linking /home/glendeni/DRJACK/WRF/WRFSI/extdata/extprd/ETA:2005-01-02_00
+Initialization source used: ETA
+Lateral boundary source:    ETA
+
+Sun Jan  2 06:09:00 UTC 2005 : Running hinterp
+Sun Jan  2 06:09:02 UTC 2005 : hinterp finished.
+Sun Jan  2 06:09:02 UTC 2005 : Running vinterp
+Sun Jan  2 06:09:03 UTC 2005 : vinterp finished.
+Sun Jan  2 06:09:03 UTC 2005 : wrfprep.pl ended normally.

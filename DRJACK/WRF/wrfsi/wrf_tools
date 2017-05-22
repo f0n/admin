@@ -1,0 +1,24 @@
+#!/usr/bin/perl
+# Script to launch the WRFSI GUI.
+#
+umask 000;
+# $ENV{PERL5OPT}='-Mblib=/home/admin/DRJACK/WRF/wrfsi/gui/perlTk/blib';
+
+###JACK - MODIFY ORIGINAL HARD-WIRED LINE
+#original my $ans=system("/home/admin/DRJACK/WRF/wrfsi/gui/guiTk/ui_system_tools.pl 1> /tmp/wrf_tools.log 2>&1");
+if ( -x "gui/guiTk/ui_system_tools.pl" )
+{
+  my $ans=system("gui/guiTk/ui_system_tools.pl 1> /tmp/wrf_tools.log 2>&1");
+  if ($ans) { print "Look at file /tmp/wrf_tools.log\n"; };
+}
+elsif ( defined $ENV{'BASEDIR'} )
+{
+  my $ans=system("$ENV{'BASEDIR'}/WRF/wrfsi/gui/guiTk/ui_system_tools.pl 1> /tmp/wrf_tools.log 2>&1");
+  if ($ans) { print "Look at file /tmp/wrf_tools.log\n"; };
+}
+else
+{
+  print "ERROR - executable file not found and environmental parameter BASEDIR not defined \n"; 
+}
+
+exit;

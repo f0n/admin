@@ -1,0 +1,2613 @@
+ip-172-31-0-49 -- rsl_nproc_all 1, rsl_myproc 0
+ &TIME_CONTROL
+ RUN_DAYS        =           0,
+ RUN_HOURS       =           0,
+ RUN_MINUTES     =           0,
+ RUN_SECONDS     =           0,
+ START_YEAR      = 2*2017, 9*1993,
+ START_MONTH     = 2*5, 9*3,
+ START_DAY       = 2*19, 9*13,
+ START_HOUR      = 2*18, 9*12,
+ START_MINUTE    = 11*0,
+ START_SECOND    = 11*0,
+ END_YEAR        = 2*2017, 9*1993,
+ END_MONTH       = 2*5, 9*3,
+ END_DAY = 2*19, 9*14,
+ END_HOUR        = 2*21, 9*12,
+ END_MINUTE      = 11*0,
+ END_SECOND      = 11*0,
+ INTERVAL_SECONDS        =        3600,
+ INPUT_FROM_FILE = 2*T, 9*F,
+ FINE_INPUT_STREAM       = 11*0,
+ INPUT_FROM_HIRES        = 11*F,
+ RSMAS_DATA_PATH = .                                                                                                                 
+                                                                                                                                     
+           ,
+ HISTORY_INTERVAL        = 3*60, 8*0,
+ FRAMES_PER_OUTFILE      = 3*1, 8*10,
+ FRAMES_PER_AUXHIST1     = 11*10,
+ FRAMES_PER_AUXHIST2     = 11*10,
+ FRAMES_PER_AUXHIST3     = 11*10,
+ FRAMES_PER_AUXHIST4     = 11*10,
+ FRAMES_PER_AUXHIST5     = 11*10,
+ FRAMES_PER_AUXHIST6     = 11*10,
+ FRAMES_PER_AUXHIST7     = 11*10,
+ FRAMES_PER_AUXHIST8     = 11*10,
+ FRAMES_PER_AUXHIST9     = 11*10,
+ FRAMES_PER_AUXHIST10    = 11*10,
+ FRAMES_PER_AUXHIST11    = 11*10,
+ RESTART = F,
+ RESTART_INTERVAL        =       10000,
+ IO_FORM_INPUT   =           2,
+ IO_FORM_HISTORY =           2,
+ IO_FORM_RESTART =           2,
+ IO_FORM_BOUNDARY        =           2,
+ DEBUG_LEVEL     =           0,
+ SELF_TEST_DOMAIN        = F,
+ HISTORY_OUTNAME = wrfout_d<domain>_<date>                                                                                           
+                                                                                                                                     
+           ,
+ AUXHIST1_OUTNAME        = auxhist1_d<domain>_<date>                                                                                 
+                                                                                                                                     
+                   ,
+ AUXHIST2_OUTNAME        = auxhist2_d<domain>_<date>                                                                                 
+                                                                                                                                     
+                   ,
+ AUXHIST3_OUTNAME        = auxhist3_d<domain>_<date>                                                                                 
+                                                                                                                                     
+                   ,
+ AUXHIST4_OUTNAME        = auxhist4_d<domain>_<date>                                                                                 
+                                                                                                                                     
+                   ,
+ AUXHIST5_OUTNAME        = auxhist5_d<domain>_<date>                                                                                 
+                                                                                                                                     
+                   ,
+ AUXHIST6_OUTNAME        = auxhist6_d<domain>_<date>                                                                                 
+                                                                                                                                     
+                   ,
+ AUXHIST7_OUTNAME        = auxhist7_d<domain>_<date>                                                                                 
+                                                                                                                                     
+                   ,
+ AUXHIST8_OUTNAME        = auxhist8_d<domain>_<date>                                                                                 
+                                                                                                                                     
+                   ,
+ AUXHIST9_OUTNAME        = auxhist9_d<domain>_<date>                                                                                 
+                                                                                                                                     
+                   ,
+ AUXHIST10_OUTNAME       = auxhist10_d<domain>_<date>                                                                                
+                                                                                                                                     
+                   ,
+ AUXHIST11_OUTNAME       = auxhist11_d<domain>_<date>                                                                                
+                                                                                                                                     
+                   ,
+ HISTORY_INNAME  = wrfhist_d<domain>_<date>                                                                                          
+                                                                                                                                     
+           ,
+ AUXHIST1_INNAME = auxhist1_d<domain>_<date>                                                                                         
+                                                                                                                                     
+           ,
+ AUXHIST2_INNAME = auxhist2_d<domain>_<date>                                                                                         
+                                                                                                                                     
+           ,
+ AUXHIST3_INNAME = auxhist3_d<domain>_<date>                                                                                         
+                                                                                                                                     
+           ,
+ AUXHIST4_INNAME = auxhist4_d<domain>_<date>                                                                                         
+                                                                                                                                     
+           ,
+ AUXHIST5_INNAME = auxhist5_d<domain>_<date>                                                                                         
+                                                                                                                                     
+           ,
+ AUXHIST6_INNAME = auxhist6_d<domain>_<date>                                                                                         
+                                                                                                                                     
+           ,
+ AUXHIST7_INNAME = auxhist7_d<domain>_<date>                                                                                         
+                                                                                                                                     
+           ,
+ AUXHIST8_INNAME = auxhist8_d<domain>_<date>                                                                                         
+                                                                                                                                     
+           ,
+ AUXHIST9_INNAME = auxhist9_d<domain>_<date>                                                                                         
+                                                                                                                                     
+           ,
+ AUXHIST10_INNAME        = auxhist10_d<domain>_<date>                                                                                
+                                                                                                                                     
+                   ,
+ AUXHIST11_INNAME        = auxhist11_d<domain>_<date>                                                                                
+                                                                                                                                     
+                   ,
+ AUXINPUT1_OUTNAME       = auxinput1_d<domain>_<date>                                                                                
+                                                                                                                                     
+                   ,
+ AUXINPUT2_OUTNAME       = auxinput2_d<domain>_<date>                                                                                
+                                                                                                                                     
+                   ,
+ AUXINPUT3_OUTNAME       = auxinput3_d<domain>_<date>                                                                                
+                                                                                                                                     
+                   ,
+ AUXINPUT4_OUTNAME       = auxinput4_d<domain>_<date>                                                                                
+                                                                                                                                     
+                   ,
+ AUXINPUT5_OUTNAME       = auxinput5_d<domain>_<date>                                                                                
+                                                                                                                                     
+                   ,
+ AUXINPUT6_OUTNAME       = auxinput6_d<domain>_<date>                                                                                
+                                                                                                                                     
+                   ,
+ AUXINPUT7_OUTNAME       = auxinput7_d<domain>_<date>                                                                                
+                                                                                                                                     
+                   ,
+ AUXINPUT8_OUTNAME       = auxinput8_d<domain>_<date>                                                                                
+                                                                                                                                     
+                   ,
+ AUXINPUT9_OUTNAME       = auxinput9_d<domain>_<date>                                                                                
+                                                                                                                                     
+                   ,
+ AUXINPUT10_OUTNAME      = auxinput10_d<domain>_<date>                                                                               
+                                                                                                                                     
+                   ,
+ AUXINPUT11_OUTNAME      = auxinput11_d<domain>_<date>                                                                               
+                                                                                                                                     
+                   ,
+ AUXINPUT1_INNAME        = met_em.d<domain>.<date>                                                                                   
+                                                                                                                                     
+                   ,
+ AUXINPUT2_INNAME        = auxinput2_d<domain>                                                                                       
+                                                                                                                                     
+                   ,
+ AUXINPUT3_INNAME        = auxinput3_d<domain>                                                                                       
+                                                                                                                                     
+                   ,
+ AUXINPUT4_INNAME        = auxinput4_d<domain>                                                                                       
+                                                                                                                                     
+                   ,
+ AUXINPUT5_INNAME        = auxinput5_d<domain>                                                                                       
+                                                                                                                                     
+                   ,
+ AUXINPUT6_INNAME        = auxinput6_d<domain>                                                                                       
+                                                                                                                                     
+                   ,
+ AUXINPUT7_INNAME        = auxinput7_d<domain>                                                                                       
+                                                                                                                                     
+                   ,
+ AUXINPUT8_INNAME        = auxinput8_d<domain>                                                                                       
+                                                                                                                                     
+                   ,
+ AUXINPUT9_INNAME        = auxinput9_d<domain>                                                                                       
+                                                                                                                                     
+                   ,
+ AUXINPUT11_INNAME       = auxinput11_d<domain>                                                                                      
+                                                                                                                                     
+                   ,
+ HISTORY_INTERVAL_MO     = 11*0,
+ HISTORY_INTERVAL_D      = 11*0,
+ HISTORY_INTERVAL_H      = 11*0,
+ HISTORY_INTERVAL_M      = 11*0,
+ HISTORY_INTERVAL_S      = 11*0,
+ INPUTOUT_INTERVAL_MO    = 11*0,
+ INPUTOUT_INTERVAL_D     = 11*0,
+ INPUTOUT_INTERVAL_H     = 11*0,
+ INPUTOUT_INTERVAL_M     = 11*0,
+ INPUTOUT_INTERVAL_S     = 11*0,
+ INPUTOUT_INTERVAL       = 11*0,
+ AUXHIST1_INTERVAL_MO    = 11*0,
+ AUXHIST1_INTERVAL_D     = 11*0,
+ AUXHIST1_INTERVAL_H     = 11*0,
+ AUXHIST1_INTERVAL_M     = 11*0,
+ AUXHIST1_INTERVAL_S     = 11*0,
+ AUXHIST1_INTERVAL       = 11*0,
+ AUXHIST2_INTERVAL_MO    = 11*0,
+ AUXHIST2_INTERVAL_D     = 11*0,
+ AUXHIST2_INTERVAL_H     = 11*0,
+ AUXHIST2_INTERVAL_M     = 11*0,
+ AUXHIST2_INTERVAL_S     = 11*0,
+ AUXHIST2_INTERVAL       = 11*0,
+ AUXHIST3_INTERVAL_MO    = 11*0,
+ AUXHIST3_INTERVAL_D     = 11*0,
+ AUXHIST3_INTERVAL_H     = 11*0,
+ AUXHIST3_INTERVAL_M     = 11*0,
+ AUXHIST3_INTERVAL_S     = 11*0,
+ AUXHIST3_INTERVAL       = 11*0,
+ AUXHIST4_INTERVAL_MO    = 11*0,
+ AUXHIST4_INTERVAL_D     = 11*0,
+ AUXHIST4_INTERVAL_H     = 11*0,
+ AUXHIST4_INTERVAL_M     = 11*0,
+ AUXHIST4_INTERVAL_S     = 11*0,
+ AUXHIST4_INTERVAL       = 11*0,
+ AUXHIST5_INTERVAL_MO    = 11*0,
+ AUXHIST5_INTERVAL_D     = 11*0,
+ AUXHIST5_INTERVAL_H     = 11*0,
+ AUXHIST5_INTERVAL_M     = 11*0,
+ AUXHIST5_INTERVAL_S     = 11*0,
+ AUXHIST5_INTERVAL       = 11*0,
+ AUXHIST6_INTERVAL_MO    = 11*0,
+ AUXHIST6_INTERVAL_D     = 11*0,
+ AUXHIST6_INTERVAL_H     = 11*0,
+ AUXHIST6_INTERVAL_M     = 11*0,
+ AUXHIST6_INTERVAL_S     = 11*0,
+ AUXHIST6_INTERVAL       = 11*0,
+ AUXHIST7_INTERVAL_MO    = 11*0,
+ AUXHIST7_INTERVAL_D     = 11*0,
+ AUXHIST7_INTERVAL_H     = 11*0,
+ AUXHIST7_INTERVAL_M     = 11*0,
+ AUXHIST7_INTERVAL_S     = 11*0,
+ AUXHIST7_INTERVAL       = 11*0,
+ AUXHIST8_INTERVAL_MO    = 11*0,
+ AUXHIST8_INTERVAL_D     = 11*0,
+ AUXHIST8_INTERVAL_H     = 11*0,
+ AUXHIST8_INTERVAL_M     = 11*0,
+ AUXHIST8_INTERVAL_S     = 11*0,
+ AUXHIST8_INTERVAL       = 11*0,
+ AUXHIST9_INTERVAL_MO    = 11*0,
+ AUXHIST9_INTERVAL_D     = 11*0,
+ AUXHIST9_INTERVAL_H     = 11*0,
+ AUXHIST9_INTERVAL_M     = 11*0,
+ AUXHIST9_INTERVAL_S     = 11*0,
+ AUXHIST9_INTERVAL       = 11*0,
+ AUXHIST10_INTERVAL_MO   = 11*0,
+ AUXHIST10_INTERVAL_D    = 11*0,
+ AUXHIST10_INTERVAL_H    = 11*0,
+ AUXHIST10_INTERVAL_M    = 11*0,
+ AUXHIST10_INTERVAL_S    = 11*0,
+ AUXHIST10_INTERVAL      = 11*0,
+ AUXHIST11_INTERVAL_MO   = 11*0,
+ AUXHIST11_INTERVAL_D    = 11*0,
+ AUXHIST11_INTERVAL_H    = 11*0,
+ AUXHIST11_INTERVAL_M    = 11*0,
+ AUXHIST11_INTERVAL_S    = 11*0,
+ AUXHIST11_INTERVAL      = 11*0,
+ AUXINPUT1_INTERVAL_MO   = 11*0,
+ AUXINPUT1_INTERVAL_D    = 11*0,
+ AUXINPUT1_INTERVAL_H    = 11*0,
+ AUXINPUT1_INTERVAL_M    = 11*0,
+ AUXINPUT1_INTERVAL_S    = 11*0,
+ AUXINPUT1_INTERVAL      = 11*0,
+ AUXINPUT2_INTERVAL_MO   = 11*0,
+ AUXINPUT2_INTERVAL_D    = 11*0,
+ AUXINPUT2_INTERVAL_H    = 11*0,
+ AUXINPUT2_INTERVAL_M    = 11*0,
+ AUXINPUT2_INTERVAL_S    = 11*0,
+ AUXINPUT2_INTERVAL      = 11*0,
+ AUXINPUT3_INTERVAL_MO   = 11*0,
+ AUXINPUT3_INTERVAL_D    = 11*0,
+ AUXINPUT3_INTERVAL_H    = 11*0,
+ AUXINPUT3_INTERVAL_M    = 11*0,
+ AUXINPUT3_INTERVAL_S    = 11*0,
+ AUXINPUT3_INTERVAL      = 11*0,
+ AUXINPUT4_INTERVAL_MO   = 11*0,
+ AUXINPUT4_INTERVAL_D    = 11*0,
+ AUXINPUT4_INTERVAL_H    = 11*0,
+ AUXINPUT4_INTERVAL_M    = 11*0,
+ AUXINPUT4_INTERVAL_S    = 11*0,
+ AUXINPUT4_INTERVAL      = 11*0,
+ AUXINPUT5_INTERVAL_MO   = 11*0,
+ AUXINPUT5_INTERVAL_D    = 11*0,
+ AUXINPUT5_INTERVAL_H    = 11*0,
+ AUXINPUT5_INTERVAL_M    = 11*0,
+ AUXINPUT5_INTERVAL_S    = 11*0,
+ AUXINPUT5_INTERVAL      = 11*0,
+ AUXINPUT6_INTERVAL_MO   = 11*0,
+ AUXINPUT6_INTERVAL_D    = 11*0,
+ AUXINPUT6_INTERVAL_H    = 11*0,
+ AUXINPUT6_INTERVAL_M    = 11*0,
+ AUXINPUT6_INTERVAL_S    = 11*0,
+ AUXINPUT6_INTERVAL      = 11*0,
+ AUXINPUT7_INTERVAL_MO   = 11*0,
+ AUXINPUT7_INTERVAL_D    = 11*0,
+ AUXINPUT7_INTERVAL_H    = 11*0,
+ AUXINPUT7_INTERVAL_M    = 11*0,
+ AUXINPUT7_INTERVAL_S    = 11*0,
+ AUXINPUT7_INTERVAL      = 11*0,
+ AUXINPUT8_INTERVAL_MO   = 11*0,
+ AUXINPUT8_INTERVAL_D    = 11*0,
+ AUXINPUT8_INTERVAL_H    = 11*0,
+ AUXINPUT8_INTERVAL_M    = 11*0,
+ AUXINPUT8_INTERVAL_S    = 11*0,
+ AUXINPUT8_INTERVAL      = 11*0,
+ AUXINPUT9_INTERVAL_MO   = 11*0,
+ AUXINPUT9_INTERVAL_D    = 11*0,
+ AUXINPUT9_INTERVAL_H    = 11*0,
+ AUXINPUT9_INTERVAL_M    = 11*0,
+ AUXINPUT9_INTERVAL_S    = 11*0,
+ AUXINPUT9_INTERVAL      = 11*0,
+ AUXINPUT11_INTERVAL_MO  = 11*0,
+ AUXINPUT11_INTERVAL_D   = 11*0,
+ AUXINPUT11_INTERVAL_H   = 11*0,
+ AUXINPUT11_INTERVAL_M   = 11*0,
+ AUXINPUT11_INTERVAL_S   = 11*0,
+ AUXINPUT11_INTERVAL     = 11*0,
+ RESTART_INTERVAL_MO     =           0,
+ RESTART_INTERVAL_D      =           0,
+ RESTART_INTERVAL_H      =           0,
+ RESTART_INTERVAL_M      =           0,
+ RESTART_INTERVAL_S      =           0,
+ HISTORY_BEGIN_Y = 11*0,
+ HISTORY_BEGIN_MO        = 11*0,
+ HISTORY_BEGIN_D = 11*0,
+ HISTORY_BEGIN_H = 11*0,
+ HISTORY_BEGIN_M = 11*0,
+ HISTORY_BEGIN_S = 11*0,
+ INPUTOUT_BEGIN_Y        = 11*0,
+ INPUTOUT_BEGIN_MO       = 11*0,
+ INPUTOUT_BEGIN_D        = 11*0,
+ INPUTOUT_BEGIN_H        = 11*0,
+ INPUTOUT_BEGIN_M        = 11*0,
+ INPUTOUT_BEGIN_S        = 11*0,
+ AUXHIST1_BEGIN_Y        = 11*0,
+ AUXHIST1_BEGIN_MO       = 11*0,
+ AUXHIST1_BEGIN_D        = 11*0,
+ AUXHIST1_BEGIN_H        = 11*0,
+ AUXHIST1_BEGIN_M        = 11*0,
+ AUXHIST1_BEGIN_S        = 11*0,
+ AUXHIST2_BEGIN_Y        = 11*0,
+ AUXHIST2_BEGIN_MO       = 11*0,
+ AUXHIST2_BEGIN_D        = 11*0,
+ AUXHIST2_BEGIN_H        = 11*0,
+ AUXHIST2_BEGIN_M        = 11*0,
+ AUXHIST2_BEGIN_S        = 11*0,
+ AUXHIST3_BEGIN_Y        = 11*0,
+ AUXHIST3_BEGIN_MO       = 11*0,
+ AUXHIST3_BEGIN_D        = 11*0,
+ AUXHIST3_BEGIN_H        = 11*0,
+ AUXHIST3_BEGIN_M        = 11*0,
+ AUXHIST3_BEGIN_S        = 11*0,
+ AUXHIST4_BEGIN_Y        = 11*0,
+ AUXHIST4_BEGIN_MO       = 11*0,
+ AUXHIST4_BEGIN_D        = 11*0,
+ AUXHIST4_BEGIN_H        = 11*0,
+ AUXHIST4_BEGIN_M        = 11*0,
+ AUXHIST4_BEGIN_S        = 11*0,
+ AUXHIST5_BEGIN_Y        = 11*0,
+ AUXHIST5_BEGIN_MO       = 11*0,
+ AUXHIST5_BEGIN_D        = 11*0,
+ AUXHIST5_BEGIN_H        = 11*0,
+ AUXHIST5_BEGIN_M        = 11*0,
+ AUXHIST5_BEGIN_S        = 11*0,
+ AUXHIST6_BEGIN_Y        = 11*0,
+ AUXHIST6_BEGIN_MO       = 11*0,
+ AUXHIST6_BEGIN_D        = 11*0,
+ AUXHIST6_BEGIN_H        = 11*0,
+ AUXHIST6_BEGIN_M        = 11*0,
+ AUXHIST6_BEGIN_S        = 11*0,
+ AUXHIST7_BEGIN_Y        = 11*0,
+ AUXHIST7_BEGIN_MO       = 11*0,
+ AUXHIST7_BEGIN_D        = 11*0,
+ AUXHIST7_BEGIN_H        = 11*0,
+ AUXHIST7_BEGIN_M        = 11*0,
+ AUXHIST7_BEGIN_S        = 11*0,
+ AUXHIST8_BEGIN_Y        = 11*0,
+ AUXHIST8_BEGIN_MO       = 11*0,
+ AUXHIST8_BEGIN_D        = 11*0,
+ AUXHIST8_BEGIN_H        = 11*0,
+ AUXHIST8_BEGIN_M        = 11*0,
+ AUXHIST8_BEGIN_S        = 11*0,
+ AUXHIST9_BEGIN_Y        = 11*0,
+ AUXHIST9_BEGIN_MO       = 11*0,
+ AUXHIST9_BEGIN_D        = 11*0,
+ AUXHIST9_BEGIN_H        = 11*0,
+ AUXHIST9_BEGIN_M        = 11*0,
+ AUXHIST9_BEGIN_S        = 11*0,
+ AUXHIST10_BEGIN_Y       = 11*0,
+ AUXHIST10_BEGIN_MO      = 11*0,
+ AUXHIST10_BEGIN_D       = 11*0,
+ AUXHIST10_BEGIN_H       = 11*0,
+ AUXHIST10_BEGIN_M       = 11*0,
+ AUXHIST10_BEGIN_S       = 11*0,
+ AUXHIST11_BEGIN_Y       = 11*0,
+ AUXHIST11_BEGIN_MO      = 11*0,
+ AUXHIST11_BEGIN_D       = 11*0,
+ AUXHIST11_BEGIN_H       = 11*0,
+ AUXHIST11_BEGIN_M       = 11*0,
+ AUXHIST11_BEGIN_S       = 11*0,
+ AUXINPUT1_BEGIN_Y       = 11*0,
+ AUXINPUT1_BEGIN_MO      = 11*0,
+ AUXINPUT1_BEGIN_D       = 11*0,
+ AUXINPUT1_BEGIN_H       = 11*0,
+ AUXINPUT1_BEGIN_M       = 11*0,
+ AUXINPUT1_BEGIN_S       = 11*0,
+ AUXINPUT2_BEGIN_Y       = 11*0,
+ AUXINPUT2_BEGIN_MO      = 11*0,
+ AUXINPUT2_BEGIN_D       = 11*0,
+ AUXINPUT2_BEGIN_H       = 11*0,
+ AUXINPUT2_BEGIN_M       = 11*0,
+ AUXINPUT2_BEGIN_S       = 11*0,
+ AUXINPUT3_BEGIN_Y       = 11*0,
+ AUXINPUT3_BEGIN_MO      = 11*0,
+ AUXINPUT3_BEGIN_D       = 11*0,
+ AUXINPUT3_BEGIN_H       = 11*0,
+ AUXINPUT3_BEGIN_M       = 11*0,
+ AUXINPUT3_BEGIN_S       = 11*0,
+ AUXINPUT4_BEGIN_Y       = 11*0,
+ AUXINPUT4_BEGIN_MO      = 11*0,
+ AUXINPUT4_BEGIN_D       = 11*0,
+ AUXINPUT4_BEGIN_H       = 11*0,
+ AUXINPUT4_BEGIN_M       = 11*0,
+ AUXINPUT4_BEGIN_S       = 11*0,
+ AUXINPUT5_BEGIN_Y       = 11*0,
+ AUXINPUT5_BEGIN_MO      = 11*0,
+ AUXINPUT5_BEGIN_D       = 11*0,
+ AUXINPUT5_BEGIN_H       = 11*0,
+ AUXINPUT5_BEGIN_M       = 11*0,
+ AUXINPUT5_BEGIN_S       = 11*0,
+ AUXINPUT6_BEGIN_Y       = 11*0,
+ AUXINPUT6_BEGIN_MO      = 11*0,
+ AUXINPUT6_BEGIN_D       = 11*0,
+ AUXINPUT6_BEGIN_H       = 11*0,
+ AUXINPUT6_BEGIN_M       = 11*0,
+ AUXINPUT6_BEGIN_S       = 11*0,
+ AUXINPUT7_BEGIN_Y       = 11*0,
+ AUXINPUT7_BEGIN_MO      = 11*0,
+ AUXINPUT7_BEGIN_D       = 11*0,
+ AUXINPUT7_BEGIN_H       = 11*0,
+ AUXINPUT7_BEGIN_M       = 11*0,
+ AUXINPUT7_BEGIN_S       = 11*0,
+ AUXINPUT8_BEGIN_Y       = 11*0,
+ AUXINPUT8_BEGIN_MO      = 11*0,
+ AUXINPUT8_BEGIN_D       = 11*0,
+ AUXINPUT8_BEGIN_H       = 11*0,
+ AUXINPUT8_BEGIN_M       = 11*0,
+ AUXINPUT8_BEGIN_S       = 11*0,
+ AUXINPUT9_BEGIN_Y       = 11*0,
+ AUXINPUT9_BEGIN_MO      = 11*0,
+ AUXINPUT9_BEGIN_D       = 11*0,
+ AUXINPUT9_BEGIN_H       = 11*0,
+ AUXINPUT9_BEGIN_M       = 11*0,
+ AUXINPUT9_BEGIN_S       = 11*0,
+ AUXINPUT11_BEGIN_Y      = 11*0,
+ AUXINPUT11_BEGIN_MO     = 11*0,
+ AUXINPUT11_BEGIN_D      = 11*0,
+ AUXINPUT11_BEGIN_H      = 11*0,
+ AUXINPUT11_BEGIN_M      = 11*0,
+ AUXINPUT11_BEGIN_S      = 11*0,
+ RESTART_BEGIN_Y =           0,
+ RESTART_BEGIN_MO        =           0,
+ RESTART_BEGIN_D =           0,
+ RESTART_BEGIN_H =           0,
+ RESTART_BEGIN_M =           0,
+ RESTART_BEGIN_S =           0,
+ HISTORY_END_Y   = 11*0,
+ HISTORY_END_MO  = 11*0,
+ HISTORY_END_D   = 11*0,
+ HISTORY_END_H   = 11*0,
+ HISTORY_END_M   = 11*0,
+ HISTORY_END_S   = 11*0,
+ INPUTOUT_END_Y  = 11*0,
+ INPUTOUT_END_MO = 11*0,
+ INPUTOUT_END_D  = 11*0,
+ INPUTOUT_END_H  = 11*0,
+ INPUTOUT_END_M  = 11*0,
+ INPUTOUT_END_S  = 11*0,
+ AUXHIST1_END_Y  = 11*0,
+ AUXHIST1_END_MO = 11*0,
+ AUXHIST1_END_D  = 11*0,
+ AUXHIST1_END_H  = 11*0,
+ AUXHIST1_END_M  = 11*0,
+ AUXHIST1_END_S  = 11*0,
+ AUXHIST2_END_Y  = 11*0,
+ AUXHIST2_END_MO = 11*0,
+ AUXHIST2_END_D  = 11*0,
+ AUXHIST2_END_H  = 11*0,
+ AUXHIST2_END_M  = 11*0,
+ AUXHIST2_END_S  = 11*0,
+ AUXHIST3_END_Y  = 11*0,
+ AUXHIST3_END_MO = 11*0,
+ AUXHIST3_END_D  = 11*0,
+ AUXHIST3_END_H  = 11*0,
+ AUXHIST3_END_M  = 11*0,
+ AUXHIST3_END_S  = 11*0,
+ AUXHIST4_END_Y  = 11*0,
+ AUXHIST4_END_MO = 11*0,
+ AUXHIST4_END_D  = 11*0,
+ AUXHIST4_END_H  = 11*0,
+ AUXHIST4_END_M  = 11*0,
+ AUXHIST4_END_S  = 11*0,
+ AUXHIST5_END_Y  = 11*0,
+ AUXHIST5_END_MO = 11*0,
+ AUXHIST5_END_D  = 11*0,
+ AUXHIST5_END_H  = 11*0,
+ AUXHIST5_END_M  = 11*0,
+ AUXHIST5_END_S  = 11*0,
+ AUXHIST6_END_Y  = 11*0,
+ AUXHIST6_END_MO = 11*0,
+ AUXHIST6_END_D  = 11*0,
+ AUXHIST6_END_H  = 11*0,
+ AUXHIST6_END_M  = 11*0,
+ AUXHIST6_END_S  = 11*0,
+ AUXHIST7_END_Y  = 11*0,
+ AUXHIST7_END_MO = 11*0,
+ AUXHIST7_END_D  = 11*0,
+ AUXHIST7_END_H  = 11*0,
+ AUXHIST7_END_M  = 11*0,
+ AUXHIST7_END_S  = 11*0,
+ AUXHIST8_END_Y  = 11*0,
+ AUXHIST8_END_MO = 11*0,
+ AUXHIST8_END_D  = 11*0,
+ AUXHIST8_END_H  = 11*0,
+ AUXHIST8_END_M  = 11*0,
+ AUXHIST8_END_S  = 11*0,
+ AUXHIST9_END_Y  = 11*0,
+ AUXHIST9_END_MO = 11*0,
+ AUXHIST9_END_D  = 11*0,
+ AUXHIST9_END_H  = 11*0,
+ AUXHIST9_END_M  = 11*0,
+ AUXHIST9_END_S  = 11*0,
+ AUXHIST10_END_Y = 11*0,
+ AUXHIST10_END_MO        = 11*0,
+ AUXHIST10_END_D = 11*0,
+ AUXHIST10_END_H = 11*0,
+ AUXHIST10_END_M = 11*0,
+ AUXHIST10_END_S = 11*0,
+ AUXHIST11_END_Y = 11*0,
+ AUXHIST11_END_MO        = 11*0,
+ AUXHIST11_END_D = 11*0,
+ AUXHIST11_END_H = 11*0,
+ AUXHIST11_END_M = 11*0,
+ AUXHIST11_END_S = 11*0,
+ AUXINPUT1_END_Y = 11*0,
+ AUXINPUT1_END_MO        = 11*0,
+ AUXINPUT1_END_D = 11*0,
+ AUXINPUT1_END_H = 11*0,
+ AUXINPUT1_END_M = 11*0,
+ AUXINPUT1_END_S = 11*0,
+ AUXINPUT2_END_Y = 11*0,
+ AUXINPUT2_END_MO        = 11*0,
+ AUXINPUT2_END_D = 11*0,
+ AUXINPUT2_END_H = 11*0,
+ AUXINPUT2_END_M = 11*0,
+ AUXINPUT2_END_S = 11*0,
+ AUXINPUT3_END_Y = 11*0,
+ AUXINPUT3_END_MO        = 11*0,
+ AUXINPUT3_END_D = 11*0,
+ AUXINPUT3_END_H = 11*0,
+ AUXINPUT3_END_M = 11*0,
+ AUXINPUT3_END_S = 11*0,
+ AUXINPUT4_END_Y = 11*0,
+ AUXINPUT4_END_MO        = 11*0,
+ AUXINPUT4_END_D = 11*0,
+ AUXINPUT4_END_H = 11*0,
+ AUXINPUT4_END_M = 11*0,
+ AUXINPUT4_END_S = 11*0,
+ AUXINPUT5_END_Y = 11*0,
+ AUXINPUT5_END_MO        = 11*0,
+ AUXINPUT5_END_D = 11*0,
+ AUXINPUT5_END_H = 11*0,
+ AUXINPUT5_END_M = 11*0,
+ AUXINPUT5_END_S = 11*0,
+ AUXINPUT6_END_Y = 11*0,
+ AUXINPUT6_END_MO        = 11*0,
+ AUXINPUT6_END_D = 11*0,
+ AUXINPUT6_END_H = 11*0,
+ AUXINPUT6_END_M = 11*0,
+ AUXINPUT6_END_S = 11*0,
+ AUXINPUT7_END_Y = 11*0,
+ AUXINPUT7_END_MO        = 11*0,
+ AUXINPUT7_END_D = 11*0,
+ AUXINPUT7_END_H = 11*0,
+ AUXINPUT7_END_M = 11*0,
+ AUXINPUT7_END_S = 11*0,
+ AUXINPUT8_END_Y = 11*0,
+ AUXINPUT8_END_MO        = 11*0,
+ AUXINPUT8_END_D = 11*0,
+ AUXINPUT8_END_H = 11*0,
+ AUXINPUT8_END_M = 11*0,
+ AUXINPUT8_END_S = 11*0,
+ AUXINPUT9_END_Y = 11*0,
+ AUXINPUT9_END_MO        = 11*0,
+ AUXINPUT9_END_D = 11*0,
+ AUXINPUT9_END_H = 11*0,
+ AUXINPUT9_END_M = 11*0,
+ AUXINPUT9_END_S = 11*0,
+ AUXINPUT11_END_Y        = 11*0,
+ AUXINPUT11_END_MO       = 11*0,
+ AUXINPUT11_END_D        = 11*0,
+ AUXINPUT11_END_H        = 11*0,
+ AUXINPUT11_END_M        = 11*0,
+ AUXINPUT11_END_S        = 11*0,
+ IO_FORM_AUXINPUT1       =           2,
+ IO_FORM_AUXINPUT2       =           2,
+ IO_FORM_AUXINPUT3       =           2,
+ IO_FORM_AUXINPUT4       =           2,
+ IO_FORM_AUXINPUT5       =           2,
+ IO_FORM_AUXINPUT6       =           2,
+ IO_FORM_AUXINPUT7       =           2,
+ IO_FORM_AUXINPUT8       =           2,
+ IO_FORM_AUXINPUT9       =           2,
+ IO_FORM_AUXINPUT11      =           2,
+ IO_FORM_AUXHIST1        =           2,
+ IO_FORM_AUXHIST2        =           2,
+ IO_FORM_AUXHIST3        =           2,
+ IO_FORM_AUXHIST4        =           2,
+ IO_FORM_AUXHIST5        =           2,
+ IO_FORM_AUXHIST6        =           2,
+ IO_FORM_AUXHIST7        =           2,
+ IO_FORM_AUXHIST8        =           2,
+ IO_FORM_AUXHIST9        =           2,
+ IO_FORM_AUXHIST10       =           2,
+ IO_FORM_AUXHIST11       =           2,
+ JULYR   = 11*0,
+ JULDAY  = 11*1,
+ GMT     = 11*0.0000000E+00  ,
+ INPUT_INNAME    = wrfinput_d<domain>                                                                                                
+                                                                                                                                     
+           ,
+ INPUT_OUTNAME   = wrfinput_d<domain>                                                                                                
+                                                                                                                                     
+           ,
+ BDY_INNAME      = wrfbdy_d<domain>                                                                                                  
+                                                                                                                                     
+           ,
+ BDY_OUTNAME     = wrfbdy_d<domain>                                                                                                  
+                                                                                                                                     
+           ,
+ RST_INNAME      = wrfrst_d<domain>_<date>                                                                                           
+                                                                                                                                     
+           ,
+ RST_OUTNAME     = wrfrst_d<domain>_<date>                                                                                           
+                                                                                                                                     
+           ,
+ WRITE_INPUT     = F,
+ WRITE_RESTART_AT_0H     = F,
+ ADJUST_OUTPUT_TIMES     = F,
+ ADJUST_INPUT_TIMES      = F,
+ DIAG_PRINT      =           0,
+ NOCOLONS        = F
+ /
+ &FDDA
+ GFDDA_INNAME    = gfdda_d<domain>                                                                                                   
+                                                                                                                                     
+           ,
+ GFDDA_INTERVAL_MO       = 11*0,
+ GFDDA_INTERVAL_D        = 11*0,
+ GFDDA_INTERVAL_H        = 11*0,
+ GFDDA_INTERVAL_M        = 11*0,
+ GFDDA_INTERVAL_S        = 11*0,
+ GFDDA_INTERVAL  = 11*0,
+ GFDDA_BEGIN_Y   = 11*0,
+ GFDDA_BEGIN_MO  = 11*0,
+ GFDDA_BEGIN_D   = 11*0,
+ GFDDA_BEGIN_H   = 11*0,
+ GFDDA_BEGIN_M   = 11*0,
+ GFDDA_BEGIN_S   = 11*0,
+ GFDDA_END_Y     = 11*0,
+ GFDDA_END_MO    = 11*0,
+ GFDDA_END_D     = 11*0,
+ GFDDA_END_H     = 11*0,
+ GFDDA_END_M     = 11*0,
+ GFDDA_END_S     = 11*0,
+ IO_FORM_GFDDA   =           2,
+ FGDT    = 11*0.0000000E+00  ,
+ GRID_FDDA       = 11*0,
+ IF_NO_PBL_NUDGING_UV    = 11*0,
+ IF_NO_PBL_NUDGING_T     = 11*0,
+ IF_NO_PBL_NUDGING_Q     = 11*0,
+ IF_ZFAC_UV      = 11*0,
+ K_ZFAC_UV       = 11*0,
+ IF_ZFAC_T       = 11*0,
+ K_ZFAC_T        = 11*0,
+ IF_ZFAC_Q       = 11*0,
+ K_ZFAC_Q        = 11*0,
+ GUV     = 11*0.0000000E+00  ,
+ GT      = 11*0.0000000E+00  ,
+ GQ      = 11*0.0000000E+00  ,
+ DTRAMP_MIN      =  0.0000000E+00,
+ IF_RAMPING      =           0,
+ OBS_NUDGE_OPT   = 11*0,
+ MAX_OBS =           0,
+ NOBS_NDG_VARS   =           0,
+ NOBS_ERR_FLDS   =           0,
+ FDDA_START      = 11*0.0000000E+00  ,
+ FDDA_END        = 11*0.0000000E+00  ,
+ OBS_NUDGE_WIND  = 11*0,
+ OBS_COEF_WIND   = 11*0.0000000E+00  ,
+ OBS_NUDGE_TEMP  = 11*0,
+ OBS_COEF_TEMP   = 11*0.0000000E+00  ,
+ OBS_NUDGE_MOIS  = 11*0,
+ OBS_COEF_MOIS   = 11*0.0000000E+00  ,
+ OBS_NUDGE_PSTR  = 11*0,
+ OBS_COEF_PSTR   = 11*0.0000000E+00  ,
+ OBS_RINXY       = 11*0.0000000E+00  ,
+ OBS_RINSIG      =  0.0000000E+00,
+ OBS_TWINDO      =  0.0000000E+00,
+ OBS_NPFI        =           0,
+ OBS_IONF        =           0,
+ OBS_IDYNIN      =           0,
+ OBS_DTRAMP      =  0.0000000E+00,
+ OBS_IPF_IN4DOB  = F,
+ OBS_IPF_ERROB   = F,
+ OBS_IPF_NUDOB   = F
+ /
+ &DOMAINS
+ TIME_STEP       =          24,
+ TIME_STEP_FRACT_NUM     =           0,
+ TIME_STEP_FRACT_DEN     =           1,
+ MAX_DOM =           2,
+ S_WE    = 11*1,
+ E_WE    =          52,          70, 9*32,
+ S_SN    = 11*1,
+ E_SN    =          70,          64, 9*32,
+ S_VERT  = 11*1,
+ E_VERT  = 3*52, 8*31,
+ NUM_METGRID_LEVELS      =          52,
+ P_TOP_REQUESTED =   5000.000    ,
+ INTERP_TYPE     =           1,
+ LOWEST_LEV_FROM_SFC     = F,
+ LAGRANGE_ORDER  =           1,
+ FORCE_SFC_IN_VINTERP    =           1,
+ ZAP_CLOSE_LEVELS        =   500.0000    ,
+ SFCP_TO_SFCP    = F,
+ ADJUST_HEIGHTS  = F,
+ DX      =   4000.000    ,   1333.333    , 9*200.0000       ,
+ DY      =   4000.000    ,   1333.333    , 9*200.0000       ,
+ GRID_ID =           1,           2,           3, 8*1,
+ PARENT_ID       = 2*1,           2, 8*0,
+ I_PARENT_START  =           0,          18, 9*1,
+ J_PARENT_START  =           0,          31, 9*1,
+ PARENT_GRID_RATIO       =           1, 2*3, 8*1,
+ PARENT_TIME_STEP_RATIO  =           1, 2*3, 8*1,
+ FEEDBACK        =           1,
+ SMOOTH_OPTION   =           2,
+ BLEND_WIDTH     =           5,
+ ZTOP    = 11*15000.00       ,
+ MOAD_GRID_RATIO = 11*1,
+ MOAD_TIME_STEP_RATIO    = 11*1,
+ SHW     = 11*2,
+ TILE_SZ_X       =           0,
+ TILE_SZ_Y       =           0,
+ NUMTILES        =           1,
+ NPROC_X =          -1,
+ NPROC_Y =          -1,
+ IRAND   =           0,
+ NUM_MOVES       =           0,
+ VORTEX_INTERVAL = 11*15,
+ MAX_VORTEX_SPEED        = 11*40,
+ CORRAL_DIST     = 11*8,
+ MOVE_ID = 50*0,
+ MOVE_INTERVAL   = 50*999999999,
+ MOVE_CD_X       = 50*0,
+ MOVE_CD_Y       = 50*0,
+ SWAP_X  = 11*F,
+ SWAP_Y  = 11*F,
+ CYCLE_X = 11*F,
+ CYCLE_Y = 11*F,
+ REORDER_MESH    = F,
+ PERTURB_INPUT   = F,
+ ETA_LEVELS      = 501*-1.000000      ,
+ MAX_DZ  =   1000.000    
+ /
+ &PHYSICS
+ MP_PHYSICS      = 3*5, 8*0,
+ RA_LW_PHYSICS   = 3*1, 8*0,
+ RA_SW_PHYSICS   = 3*1, 8*0,
+ RADT    = 3*10.00000       , 8*0.0000000E+00  ,
+ SF_SFCLAY_PHYSICS       = 3*1, 8*0,
+ SF_SURFACE_PHYSICS      = 3*2, 8*0,
+ BL_PBL_PHYSICS  = 3*1, 8*0,
+ BLDT    = 11*0.0000000E+00  ,
+ CU_PHYSICS      = 3*3, 8*0,
+ CUDT    = 3*5.000000       , 8*0.0000000E+00  ,
+ GSMDT   = 11*0.0000000E+00  ,
+ ISFFLX  =           1,
+ IFSNOW  =           1,
+ ICLOUD  =           1,
+ SWRAD_SCAT      =   1.000000    ,
+ SURFACE_INPUT_SOURCE    =           1,
+ NUM_SOIL_LAYERS =           4,
+ NUM_MONTHS      =          12,
+ MAXIENS =           1,
+ MAXENS  =           3,
+ MAXENS2 =           3,
+ MAXENS3 =          16,
+ ENSDIM  =         144,
+ CHEM_OPT        = 11*0,
+ NUM_LAND_CAT    =          24,
+ NUM_SOIL_CAT    =          16,
+ MP_ZERO_OUT     =           0,
+ MP_ZERO_OUT_THRESH      =  9.9999999E-09,
+ SEAICE_THRESHOLD        =   271.0000    ,
+ SST_UPDATE      =           0,
+ UCMCALL =           0,
+ CO2TF   =           0,
+ RA_CALL_OFFSET  =           0,
+ CAM_ABS_FREQ_S  =   21600.00    ,
+ LEVSIZ  =           1,
+ PAERLEV =           1,
+ CAM_ABS_DIM1    =           1,
+ CAM_ABS_DIM2    =           1
+ /
+ &DYNAMICS
+ DYN_OPT =           2,
+ RK_ORD  =           3,
+ W_DAMPING       =           0,
+ DIFF_OPT        =           1,
+ KM_OPT  =           4,
+ DAMP_OPT        =           0,
+ ZDAMP   = 11*5000.000       ,
+ DAMPCOEF        = 3*0.2000000      , 8*0.0000000E+00  ,
+ KHDIF   = 11*0.0000000E+00  ,
+ KVDIF   = 11*0.0000000E+00  ,
+ DIFF_6TH_FACTOR = 11*0.1200000      ,
+ DIFF_6TH_OPT    = 11*0,
+ SMDIV   = 11*0.1000000      ,
+ EMDIV   = 11*9.9999998E-03  ,
+ EPSSM   = 11*0.1000000      ,
+ NON_HYDROSTATIC = 11*T,
+ TIME_STEP_SOUND = 3*4, 8*0,
+ H_MOM_ADV_ORDER = 11*5,
+ V_MOM_ADV_ORDER = 11*3,
+ H_SCA_ADV_ORDER = 11*5,
+ V_SCA_ADV_ORDER = 11*3,
+ PD_MOIST        = 11*F,
+ PD_CHEM = 11*F,
+ PD_SCALAR       = 11*F,
+ PD_TKE  = 11*F,
+ TOP_RADIATION   = 11*F,
+ MIX_CR_LEN      = 11*200.0000       ,
+ TKE_UPPER_BOUND = 11*1000.000       ,
+ KH_TKE_UPPER_BOUND      = 11*1000.000       ,
+ KV_TKE_UPPER_BOUND      = 11*1000.000       ,
+ TKE_DRAG_COEFFICIENT    = 11*0.0000000E+00  ,
+ TKE_HEAT_FLUX   = 11*0.0000000E+00  ,
+ PERT_CORIOLIS   = 11*F,
+ MIX_FULL_FIELDS = 11*F,
+ BASE_PRES       =   100000.0    ,
+ BASE_TEMP       =   290.0000    ,
+ BASE_LAPSE      =   50.00000    
+ /
+ &BDY_CONTROL
+ SPEC_BDY_WIDTH  =           5,
+ SPEC_ZONE       =           1,
+ RELAX_ZONE      =           4,
+ SPECIFIED       = T, 10*F,
+ PERIODIC_X      = 11*F,
+ SYMMETRIC_XS    = 11*F,
+ SYMMETRIC_XE    = 11*F,
+ OPEN_XS = 11*F,
+ OPEN_XE = 11*F,
+ PERIODIC_Y      = 11*F,
+ SYMMETRIC_YS    = 11*F,
+ SYMMETRIC_YE    = 11*F,
+ OPEN_YS = 11*F,
+ OPEN_YE = 11*F,
+ NESTED  = F, 2*T, 8*F,
+ REAL_DATA_INIT_TYPE     =           1
+ /
+ &GRIB2
+ BACKGROUND_PROC_ID      =         255,
+ FORECAST_PROC_ID        =         255,
+ PRODUCTION_STATUS       =         255,
+ COMPRESSION     =          40
+ /
+ WRF V2.2.1 MODEL
+ DYNAMICS OPTION: Eulerian Mass Coordinate
+ med_initialdata_input: calling input_model_input
+ INPUT LANDUSE = USGS
+ LANDUSE TYPE = USGS FOUND          24  CATEGORIES           2  SEASONS
+  WATER CATEGORY =           16  SNOW CATEGORY =           24
+ INITIALIZE THREE Noah LSM RELATED TABLES
+  INPUT LANDUSE = USGS
+  LANDUSE TYPE = USGS FOUND          27 CATEGORIES
+  INPUT SOIL TEXTURE CLASSIFICAION = STAS
+  SOIL TEXTURE CLASSIFICATION = STAS FOUND          19 CATEGORIES
+  STEPRA,STEPCU,STEPBL          25          13           1
+ *** Initializing nest domain # 2 from an input file. ***
+ med_initialdata_input: calling input_model_input
+ INPUT LANDUSE = USGS
+ LANDUSE TYPE = USGS FOUND          24  CATEGORIES           2  SEASONS
+  WATER CATEGORY =           16  SNOW CATEGORY =           24
+ INITIALIZE THREE Noah LSM RELATED TABLES
+  INPUT LANDUSE = USGS
+  LANDUSE TYPE = USGS FOUND          27 CATEGORIES
+  INPUT SOIL TEXTURE CLASSIFICAION = STAS
+  SOIL TEXTURE CLASSIFICATION = STAS FOUND          19 CATEGORIES
+  STEPRA,STEPCU,STEPBL          75          38           1
+ INPUT LANDUSE = USGS
+ LANDUSE TYPE = USGS FOUND          24  CATEGORIES           2  SEASONS
+  WATER CATEGORY =           16  SNOW CATEGORY =           24
+ INITIALIZE THREE Noah LSM RELATED TABLES
+  INPUT LANDUSE = USGS
+  LANDUSE TYPE = USGS FOUND          27 CATEGORIES
+  INPUT SOIL TEXTURE CLASSIFICAION = STAS
+  SOIL TEXTURE CLASSIFICATION = STAS FOUND          19 CATEGORIES
+  STEPRA,STEPCU,STEPBL          75          38           1
+ INPUT LANDUSE = USGS
+ LANDUSE TYPE = USGS FOUND          24  CATEGORIES           2  SEASONS
+  WATER CATEGORY =           16  SNOW CATEGORY =           24
+ INITIALIZE THREE Noah LSM RELATED TABLES
+  INPUT LANDUSE = USGS
+  LANDUSE TYPE = USGS FOUND          27 CATEGORIES
+  INPUT SOIL TEXTURE CLASSIFICAION = STAS
+  SOIL TEXTURE CLASSIFICATION = STAS FOUND          19 CATEGORIES
+  STEPRA,STEPCU,STEPBL          25          13           1
+Timing for Writing wrfout_d01_2017-05-19_18:00:00 for domain        1:    0.07470 elapsed seconds.
+Timing for processing lateral boundary for domain        1:    0.01090 elapsed seconds.
+ WRF NUMBER OF TILES FROM OMP_GET_MAX_THREADS =   1
+ WRF NUMBER OF TILES =   1
+Timing for Writing wrfout_d02_2017-05-19_18:00:00 for domain        2:    0.06720 elapsed seconds.
+ WRF NUMBER OF TILES FROM OMP_GET_MAX_THREADS =   1
+ WRF NUMBER OF TILES =   1
+Timing for main: time 2017-05-19_18:00:08 on domain   2:    0.84180 elapsed seconds.
+Timing for main: time 2017-05-19_18:00:16 on domain   2:    0.34320 elapsed seconds.
+Timing for main: time 2017-05-19_18:00:24 on domain   2:    0.34490 elapsed seconds.
+Timing for main: time 2017-05-19_18:00:24 on domain   1:    4.41570 elapsed seconds.
+Timing for main: time 2017-05-19_18:00:32 on domain   2:    0.34200 elapsed seconds.
+Timing for main: time 2017-05-19_18:00:40 on domain   2:    0.34400 elapsed seconds.
+Timing for main: time 2017-05-19_18:00:48 on domain   2:    0.34350 elapsed seconds.
+Timing for main: time 2017-05-19_18:00:48 on domain   1:    1.68460 elapsed seconds.
+Timing for main: time 2017-05-19_18:00:56 on domain   2:    0.35770 elapsed seconds.
+Timing for main: time 2017-05-19_18:01:04 on domain   2:    0.34310 elapsed seconds.
+Timing for main: time 2017-05-19_18:01:12 on domain   2:    0.34140 elapsed seconds.
+Timing for main: time 2017-05-19_18:01:12 on domain   1:    1.69720 elapsed seconds.
+Timing for main: time 2017-05-19_18:01:20 on domain   2:    0.34290 elapsed seconds.
+Timing for main: time 2017-05-19_18:01:28 on domain   2:    0.34260 elapsed seconds.
+Timing for main: time 2017-05-19_18:01:36 on domain   2:    0.34390 elapsed seconds.
+Timing for main: time 2017-05-19_18:01:36 on domain   1:    1.68230 elapsed seconds.
+Timing for main: time 2017-05-19_18:01:44 on domain   2:    0.34320 elapsed seconds.
+Timing for main: time 2017-05-19_18:01:52 on domain   2:    0.34770 elapsed seconds.
+Timing for main: time 2017-05-19_18:02:00 on domain   2:    0.34400 elapsed seconds.
+Timing for main: time 2017-05-19_18:02:00 on domain   1:    1.69230 elapsed seconds.
+Timing for main: time 2017-05-19_18:02:08 on domain   2:    0.34770 elapsed seconds.
+Timing for main: time 2017-05-19_18:02:16 on domain   2:    0.34890 elapsed seconds.
+Timing for main: time 2017-05-19_18:02:24 on domain   2:    0.36060 elapsed seconds.
+Timing for main: time 2017-05-19_18:02:24 on domain   1:    1.71310 elapsed seconds.
+Timing for main: time 2017-05-19_18:02:32 on domain   2:    0.34950 elapsed seconds.
+Timing for main: time 2017-05-19_18:02:40 on domain   2:    0.35040 elapsed seconds.
+Timing for main: time 2017-05-19_18:02:48 on domain   2:    0.34860 elapsed seconds.
+Timing for main: time 2017-05-19_18:02:48 on domain   1:    1.70320 elapsed seconds.
+Timing for main: time 2017-05-19_18:02:56 on domain   2:    0.34760 elapsed seconds.
+Timing for main: time 2017-05-19_18:03:04 on domain   2:    0.34920 elapsed seconds.
+Timing for main: time 2017-05-19_18:03:12 on domain   2:    0.34620 elapsed seconds.
+Timing for main: time 2017-05-19_18:03:12 on domain   1:    1.70000 elapsed seconds.
+Timing for main: time 2017-05-19_18:03:20 on domain   2:    0.34000 elapsed seconds.
+Timing for main: time 2017-05-19_18:03:28 on domain   2:    0.34020 elapsed seconds.
+Timing for main: time 2017-05-19_18:03:36 on domain   2:    0.34430 elapsed seconds.
+Timing for main: time 2017-05-19_18:03:36 on domain   1:    1.67540 elapsed seconds.
+Timing for main: time 2017-05-19_18:03:44 on domain   2:    0.34300 elapsed seconds.
+Timing for main: time 2017-05-19_18:03:52 on domain   2:    0.34260 elapsed seconds.
+Timing for main: time 2017-05-19_18:04:00 on domain   2:    0.34550 elapsed seconds.
+Timing for main: time 2017-05-19_18:04:00 on domain   1:    1.68560 elapsed seconds.
+Timing for main: time 2017-05-19_18:04:08 on domain   2:    0.34380 elapsed seconds.
+Timing for main: time 2017-05-19_18:04:16 on domain   2:    0.34570 elapsed seconds.
+Timing for main: time 2017-05-19_18:04:24 on domain   2:    0.34800 elapsed seconds.
+Timing for main: time 2017-05-19_18:04:24 on domain   1:    1.68750 elapsed seconds.
+Timing for main: time 2017-05-19_18:04:32 on domain   2:    0.35040 elapsed seconds.
+Timing for main: time 2017-05-19_18:04:40 on domain   2:    0.34810 elapsed seconds.
+Timing for main: time 2017-05-19_18:04:48 on domain   2:    0.34850 elapsed seconds.
+Timing for main: time 2017-05-19_18:04:48 on domain   1:    1.70050 elapsed seconds.
+Timing for main: time 2017-05-19_18:04:56 on domain   2:    0.34820 elapsed seconds.
+Timing for main: time 2017-05-19_18:05:04 on domain   2:    0.34480 elapsed seconds.
+Timing for main: time 2017-05-19_18:05:12 on domain   2:    0.34370 elapsed seconds.
+Timing for main: time 2017-05-19_18:05:12 on domain   1:    1.69630 elapsed seconds.
+Timing for main: time 2017-05-19_18:05:20 on domain   2:    0.34620 elapsed seconds.
+Timing for main: time 2017-05-19_18:05:28 on domain   2:    0.34500 elapsed seconds.
+Timing for main: time 2017-05-19_18:05:36 on domain   2:    0.34320 elapsed seconds.
+Timing for main: time 2017-05-19_18:05:36 on domain   1:    1.69040 elapsed seconds.
+Timing for main: time 2017-05-19_18:05:44 on domain   2:    0.34030 elapsed seconds.
+Timing for main: time 2017-05-19_18:05:52 on domain   2:    0.34440 elapsed seconds.
+Timing for main: time 2017-05-19_18:06:00 on domain   2:    0.34450 elapsed seconds.
+Timing for main: time 2017-05-19_18:06:00 on domain   1:    1.68520 elapsed seconds.
+Timing for main: time 2017-05-19_18:06:08 on domain   2:    0.34290 elapsed seconds.
+Timing for main: time 2017-05-19_18:06:16 on domain   2:    0.34050 elapsed seconds.
+Timing for main: time 2017-05-19_18:06:24 on domain   2:    0.34330 elapsed seconds.
+Timing for main: time 2017-05-19_18:06:24 on domain   1:    1.67920 elapsed seconds.
+Timing for main: time 2017-05-19_18:06:32 on domain   2:    0.34670 elapsed seconds.
+Timing for main: time 2017-05-19_18:06:40 on domain   2:    0.34540 elapsed seconds.
+Timing for main: time 2017-05-19_18:06:48 on domain   2:    0.34760 elapsed seconds.
+Timing for main: time 2017-05-19_18:06:48 on domain   1:    1.69650 elapsed seconds.
+Timing for main: time 2017-05-19_18:06:56 on domain   2:    0.34730 elapsed seconds.
+Timing for main: time 2017-05-19_18:07:04 on domain   2:    0.34800 elapsed seconds.
+Timing for main: time 2017-05-19_18:07:12 on domain   2:    0.34880 elapsed seconds.
+Timing for main: time 2017-05-19_18:07:12 on domain   1:    1.70270 elapsed seconds.
+Timing for main: time 2017-05-19_18:07:20 on domain   2:    0.34550 elapsed seconds.
+Timing for main: time 2017-05-19_18:07:28 on domain   2:    0.34460 elapsed seconds.
+Timing for main: time 2017-05-19_18:07:36 on domain   2:    0.34790 elapsed seconds.
+Timing for main: time 2017-05-19_18:07:36 on domain   1:    1.69950 elapsed seconds.
+Timing for main: time 2017-05-19_18:07:44 on domain   2:    0.34810 elapsed seconds.
+Timing for main: time 2017-05-19_18:07:52 on domain   2:    0.34740 elapsed seconds.
+Timing for main: time 2017-05-19_18:08:00 on domain   2:    0.34670 elapsed seconds.
+Timing for main: time 2017-05-19_18:08:00 on domain   1:    1.70150 elapsed seconds.
+Timing for main: time 2017-05-19_18:08:08 on domain   2:    0.34850 elapsed seconds.
+Timing for main: time 2017-05-19_18:08:16 on domain   2:    0.34830 elapsed seconds.
+Timing for main: time 2017-05-19_18:08:24 on domain   2:    0.34890 elapsed seconds.
+Timing for main: time 2017-05-19_18:08:24 on domain   1:    1.74380 elapsed seconds.
+Timing for main: time 2017-05-19_18:08:32 on domain   2:    0.34760 elapsed seconds.
+Timing for main: time 2017-05-19_18:08:40 on domain   2:    0.34770 elapsed seconds.
+Timing for main: time 2017-05-19_18:08:48 on domain   2:    0.34620 elapsed seconds.
+Timing for main: time 2017-05-19_18:08:48 on domain   1:    1.70070 elapsed seconds.
+Timing for main: time 2017-05-19_18:08:56 on domain   2:    0.34740 elapsed seconds.
+Timing for main: time 2017-05-19_18:09:04 on domain   2:    0.34690 elapsed seconds.
+Timing for main: time 2017-05-19_18:09:12 on domain   2:    0.34670 elapsed seconds.
+Timing for main: time 2017-05-19_18:09:12 on domain   1:    1.70370 elapsed seconds.
+Timing for main: time 2017-05-19_18:09:20 on domain   2:    0.34700 elapsed seconds.
+Timing for main: time 2017-05-19_18:09:28 on domain   2:    0.34740 elapsed seconds.
+Timing for main: time 2017-05-19_18:09:36 on domain   2:    0.34620 elapsed seconds.
+Timing for main: time 2017-05-19_18:09:36 on domain   1:    1.70090 elapsed seconds.
+Timing for main: time 2017-05-19_18:09:44 on domain   2:    0.34720 elapsed seconds.
+Timing for main: time 2017-05-19_18:09:52 on domain   2:    0.34730 elapsed seconds.
+Timing for main: time 2017-05-19_18:10:00 on domain   2:    0.34960 elapsed seconds.
+Timing for main: time 2017-05-19_18:10:00 on domain   1:    1.70440 elapsed seconds.
+Timing for main: time 2017-05-19_18:10:08 on domain   2:    0.78110 elapsed seconds.
+Timing for main: time 2017-05-19_18:10:16 on domain   2:    0.36600 elapsed seconds.
+Timing for main: time 2017-05-19_18:10:24 on domain   2:    0.35170 elapsed seconds.
+Timing for main: time 2017-05-19_18:10:24 on domain   1:    2.49550 elapsed seconds.
+Timing for main: time 2017-05-19_18:10:32 on domain   2:    0.35210 elapsed seconds.
+Timing for main: time 2017-05-19_18:10:40 on domain   2:    0.35260 elapsed seconds.
+Timing for main: time 2017-05-19_18:10:48 on domain   2:    0.35090 elapsed seconds.
+Timing for main: time 2017-05-19_18:10:48 on domain   1:    1.71780 elapsed seconds.
+Timing for main: time 2017-05-19_18:10:56 on domain   2:    0.35210 elapsed seconds.
+Timing for main: time 2017-05-19_18:11:04 on domain   2:    0.34820 elapsed seconds.
+Timing for main: time 2017-05-19_18:11:12 on domain   2:    0.35020 elapsed seconds.
+Timing for main: time 2017-05-19_18:11:12 on domain   1:    1.71480 elapsed seconds.
+Timing for main: time 2017-05-19_18:11:20 on domain   2:    0.34740 elapsed seconds.
+Timing for main: time 2017-05-19_18:11:28 on domain   2:    0.34710 elapsed seconds.
+Timing for main: time 2017-05-19_18:11:36 on domain   2:    0.35040 elapsed seconds.
+Timing for main: time 2017-05-19_18:11:36 on domain   1:    1.70850 elapsed seconds.
+Timing for main: time 2017-05-19_18:11:44 on domain   2:    0.34980 elapsed seconds.
+Timing for main: time 2017-05-19_18:11:52 on domain   2:    0.34980 elapsed seconds.
+Timing for main: time 2017-05-19_18:12:00 on domain   2:    0.34810 elapsed seconds.
+Timing for main: time 2017-05-19_18:12:00 on domain   1:    1.71200 elapsed seconds.
+Timing for main: time 2017-05-19_18:12:08 on domain   2:    0.34720 elapsed seconds.
+Timing for main: time 2017-05-19_18:12:16 on domain   2:    0.34810 elapsed seconds.
+Timing for main: time 2017-05-19_18:12:24 on domain   2:    0.34730 elapsed seconds.
+Timing for main: time 2017-05-19_18:12:24 on domain   1:    1.69760 elapsed seconds.
+Timing for main: time 2017-05-19_18:12:32 on domain   2:    0.34810 elapsed seconds.
+Timing for main: time 2017-05-19_18:12:40 on domain   2:    0.34610 elapsed seconds.
+Timing for main: time 2017-05-19_18:12:48 on domain   2:    0.34960 elapsed seconds.
+Timing for main: time 2017-05-19_18:12:48 on domain   1:    1.70240 elapsed seconds.
+Timing for main: time 2017-05-19_18:12:56 on domain   2:    0.34450 elapsed seconds.
+Timing for main: time 2017-05-19_18:13:04 on domain   2:    0.34580 elapsed seconds.
+Timing for main: time 2017-05-19_18:13:12 on domain   2:    0.34610 elapsed seconds.
+Timing for main: time 2017-05-19_18:13:12 on domain   1:    1.69460 elapsed seconds.
+Timing for main: time 2017-05-19_18:13:20 on domain   2:    0.33970 elapsed seconds.
+Timing for main: time 2017-05-19_18:13:28 on domain   2:    0.34560 elapsed seconds.
+Timing for main: time 2017-05-19_18:13:36 on domain   2:    0.34240 elapsed seconds.
+Timing for main: time 2017-05-19_18:13:36 on domain   1:    1.67660 elapsed seconds.
+Timing for main: time 2017-05-19_18:13:44 on domain   2:    0.34480 elapsed seconds.
+Timing for main: time 2017-05-19_18:13:52 on domain   2:    0.34010 elapsed seconds.
+Timing for main: time 2017-05-19_18:14:00 on domain   2:    0.34270 elapsed seconds.
+Timing for main: time 2017-05-19_18:14:00 on domain   1:    1.68130 elapsed seconds.
+Timing for main: time 2017-05-19_18:14:08 on domain   2:    0.34630 elapsed seconds.
+Timing for main: time 2017-05-19_18:14:16 on domain   2:    0.34490 elapsed seconds.
+Timing for main: time 2017-05-19_18:14:24 on domain   2:    0.34550 elapsed seconds.
+Timing for main: time 2017-05-19_18:14:24 on domain   1:    1.69440 elapsed seconds.
+Timing for main: time 2017-05-19_18:14:32 on domain   2:    0.34960 elapsed seconds.
+Timing for main: time 2017-05-19_18:14:40 on domain   2:    0.34870 elapsed seconds.
+Timing for main: time 2017-05-19_18:14:48 on domain   2:    0.35110 elapsed seconds.
+Timing for main: time 2017-05-19_18:14:48 on domain   1:    1.70610 elapsed seconds.
+Timing for main: time 2017-05-19_18:14:56 on domain   2:    0.34870 elapsed seconds.
+Timing for main: time 2017-05-19_18:15:04 on domain   2:    0.34820 elapsed seconds.
+Timing for main: time 2017-05-19_18:15:12 on domain   2:    0.34210 elapsed seconds.
+Timing for main: time 2017-05-19_18:15:12 on domain   1:    1.70260 elapsed seconds.
+Timing for main: time 2017-05-19_18:15:20 on domain   2:    0.34690 elapsed seconds.
+Timing for main: time 2017-05-19_18:15:28 on domain   2:    0.34680 elapsed seconds.
+Timing for main: time 2017-05-19_18:15:36 on domain   2:    0.34890 elapsed seconds.
+Timing for main: time 2017-05-19_18:15:36 on domain   1:    1.70120 elapsed seconds.
+Timing for main: time 2017-05-19_18:15:44 on domain   2:    0.34520 elapsed seconds.
+Timing for main: time 2017-05-19_18:15:52 on domain   2:    0.34890 elapsed seconds.
+Timing for main: time 2017-05-19_18:16:00 on domain   2:    0.34600 elapsed seconds.
+Timing for main: time 2017-05-19_18:16:00 on domain   1:    1.70500 elapsed seconds.
+Timing for main: time 2017-05-19_18:16:08 on domain   2:    0.34470 elapsed seconds.
+Timing for main: time 2017-05-19_18:16:16 on domain   2:    0.35360 elapsed seconds.
+Timing for main: time 2017-05-19_18:16:24 on domain   2:    0.34440 elapsed seconds.
+Timing for main: time 2017-05-19_18:16:24 on domain   1:    1.70130 elapsed seconds.
+Timing for main: time 2017-05-19_18:16:32 on domain   2:    0.34560 elapsed seconds.
+Timing for main: time 2017-05-19_18:16:40 on domain   2:    0.34630 elapsed seconds.
+Timing for main: time 2017-05-19_18:16:48 on domain   2:    0.34670 elapsed seconds.
+Timing for main: time 2017-05-19_18:16:48 on domain   1:    1.69470 elapsed seconds.
+Timing for main: time 2017-05-19_18:16:56 on domain   2:    0.34700 elapsed seconds.
+Timing for main: time 2017-05-19_18:17:04 on domain   2:    0.34600 elapsed seconds.
+Timing for main: time 2017-05-19_18:17:12 on domain   2:    0.34760 elapsed seconds.
+Timing for main: time 2017-05-19_18:17:12 on domain   1:    1.70190 elapsed seconds.
+Timing for main: time 2017-05-19_18:17:20 on domain   2:    0.34720 elapsed seconds.
+Timing for main: time 2017-05-19_18:17:28 on domain   2:    0.34780 elapsed seconds.
+Timing for main: time 2017-05-19_18:17:36 on domain   2:    0.34690 elapsed seconds.
+Timing for main: time 2017-05-19_18:17:36 on domain   1:    1.70520 elapsed seconds.
+Timing for main: time 2017-05-19_18:17:44 on domain   2:    0.35060 elapsed seconds.
+Timing for main: time 2017-05-19_18:17:52 on domain   2:    0.34860 elapsed seconds.
+Timing for main: time 2017-05-19_18:18:00 on domain   2:    0.34580 elapsed seconds.
+Timing for main: time 2017-05-19_18:18:00 on domain   1:    1.70720 elapsed seconds.
+Timing for main: time 2017-05-19_18:18:08 on domain   2:    0.34750 elapsed seconds.
+Timing for main: time 2017-05-19_18:18:16 on domain   2:    0.34680 elapsed seconds.
+Timing for main: time 2017-05-19_18:18:24 on domain   2:    0.34550 elapsed seconds.
+Timing for main: time 2017-05-19_18:18:24 on domain   1:    1.69940 elapsed seconds.
+Timing for main: time 2017-05-19_18:18:32 on domain   2:    0.34590 elapsed seconds.
+Timing for main: time 2017-05-19_18:18:40 on domain   2:    0.34620 elapsed seconds.
+Timing for main: time 2017-05-19_18:18:48 on domain   2:    0.35210 elapsed seconds.
+Timing for main: time 2017-05-19_18:18:48 on domain   1:    1.70490 elapsed seconds.
+Timing for main: time 2017-05-19_18:18:56 on domain   2:    0.34720 elapsed seconds.
+Timing for main: time 2017-05-19_18:19:04 on domain   2:    0.35050 elapsed seconds.
+Timing for main: time 2017-05-19_18:19:12 on domain   2:    0.35190 elapsed seconds.
+Timing for main: time 2017-05-19_18:19:12 on domain   1:    1.70700 elapsed seconds.
+Timing for main: time 2017-05-19_18:19:20 on domain   2:    0.34620 elapsed seconds.
+Timing for main: time 2017-05-19_18:19:28 on domain   2:    0.34950 elapsed seconds.
+Timing for main: time 2017-05-19_18:19:36 on domain   2:    0.34960 elapsed seconds.
+Timing for main: time 2017-05-19_18:19:36 on domain   1:    1.70890 elapsed seconds.
+Timing for main: time 2017-05-19_18:19:44 on domain   2:    0.34840 elapsed seconds.
+Timing for main: time 2017-05-19_18:19:52 on domain   2:    0.34810 elapsed seconds.
+Timing for main: time 2017-05-19_18:20:00 on domain   2:    0.34720 elapsed seconds.
+Timing for main: time 2017-05-19_18:20:00 on domain   1:    1.70440 elapsed seconds.
+Timing for main: time 2017-05-19_18:20:08 on domain   2:    0.76830 elapsed seconds.
+Timing for main: time 2017-05-19_18:20:16 on domain   2:    0.34820 elapsed seconds.
+Timing for main: time 2017-05-19_18:20:24 on domain   2:    0.34740 elapsed seconds.
+Timing for main: time 2017-05-19_18:20:24 on domain   1:    2.45480 elapsed seconds.
+Timing for main: time 2017-05-19_18:20:32 on domain   2:    0.34650 elapsed seconds.
+Timing for main: time 2017-05-19_18:20:40 on domain   2:    0.34740 elapsed seconds.
+Timing for main: time 2017-05-19_18:20:48 on domain   2:    0.34900 elapsed seconds.
+Timing for main: time 2017-05-19_18:20:48 on domain   1:    1.70360 elapsed seconds.
+Timing for main: time 2017-05-19_18:20:56 on domain   2:    0.48640 elapsed seconds.
+Timing for main: time 2017-05-19_18:21:04 on domain   2:    0.62930 elapsed seconds.
+Timing for main: time 2017-05-19_18:21:12 on domain   2:    0.70930 elapsed seconds.
+Timing for main: time 2017-05-19_18:21:12 on domain   1:    2.54460 elapsed seconds.
+Timing for main: time 2017-05-19_18:21:20 on domain   2:    0.71750 elapsed seconds.
+Timing for main: time 2017-05-19_18:21:28 on domain   2:    0.69940 elapsed seconds.
+Timing for main: time 2017-05-19_18:21:36 on domain   2:    0.70360 elapsed seconds.
+Timing for main: time 2017-05-19_18:21:36 on domain   1:    3.45320 elapsed seconds.
+Timing for main: time 2017-05-19_18:21:44 on domain   2:    0.70850 elapsed seconds.
+Timing for main: time 2017-05-19_18:21:52 on domain   2:    0.72260 elapsed seconds.
+Timing for main: time 2017-05-19_18:22:00 on domain   2:    0.71110 elapsed seconds.
+Timing for main: time 2017-05-19_18:22:00 on domain   1:    3.47670 elapsed seconds.
+Timing for main: time 2017-05-19_18:22:08 on domain   2:    0.71100 elapsed seconds.
+Timing for main: time 2017-05-19_18:22:16 on domain   2:    0.62610 elapsed seconds.
+Timing for main: time 2017-05-19_18:22:24 on domain   2:    0.35060 elapsed seconds.
+Timing for main: time 2017-05-19_18:22:24 on domain   1:    2.96190 elapsed seconds.
+Timing for main: time 2017-05-19_18:22:32 on domain   2:    0.34720 elapsed seconds.
+Timing for main: time 2017-05-19_18:22:40 on domain   2:    0.34700 elapsed seconds.
+Timing for main: time 2017-05-19_18:22:48 on domain   2:    0.34690 elapsed seconds.
+Timing for main: time 2017-05-19_18:22:48 on domain   1:    1.70320 elapsed seconds.
+Timing for main: time 2017-05-19_18:22:56 on domain   2:    0.34530 elapsed seconds.
+Timing for main: time 2017-05-19_18:23:04 on domain   2:    0.34330 elapsed seconds.
+Timing for main: time 2017-05-19_18:23:12 on domain   2:    0.34360 elapsed seconds.
+Timing for main: time 2017-05-19_18:23:12 on domain   1:    1.68980 elapsed seconds.
+Timing for main: time 2017-05-19_18:23:20 on domain   2:    0.34260 elapsed seconds.
+Timing for main: time 2017-05-19_18:23:28 on domain   2:    0.34500 elapsed seconds.
+Timing for main: time 2017-05-19_18:23:36 on domain   2:    0.34270 elapsed seconds.
+Timing for main: time 2017-05-19_18:23:36 on domain   1:    1.69000 elapsed seconds.
+Timing for main: time 2017-05-19_18:23:44 on domain   2:    0.34370 elapsed seconds.
+Timing for main: time 2017-05-19_18:23:52 on domain   2:    0.34410 elapsed seconds.
+Timing for main: time 2017-05-19_18:24:00 on domain   2:    0.34280 elapsed seconds.
+Timing for main: time 2017-05-19_18:24:00 on domain   1:    1.68690 elapsed seconds.
+Timing for main: time 2017-05-19_18:24:08 on domain   2:    0.34590 elapsed seconds.
+Timing for main: time 2017-05-19_18:24:16 on domain   2:    0.34620 elapsed seconds.
+Timing for main: time 2017-05-19_18:24:24 on domain   2:    0.34680 elapsed seconds.
+Timing for main: time 2017-05-19_18:24:24 on domain   1:    1.69500 elapsed seconds.
+Timing for main: time 2017-05-19_18:24:32 on domain   2:    0.34630 elapsed seconds.
+Timing for main: time 2017-05-19_18:24:40 on domain   2:    0.34630 elapsed seconds.
+Timing for main: time 2017-05-19_18:24:48 on domain   2:    0.34730 elapsed seconds.
+Timing for main: time 2017-05-19_18:24:48 on domain   1:    1.69710 elapsed seconds.
+Timing for main: time 2017-05-19_18:24:56 on domain   2:    0.34760 elapsed seconds.
+Timing for main: time 2017-05-19_18:25:04 on domain   2:    0.34460 elapsed seconds.
+Timing for main: time 2017-05-19_18:25:12 on domain   2:    0.34620 elapsed seconds.
+Timing for main: time 2017-05-19_18:25:12 on domain   1:    1.69530 elapsed seconds.
+Timing for main: time 2017-05-19_18:25:20 on domain   2:    0.34540 elapsed seconds.
+Timing for main: time 2017-05-19_18:25:28 on domain   2:    0.34470 elapsed seconds.
+Timing for main: time 2017-05-19_18:25:36 on domain   2:    0.34440 elapsed seconds.
+Timing for main: time 2017-05-19_18:25:36 on domain   1:    1.69720 elapsed seconds.
+Timing for main: time 2017-05-19_18:25:44 on domain   2:    0.34540 elapsed seconds.
+Timing for main: time 2017-05-19_18:25:52 on domain   2:    0.34580 elapsed seconds.
+Timing for main: time 2017-05-19_18:26:00 on domain   2:    0.34660 elapsed seconds.
+Timing for main: time 2017-05-19_18:26:00 on domain   1:    1.68950 elapsed seconds.
+Timing for main: time 2017-05-19_18:26:08 on domain   2:    0.34630 elapsed seconds.
+Timing for main: time 2017-05-19_18:26:16 on domain   2:    0.34800 elapsed seconds.
+Timing for main: time 2017-05-19_18:26:24 on domain   2:    0.34490 elapsed seconds.
+Timing for main: time 2017-05-19_18:26:24 on domain   1:    1.69730 elapsed seconds.
+Timing for main: time 2017-05-19_18:26:32 on domain   2:    0.34510 elapsed seconds.
+Timing for main: time 2017-05-19_18:26:40 on domain   2:    0.34730 elapsed seconds.
+Timing for main: time 2017-05-19_18:26:48 on domain   2:    0.46540 elapsed seconds.
+Timing for main: time 2017-05-19_18:26:48 on domain   1:    1.86190 elapsed seconds.
+Timing for main: time 2017-05-19_18:26:56 on domain   2:    0.65310 elapsed seconds.
+Timing for main: time 2017-05-19_18:27:04 on domain   2:    0.65850 elapsed seconds.
+Timing for main: time 2017-05-19_18:27:12 on domain   2:    0.64460 elapsed seconds.
+Timing for main: time 2017-05-19_18:27:12 on domain   1:    3.17570 elapsed seconds.
+Timing for main: time 2017-05-19_18:27:20 on domain   2:    0.64480 elapsed seconds.
+Timing for main: time 2017-05-19_18:27:28 on domain   2:    0.63590 elapsed seconds.
+Timing for main: time 2017-05-19_18:27:36 on domain   2:    0.64580 elapsed seconds.
+Timing for main: time 2017-05-19_18:27:36 on domain   1:    3.15320 elapsed seconds.
+Timing for main: time 2017-05-19_18:27:44 on domain   2:    0.64090 elapsed seconds.
+Timing for main: time 2017-05-19_18:27:52 on domain   2:    0.65520 elapsed seconds.
+Timing for main: time 2017-05-19_18:28:00 on domain   2:    0.65130 elapsed seconds.
+Timing for main: time 2017-05-19_18:28:00 on domain   1:    3.16860 elapsed seconds.
+Timing for main: time 2017-05-19_18:28:08 on domain   2:    0.52470 elapsed seconds.
+Timing for main: time 2017-05-19_18:28:16 on domain   2:    0.34760 elapsed seconds.
+Timing for main: time 2017-05-19_18:28:24 on domain   2:    0.34790 elapsed seconds.
+Timing for main: time 2017-05-19_18:28:24 on domain   1:    2.38100 elapsed seconds.
+Timing for main: time 2017-05-19_18:28:32 on domain   2:    0.34990 elapsed seconds.
+Timing for main: time 2017-05-19_18:28:40 on domain   2:    0.35070 elapsed seconds.
+Timing for main: time 2017-05-19_18:28:48 on domain   2:    0.34760 elapsed seconds.
+Timing for main: time 2017-05-19_18:28:48 on domain   1:    1.70840 elapsed seconds.
+Timing for main: time 2017-05-19_18:28:56 on domain   2:    0.34810 elapsed seconds.
+Timing for main: time 2017-05-19_18:29:04 on domain   2:    0.34920 elapsed seconds.
+Timing for main: time 2017-05-19_18:29:12 on domain   2:    0.34790 elapsed seconds.
+Timing for main: time 2017-05-19_18:29:12 on domain   1:    1.71040 elapsed seconds.
+Timing for main: time 2017-05-19_18:29:20 on domain   2:    0.34930 elapsed seconds.
+Timing for main: time 2017-05-19_18:29:28 on domain   2:    0.34670 elapsed seconds.
+Timing for main: time 2017-05-19_18:29:36 on domain   2:    0.34860 elapsed seconds.
+Timing for main: time 2017-05-19_18:29:36 on domain   1:    1.70740 elapsed seconds.
+Timing for main: time 2017-05-19_18:29:44 on domain   2:    0.34510 elapsed seconds.
+Timing for main: time 2017-05-19_18:29:52 on domain   2:    0.34670 elapsed seconds.
+Timing for main: time 2017-05-19_18:30:00 on domain   2:    0.34440 elapsed seconds.
+Timing for main: time 2017-05-19_18:30:00 on domain   1:    1.70570 elapsed seconds.
+Timing for main: time 2017-05-19_18:30:08 on domain   2:    0.76780 elapsed seconds.
+Timing for main: time 2017-05-19_18:30:16 on domain   2:    0.34630 elapsed seconds.
+Timing for main: time 2017-05-19_18:30:24 on domain   2:    0.34890 elapsed seconds.
+Timing for main: time 2017-05-19_18:30:24 on domain   1:    2.47440 elapsed seconds.
+Timing for main: time 2017-05-19_18:30:32 on domain   2:    0.34750 elapsed seconds.
+Timing for main: time 2017-05-19_18:30:40 on domain   2:    0.35010 elapsed seconds.
+Timing for main: time 2017-05-19_18:30:48 on domain   2:    0.34660 elapsed seconds.
+Timing for main: time 2017-05-19_18:30:48 on domain   1:    1.70380 elapsed seconds.
+Timing for main: time 2017-05-19_18:30:56 on domain   2:    0.34810 elapsed seconds.
+Timing for main: time 2017-05-19_18:31:04 on domain   2:    0.34700 elapsed seconds.
+Timing for main: time 2017-05-19_18:31:12 on domain   2:    0.34690 elapsed seconds.
+Timing for main: time 2017-05-19_18:31:12 on domain   1:    1.70200 elapsed seconds.
+Timing for main: time 2017-05-19_18:31:20 on domain   2:    0.34570 elapsed seconds.
+Timing for main: time 2017-05-19_18:31:28 on domain   2:    0.34800 elapsed seconds.
+Timing for main: time 2017-05-19_18:31:36 on domain   2:    0.34650 elapsed seconds.
+Timing for main: time 2017-05-19_18:31:36 on domain   1:    1.70190 elapsed seconds.
+Timing for main: time 2017-05-19_18:31:44 on domain   2:    0.34880 elapsed seconds.
+Timing for main: time 2017-05-19_18:31:52 on domain   2:    0.34750 elapsed seconds.
+Timing for main: time 2017-05-19_18:32:00 on domain   2:    0.34590 elapsed seconds.
+Timing for main: time 2017-05-19_18:32:00 on domain   1:    1.70440 elapsed seconds.
+Timing for main: time 2017-05-19_18:32:08 on domain   2:    0.34740 elapsed seconds.
+Timing for main: time 2017-05-19_18:32:16 on domain   2:    0.34670 elapsed seconds.
+Timing for main: time 2017-05-19_18:32:24 on domain   2:    0.34760 elapsed seconds.
+Timing for main: time 2017-05-19_18:32:24 on domain   1:    1.70010 elapsed seconds.
+Timing for main: time 2017-05-19_18:32:32 on domain   2:    0.34670 elapsed seconds.
+Timing for main: time 2017-05-19_18:32:40 on domain   2:    0.34770 elapsed seconds.
+Timing for main: time 2017-05-19_18:32:48 on domain   2:    0.34710 elapsed seconds.
+Timing for main: time 2017-05-19_18:32:48 on domain   1:    1.70080 elapsed seconds.
+Timing for main: time 2017-05-19_18:32:56 on domain   2:    0.34230 elapsed seconds.
+Timing for main: time 2017-05-19_18:33:04 on domain   2:    0.34520 elapsed seconds.
+Timing for main: time 2017-05-19_18:33:12 on domain   2:    0.34670 elapsed seconds.
+Timing for main: time 2017-05-19_18:33:12 on domain   1:    1.69230 elapsed seconds.
+Timing for main: time 2017-05-19_18:33:20 on domain   2:    0.35290 elapsed seconds.
+Timing for main: time 2017-05-19_18:33:28 on domain   2:    0.34380 elapsed seconds.
+Timing for main: time 2017-05-19_18:33:36 on domain   2:    0.34460 elapsed seconds.
+Timing for main: time 2017-05-19_18:33:36 on domain   1:    1.69820 elapsed seconds.
+Timing for main: time 2017-05-19_18:33:44 on domain   2:    0.34350 elapsed seconds.
+Timing for main: time 2017-05-19_18:33:52 on domain   2:    0.34430 elapsed seconds.
+Timing for main: time 2017-05-19_18:34:00 on domain   2:    0.34670 elapsed seconds.
+Timing for main: time 2017-05-19_18:34:00 on domain   1:    1.68990 elapsed seconds.
+Timing for main: time 2017-05-19_18:34:08 on domain   2:    0.34480 elapsed seconds.
+Timing for main: time 2017-05-19_18:34:16 on domain   2:    0.34240 elapsed seconds.
+Timing for main: time 2017-05-19_18:34:24 on domain   2:    0.34260 elapsed seconds.
+Timing for main: time 2017-05-19_18:34:24 on domain   1:    1.68670 elapsed seconds.
+Timing for main: time 2017-05-19_18:34:32 on domain   2:    0.34810 elapsed seconds.
+Timing for main: time 2017-05-19_18:34:40 on domain   2:    0.34560 elapsed seconds.
+Timing for main: time 2017-05-19_18:34:48 on domain   2:    0.34560 elapsed seconds.
+Timing for main: time 2017-05-19_18:34:48 on domain   1:    1.71250 elapsed seconds.
+Timing for main: time 2017-05-19_18:34:56 on domain   2:    0.34550 elapsed seconds.
+Timing for main: time 2017-05-19_18:35:04 on domain   2:    0.34600 elapsed seconds.
+Timing for main: time 2017-05-19_18:35:12 on domain   2:    0.34710 elapsed seconds.
+Timing for main: time 2017-05-19_18:35:12 on domain   1:    1.69660 elapsed seconds.
+Timing for main: time 2017-05-19_18:35:20 on domain   2:    0.34350 elapsed seconds.
+Timing for main: time 2017-05-19_18:35:28 on domain   2:    0.34620 elapsed seconds.
+Timing for main: time 2017-05-19_18:35:36 on domain   2:    0.34650 elapsed seconds.
+Timing for main: time 2017-05-19_18:35:36 on domain   1:    1.70030 elapsed seconds.
+Timing for main: time 2017-05-19_18:35:44 on domain   2:    0.34730 elapsed seconds.
+Timing for main: time 2017-05-19_18:35:52 on domain   2:    0.34630 elapsed seconds.
+Timing for main: time 2017-05-19_18:36:00 on domain   2:    0.34950 elapsed seconds.
+Timing for main: time 2017-05-19_18:36:00 on domain   1:    1.71850 elapsed seconds.
+Timing for main: time 2017-05-19_18:36:08 on domain   2:    0.34580 elapsed seconds.
+Timing for main: time 2017-05-19_18:36:16 on domain   2:    0.34550 elapsed seconds.
+Timing for main: time 2017-05-19_18:36:24 on domain   2:    0.34340 elapsed seconds.
+Timing for main: time 2017-05-19_18:36:24 on domain   1:    1.69320 elapsed seconds.
+Timing for main: time 2017-05-19_18:36:32 on domain   2:    0.34650 elapsed seconds.
+Timing for main: time 2017-05-19_18:36:40 on domain   2:    0.34650 elapsed seconds.
+Timing for main: time 2017-05-19_18:36:48 on domain   2:    0.34790 elapsed seconds.
+Timing for main: time 2017-05-19_18:36:48 on domain   1:    1.70530 elapsed seconds.
+Timing for main: time 2017-05-19_18:36:56 on domain   2:    0.34670 elapsed seconds.
+Timing for main: time 2017-05-19_18:37:04 on domain   2:    0.34550 elapsed seconds.
+Timing for main: time 2017-05-19_18:37:12 on domain   2:    0.34600 elapsed seconds.
+Timing for main: time 2017-05-19_18:37:12 on domain   1:    1.69730 elapsed seconds.
+Timing for main: time 2017-05-19_18:37:20 on domain   2:    0.34450 elapsed seconds.
+Timing for main: time 2017-05-19_18:37:28 on domain   2:    0.34570 elapsed seconds.
+Timing for main: time 2017-05-19_18:37:36 on domain   2:    0.34790 elapsed seconds.
+Timing for main: time 2017-05-19_18:37:36 on domain   1:    1.69680 elapsed seconds.
+Timing for main: time 2017-05-19_18:37:44 on domain   2:    0.34760 elapsed seconds.
+Timing for main: time 2017-05-19_18:37:52 on domain   2:    0.34720 elapsed seconds.
+Timing for main: time 2017-05-19_18:38:00 on domain   2:    0.34690 elapsed seconds.
+Timing for main: time 2017-05-19_18:38:00 on domain   1:    1.70420 elapsed seconds.
+Timing for main: time 2017-05-19_18:38:08 on domain   2:    0.34760 elapsed seconds.
+Timing for main: time 2017-05-19_18:38:16 on domain   2:    0.34870 elapsed seconds.
+Timing for main: time 2017-05-19_18:38:24 on domain   2:    0.34730 elapsed seconds.
+Timing for main: time 2017-05-19_18:38:24 on domain   1:    1.70840 elapsed seconds.
+Timing for main: time 2017-05-19_18:38:32 on domain   2:    0.34860 elapsed seconds.
+Timing for main: time 2017-05-19_18:38:40 on domain   2:    0.34800 elapsed seconds.
+Timing for main: time 2017-05-19_18:38:48 on domain   2:    0.34760 elapsed seconds.
+Timing for main: time 2017-05-19_18:38:48 on domain   1:    1.70670 elapsed seconds.
+Timing for main: time 2017-05-19_18:38:56 on domain   2:    0.34650 elapsed seconds.
+Timing for main: time 2017-05-19_18:39:04 on domain   2:    0.34670 elapsed seconds.
+Timing for main: time 2017-05-19_18:39:12 on domain   2:    0.34510 elapsed seconds.
+Timing for main: time 2017-05-19_18:39:12 on domain   1:    1.70020 elapsed seconds.
+Timing for main: time 2017-05-19_18:39:20 on domain   2:    0.34730 elapsed seconds.
+Timing for main: time 2017-05-19_18:39:28 on domain   2:    0.34820 elapsed seconds.
+Timing for main: time 2017-05-19_18:39:36 on domain   2:    0.34870 elapsed seconds.
+Timing for main: time 2017-05-19_18:39:36 on domain   1:    1.70670 elapsed seconds.
+Timing for main: time 2017-05-19_18:39:44 on domain   2:    0.34790 elapsed seconds.
+Timing for main: time 2017-05-19_18:39:52 on domain   2:    0.34960 elapsed seconds.
+Timing for main: time 2017-05-19_18:40:00 on domain   2:    0.34700 elapsed seconds.
+Timing for main: time 2017-05-19_18:40:00 on domain   1:    1.70910 elapsed seconds.
+Timing for main: time 2017-05-19_18:40:08 on domain   2:    0.77820 elapsed seconds.
+Timing for main: time 2017-05-19_18:40:16 on domain   2:    0.34830 elapsed seconds.
+Timing for main: time 2017-05-19_18:40:24 on domain   2:    0.34520 elapsed seconds.
+Timing for main: time 2017-05-19_18:40:24 on domain   1:    2.48120 elapsed seconds.
+Timing for main: time 2017-05-19_18:40:32 on domain   2:    0.34760 elapsed seconds.
+Timing for main: time 2017-05-19_18:40:40 on domain   2:    0.34660 elapsed seconds.
+Timing for main: time 2017-05-19_18:40:48 on domain   2:    0.34830 elapsed seconds.
+Timing for main: time 2017-05-19_18:40:48 on domain   1:    1.70000 elapsed seconds.
+Timing for main: time 2017-05-19_18:40:56 on domain   2:    0.35700 elapsed seconds.
+Timing for main: time 2017-05-19_18:41:04 on domain   2:    0.35020 elapsed seconds.
+Timing for main: time 2017-05-19_18:41:12 on domain   2:    0.34840 elapsed seconds.
+Timing for main: time 2017-05-19_18:41:12 on domain   1:    1.71450 elapsed seconds.
+Timing for main: time 2017-05-19_18:41:20 on domain   2:    0.35280 elapsed seconds.
+Timing for main: time 2017-05-19_18:41:28 on domain   2:    0.35010 elapsed seconds.
+Timing for main: time 2017-05-19_18:41:36 on domain   2:    0.35710 elapsed seconds.
+Timing for main: time 2017-05-19_18:41:36 on domain   1:    1.72870 elapsed seconds.
+Timing for main: time 2017-05-19_18:41:44 on domain   2:    0.35160 elapsed seconds.
+Timing for main: time 2017-05-19_18:41:52 on domain   2:    0.34730 elapsed seconds.
+Timing for main: time 2017-05-19_18:42:00 on domain   2:    0.35150 elapsed seconds.
+Timing for main: time 2017-05-19_18:42:00 on domain   1:    1.71430 elapsed seconds.
+Timing for main: time 2017-05-19_18:42:08 on domain   2:    0.35070 elapsed seconds.
+Timing for main: time 2017-05-19_18:42:16 on domain   2:    0.35140 elapsed seconds.
+Timing for main: time 2017-05-19_18:42:24 on domain   2:    0.34890 elapsed seconds.
+Timing for main: time 2017-05-19_18:42:24 on domain   1:    1.71380 elapsed seconds.
+Timing for main: time 2017-05-19_18:42:32 on domain   2:    0.35240 elapsed seconds.
+Timing for main: time 2017-05-19_18:42:40 on domain   2:    0.35040 elapsed seconds.
+Timing for main: time 2017-05-19_18:42:48 on domain   2:    0.34640 elapsed seconds.
+Timing for main: time 2017-05-19_18:42:48 on domain   1:    1.71360 elapsed seconds.
+Timing for main: time 2017-05-19_18:42:56 on domain   2:    0.34810 elapsed seconds.
+Timing for main: time 2017-05-19_18:43:04 on domain   2:    0.34550 elapsed seconds.
+Timing for main: time 2017-05-19_18:43:12 on domain   2:    0.34500 elapsed seconds.
+Timing for main: time 2017-05-19_18:43:12 on domain   1:    1.69800 elapsed seconds.
+Timing for main: time 2017-05-19_18:43:20 on domain   2:    0.34920 elapsed seconds.
+Timing for main: time 2017-05-19_18:43:28 on domain   2:    0.35150 elapsed seconds.
+Timing for main: time 2017-05-19_18:43:36 on domain   2:    0.34680 elapsed seconds.
+Timing for main: time 2017-05-19_18:43:36 on domain   1:    1.70870 elapsed seconds.
+Timing for main: time 2017-05-19_18:43:44 on domain   2:    0.34980 elapsed seconds.
+Timing for main: time 2017-05-19_18:43:52 on domain   2:    0.35040 elapsed seconds.
+Timing for main: time 2017-05-19_18:44:00 on domain   2:    0.34730 elapsed seconds.
+Timing for main: time 2017-05-19_18:44:00 on domain   1:    1.71100 elapsed seconds.
+Timing for main: time 2017-05-19_18:44:08 on domain   2:    0.35060 elapsed seconds.
+Timing for main: time 2017-05-19_18:44:16 on domain   2:    0.35020 elapsed seconds.
+Timing for main: time 2017-05-19_18:44:24 on domain   2:    0.34960 elapsed seconds.
+Timing for main: time 2017-05-19_18:44:24 on domain   1:    1.70330 elapsed seconds.
+Timing for main: time 2017-05-19_18:44:32 on domain   2:    0.35290 elapsed seconds.
+Timing for main: time 2017-05-19_18:44:40 on domain   2:    0.34520 elapsed seconds.
+Timing for main: time 2017-05-19_18:44:48 on domain   2:    0.34580 elapsed seconds.
+Timing for main: time 2017-05-19_18:44:48 on domain   1:    1.70390 elapsed seconds.
+Timing for main: time 2017-05-19_18:44:56 on domain   2:    0.34390 elapsed seconds.
+Timing for main: time 2017-05-19_18:45:04 on domain   2:    0.34960 elapsed seconds.
+Timing for main: time 2017-05-19_18:45:12 on domain   2:    0.34820 elapsed seconds.
+Timing for main: time 2017-05-19_18:45:12 on domain   1:    1.71210 elapsed seconds.
+Timing for main: time 2017-05-19_18:45:20 on domain   2:    0.35030 elapsed seconds.
+Timing for main: time 2017-05-19_18:45:28 on domain   2:    0.35050 elapsed seconds.
+Timing for main: time 2017-05-19_18:45:36 on domain   2:    0.34990 elapsed seconds.
+Timing for main: time 2017-05-19_18:45:36 on domain   1:    1.71350 elapsed seconds.
+Timing for main: time 2017-05-19_18:45:44 on domain   2:    0.34980 elapsed seconds.
+Timing for main: time 2017-05-19_18:45:52 on domain   2:    0.34720 elapsed seconds.
+Timing for main: time 2017-05-19_18:46:00 on domain   2:    0.34930 elapsed seconds.
+Timing for main: time 2017-05-19_18:46:00 on domain   1:    1.70900 elapsed seconds.
+Timing for main: time 2017-05-19_18:46:08 on domain   2:    0.34440 elapsed seconds.
+Timing for main: time 2017-05-19_18:46:16 on domain   2:    0.34540 elapsed seconds.
+Timing for main: time 2017-05-19_18:46:24 on domain   2:    0.34260 elapsed seconds.
+Timing for main: time 2017-05-19_18:46:24 on domain   1:    1.69180 elapsed seconds.
+Timing for main: time 2017-05-19_18:46:32 on domain   2:    0.34550 elapsed seconds.
+Timing for main: time 2017-05-19_18:46:40 on domain   2:    0.34630 elapsed seconds.
+Timing for main: time 2017-05-19_18:46:48 on domain   2:    0.34680 elapsed seconds.
+Timing for main: time 2017-05-19_18:46:48 on domain   1:    1.70030 elapsed seconds.
+Timing for main: time 2017-05-19_18:46:56 on domain   2:    0.34830 elapsed seconds.
+Timing for main: time 2017-05-19_18:47:04 on domain   2:    0.34560 elapsed seconds.
+Timing for main: time 2017-05-19_18:47:12 on domain   2:    0.34460 elapsed seconds.
+Timing for main: time 2017-05-19_18:47:12 on domain   1:    1.69790 elapsed seconds.
+Timing for main: time 2017-05-19_18:47:20 on domain   2:    0.34680 elapsed seconds.
+Timing for main: time 2017-05-19_18:47:28 on domain   2:    0.34680 elapsed seconds.
+Timing for main: time 2017-05-19_18:47:36 on domain   2:    0.34660 elapsed seconds.
+Timing for main: time 2017-05-19_18:47:36 on domain   1:    1.70130 elapsed seconds.
+Timing for main: time 2017-05-19_18:47:44 on domain   2:    0.34380 elapsed seconds.
+Timing for main: time 2017-05-19_18:47:52 on domain   2:    0.34640 elapsed seconds.
+Timing for main: time 2017-05-19_18:48:00 on domain   2:    0.34610 elapsed seconds.
+Timing for main: time 2017-05-19_18:48:00 on domain   1:    1.69210 elapsed seconds.
+Timing for main: time 2017-05-19_18:48:08 on domain   2:    0.34300 elapsed seconds.
+Timing for main: time 2017-05-19_18:48:16 on domain   2:    0.34280 elapsed seconds.
+Timing for main: time 2017-05-19_18:48:24 on domain   2:    0.34220 elapsed seconds.
+Timing for main: time 2017-05-19_18:48:24 on domain   1:    1.68500 elapsed seconds.
+Timing for main: time 2017-05-19_18:48:32 on domain   2:    0.34820 elapsed seconds.
+Timing for main: time 2017-05-19_18:48:40 on domain   2:    0.34470 elapsed seconds.
+Timing for main: time 2017-05-19_18:48:48 on domain   2:    0.34720 elapsed seconds.
+Timing for main: time 2017-05-19_18:48:48 on domain   1:    1.69070 elapsed seconds.
+Timing for main: time 2017-05-19_18:48:56 on domain   2:    0.34130 elapsed seconds.
+Timing for main: time 2017-05-19_18:49:04 on domain   2:    0.34610 elapsed seconds.
+Timing for main: time 2017-05-19_18:49:12 on domain   2:    0.34600 elapsed seconds.
+Timing for main: time 2017-05-19_18:49:12 on domain   1:    1.69020 elapsed seconds.
+Timing for main: time 2017-05-19_18:49:20 on domain   2:    0.34610 elapsed seconds.
+Timing for main: time 2017-05-19_18:49:28 on domain   2:    0.34770 elapsed seconds.
+Timing for main: time 2017-05-19_18:49:36 on domain   2:    0.34600 elapsed seconds.
+Timing for main: time 2017-05-19_18:49:36 on domain   1:    1.69020 elapsed seconds.
+Timing for main: time 2017-05-19_18:49:44 on domain   2:    0.34780 elapsed seconds.
+Timing for main: time 2017-05-19_18:49:52 on domain   2:    0.34850 elapsed seconds.
+Timing for main: time 2017-05-19_18:50:00 on domain   2:    0.34750 elapsed seconds.
+Timing for main: time 2017-05-19_18:50:00 on domain   1:    1.70790 elapsed seconds.
+Timing for main: time 2017-05-19_18:50:08 on domain   2:    0.77640 elapsed seconds.
+Timing for main: time 2017-05-19_18:50:16 on domain   2:    0.34660 elapsed seconds.
+Timing for main: time 2017-05-19_18:50:24 on domain   2:    0.34820 elapsed seconds.
+Timing for main: time 2017-05-19_18:50:24 on domain   1:    2.47880 elapsed seconds.
+Timing for main: time 2017-05-19_18:50:32 on domain   2:    0.34790 elapsed seconds.
+Timing for main: time 2017-05-19_18:50:40 on domain   2:    0.34690 elapsed seconds.
+Timing for main: time 2017-05-19_18:50:48 on domain   2:    0.34730 elapsed seconds.
+Timing for main: time 2017-05-19_18:50:48 on domain   1:    1.70170 elapsed seconds.
+Timing for main: time 2017-05-19_18:50:56 on domain   2:    0.34630 elapsed seconds.
+Timing for main: time 2017-05-19_18:51:04 on domain   2:    0.34660 elapsed seconds.
+Timing for main: time 2017-05-19_18:51:12 on domain   2:    0.34420 elapsed seconds.
+Timing for main: time 2017-05-19_18:51:12 on domain   1:    1.69570 elapsed seconds.
+Timing for main: time 2017-05-19_18:51:20 on domain   2:    0.34730 elapsed seconds.
+Timing for main: time 2017-05-19_18:51:28 on domain   2:    0.34670 elapsed seconds.
+Timing for main: time 2017-05-19_18:51:36 on domain   2:    0.34570 elapsed seconds.
+Timing for main: time 2017-05-19_18:51:36 on domain   1:    1.69860 elapsed seconds.
+Timing for main: time 2017-05-19_18:51:44 on domain   2:    0.34700 elapsed seconds.
+Timing for main: time 2017-05-19_18:51:52 on domain   2:    0.34900 elapsed seconds.
+Timing for main: time 2017-05-19_18:52:00 on domain   2:    0.34520 elapsed seconds.
+Timing for main: time 2017-05-19_18:52:00 on domain   1:    1.69940 elapsed seconds.
+Timing for main: time 2017-05-19_18:52:08 on domain   2:    0.34700 elapsed seconds.
+Timing for main: time 2017-05-19_18:52:16 on domain   2:    0.34570 elapsed seconds.
+Timing for main: time 2017-05-19_18:52:24 on domain   2:    0.34770 elapsed seconds.
+Timing for main: time 2017-05-19_18:52:24 on domain   1:    1.70310 elapsed seconds.
+Timing for main: time 2017-05-19_18:52:32 on domain   2:    0.34800 elapsed seconds.
+Timing for main: time 2017-05-19_18:52:40 on domain   2:    0.34650 elapsed seconds.
+Timing for main: time 2017-05-19_18:52:48 on domain   2:    0.34650 elapsed seconds.
+Timing for main: time 2017-05-19_18:52:48 on domain   1:    1.70240 elapsed seconds.
+Timing for main: time 2017-05-19_18:52:56 on domain   2:    0.34460 elapsed seconds.
+Timing for main: time 2017-05-19_18:53:04 on domain   2:    0.34710 elapsed seconds.
+Timing for main: time 2017-05-19_18:53:12 on domain   2:    0.34700 elapsed seconds.
+Timing for main: time 2017-05-19_18:53:12 on domain   1:    1.69270 elapsed seconds.
+Timing for main: time 2017-05-19_18:53:20 on domain   2:    0.34510 elapsed seconds.
+Timing for main: time 2017-05-19_18:53:28 on domain   2:    0.34430 elapsed seconds.
+Timing for main: time 2017-05-19_18:53:36 on domain   2:    0.34610 elapsed seconds.
+Timing for main: time 2017-05-19_18:53:36 on domain   1:    1.69600 elapsed seconds.
+Timing for main: time 2017-05-19_18:53:44 on domain   2:    0.34510 elapsed seconds.
+Timing for main: time 2017-05-19_18:53:52 on domain   2:    0.34530 elapsed seconds.
+Timing for main: time 2017-05-19_18:54:00 on domain   2:    0.34700 elapsed seconds.
+Timing for main: time 2017-05-19_18:54:00 on domain   1:    1.69750 elapsed seconds.
+Timing for main: time 2017-05-19_18:54:08 on domain   2:    0.34670 elapsed seconds.
+Timing for main: time 2017-05-19_18:54:16 on domain   2:    0.34800 elapsed seconds.
+Timing for main: time 2017-05-19_18:54:24 on domain   2:    0.34580 elapsed seconds.
+Timing for main: time 2017-05-19_18:54:24 on domain   1:    1.70420 elapsed seconds.
+Timing for main: time 2017-05-19_18:54:32 on domain   2:    0.34670 elapsed seconds.
+Timing for main: time 2017-05-19_18:54:40 on domain   2:    0.34670 elapsed seconds.
+Timing for main: time 2017-05-19_18:54:48 on domain   2:    0.34730 elapsed seconds.
+Timing for main: time 2017-05-19_18:54:48 on domain   1:    1.70620 elapsed seconds.
+Timing for main: time 2017-05-19_18:54:56 on domain   2:    0.34620 elapsed seconds.
+Timing for main: time 2017-05-19_18:55:04 on domain   2:    0.34670 elapsed seconds.
+Timing for main: time 2017-05-19_18:55:12 on domain   2:    0.34790 elapsed seconds.
+Timing for main: time 2017-05-19_18:55:12 on domain   1:    1.70400 elapsed seconds.
+Timing for main: time 2017-05-19_18:55:20 on domain   2:    0.34530 elapsed seconds.
+Timing for main: time 2017-05-19_18:55:28 on domain   2:    0.34420 elapsed seconds.
+Timing for main: time 2017-05-19_18:55:36 on domain   2:    0.34420 elapsed seconds.
+Timing for main: time 2017-05-19_18:55:36 on domain   1:    1.68880 elapsed seconds.
+Timing for main: time 2017-05-19_18:55:44 on domain   2:    0.34830 elapsed seconds.
+Timing for main: time 2017-05-19_18:55:52 on domain   2:    0.34810 elapsed seconds.
+Timing for main: time 2017-05-19_18:56:00 on domain   2:    0.34880 elapsed seconds.
+Timing for main: time 2017-05-19_18:56:00 on domain   1:    1.70670 elapsed seconds.
+Timing for main: time 2017-05-19_18:56:08 on domain   2:    0.34780 elapsed seconds.
+Timing for main: time 2017-05-19_18:56:16 on domain   2:    0.35060 elapsed seconds.
+Timing for main: time 2017-05-19_18:56:24 on domain   2:    0.35050 elapsed seconds.
+Timing for main: time 2017-05-19_18:56:24 on domain   1:    1.70740 elapsed seconds.
+Timing for main: time 2017-05-19_18:56:32 on domain   2:    0.35010 elapsed seconds.
+Timing for main: time 2017-05-19_18:56:40 on domain   2:    0.35270 elapsed seconds.
+Timing for main: time 2017-05-19_18:56:48 on domain   2:    0.35240 elapsed seconds.
+Timing for main: time 2017-05-19_18:56:48 on domain   1:    1.71970 elapsed seconds.
+Timing for main: time 2017-05-19_18:56:56 on domain   2:    0.35270 elapsed seconds.
+Timing for main: time 2017-05-19_18:57:04 on domain   2:    0.35210 elapsed seconds.
+Timing for main: time 2017-05-19_18:57:12 on domain   2:    0.35120 elapsed seconds.
+Timing for main: time 2017-05-19_18:57:12 on domain   1:    1.71590 elapsed seconds.
+Timing for main: time 2017-05-19_18:57:20 on domain   2:    0.35390 elapsed seconds.
+Timing for main: time 2017-05-19_18:57:28 on domain   2:    0.34790 elapsed seconds.
+Timing for main: time 2017-05-19_18:57:36 on domain   2:    0.35230 elapsed seconds.
+Timing for main: time 2017-05-19_18:57:36 on domain   1:    1.71290 elapsed seconds.
+Timing for main: time 2017-05-19_18:57:44 on domain   2:    0.35270 elapsed seconds.
+Timing for main: time 2017-05-19_18:57:52 on domain   2:    0.35310 elapsed seconds.
+Timing for main: time 2017-05-19_18:58:00 on domain   2:    0.35120 elapsed seconds.
+Timing for main: time 2017-05-19_18:58:00 on domain   1:    1.72050 elapsed seconds.
+Timing for main: time 2017-05-19_18:58:08 on domain   2:    0.34840 elapsed seconds.
+Timing for main: time 2017-05-19_18:58:16 on domain   2:    0.35320 elapsed seconds.
+Timing for main: time 2017-05-19_18:58:24 on domain   2:    0.35020 elapsed seconds.
+Timing for main: time 2017-05-19_18:58:24 on domain   1:    1.71300 elapsed seconds.
+Timing for main: time 2017-05-19_18:58:32 on domain   2:    0.35180 elapsed seconds.
+Timing for main: time 2017-05-19_18:58:40 on domain   2:    0.35160 elapsed seconds.
+Timing for main: time 2017-05-19_18:58:48 on domain   2:    0.34900 elapsed seconds.
+Timing for main: time 2017-05-19_18:58:48 on domain   1:    1.70930 elapsed seconds.
+Timing for main: time 2017-05-19_18:58:56 on domain   2:    0.35300 elapsed seconds.
+Timing for main: time 2017-05-19_18:59:04 on domain   2:    0.34860 elapsed seconds.
+Timing for main: time 2017-05-19_18:59:12 on domain   2:    0.35180 elapsed seconds.
+Timing for main: time 2017-05-19_18:59:12 on domain   1:    1.71250 elapsed seconds.
+Timing for main: time 2017-05-19_18:59:20 on domain   2:    0.34370 elapsed seconds.
+Timing for main: time 2017-05-19_18:59:28 on domain   2:    0.34500 elapsed seconds.
+Timing for main: time 2017-05-19_18:59:36 on domain   2:    0.34730 elapsed seconds.
+Timing for main: time 2017-05-19_18:59:36 on domain   1:    1.70170 elapsed seconds.
+Timing for main: time 2017-05-19_18:59:44 on domain   2:    0.34690 elapsed seconds.
+Timing for main: time 2017-05-19_18:59:52 on domain   2:    0.34820 elapsed seconds.
+Timing for main: time 2017-05-19_19:00:00 on domain   2:    0.34870 elapsed seconds.
+Timing for main: time 2017-05-19_19:00:00 on domain   1:    1.70000 elapsed seconds.
+Timing for Writing wrfout_d01_2017-05-19_19:00:00 for domain        1:    0.05710 elapsed seconds.
+Timing for processing lateral boundary for domain        1:    0.00900 elapsed seconds.
+Timing for Writing wrfout_d02_2017-05-19_19:00:00 for domain        2:    0.06530 elapsed seconds.
+Timing for main: time 2017-05-19_19:00:08 on domain   2:    0.82330 elapsed seconds.
+Timing for main: time 2017-05-19_19:00:16 on domain   2:    0.35050 elapsed seconds.
+Timing for main: time 2017-05-19_19:00:24 on domain   2:    0.35260 elapsed seconds.
+Timing for main: time 2017-05-19_19:00:24 on domain   1:    2.58770 elapsed seconds.
+Timing for main: time 2017-05-19_19:00:32 on domain   2:    0.35620 elapsed seconds.
+Timing for main: time 2017-05-19_19:00:40 on domain   2:    0.35140 elapsed seconds.
+Timing for main: time 2017-05-19_19:00:48 on domain   2:    0.34990 elapsed seconds.
+Timing for main: time 2017-05-19_19:00:48 on domain   1:    1.72620 elapsed seconds.
+Timing for main: time 2017-05-19_19:00:56 on domain   2:    0.34340 elapsed seconds.
+Timing for main: time 2017-05-19_19:01:04 on domain   2:    0.34580 elapsed seconds.
+Timing for main: time 2017-05-19_19:01:12 on domain   2:    0.34710 elapsed seconds.
+Timing for main: time 2017-05-19_19:01:12 on domain   1:    1.69360 elapsed seconds.
+Timing for main: time 2017-05-19_19:01:20 on domain   2:    0.34540 elapsed seconds.
+Timing for main: time 2017-05-19_19:01:28 on domain   2:    0.34260 elapsed seconds.
+Timing for main: time 2017-05-19_19:01:36 on domain   2:    0.34610 elapsed seconds.
+Timing for main: time 2017-05-19_19:01:36 on domain   1:    1.69560 elapsed seconds.
+Timing for main: time 2017-05-19_19:01:44 on domain   2:    0.34430 elapsed seconds.
+Timing for main: time 2017-05-19_19:01:52 on domain   2:    0.34390 elapsed seconds.
+Timing for main: time 2017-05-19_19:02:00 on domain   2:    0.34680 elapsed seconds.
+Timing for main: time 2017-05-19_19:02:00 on domain   1:    1.69380 elapsed seconds.
+Timing for main: time 2017-05-19_19:02:08 on domain   2:    0.34740 elapsed seconds.
+Timing for main: time 2017-05-19_19:02:16 on domain   2:    0.34690 elapsed seconds.
+Timing for main: time 2017-05-19_19:02:24 on domain   2:    0.34870 elapsed seconds.
+Timing for main: time 2017-05-19_19:02:24 on domain   1:    1.70570 elapsed seconds.
+Timing for main: time 2017-05-19_19:02:32 on domain   2:    0.34830 elapsed seconds.
+Timing for main: time 2017-05-19_19:02:40 on domain   2:    0.34650 elapsed seconds.
+Timing for main: time 2017-05-19_19:02:48 on domain   2:    0.34780 elapsed seconds.
+Timing for main: time 2017-05-19_19:02:48 on domain   1:    1.70280 elapsed seconds.
+Timing for main: time 2017-05-19_19:02:56 on domain   2:    0.34840 elapsed seconds.
+Timing for main: time 2017-05-19_19:03:04 on domain   2:    0.34630 elapsed seconds.
+Timing for main: time 2017-05-19_19:03:12 on domain   2:    0.34830 elapsed seconds.
+Timing for main: time 2017-05-19_19:03:12 on domain   1:    1.70740 elapsed seconds.
+Timing for main: time 2017-05-19_19:03:20 on domain   2:    0.34620 elapsed seconds.
+Timing for main: time 2017-05-19_19:03:28 on domain   2:    0.34600 elapsed seconds.
+Timing for main: time 2017-05-19_19:03:36 on domain   2:    0.34400 elapsed seconds.
+Timing for main: time 2017-05-19_19:03:36 on domain   1:    1.69920 elapsed seconds.
+Timing for main: time 2017-05-19_19:03:44 on domain   2:    0.34580 elapsed seconds.
+Timing for main: time 2017-05-19_19:03:52 on domain   2:    0.34740 elapsed seconds.
+Timing for main: time 2017-05-19_19:04:00 on domain   2:    0.34610 elapsed seconds.
+Timing for main: time 2017-05-19_19:04:00 on domain   1:    1.69460 elapsed seconds.
+Timing for main: time 2017-05-19_19:04:08 on domain   2:    0.34450 elapsed seconds.
+Timing for main: time 2017-05-19_19:04:16 on domain   2:    0.34200 elapsed seconds.
+Timing for main: time 2017-05-19_19:04:24 on domain   2:    0.34420 elapsed seconds.
+Timing for main: time 2017-05-19_19:04:24 on domain   1:    1.69760 elapsed seconds.
+Timing for main: time 2017-05-19_19:04:32 on domain   2:    0.34400 elapsed seconds.
+Timing for main: time 2017-05-19_19:04:40 on domain   2:    0.34380 elapsed seconds.
+Timing for main: time 2017-05-19_19:04:48 on domain   2:    0.34660 elapsed seconds.
+Timing for main: time 2017-05-19_19:04:48 on domain   1:    1.68970 elapsed seconds.
+Timing for main: time 2017-05-19_19:04:56 on domain   2:    0.34810 elapsed seconds.
+Timing for main: time 2017-05-19_19:05:04 on domain   2:    0.34980 elapsed seconds.
+Timing for main: time 2017-05-19_19:05:12 on domain   2:    0.34930 elapsed seconds.
+Timing for main: time 2017-05-19_19:05:12 on domain   1:    1.71160 elapsed seconds.
+Timing for main: time 2017-05-19_19:05:20 on domain   2:    0.35050 elapsed seconds.
+Timing for main: time 2017-05-19_19:05:28 on domain   2:    0.35140 elapsed seconds.
+Timing for main: time 2017-05-19_19:05:36 on domain   2:    0.35000 elapsed seconds.
+Timing for main: time 2017-05-19_19:05:36 on domain   1:    1.71590 elapsed seconds.
+Timing for main: time 2017-05-19_19:05:44 on domain   2:    0.34700 elapsed seconds.
+Timing for main: time 2017-05-19_19:05:52 on domain   2:    0.34980 elapsed seconds.
+Timing for main: time 2017-05-19_19:06:00 on domain   2:    0.34970 elapsed seconds.
+Timing for main: time 2017-05-19_19:06:00 on domain   1:    1.71210 elapsed seconds.
+Timing for main: time 2017-05-19_19:06:08 on domain   2:    0.34420 elapsed seconds.
+Timing for main: time 2017-05-19_19:06:16 on domain   2:    0.34400 elapsed seconds.
+Timing for main: time 2017-05-19_19:06:24 on domain   2:    0.34780 elapsed seconds.
+Timing for main: time 2017-05-19_19:06:24 on domain   1:    1.69440 elapsed seconds.
+Timing for main: time 2017-05-19_19:06:32 on domain   2:    0.34820 elapsed seconds.
+Timing for main: time 2017-05-19_19:06:40 on domain   2:    0.34670 elapsed seconds.
+Timing for main: time 2017-05-19_19:06:48 on domain   2:    0.35380 elapsed seconds.
+Timing for main: time 2017-05-19_19:06:48 on domain   1:    1.70230 elapsed seconds.
+Timing for main: time 2017-05-19_19:06:56 on domain   2:    0.34600 elapsed seconds.
+Timing for main: time 2017-05-19_19:07:04 on domain   2:    0.35040 elapsed seconds.
+Timing for main: time 2017-05-19_19:07:12 on domain   2:    0.35160 elapsed seconds.
+Timing for main: time 2017-05-19_19:07:12 on domain   1:    1.70590 elapsed seconds.
+Timing for main: time 2017-05-19_19:07:20 on domain   2:    0.34820 elapsed seconds.
+Timing for main: time 2017-05-19_19:07:28 on domain   2:    0.34840 elapsed seconds.
+Timing for main: time 2017-05-19_19:07:36 on domain   2:    0.34690 elapsed seconds.
+Timing for main: time 2017-05-19_19:07:36 on domain   1:    1.70710 elapsed seconds.
+Timing for main: time 2017-05-19_19:07:44 on domain   2:    0.34650 elapsed seconds.
+Timing for main: time 2017-05-19_19:07:52 on domain   2:    0.34410 elapsed seconds.
+Timing for main: time 2017-05-19_19:08:00 on domain   2:    0.34680 elapsed seconds.
+Timing for main: time 2017-05-19_19:08:00 on domain   1:    1.71360 elapsed seconds.
+Timing for main: time 2017-05-19_19:08:08 on domain   2:    0.34740 elapsed seconds.
+Timing for main: time 2017-05-19_19:08:16 on domain   2:    0.34990 elapsed seconds.
+Timing for main: time 2017-05-19_19:08:24 on domain   2:    0.34980 elapsed seconds.
+Timing for main: time 2017-05-19_19:08:24 on domain   1:    1.74710 elapsed seconds.
+Timing for main: time 2017-05-19_19:08:32 on domain   2:    0.34690 elapsed seconds.
+Timing for main: time 2017-05-19_19:08:40 on domain   2:    0.34600 elapsed seconds.
+Timing for main: time 2017-05-19_19:08:48 on domain   2:    0.34530 elapsed seconds.
+Timing for main: time 2017-05-19_19:08:48 on domain   1:    1.69670 elapsed seconds.
+Timing for main: time 2017-05-19_19:08:56 on domain   2:    0.34960 elapsed seconds.
+Timing for main: time 2017-05-19_19:09:04 on domain   2:    0.34990 elapsed seconds.
+Timing for main: time 2017-05-19_19:09:12 on domain   2:    0.35020 elapsed seconds.
+Timing for main: time 2017-05-19_19:09:12 on domain   1:    1.70790 elapsed seconds.
+Timing for main: time 2017-05-19_19:09:20 on domain   2:    0.35290 elapsed seconds.
+Timing for main: time 2017-05-19_19:09:28 on domain   2:    0.34630 elapsed seconds.
+Timing for main: time 2017-05-19_19:09:36 on domain   2:    0.34810 elapsed seconds.
+Timing for main: time 2017-05-19_19:09:36 on domain   1:    1.70030 elapsed seconds.
+Timing for main: time 2017-05-19_19:09:44 on domain   2:    0.34660 elapsed seconds.
+Timing for main: time 2017-05-19_19:09:52 on domain   2:    0.34760 elapsed seconds.
+Timing for main: time 2017-05-19_19:10:00 on domain   2:    0.34710 elapsed seconds.
+Timing for main: time 2017-05-19_19:10:00 on domain   1:    1.69980 elapsed seconds.
+Timing for main: time 2017-05-19_19:10:08 on domain   2:    0.77310 elapsed seconds.
+Timing for main: time 2017-05-19_19:10:16 on domain   2:    0.35130 elapsed seconds.
+Timing for main: time 2017-05-19_19:10:24 on domain   2:    0.34860 elapsed seconds.
+Timing for main: time 2017-05-19_19:10:24 on domain   1:    2.46860 elapsed seconds.
+Timing for main: time 2017-05-19_19:10:32 on domain   2:    0.34690 elapsed seconds.
+Timing for main: time 2017-05-19_19:10:40 on domain   2:    0.34700 elapsed seconds.
+Timing for main: time 2017-05-19_19:10:48 on domain   2:    0.34870 elapsed seconds.
+Timing for main: time 2017-05-19_19:10:48 on domain   1:    1.70480 elapsed seconds.
+Timing for main: time 2017-05-19_19:10:56 on domain   2:    0.34430 elapsed seconds.
+Timing for main: time 2017-05-19_19:11:04 on domain   2:    0.34560 elapsed seconds.
+Timing for main: time 2017-05-19_19:11:12 on domain   2:    0.34680 elapsed seconds.
+Timing for main: time 2017-05-19_19:11:12 on domain   1:    1.69830 elapsed seconds.
+Timing for main: time 2017-05-19_19:11:20 on domain   2:    0.34980 elapsed seconds.
+Timing for main: time 2017-05-19_19:11:28 on domain   2:    0.34600 elapsed seconds.
+Timing for main: time 2017-05-19_19:11:36 on domain   2:    0.34440 elapsed seconds.
+Timing for main: time 2017-05-19_19:11:36 on domain   1:    1.69290 elapsed seconds.
+Timing for main: time 2017-05-19_19:11:44 on domain   2:    0.34930 elapsed seconds.
+Timing for main: time 2017-05-19_19:11:52 on domain   2:    0.34490 elapsed seconds.
+Timing for main: time 2017-05-19_19:12:00 on domain   2:    0.34980 elapsed seconds.
+Timing for main: time 2017-05-19_19:12:00 on domain   1:    1.69570 elapsed seconds.
+Timing for main: time 2017-05-19_19:12:08 on domain   2:    0.35000 elapsed seconds.
+Timing for main: time 2017-05-19_19:12:16 on domain   2:    0.34790 elapsed seconds.
+Timing for main: time 2017-05-19_19:12:24 on domain   2:    0.34630 elapsed seconds.
+Timing for main: time 2017-05-19_19:12:24 on domain   1:    1.70440 elapsed seconds.
+Timing for main: time 2017-05-19_19:12:32 on domain   2:    0.34810 elapsed seconds.
+Timing for main: time 2017-05-19_19:12:40 on domain   2:    0.34630 elapsed seconds.
+Timing for main: time 2017-05-19_19:12:48 on domain   2:    0.34890 elapsed seconds.
+Timing for main: time 2017-05-19_19:12:48 on domain   1:    1.70300 elapsed seconds.
+Timing for main: time 2017-05-19_19:12:56 on domain   2:    0.34480 elapsed seconds.
+Timing for main: time 2017-05-19_19:13:04 on domain   2:    0.34270 elapsed seconds.
+Timing for main: time 2017-05-19_19:13:12 on domain   2:    0.34550 elapsed seconds.
+Timing for main: time 2017-05-19_19:13:12 on domain   1:    1.69030 elapsed seconds.
+Timing for main: time 2017-05-19_19:13:20 on domain   2:    0.34770 elapsed seconds.
+Timing for main: time 2017-05-19_19:13:28 on domain   2:    0.34720 elapsed seconds.
+Timing for main: time 2017-05-19_19:13:36 on domain   2:    0.34680 elapsed seconds.
+Timing for main: time 2017-05-19_19:13:36 on domain   1:    1.70180 elapsed seconds.
+Timing for main: time 2017-05-19_19:13:44 on domain   2:    0.34410 elapsed seconds.
+Timing for main: time 2017-05-19_19:13:52 on domain   2:    0.34420 elapsed seconds.
+Timing for main: time 2017-05-19_19:14:00 on domain   2:    0.34450 elapsed seconds.
+Timing for main: time 2017-05-19_19:14:00 on domain   1:    1.69290 elapsed seconds.
+Timing for main: time 2017-05-19_19:14:08 on domain   2:    0.34490 elapsed seconds.
+Timing for main: time 2017-05-19_19:14:16 on domain   2:    0.34270 elapsed seconds.
+Timing for main: time 2017-05-19_19:14:24 on domain   2:    0.34480 elapsed seconds.
+Timing for main: time 2017-05-19_19:14:24 on domain   1:    1.68720 elapsed seconds.
+Timing for main: time 2017-05-19_19:14:32 on domain   2:    0.34380 elapsed seconds.
+Timing for main: time 2017-05-19_19:14:40 on domain   2:    0.34390 elapsed seconds.
+Timing for main: time 2017-05-19_19:14:48 on domain   2:    0.34470 elapsed seconds.
+Timing for main: time 2017-05-19_19:14:48 on domain   1:    1.69030 elapsed seconds.
+Timing for main: time 2017-05-19_19:14:56 on domain   2:    0.34480 elapsed seconds.
+Timing for main: time 2017-05-19_19:15:04 on domain   2:    0.34460 elapsed seconds.
+Timing for main: time 2017-05-19_19:15:12 on domain   2:    0.34450 elapsed seconds.
+Timing for main: time 2017-05-19_19:15:12 on domain   1:    1.69340 elapsed seconds.
+Timing for main: time 2017-05-19_19:15:20 on domain   2:    0.34130 elapsed seconds.
+Timing for main: time 2017-05-19_19:15:28 on domain   2:    0.34190 elapsed seconds.
+Timing for main: time 2017-05-19_19:15:36 on domain   2:    0.34480 elapsed seconds.
+Timing for main: time 2017-05-19_19:15:36 on domain   1:    1.68510 elapsed seconds.
+Timing for main: time 2017-05-19_19:15:44 on domain   2:    0.34470 elapsed seconds.
+Timing for main: time 2017-05-19_19:15:52 on domain   2:    0.34300 elapsed seconds.
+Timing for main: time 2017-05-19_19:16:00 on domain   2:    0.34350 elapsed seconds.
+Timing for main: time 2017-05-19_19:16:00 on domain   1:    1.68680 elapsed seconds.
+Timing for main: time 2017-05-19_19:16:08 on domain   2:    0.34350 elapsed seconds.
+Timing for main: time 2017-05-19_19:16:16 on domain   2:    0.34460 elapsed seconds.
+Timing for main: time 2017-05-19_19:16:24 on domain   2:    0.34460 elapsed seconds.
+Timing for main: time 2017-05-19_19:16:24 on domain   1:    1.69320 elapsed seconds.
+Timing for main: time 2017-05-19_19:16:32 on domain   2:    0.34350 elapsed seconds.
+Timing for main: time 2017-05-19_19:16:40 on domain   2:    0.34520 elapsed seconds.
+Timing for main: time 2017-05-19_19:16:48 on domain   2:    0.34420 elapsed seconds.
+Timing for main: time 2017-05-19_19:16:48 on domain   1:    1.69090 elapsed seconds.
+Timing for main: time 2017-05-19_19:16:56 on domain   2:    0.34510 elapsed seconds.
+Timing for main: time 2017-05-19_19:17:04 on domain   2:    0.34300 elapsed seconds.
+Timing for main: time 2017-05-19_19:17:12 on domain   2:    0.34410 elapsed seconds.
+Timing for main: time 2017-05-19_19:17:12 on domain   1:    1.69150 elapsed seconds.
+Timing for main: time 2017-05-19_19:17:20 on domain   2:    0.34560 elapsed seconds.
+Timing for main: time 2017-05-19_19:17:28 on domain   2:    0.34820 elapsed seconds.
+Timing for main: time 2017-05-19_19:17:36 on domain   2:    0.34440 elapsed seconds.
+Timing for main: time 2017-05-19_19:17:36 on domain   1:    1.70120 elapsed seconds.
+Timing for main: time 2017-05-19_19:17:44 on domain   2:    0.34620 elapsed seconds.
+Timing for main: time 2017-05-19_19:17:52 on domain   2:    0.34620 elapsed seconds.
+Timing for main: time 2017-05-19_19:18:00 on domain   2:    0.34710 elapsed seconds.
+Timing for main: time 2017-05-19_19:18:00 on domain   1:    1.69970 elapsed seconds.
+Timing for main: time 2017-05-19_19:18:08 on domain   2:    0.34670 elapsed seconds.
+Timing for main: time 2017-05-19_19:18:16 on domain   2:    0.34740 elapsed seconds.
+Timing for main: time 2017-05-19_19:18:24 on domain   2:    0.34610 elapsed seconds.
+Timing for main: time 2017-05-19_19:18:24 on domain   1:    1.70160 elapsed seconds.
+Timing for main: time 2017-05-19_19:18:32 on domain   2:    0.34780 elapsed seconds.
+Timing for main: time 2017-05-19_19:18:40 on domain   2:    0.34750 elapsed seconds.
+Timing for main: time 2017-05-19_19:18:48 on domain   2:    0.34580 elapsed seconds.
+Timing for main: time 2017-05-19_19:18:48 on domain   1:    1.70360 elapsed seconds.
+Timing for main: time 2017-05-19_19:18:56 on domain   2:    0.34490 elapsed seconds.
+Timing for main: time 2017-05-19_19:19:04 on domain   2:    0.34690 elapsed seconds.
+Timing for main: time 2017-05-19_19:19:12 on domain   2:    0.34770 elapsed seconds.
+Timing for main: time 2017-05-19_19:19:12 on domain   1:    1.69560 elapsed seconds.
+Timing for main: time 2017-05-19_19:19:20 on domain   2:    0.34660 elapsed seconds.
+Timing for main: time 2017-05-19_19:19:28 on domain   2:    0.34770 elapsed seconds.
+Timing for main: time 2017-05-19_19:19:36 on domain   2:    0.34780 elapsed seconds.
+Timing for main: time 2017-05-19_19:19:36 on domain   1:    1.70240 elapsed seconds.
+Timing for main: time 2017-05-19_19:19:44 on domain   2:    0.34360 elapsed seconds.
+Timing for main: time 2017-05-19_19:19:52 on domain   2:    0.34310 elapsed seconds.
+Timing for main: time 2017-05-19_19:20:00 on domain   2:    0.34350 elapsed seconds.
+Timing for main: time 2017-05-19_19:20:00 on domain   1:    1.68790 elapsed seconds.
+Timing for main: time 2017-05-19_19:20:08 on domain   2:    0.77020 elapsed seconds.
+Timing for main: time 2017-05-19_19:20:16 on domain   2:    0.34440 elapsed seconds.
+Timing for main: time 2017-05-19_19:20:24 on domain   2:    0.34360 elapsed seconds.
+Timing for main: time 2017-05-19_19:20:24 on domain   1:    2.45870 elapsed seconds.
+Timing for main: time 2017-05-19_19:20:32 on domain   2:    0.34410 elapsed seconds.
+Timing for main: time 2017-05-19_19:20:40 on domain   2:    0.34540 elapsed seconds.
+Timing for main: time 2017-05-19_19:20:48 on domain   2:    0.34350 elapsed seconds.
+Timing for main: time 2017-05-19_19:20:48 on domain   1:    1.69150 elapsed seconds.
+Timing for main: time 2017-05-19_19:20:56 on domain   2:    0.34440 elapsed seconds.
+Timing for main: time 2017-05-19_19:21:04 on domain   2:    0.34900 elapsed seconds.
+Timing for main: time 2017-05-19_19:21:12 on domain   2:    0.34620 elapsed seconds.
+Timing for main: time 2017-05-19_19:21:12 on domain   1:    1.69820 elapsed seconds.
+Timing for main: time 2017-05-19_19:21:20 on domain   2:    0.34830 elapsed seconds.
+Timing for main: time 2017-05-19_19:21:28 on domain   2:    0.34820 elapsed seconds.
+Timing for main: time 2017-05-19_19:21:36 on domain   2:    0.34890 elapsed seconds.
+Timing for main: time 2017-05-19_19:21:36 on domain   1:    1.70710 elapsed seconds.
+Timing for main: time 2017-05-19_19:21:44 on domain   2:    0.34580 elapsed seconds.
+Timing for main: time 2017-05-19_19:21:52 on domain   2:    0.35060 elapsed seconds.
+Timing for main: time 2017-05-19_19:22:00 on domain   2:    0.34790 elapsed seconds.
+Timing for main: time 2017-05-19_19:22:00 on domain   1:    1.70480 elapsed seconds.
+Timing for main: time 2017-05-19_19:22:08 on domain   2:    0.34320 elapsed seconds.
+Timing for main: time 2017-05-19_19:22:16 on domain   2:    0.34750 elapsed seconds.
+Timing for main: time 2017-05-19_19:22:24 on domain   2:    0.34890 elapsed seconds.
+Timing for main: time 2017-05-19_19:22:24 on domain   1:    1.69840 elapsed seconds.
+Timing for main: time 2017-05-19_19:22:32 on domain   2:    0.34590 elapsed seconds.
+Timing for main: time 2017-05-19_19:22:40 on domain   2:    0.34480 elapsed seconds.
+Timing for main: time 2017-05-19_19:22:48 on domain   2:    0.34490 elapsed seconds.
+Timing for main: time 2017-05-19_19:22:48 on domain   1:    1.69220 elapsed seconds.
+Timing for main: time 2017-05-19_19:22:56 on domain   2:    0.34340 elapsed seconds.
+Timing for main: time 2017-05-19_19:23:04 on domain   2:    0.34510 elapsed seconds.
+Timing for main: time 2017-05-19_19:23:12 on domain   2:    0.34630 elapsed seconds.
+Timing for main: time 2017-05-19_19:23:12 on domain   1:    1.69600 elapsed seconds.
+Timing for main: time 2017-05-19_19:23:20 on domain   2:    0.34610 elapsed seconds.
+Timing for main: time 2017-05-19_19:23:28 on domain   2:    0.34520 elapsed seconds.
+Timing for main: time 2017-05-19_19:23:36 on domain   2:    0.34620 elapsed seconds.
+Timing for main: time 2017-05-19_19:23:36 on domain   1:    1.69580 elapsed seconds.
+Timing for main: time 2017-05-19_19:23:44 on domain   2:    0.34620 elapsed seconds.
+Timing for main: time 2017-05-19_19:23:52 on domain   2:    0.34540 elapsed seconds.
+Timing for main: time 2017-05-19_19:24:00 on domain   2:    0.34910 elapsed seconds.
+Timing for main: time 2017-05-19_19:24:00 on domain   1:    1.70140 elapsed seconds.
+Timing for main: time 2017-05-19_19:24:08 on domain   2:    0.34670 elapsed seconds.
+Timing for main: time 2017-05-19_19:24:16 on domain   2:    0.34900 elapsed seconds.
+Timing for main: time 2017-05-19_19:24:24 on domain   2:    0.34830 elapsed seconds.
+Timing for main: time 2017-05-19_19:24:24 on domain   1:    1.70560 elapsed seconds.
+Timing for main: time 2017-05-19_19:24:32 on domain   2:    0.34440 elapsed seconds.
+Timing for main: time 2017-05-19_19:24:40 on domain   2:    0.34780 elapsed seconds.
+Timing for main: time 2017-05-19_19:24:48 on domain   2:    0.35000 elapsed seconds.
+Timing for main: time 2017-05-19_19:24:48 on domain   1:    1.70380 elapsed seconds.
+Timing for main: time 2017-05-19_19:24:56 on domain   2:    0.34670 elapsed seconds.
+Timing for main: time 2017-05-19_19:25:04 on domain   2:    0.34650 elapsed seconds.
+Timing for main: time 2017-05-19_19:25:12 on domain   2:    0.34820 elapsed seconds.
+Timing for main: time 2017-05-19_19:25:12 on domain   1:    1.70030 elapsed seconds.
+Timing for main: time 2017-05-19_19:25:20 on domain   2:    0.34770 elapsed seconds.
+Timing for main: time 2017-05-19_19:25:28 on domain   2:    0.34730 elapsed seconds.
+Timing for main: time 2017-05-19_19:25:36 on domain   2:    0.34910 elapsed seconds.
+Timing for main: time 2017-05-19_19:25:36 on domain   1:    1.70380 elapsed seconds.
+Timing for main: time 2017-05-19_19:25:44 on domain   2:    0.34880 elapsed seconds.
+Timing for main: time 2017-05-19_19:25:52 on domain   2:    0.34950 elapsed seconds.
+Timing for main: time 2017-05-19_19:26:00 on domain   2:    0.34730 elapsed seconds.
+Timing for main: time 2017-05-19_19:26:00 on domain   1:    1.70730 elapsed seconds.
+Timing for main: time 2017-05-19_19:26:08 on domain   2:    0.34840 elapsed seconds.
+Timing for main: time 2017-05-19_19:26:16 on domain   2:    0.34580 elapsed seconds.
+Timing for main: time 2017-05-19_19:26:24 on domain   2:    0.34830 elapsed seconds.
+Timing for main: time 2017-05-19_19:26:24 on domain   1:    1.70330 elapsed seconds.
+Timing for main: time 2017-05-19_19:26:32 on domain   2:    0.34780 elapsed seconds.
+Timing for main: time 2017-05-19_19:26:40 on domain   2:    0.34430 elapsed seconds.
+Timing for main: time 2017-05-19_19:26:48 on domain   2:    0.34730 elapsed seconds.
+Timing for main: time 2017-05-19_19:26:48 on domain   1:    1.70000 elapsed seconds.
+Timing for main: time 2017-05-19_19:26:56 on domain   2:    0.34610 elapsed seconds.
+Timing for main: time 2017-05-19_19:27:04 on domain   2:    0.34840 elapsed seconds.
+Timing for main: time 2017-05-19_19:27:12 on domain   2:    0.34580 elapsed seconds.
+Timing for main: time 2017-05-19_19:27:12 on domain   1:    1.70000 elapsed seconds.
+Timing for main: time 2017-05-19_19:27:20 on domain   2:    0.34880 elapsed seconds.
+Timing for main: time 2017-05-19_19:27:28 on domain   2:    0.34520 elapsed seconds.
+Timing for main: time 2017-05-19_19:27:36 on domain   2:    0.34660 elapsed seconds.
+Timing for main: time 2017-05-19_19:27:36 on domain   1:    1.69780 elapsed seconds.
+Timing for main: time 2017-05-19_19:27:44 on domain   2:    0.34530 elapsed seconds.
+Timing for main: time 2017-05-19_19:27:52 on domain   2:    0.34620 elapsed seconds.
+Timing for main: time 2017-05-19_19:28:00 on domain   2:    0.34410 elapsed seconds.
+Timing for main: time 2017-05-19_19:28:00 on domain   1:    1.69490 elapsed seconds.
+Timing for main: time 2017-05-19_19:28:08 on domain   2:    0.34290 elapsed seconds.
+Timing for main: time 2017-05-19_19:28:16 on domain   2:    0.34560 elapsed seconds.
+Timing for main: time 2017-05-19_19:28:24 on domain   2:    0.34510 elapsed seconds.
+Timing for main: time 2017-05-19_19:28:24 on domain   1:    1.69220 elapsed seconds.
+Timing for main: time 2017-05-19_19:28:32 on domain   2:    0.34530 elapsed seconds.
+Timing for main: time 2017-05-19_19:28:40 on domain   2:    0.34590 elapsed seconds.
+Timing for main: time 2017-05-19_19:28:48 on domain   2:    0.34570 elapsed seconds.
+Timing for main: time 2017-05-19_19:28:48 on domain   1:    1.69240 elapsed seconds.
+Timing for main: time 2017-05-19_19:28:56 on domain   2:    0.34470 elapsed seconds.
+Timing for main: time 2017-05-19_19:29:04 on domain   2:    0.34420 elapsed seconds.
+Timing for main: time 2017-05-19_19:29:12 on domain   2:    0.34280 elapsed seconds.
+Timing for main: time 2017-05-19_19:29:12 on domain   1:    1.68750 elapsed seconds.
+Timing for main: time 2017-05-19_19:29:20 on domain   2:    0.34360 elapsed seconds.
+Timing for main: time 2017-05-19_19:29:28 on domain   2:    0.34470 elapsed seconds.
+Timing for main: time 2017-05-19_19:29:36 on domain   2:    0.34770 elapsed seconds.
+Timing for main: time 2017-05-19_19:29:36 on domain   1:    1.69260 elapsed seconds.
+Timing for main: time 2017-05-19_19:29:44 on domain   2:    0.34730 elapsed seconds.
+Timing for main: time 2017-05-19_19:29:52 on domain   2:    0.34930 elapsed seconds.
+Timing for main: time 2017-05-19_19:30:00 on domain   2:    0.35110 elapsed seconds.
+Timing for main: time 2017-05-19_19:30:00 on domain   1:    1.70550 elapsed seconds.
+Timing for main: time 2017-05-19_19:30:08 on domain   2:    0.76990 elapsed seconds.
+Timing for main: time 2017-05-19_19:30:16 on domain   2:    0.34650 elapsed seconds.
+Timing for main: time 2017-05-19_19:30:24 on domain   2:    0.34730 elapsed seconds.
+Timing for main: time 2017-05-19_19:30:24 on domain   1:    2.46440 elapsed seconds.
+Timing for main: time 2017-05-19_19:30:32 on domain   2:    0.35090 elapsed seconds.
+Timing for main: time 2017-05-19_19:30:40 on domain   2:    0.35190 elapsed seconds.
+Timing for main: time 2017-05-19_19:30:48 on domain   2:    0.34970 elapsed seconds.
+Timing for main: time 2017-05-19_19:30:48 on domain   1:    1.71900 elapsed seconds.
+Timing for main: time 2017-05-19_19:30:56 on domain   2:    0.35130 elapsed seconds.
+Timing for main: time 2017-05-19_19:31:04 on domain   2:    0.34970 elapsed seconds.
+Timing for main: time 2017-05-19_19:31:12 on domain   2:    0.34940 elapsed seconds.
+Timing for main: time 2017-05-19_19:31:12 on domain   1:    1.71300 elapsed seconds.
+Timing for main: time 2017-05-19_19:31:20 on domain   2:    0.35300 elapsed seconds.
+Timing for main: time 2017-05-19_19:31:28 on domain   2:    0.35250 elapsed seconds.
+Timing for main: time 2017-05-19_19:31:36 on domain   2:    0.35270 elapsed seconds.
+Timing for main: time 2017-05-19_19:31:36 on domain   1:    1.72420 elapsed seconds.
+Timing for main: time 2017-05-19_19:31:44 on domain   2:    0.35070 elapsed seconds.
+Timing for main: time 2017-05-19_19:31:52 on domain   2:    0.38510 elapsed seconds.
+Timing for main: time 2017-05-19_19:32:00 on domain   2:    0.35330 elapsed seconds.
+Timing for main: time 2017-05-19_19:32:00 on domain   1:    1.75430 elapsed seconds.
+Timing for main: time 2017-05-19_19:32:08 on domain   2:    0.35010 elapsed seconds.
+Timing for main: time 2017-05-19_19:32:16 on domain   2:    0.36430 elapsed seconds.
+Timing for main: time 2017-05-19_19:32:24 on domain   2:    0.34880 elapsed seconds.
+Timing for main: time 2017-05-19_19:32:24 on domain   1:    1.72410 elapsed seconds.
+Timing for main: time 2017-05-19_19:32:32 on domain   2:    0.34670 elapsed seconds.
+Timing for main: time 2017-05-19_19:32:40 on domain   2:    0.34830 elapsed seconds.
+Timing for main: time 2017-05-19_19:32:48 on domain   2:    0.34650 elapsed seconds.
+Timing for main: time 2017-05-19_19:32:48 on domain   1:    1.69870 elapsed seconds.
+Timing for main: time 2017-05-19_19:32:56 on domain   2:    0.34470 elapsed seconds.
+Timing for main: time 2017-05-19_19:33:04 on domain   2:    0.34620 elapsed seconds.
+Timing for main: time 2017-05-19_19:33:12 on domain   2:    0.34440 elapsed seconds.
+Timing for main: time 2017-05-19_19:33:12 on domain   1:    1.69510 elapsed seconds.
+Timing for main: time 2017-05-19_19:33:20 on domain   2:    0.33810 elapsed seconds.
+Timing for main: time 2017-05-19_19:33:28 on domain   2:    0.34340 elapsed seconds.
+Timing for main: time 2017-05-19_19:33:36 on domain   2:    0.34180 elapsed seconds.
+Timing for main: time 2017-05-19_19:33:36 on domain   1:    1.67830 elapsed seconds.
+Timing for main: time 2017-05-19_19:33:44 on domain   2:    0.34590 elapsed seconds.
+Timing for main: time 2017-05-19_19:33:52 on domain   2:    0.34650 elapsed seconds.
+Timing for main: time 2017-05-19_19:34:00 on domain   2:    0.34640 elapsed seconds.
+Timing for main: time 2017-05-19_19:34:00 on domain   1:    1.69080 elapsed seconds.
+Timing for main: time 2017-05-19_19:34:08 on domain   2:    0.34630 elapsed seconds.
+Timing for main: time 2017-05-19_19:34:16 on domain   2:    0.34200 elapsed seconds.
+Timing for main: time 2017-05-19_19:34:24 on domain   2:    0.34530 elapsed seconds.
+Timing for main: time 2017-05-19_19:34:24 on domain   1:    1.69110 elapsed seconds.
+Timing for main: time 2017-05-19_19:34:32 on domain   2:    0.34710 elapsed seconds.
+Timing for main: time 2017-05-19_19:34:40 on domain   2:    0.34740 elapsed seconds.
+Timing for main: time 2017-05-19_19:34:48 on domain   2:    0.34820 elapsed seconds.
+Timing for main: time 2017-05-19_19:34:48 on domain   1:    1.70240 elapsed seconds.
+Timing for main: time 2017-05-19_19:34:56 on domain   2:    0.35110 elapsed seconds.
+Timing for main: time 2017-05-19_19:35:04 on domain   2:    0.34780 elapsed seconds.
+Timing for main: time 2017-05-19_19:35:12 on domain   2:    0.35200 elapsed seconds.
+Timing for main: time 2017-05-19_19:35:12 on domain   1:    1.70860 elapsed seconds.
+Timing for main: time 2017-05-19_19:35:20 on domain   2:    0.34770 elapsed seconds.
+Timing for main: time 2017-05-19_19:35:28 on domain   2:    0.34880 elapsed seconds.
+Timing for main: time 2017-05-19_19:35:36 on domain   2:    0.34720 elapsed seconds.
+Timing for main: time 2017-05-19_19:35:36 on domain   1:    1.70710 elapsed seconds.
+Timing for main: time 2017-05-19_19:35:44 on domain   2:    0.34640 elapsed seconds.
+Timing for main: time 2017-05-19_19:35:52 on domain   2:    0.34620 elapsed seconds.
+Timing for main: time 2017-05-19_19:36:00 on domain   2:    0.34700 elapsed seconds.
+Timing for main: time 2017-05-19_19:36:00 on domain   1:    1.69610 elapsed seconds.
+Timing for main: time 2017-05-19_19:36:08 on domain   2:    0.34650 elapsed seconds.
+Timing for main: time 2017-05-19_19:36:16 on domain   2:    0.34620 elapsed seconds.
+Timing for main: time 2017-05-19_19:36:24 on domain   2:    0.34710 elapsed seconds.
+Timing for main: time 2017-05-19_19:36:24 on domain   1:    1.69640 elapsed seconds.
+Timing for main: time 2017-05-19_19:36:32 on domain   2:    0.34970 elapsed seconds.
+Timing for main: time 2017-05-19_19:36:40 on domain   2:    0.34640 elapsed seconds.
+Timing for main: time 2017-05-19_19:36:48 on domain   2:    0.35010 elapsed seconds.
+Timing for main: time 2017-05-19_19:36:48 on domain   1:    1.71030 elapsed seconds.
+Timing for main: time 2017-05-19_19:36:56 on domain   2:    0.34680 elapsed seconds.
+Timing for main: time 2017-05-19_19:37:04 on domain   2:    0.34520 elapsed seconds.
+Timing for main: time 2017-05-19_19:37:12 on domain   2:    0.34470 elapsed seconds.
+Timing for main: time 2017-05-19_19:37:12 on domain   1:    1.69260 elapsed seconds.
+Timing for main: time 2017-05-19_19:37:20 on domain   2:    0.34570 elapsed seconds.
+Timing for main: time 2017-05-19_19:37:28 on domain   2:    0.34850 elapsed seconds.
+Timing for main: time 2017-05-19_19:37:36 on domain   2:    0.34640 elapsed seconds.
+Timing for main: time 2017-05-19_19:37:36 on domain   1:    1.69460 elapsed seconds.
+Timing for main: time 2017-05-19_19:37:44 on domain   2:    0.34940 elapsed seconds.
+Timing for main: time 2017-05-19_19:37:52 on domain   2:    0.35160 elapsed seconds.
+Timing for main: time 2017-05-19_19:38:00 on domain   2:    0.34530 elapsed seconds.
+Timing for main: time 2017-05-19_19:38:00 on domain   1:    1.70770 elapsed seconds.
+Timing for main: time 2017-05-19_19:38:08 on domain   2:    0.34860 elapsed seconds.
+Timing for main: time 2017-05-19_19:38:16 on domain   2:    0.34840 elapsed seconds.
+Timing for main: time 2017-05-19_19:38:24 on domain   2:    0.34680 elapsed seconds.
+Timing for main: time 2017-05-19_19:38:24 on domain   1:    1.70400 elapsed seconds.
+Timing for main: time 2017-05-19_19:38:32 on domain   2:    0.34710 elapsed seconds.
+Timing for main: time 2017-05-19_19:38:40 on domain   2:    0.35080 elapsed seconds.
+Timing for main: time 2017-05-19_19:38:48 on domain   2:    0.35020 elapsed seconds.
+Timing for main: time 2017-05-19_19:38:48 on domain   1:    1.70840 elapsed seconds.
+Timing for main: time 2017-05-19_19:38:56 on domain   2:    0.34360 elapsed seconds.
+Timing for main: time 2017-05-19_19:39:04 on domain   2:    0.34950 elapsed seconds.
+Timing for main: time 2017-05-19_19:39:12 on domain   2:    0.34410 elapsed seconds.
+Timing for main: time 2017-05-19_19:39:12 on domain   1:    1.70060 elapsed seconds.
+Timing for main: time 2017-05-19_19:39:20 on domain   2:    0.34790 elapsed seconds.
+Timing for main: time 2017-05-19_19:39:28 on domain   2:    0.34700 elapsed seconds.
+Timing for main: time 2017-05-19_19:39:36 on domain   2:    0.35050 elapsed seconds.
+Timing for main: time 2017-05-19_19:39:36 on domain   1:    1.70550 elapsed seconds.
+Timing for main: time 2017-05-19_19:39:44 on domain   2:    0.35010 elapsed seconds.
+Timing for main: time 2017-05-19_19:39:52 on domain   2:    0.35070 elapsed seconds.
+Timing for main: time 2017-05-19_19:40:00 on domain   2:    0.35050 elapsed seconds.
+Timing for main: time 2017-05-19_19:40:00 on domain   1:    1.71460 elapsed seconds.
+Timing for main: time 2017-05-19_19:40:08 on domain   2:    0.75900 elapsed seconds.
+Timing for main: time 2017-05-19_19:40:16 on domain   2:    0.34560 elapsed seconds.
+Timing for main: time 2017-05-19_19:40:24 on domain   2:    0.34430 elapsed seconds.
+Timing for main: time 2017-05-19_19:40:24 on domain   1:    2.45160 elapsed seconds.
+Timing for main: time 2017-05-19_19:40:32 on domain   2:    0.34290 elapsed seconds.
+Timing for main: time 2017-05-19_19:40:40 on domain   2:    0.34780 elapsed seconds.
+Timing for main: time 2017-05-19_19:40:48 on domain   2:    0.34800 elapsed seconds.
+Timing for main: time 2017-05-19_19:40:48 on domain   1:    1.69570 elapsed seconds.
+Timing for main: time 2017-05-19_19:40:56 on domain   2:    0.34620 elapsed seconds.
+Timing for main: time 2017-05-19_19:41:04 on domain   2:    0.34690 elapsed seconds.
+Timing for main: time 2017-05-19_19:41:12 on domain   2:    0.34700 elapsed seconds.
+Timing for main: time 2017-05-19_19:41:12 on domain   1:    1.70120 elapsed seconds.
+Timing for main: time 2017-05-19_19:41:20 on domain   2:    0.34810 elapsed seconds.
+Timing for main: time 2017-05-19_19:41:28 on domain   2:    0.34730 elapsed seconds.
+Timing for main: time 2017-05-19_19:41:36 on domain   2:    0.34580 elapsed seconds.
+Timing for main: time 2017-05-19_19:41:36 on domain   1:    1.70350 elapsed seconds.
+Timing for main: time 2017-05-19_19:41:44 on domain   2:    0.34690 elapsed seconds.
+Timing for main: time 2017-05-19_19:41:52 on domain   2:    0.34790 elapsed seconds.
+Timing for main: time 2017-05-19_19:42:00 on domain   2:    0.34780 elapsed seconds.
+Timing for main: time 2017-05-19_19:42:00 on domain   1:    1.70300 elapsed seconds.
+Timing for main: time 2017-05-19_19:42:08 on domain   2:    0.34450 elapsed seconds.
+Timing for main: time 2017-05-19_19:42:16 on domain   2:    0.34640 elapsed seconds.
+Timing for main: time 2017-05-19_19:42:24 on domain   2:    0.34750 elapsed seconds.
+Timing for main: time 2017-05-19_19:42:24 on domain   1:    1.69740 elapsed seconds.
+Timing for main: time 2017-05-19_19:42:32 on domain   2:    0.34750 elapsed seconds.
+Timing for main: time 2017-05-19_19:42:40 on domain   2:    0.34860 elapsed seconds.
+Timing for main: time 2017-05-19_19:42:48 on domain   2:    0.34890 elapsed seconds.
+Timing for main: time 2017-05-19_19:42:48 on domain   1:    1.70650 elapsed seconds.
+Timing for main: time 2017-05-19_19:42:56 on domain   2:    0.34530 elapsed seconds.
+Timing for main: time 2017-05-19_19:43:04 on domain   2:    0.34450 elapsed seconds.
+Timing for main: time 2017-05-19_19:43:12 on domain   2:    0.34580 elapsed seconds.
+Timing for main: time 2017-05-19_19:43:12 on domain   1:    1.69180 elapsed seconds.
+Timing for main: time 2017-05-19_19:43:20 on domain   2:    0.34380 elapsed seconds.
+Timing for main: time 2017-05-19_19:43:28 on domain   2:    0.34510 elapsed seconds.
+Timing for main: time 2017-05-19_19:43:36 on domain   2:    0.34480 elapsed seconds.
+Timing for main: time 2017-05-19_19:43:36 on domain   1:    1.69330 elapsed seconds.
+Timing for main: time 2017-05-19_19:43:44 on domain   2:    0.34550 elapsed seconds.
+Timing for main: time 2017-05-19_19:43:52 on domain   2:    0.34470 elapsed seconds.
+Timing for main: time 2017-05-19_19:44:00 on domain   2:    0.34530 elapsed seconds.
+Timing for main: time 2017-05-19_19:44:00 on domain   1:    1.69600 elapsed seconds.
+Timing for main: time 2017-05-19_19:44:08 on domain   2:    0.34580 elapsed seconds.
+Timing for main: time 2017-05-19_19:44:16 on domain   2:    0.34420 elapsed seconds.
+Timing for main: time 2017-05-19_19:44:24 on domain   2:    0.34550 elapsed seconds.
+Timing for main: time 2017-05-19_19:44:24 on domain   1:    1.69420 elapsed seconds.
+Timing for main: time 2017-05-19_19:44:32 on domain   2:    0.34810 elapsed seconds.
+Timing for main: time 2017-05-19_19:44:40 on domain   2:    0.34900 elapsed seconds.
+Timing for main: time 2017-05-19_19:44:48 on domain   2:    0.34850 elapsed seconds.
+Timing for main: time 2017-05-19_19:44:48 on domain   1:    1.70630 elapsed seconds.
+Timing for main: time 2017-05-19_19:44:56 on domain   2:    0.34880 elapsed seconds.
+Timing for main: time 2017-05-19_19:45:04 on domain   2:    0.34750 elapsed seconds.
+Timing for main: time 2017-05-19_19:45:12 on domain   2:    0.34730 elapsed seconds.
+Timing for main: time 2017-05-19_19:45:12 on domain   1:    1.70400 elapsed seconds.
+Timing for main: time 2017-05-19_19:45:20 on domain   2:    0.34780 elapsed seconds.
+Timing for main: time 2017-05-19_19:45:28 on domain   2:    0.34790 elapsed seconds.
+Timing for main: time 2017-05-19_19:45:36 on domain   2:    0.34930 elapsed seconds.
+Timing for main: time 2017-05-19_19:45:36 on domain   1:    1.70210 elapsed seconds.
+Timing for main: time 2017-05-19_19:45:44 on domain   2:    0.35160 elapsed seconds.
+Timing for main: time 2017-05-19_19:45:52 on domain   2:    0.34760 elapsed seconds.
+Timing for main: time 2017-05-19_19:46:00 on domain   2:    0.34910 elapsed seconds.
+Timing for main: time 2017-05-19_19:46:00 on domain   1:    1.71180 elapsed seconds.
+Timing for main: time 2017-05-19_19:46:08 on domain   2:    0.35290 elapsed seconds.
+Timing for main: time 2017-05-19_19:46:16 on domain   2:    0.34960 elapsed seconds.
+Timing for main: time 2017-05-19_19:46:24 on domain   2:    0.35250 elapsed seconds.
+Timing for main: time 2017-05-19_19:46:24 on domain   1:    1.71420 elapsed seconds.
+Timing for main: time 2017-05-19_19:46:32 on domain   2:    0.35280 elapsed seconds.
+Timing for main: time 2017-05-19_19:46:40 on domain   2:    0.34520 elapsed seconds.
+Timing for main: time 2017-05-19_19:46:48 on domain   2:    0.34800 elapsed seconds.
+Timing for main: time 2017-05-19_19:46:48 on domain   1:    1.70920 elapsed seconds.
+Timing for main: time 2017-05-19_19:46:56 on domain   2:    0.34980 elapsed seconds.
+Timing for main: time 2017-05-19_19:47:04 on domain   2:    0.34990 elapsed seconds.
+Timing for main: time 2017-05-19_19:47:12 on domain   2:    0.34930 elapsed seconds.
+Timing for main: time 2017-05-19_19:47:12 on domain   1:    1.71180 elapsed seconds.
+Timing for main: time 2017-05-19_19:47:20 on domain   2:    0.35190 elapsed seconds.
+Timing for main: time 2017-05-19_19:47:28 on domain   2:    0.35040 elapsed seconds.
+Timing for main: time 2017-05-19_19:47:36 on domain   2:    0.34760 elapsed seconds.
+Timing for main: time 2017-05-19_19:47:36 on domain   1:    1.72570 elapsed seconds.
+Timing for main: time 2017-05-19_19:47:44 on domain   2:    0.34600 elapsed seconds.
+Timing for main: time 2017-05-19_19:47:52 on domain   2:    0.35170 elapsed seconds.
+Timing for main: time 2017-05-19_19:48:00 on domain   2:    0.35050 elapsed seconds.
+Timing for main: time 2017-05-19_19:48:00 on domain   1:    1.70930 elapsed seconds.
+Timing for main: time 2017-05-19_19:48:08 on domain   2:    0.35140 elapsed seconds.
+Timing for main: time 2017-05-19_19:48:16 on domain   2:    0.35140 elapsed seconds.
+Timing for main: time 2017-05-19_19:48:24 on domain   2:    0.34550 elapsed seconds.
+Timing for main: time 2017-05-19_19:48:24 on domain   1:    1.71000 elapsed seconds.
+Timing for main: time 2017-05-19_19:48:32 on domain   2:    0.34180 elapsed seconds.
+Timing for main: time 2017-05-19_19:48:40 on domain   2:    0.34680 elapsed seconds.
+Timing for main: time 2017-05-19_19:48:48 on domain   2:    0.34840 elapsed seconds.
+Timing for main: time 2017-05-19_19:48:48 on domain   1:    1.69360 elapsed seconds.
+Timing for main: time 2017-05-19_19:48:56 on domain   2:    0.34860 elapsed seconds.
+Timing for main: time 2017-05-19_19:49:04 on domain   2:    0.34790 elapsed seconds.
+Timing for main: time 2017-05-19_19:49:12 on domain   2:    0.34830 elapsed seconds.
+Timing for main: time 2017-05-19_19:49:12 on domain   1:    1.70610 elapsed seconds.
+Timing for main: time 2017-05-19_19:49:20 on domain   2:    0.34830 elapsed seconds.
+Timing for main: time 2017-05-19_19:49:28 on domain   2:    0.34850 elapsed seconds.
+Timing for main: time 2017-05-19_19:49:36 on domain   2:    0.34540 elapsed seconds.
+Timing for main: time 2017-05-19_19:49:36 on domain   1:    1.70170 elapsed seconds.
+Timing for main: time 2017-05-19_19:49:44 on domain   2:    0.34740 elapsed seconds.
+Timing for main: time 2017-05-19_19:49:52 on domain   2:    0.34250 elapsed seconds.
+Timing for main: time 2017-05-19_19:50:00 on domain   2:    0.34380 elapsed seconds.
+Timing for main: time 2017-05-19_19:50:00 on domain   1:    1.69310 elapsed seconds.
+Timing for main: time 2017-05-19_19:50:08 on domain   2:    0.78430 elapsed seconds.
+Timing for main: time 2017-05-19_19:50:16 on domain   2:    0.34960 elapsed seconds.
+Timing for main: time 2017-05-19_19:50:24 on domain   2:    0.35040 elapsed seconds.
+Timing for main: time 2017-05-19_19:50:24 on domain   1:    2.48530 elapsed seconds.
+Timing for main: time 2017-05-19_19:50:32 on domain   2:    0.35250 elapsed seconds.
+Timing for main: time 2017-05-19_19:50:40 on domain   2:    0.35110 elapsed seconds.
+Timing for main: time 2017-05-19_19:50:48 on domain   2:    0.35110 elapsed seconds.
+Timing for main: time 2017-05-19_19:50:48 on domain   1:    1.72360 elapsed seconds.
+Timing for main: time 2017-05-19_19:50:56 on domain   2:    0.34630 elapsed seconds.
+Timing for main: time 2017-05-19_19:51:04 on domain   2:    0.35150 elapsed seconds.
+Timing for main: time 2017-05-19_19:51:12 on domain   2:    0.35540 elapsed seconds.
+Timing for main: time 2017-05-19_19:51:12 on domain   1:    1.71030 elapsed seconds.
+Timing for main: time 2017-05-19_19:51:20 on domain   2:    0.34850 elapsed seconds.
+Timing for main: time 2017-05-19_19:51:28 on domain   2:    0.34680 elapsed seconds.
+Timing for main: time 2017-05-19_19:51:36 on domain   2:    0.34760 elapsed seconds.
+Timing for main: time 2017-05-19_19:51:36 on domain   1:    1.70500 elapsed seconds.
+Timing for main: time 2017-05-19_19:51:44 on domain   2:    0.34940 elapsed seconds.
+Timing for main: time 2017-05-19_19:51:52 on domain   2:    0.34910 elapsed seconds.
+Timing for main: time 2017-05-19_19:52:00 on domain   2:    0.35360 elapsed seconds.
+Timing for main: time 2017-05-19_19:52:00 on domain   1:    1.86260 elapsed seconds.
+Timing for main: time 2017-05-19_19:52:08 on domain   2:    0.34540 elapsed seconds.
+Timing for main: time 2017-05-19_19:52:16 on domain   2:    0.34810 elapsed seconds.
+Timing for main: time 2017-05-19_19:52:24 on domain   2:    0.34860 elapsed seconds.
+Timing for main: time 2017-05-19_19:52:24 on domain   1:    1.71290 elapsed seconds.
+Timing for main: time 2017-05-19_19:52:32 on domain   2:    0.34980 elapsed seconds.
+Timing for main: time 2017-05-19_19:52:40 on domain   2:    0.34510 elapsed seconds.
+Timing for main: time 2017-05-19_19:52:48 on domain   2:    0.34700 elapsed seconds.
+Timing for main: time 2017-05-19_19:52:48 on domain   1:    1.70420 elapsed seconds.
+Timing for main: time 2017-05-19_19:52:56 on domain   2:    0.34590 elapsed seconds.
+Timing for main: time 2017-05-19_19:53:04 on domain   2:    0.34750 elapsed seconds.
+Timing for main: time 2017-05-19_19:53:12 on domain   2:    0.35030 elapsed seconds.
+Timing for main: time 2017-05-19_19:53:12 on domain   1:    1.70100 elapsed seconds.
+Timing for main: time 2017-05-19_19:53:20 on domain   2:    0.34980 elapsed seconds.
+Timing for main: time 2017-05-19_19:53:28 on domain   2:    0.34660 elapsed seconds.
+Timing for main: time 2017-05-19_19:53:36 on domain   2:    0.34960 elapsed seconds.
+Timing for main: time 2017-05-19_19:53:36 on domain   1:    1.70850 elapsed seconds.
+Timing for main: time 2017-05-19_19:53:44 on domain   2:    0.34320 elapsed seconds.
+Timing for main: time 2017-05-19_19:53:52 on domain   2:    0.34460 elapsed seconds.
+Timing for main: time 2017-05-19_19:54:00 on domain   2:    0.34650 elapsed seconds.
+Timing for main: time 2017-05-19_19:54:00 on domain   1:    1.69040 elapsed seconds.
+Timing for main: time 2017-05-19_19:54:08 on domain   2:    0.34590 elapsed seconds.
+Timing for main: time 2017-05-19_19:54:16 on domain   2:    0.34800 elapsed seconds.
+Timing for main: time 2017-05-19_19:54:24 on domain   2:    0.34580 elapsed seconds.
+Timing for main: time 2017-05-19_19:54:24 on domain   1:    1.70050 elapsed seconds.
+Timing for main: time 2017-05-19_19:54:32 on domain   2:    0.34630 elapsed seconds.
+Timing for main: time 2017-05-19_19:54:40 on domain   2:    0.34710 elapsed seconds.
+Timing for main: time 2017-05-19_19:54:48 on domain   2:    0.34970 elapsed seconds.
+Timing for main: time 2017-05-19_19:54:48 on domain   1:    1.70630 elapsed seconds.
+Timing for main: time 2017-05-19_19:54:56 on domain   2:    0.34800 elapsed seconds.
+Timing for main: time 2017-05-19_19:55:04 on domain   2:    0.34850 elapsed seconds.
+Timing for main: time 2017-05-19_19:55:12 on domain   2:    0.34710 elapsed seconds.
+Timing for main: time 2017-05-19_19:55:12 on domain   1:    1.70540 elapsed seconds.
+Timing for main: time 2017-05-19_19:55:20 on domain   2:    0.34790 elapsed seconds.
+Timing for main: time 2017-05-19_19:55:28 on domain   2:    0.35050 elapsed seconds.
+Timing for main: time 2017-05-19_19:55:36 on domain   2:    0.34920 elapsed seconds.
+Timing for main: time 2017-05-19_19:55:36 on domain   1:    1.70050 elapsed seconds.
+Timing for main: time 2017-05-19_19:55:44 on domain   2:    0.34540 elapsed seconds.
+Timing for main: time 2017-05-19_19:55:52 on domain   2:    0.34660 elapsed seconds.
+Timing for main: time 2017-05-19_19:56:00 on domain   2:    0.35400 elapsed seconds.
+Timing for main: time 2017-05-19_19:56:00 on domain   1:    1.70590 elapsed seconds.
+Timing for main: time 2017-05-19_19:56:08 on domain   2:    0.34880 elapsed seconds.
+Timing for main: time 2017-05-19_19:56:16 on domain   2:    0.34800 elapsed seconds.
+Timing for main: time 2017-05-19_19:56:24 on domain   2:    0.34660 elapsed seconds.
+Timing for main: time 2017-05-19_19:56:24 on domain   1:    1.70250 elapsed seconds.
+Timing for main: time 2017-05-19_19:56:32 on domain   2:    0.34830 elapsed seconds.
+Timing for main: time 2017-05-19_19:56:40 on domain   2:    0.34870 elapsed seconds.
+Timing for main: time 2017-05-19_19:56:48 on domain   2:    0.34940 elapsed seconds.
+Timing for main: time 2017-05-19_19:56:48 on domain   1:    1.70830 elapsed seconds.
+Timing for main: time 2017-05-19_19:56:56 on domain   2:    0.34970 elapsed seconds.
+Timing for main: time 2017-05-19_19:57:04 on domain   2:    0.34880 elapsed seconds.
+Timing for main: time 2017-05-19_19:57:12 on domain   2:    0.34970 elapsed seconds.
+Timing for main: time 2017-05-19_19:57:12 on domain   1:    1.71430 elapsed seconds.
+Timing for main: time 2017-05-19_19:57:20 on domain   2:    0.34980 elapsed seconds.
+Timing for main: time 2017-05-19_19:57:28 on domain   2:    0.34560 elapsed seconds.
+Timing for main: time 2017-05-19_19:57:36 on domain   2:    0.34820 elapsed seconds.
+Timing for main: time 2017-05-19_19:57:36 on domain   1:    1.70330 elapsed seconds.
+Timing for main: time 2017-05-19_19:57:44 on domain   2:    0.34760 elapsed seconds.
+Timing for main: time 2017-05-19_19:57:52 on domain   2:    0.34830 elapsed seconds.
+Timing for main: time 2017-05-19_19:58:00 on domain   2:    0.34910 elapsed seconds.
+Timing for main: time 2017-05-19_19:58:00 on domain   1:    1.70870 elapsed seconds.
+Timing for main: time 2017-05-19_19:58:08 on domain   2:    0.35120 elapsed seconds.
+Timing for main: time 2017-05-19_19:58:16 on domain   2:    0.35280 elapsed seconds.
+Timing for main: time 2017-05-19_19:58:24 on domain   2:    0.34820 elapsed seconds.
+Timing for main: time 2017-05-19_19:58:24 on domain   1:    1.71760 elapsed seconds.
+Timing for main: time 2017-05-19_19:58:32 on domain   2:    0.34860 elapsed seconds.
+Timing for main: time 2017-05-19_19:58:40 on domain   2:    0.34510 elapsed seconds.
+Timing for main: time 2017-05-19_19:58:48 on domain   2:    0.34530 elapsed seconds.
+Timing for main: time 2017-05-19_19:58:48 on domain   1:    1.69880 elapsed seconds.
+Timing for main: time 2017-05-19_19:58:56 on domain   2:    0.35000 elapsed seconds.
+Timing for main: time 2017-05-19_19:59:04 on domain   2:    0.34660 elapsed seconds.
+Timing for main: time 2017-05-19_19:59:12 on domain   2:    0.34630 elapsed seconds.
+Timing for main: time 2017-05-19_19:59:12 on domain   1:    1.69800 elapsed seconds.
+Timing for main: time 2017-05-19_19:59:20 on domain   2:    0.34520 elapsed seconds.
+Timing for main: time 2017-05-19_19:59:28 on domain   2:    0.35070 elapsed seconds.
+Timing for main: time 2017-05-19_19:59:36 on domain   2:    0.34850 elapsed seconds.
+Timing for main: time 2017-05-19_19:59:36 on domain   1:    1.70930 elapsed seconds.
+Timing for main: time 2017-05-19_19:59:44 on domain   2:    0.34630 elapsed seconds.
+Timing for main: time 2017-05-19_19:59:52 on domain   2:    0.34680 elapsed seconds.
+Timing for main: time 2017-05-19_20:00:00 on domain   2:    0.34910 elapsed seconds.
+Timing for main: time 2017-05-19_20:00:00 on domain   1:    1.70370 elapsed seconds.
+Timing for Writing wrfout_d01_2017-05-19_20:00:00 for domain        1:    0.05680 elapsed seconds.
+Timing for processing lateral boundary for domain        1:    0.00900 elapsed seconds.
+Timing for Writing wrfout_d02_2017-05-19_20:00:00 for domain        2:    0.06750 elapsed seconds.
+Timing for main: time 2017-05-19_20:00:08 on domain   2:    0.84620 elapsed seconds.
+Timing for main: time 2017-05-19_20:00:16 on domain   2:    0.34820 elapsed seconds.
+Timing for main: time 2017-05-19_20:00:24 on domain   2:    0.35120 elapsed seconds.
+Timing for main: time 2017-05-19_20:00:24 on domain   1:    2.62280 elapsed seconds.
+Timing for main: time 2017-05-19_20:00:32 on domain   2:    0.34850 elapsed seconds.
+Timing for main: time 2017-05-19_20:00:40 on domain   2:    0.35260 elapsed seconds.
+Timing for main: time 2017-05-19_20:00:48 on domain   2:    0.34910 elapsed seconds.
+Timing for main: time 2017-05-19_20:00:48 on domain   1:    1.71350 elapsed seconds.
+Timing for main: time 2017-05-19_20:00:56 on domain   2:    0.34760 elapsed seconds.
+Timing for main: time 2017-05-19_20:01:04 on domain   2:    0.34900 elapsed seconds.
+Timing for main: time 2017-05-19_20:01:12 on domain   2:    0.34910 elapsed seconds.
+Timing for main: time 2017-05-19_20:01:12 on domain   1:    1.70780 elapsed seconds.
+Timing for main: time 2017-05-19_20:01:20 on domain   2:    0.34980 elapsed seconds.
+Timing for main: time 2017-05-19_20:01:28 on domain   2:    0.34900 elapsed seconds.
+Timing for main: time 2017-05-19_20:01:36 on domain   2:    0.34920 elapsed seconds.
+Timing for main: time 2017-05-19_20:01:36 on domain   1:    1.70960 elapsed seconds.
+Timing for main: time 2017-05-19_20:01:44 on domain   2:    0.34870 elapsed seconds.
+Timing for main: time 2017-05-19_20:01:52 on domain   2:    0.34900 elapsed seconds.
+Timing for main: time 2017-05-19_20:02:00 on domain   2:    0.34680 elapsed seconds.
+Timing for main: time 2017-05-19_20:02:00 on domain   1:    1.70390 elapsed seconds.
+Timing for main: time 2017-05-19_20:02:08 on domain   2:    0.34460 elapsed seconds.
+Timing for main: time 2017-05-19_20:02:16 on domain   2:    0.34310 elapsed seconds.
+Timing for main: time 2017-05-19_20:02:24 on domain   2:    0.34470 elapsed seconds.
+Timing for main: time 2017-05-19_20:02:24 on domain   1:    1.68850 elapsed seconds.
+Timing for main: time 2017-05-19_20:02:32 on domain   2:    0.34390 elapsed seconds.
+Timing for main: time 2017-05-19_20:02:40 on domain   2:    0.34450 elapsed seconds.
+Timing for main: time 2017-05-19_20:02:48 on domain   2:    0.34510 elapsed seconds.
+Timing for main: time 2017-05-19_20:02:48 on domain   1:    1.68890 elapsed seconds.
+Timing for main: time 2017-05-19_20:02:56 on domain   2:    0.34670 elapsed seconds.
+Timing for main: time 2017-05-19_20:03:04 on domain   2:    0.34470 elapsed seconds.
+Timing for main: time 2017-05-19_20:03:12 on domain   2:    0.35030 elapsed seconds.
+Timing for main: time 2017-05-19_20:03:12 on domain   1:    1.69850 elapsed seconds.
+Timing for main: time 2017-05-19_20:03:20 on domain   2:    0.34550 elapsed seconds.
+Timing for main: time 2017-05-19_20:03:28 on domain   2:    0.34710 elapsed seconds.
+Timing for main: time 2017-05-19_20:03:36 on domain   2:    0.34430 elapsed seconds.
+Timing for main: time 2017-05-19_20:03:36 on domain   1:    1.69480 elapsed seconds.
+Timing for main: time 2017-05-19_20:03:44 on domain   2:    0.34700 elapsed seconds.
+Timing for main: time 2017-05-19_20:03:52 on domain   2:    0.34730 elapsed seconds.
+Timing for main: time 2017-05-19_20:04:00 on domain   2:    0.35500 elapsed seconds.
+Timing for main: time 2017-05-19_20:04:00 on domain   1:    1.71050 elapsed seconds.
+Timing for main: time 2017-05-19_20:04:08 on domain   2:    0.34500 elapsed seconds.
+Timing for main: time 2017-05-19_20:04:16 on domain   2:    0.35040 elapsed seconds.
+Timing for main: time 2017-05-19_20:04:24 on domain   2:    0.35040 elapsed seconds.
+Timing for main: time 2017-05-19_20:04:24 on domain   1:    1.71010 elapsed seconds.
+Timing for main: time 2017-05-19_20:04:32 on domain   2:    0.34820 elapsed seconds.
+Timing for main: time 2017-05-19_20:04:40 on domain   2:    0.34840 elapsed seconds.
+Timing for main: time 2017-05-19_20:04:48 on domain   2:    0.34720 elapsed seconds.
+Timing for main: time 2017-05-19_20:04:48 on domain   1:    1.70320 elapsed seconds.
+Timing for main: time 2017-05-19_20:04:56 on domain   2:    0.34800 elapsed seconds.
+Timing for main: time 2017-05-19_20:05:04 on domain   2:    0.35120 elapsed seconds.
+Timing for main: time 2017-05-19_20:05:12 on domain   2:    0.34620 elapsed seconds.
+Timing for main: time 2017-05-19_20:05:12 on domain   1:    1.70430 elapsed seconds.
+Timing for main: time 2017-05-19_20:05:20 on domain   2:    0.34830 elapsed seconds.
+Timing for main: time 2017-05-19_20:05:28 on domain   2:    0.34770 elapsed seconds.
+Timing for main: time 2017-05-19_20:05:36 on domain   2:    0.34960 elapsed seconds.
+Timing for main: time 2017-05-19_20:05:36 on domain   1:    1.70660 elapsed seconds.
+Timing for main: time 2017-05-19_20:05:44 on domain   2:    0.34770 elapsed seconds.
+Timing for main: time 2017-05-19_20:05:52 on domain   2:    0.34990 elapsed seconds.
+Timing for main: time 2017-05-19_20:06:00 on domain   2:    0.34800 elapsed seconds.
+Timing for main: time 2017-05-19_20:06:00 on domain   1:    1.70540 elapsed seconds.
+Timing for main: time 2017-05-19_20:06:08 on domain   2:    0.34890 elapsed seconds.
+Timing for main: time 2017-05-19_20:06:16 on domain   2:    0.34770 elapsed seconds.
+Timing for main: time 2017-05-19_20:06:24 on domain   2:    0.34960 elapsed seconds.
+Timing for main: time 2017-05-19_20:06:24 on domain   1:    1.70830 elapsed seconds.
+Timing for main: time 2017-05-19_20:06:32 on domain   2:    0.34930 elapsed seconds.
+Timing for main: time 2017-05-19_20:06:40 on domain   2:    0.34650 elapsed seconds.
+Timing for main: time 2017-05-19_20:06:48 on domain   2:    0.34800 elapsed seconds.
+Timing for main: time 2017-05-19_20:06:48 on domain   1:    1.70560 elapsed seconds.
+Timing for main: time 2017-05-19_20:06:56 on domain   2:    0.34330 elapsed seconds.
+Timing for main: time 2017-05-19_20:07:04 on domain   2:    0.34470 elapsed seconds.
+Timing for main: time 2017-05-19_20:07:12 on domain   2:    0.34520 elapsed seconds.
+Timing for main: time 2017-05-19_20:07:12 on domain   1:    1.69150 elapsed seconds.
+Timing for main: time 2017-05-19_20:07:20 on domain   2:    0.34420 elapsed seconds.
+Timing for main: time 2017-05-19_20:07:28 on domain   2:    0.34530 elapsed seconds.
+Timing for main: time 2017-05-19_20:07:36 on domain   2:    0.34250 elapsed seconds.
+Timing for main: time 2017-05-19_20:07:36 on domain   1:    1.69020 elapsed seconds.
+Timing for main: time 2017-05-19_20:07:44 on domain   2:    0.34380 elapsed seconds.
+Timing for main: time 2017-05-19_20:07:52 on domain   2:    0.34470 elapsed seconds.
+Timing for main: time 2017-05-19_20:08:00 on domain   2:    0.40510 elapsed seconds.
+Timing for main: time 2017-05-19_20:08:00 on domain   1:    1.75380 elapsed seconds.
+Timing for main: time 2017-05-19_20:08:08 on domain   2:    0.34750 elapsed seconds.
+Timing for main: time 2017-05-19_20:08:16 on domain   2:    0.34590 elapsed seconds.
+Timing for main: time 2017-05-19_20:08:24 on domain   2:    0.34660 elapsed seconds.
+Timing for main: time 2017-05-19_20:08:24 on domain   1:    1.70160 elapsed seconds.
+Timing for main: time 2017-05-19_20:08:32 on domain   2:    0.34740 elapsed seconds.
+Timing for main: time 2017-05-19_20:08:40 on domain   2:    0.34630 elapsed seconds.
+Timing for main: time 2017-05-19_20:08:48 on domain   2:    0.34680 elapsed seconds.
+Timing for main: time 2017-05-19_20:08:48 on domain   1:    1.70170 elapsed seconds.
+Timing for main: time 2017-05-19_20:08:56 on domain   2:    0.34840 elapsed seconds.
+Timing for main: time 2017-05-19_20:09:04 on domain   2:    0.34970 elapsed seconds.
+Timing for main: time 2017-05-19_20:09:12 on domain   2:    0.34750 elapsed seconds.
+Timing for main: time 2017-05-19_20:09:12 on domain   1:    1.70860 elapsed seconds.
+Timing for main: time 2017-05-19_20:09:20 on domain   2:    0.34800 elapsed seconds.
+Timing for main: time 2017-05-19_20:09:28 on domain   2:    0.34760 elapsed seconds.
+Timing for main: time 2017-05-19_20:09:36 on domain   2:    0.34780 elapsed seconds.
+Timing for main: time 2017-05-19_20:09:36 on domain   1:    1.70520 elapsed seconds.
+Timing for main: time 2017-05-19_20:09:44 on domain   2:    0.34750 elapsed seconds.
+Timing for main: time 2017-05-19_20:09:52 on domain   2:    0.34680 elapsed seconds.
+Timing for main: time 2017-05-19_20:10:00 on domain   2:    0.34780 elapsed seconds.
+Timing for main: time 2017-05-19_20:10:00 on domain   1:    1.70450 elapsed seconds.
+Timing for main: time 2017-05-19_20:10:08 on domain   2:    0.77700 elapsed seconds.
+Timing for main: time 2017-05-19_20:10:16 on domain   2:    0.34750 elapsed seconds.
+Timing for main: time 2017-05-19_20:10:24 on domain   2:    0.34840 elapsed seconds.
+Timing for main: time 2017-05-19_20:10:24 on domain   1:    2.48470 elapsed seconds.
+Timing for main: time 2017-05-19_20:10:32 on domain   2:    0.34720 elapsed seconds.
+Timing for main: time 2017-05-19_20:10:40 on domain   2:    0.34670 elapsed seconds.
+Timing for main: time 2017-05-19_20:10:48 on domain   2:    0.34780 elapsed seconds.
+Timing for main: time 2017-05-19_20:10:48 on domain   1:    1.70460 elapsed seconds.
+Timing for main: time 2017-05-19_20:10:56 on domain   2:    0.34350 elapsed seconds.
+Timing for main: time 2017-05-19_20:11:04 on domain   2:    0.34230 elapsed seconds.
+Timing for main: time 2017-05-19_20:11:12 on domain   2:    0.34300 elapsed seconds.
+Timing for main: time 2017-05-19_20:11:12 on domain   1:    1.68700 elapsed seconds.
+Timing for main: time 2017-05-19_20:11:20 on domain   2:    0.34500 elapsed seconds.
+Timing for main: time 2017-05-19_20:11:28 on domain   2:    0.34530 elapsed seconds.
+Timing for main: time 2017-05-19_20:11:36 on domain   2:    0.34580 elapsed seconds.
+Timing for main: time 2017-05-19_20:11:36 on domain   1:    1.69300 elapsed seconds.
+Timing for main: time 2017-05-19_20:11:44 on domain   2:    0.34550 elapsed seconds.
+Timing for main: time 2017-05-19_20:11:52 on domain   2:    0.34560 elapsed seconds.
+Timing for main: time 2017-05-19_20:12:00 on domain   2:    0.34630 elapsed seconds.
+Timing for main: time 2017-05-19_20:12:00 on domain   1:    1.69590 elapsed seconds.
+Timing for main: time 2017-05-19_20:12:08 on domain   2:    0.34440 elapsed seconds.
+Timing for main: time 2017-05-19_20:12:16 on domain   2:    0.34530 elapsed seconds.
+Timing for main: time 2017-05-19_20:12:24 on domain   2:    0.34400 elapsed seconds.
+Timing for main: time 2017-05-19_20:12:24 on domain   1:    1.69170 elapsed seconds.
+Timing for main: time 2017-05-19_20:12:32 on domain   2:    0.34500 elapsed seconds.
+Timing for main: time 2017-05-19_20:12:40 on domain   2:    0.34470 elapsed seconds.
+Timing for main: time 2017-05-19_20:12:48 on domain   2:    0.34860 elapsed seconds.
+Timing for main: time 2017-05-19_20:12:48 on domain   1:    1.70010 elapsed seconds.
+Timing for main: time 2017-05-19_20:12:56 on domain   2:    0.34720 elapsed seconds.
+Timing for main: time 2017-05-19_20:13:04 on domain   2:    0.34680 elapsed seconds.
+Timing for main: time 2017-05-19_20:13:12 on domain   2:    0.34760 elapsed seconds.
+Timing for main: time 2017-05-19_20:13:12 on domain   1:    1.70090 elapsed seconds.
+Timing for main: time 2017-05-19_20:13:20 on domain   2:    0.34590 elapsed seconds.
+Timing for main: time 2017-05-19_20:13:28 on domain   2:    0.34690 elapsed seconds.
+Timing for main: time 2017-05-19_20:13:36 on domain   2:    0.34760 elapsed seconds.
+Timing for main: time 2017-05-19_20:13:36 on domain   1:    1.70110 elapsed seconds.
+Timing for main: time 2017-05-19_20:13:44 on domain   2:    0.35010 elapsed seconds.
+Timing for main: time 2017-05-19_20:13:52 on domain   2:    0.34990 elapsed seconds.
+Timing for main: time 2017-05-19_20:14:00 on domain   2:    0.35170 elapsed seconds.
+Timing for main: time 2017-05-19_20:14:00 on domain   1:    1.71380 elapsed seconds.
+Timing for main: time 2017-05-19_20:14:08 on domain   2:    0.34600 elapsed seconds.
+Timing for main: time 2017-05-19_20:14:16 on domain   2:    0.34810 elapsed seconds.
+Timing for main: time 2017-05-19_20:14:24 on domain   2:    0.34620 elapsed seconds.
+Timing for main: time 2017-05-19_20:14:24 on domain   1:    1.70110 elapsed seconds.
+Timing for main: time 2017-05-19_20:14:32 on domain   2:    0.34480 elapsed seconds.
+Timing for main: time 2017-05-19_20:14:40 on domain   2:    0.34680 elapsed seconds.
+Timing for main: time 2017-05-19_20:14:48 on domain   2:    0.34570 elapsed seconds.
+Timing for main: time 2017-05-19_20:14:48 on domain   1:    1.69600 elapsed seconds.
+Timing for main: time 2017-05-19_20:14:56 on domain   2:    0.34880 elapsed seconds.
+Timing for main: time 2017-05-19_20:15:04 on domain   2:    0.34720 elapsed seconds.
+Timing for main: time 2017-05-19_20:15:12 on domain   2:    0.34700 elapsed seconds.
+Timing for main: time 2017-05-19_20:15:12 on domain   1:    1.70180 elapsed seconds.
+Timing for main: time 2017-05-19_20:15:20 on domain   2:    0.34620 elapsed seconds.
+Timing for main: time 2017-05-19_20:15:28 on domain   2:    0.34590 elapsed seconds.
+Timing for main: time 2017-05-19_20:15:36 on domain   2:    0.34790 elapsed seconds.
+Timing for main: time 2017-05-19_20:15:36 on domain   1:    1.69560 elapsed seconds.
+Timing for main: time 2017-05-19_20:15:44 on domain   2:    0.34530 elapsed seconds.
+Timing for main: time 2017-05-19_20:15:52 on domain   2:    0.34520 elapsed seconds.
+Timing for main: time 2017-05-19_20:16:00 on domain   2:    0.34770 elapsed seconds.
+Timing for main: time 2017-05-19_20:16:00 on domain   1:    1.69730 elapsed seconds.
+Timing for main: time 2017-05-19_20:16:08 on domain   2:    0.34780 elapsed seconds.
+Timing for main: time 2017-05-19_20:16:16 on domain   2:    0.34850 elapsed seconds.
+Timing for main: time 2017-05-19_20:16:24 on domain   2:    0.34650 elapsed seconds.
+Timing for main: time 2017-05-19_20:16:24 on domain   1:    1.70280 elapsed seconds.
+Timing for main: time 2017-05-19_20:16:32 on domain   2:    0.35020 elapsed seconds.
+Timing for main: time 2017-05-19_20:16:40 on domain   2:    0.34960 elapsed seconds.
+Timing for main: time 2017-05-19_20:16:48 on domain   2:    0.34810 elapsed seconds.
+Timing for main: time 2017-05-19_20:16:48 on domain   1:    1.70950 elapsed seconds.
+Timing for main: time 2017-05-19_20:16:56 on domain   2:    0.34800 elapsed seconds.
+Timing for main: time 2017-05-19_20:17:04 on domain   2:    0.34770 elapsed seconds.
+Timing for main: time 2017-05-19_20:17:12 on domain   2:    0.34600 elapsed seconds.
+Timing for main: time 2017-05-19_20:17:12 on domain   1:    1.70350 elapsed seconds.
+Timing for main: time 2017-05-19_20:17:20 on domain   2:    0.34470 elapsed seconds.
+Timing for main: time 2017-05-19_20:17:28 on domain   2:    0.34420 elapsed seconds.
+Timing for main: time 2017-05-19_20:17:36 on domain   2:    0.34840 elapsed seconds.
+Timing for main: time 2017-05-19_20:17:36 on domain   1:    1.69450 elapsed seconds.
+Timing for main: time 2017-05-19_20:17:44 on domain   2:    0.34630 elapsed seconds.
+Timing for main: time 2017-05-19_20:17:52 on domain   2:    0.35310 elapsed seconds.
+Timing for main: time 2017-05-19_20:18:00 on domain   2:    0.34640 elapsed seconds.
+Timing for main: time 2017-05-19_20:18:00 on domain   1:    1.70380 elapsed seconds.
+Timing for main: time 2017-05-19_20:18:08 on domain   2:    0.36700 elapsed seconds.
+Timing for main: time 2017-05-19_20:18:16 on domain   2:    0.35500 elapsed seconds.
+Timing for main: time 2017-05-19_20:18:24 on domain   2:    0.35290 elapsed seconds.
+Timing for main: time 2017-05-19_20:18:24 on domain   1:    1.73320 elapsed seconds.
+Timing for main: time 2017-05-19_20:18:32 on domain   2:    0.35310 elapsed seconds.
+Timing for main: time 2017-05-19_20:18:40 on domain   2:    0.34840 elapsed seconds.
+Timing for main: time 2017-05-19_20:18:48 on domain   2:    0.34670 elapsed seconds.
+Timing for main: time 2017-05-19_20:18:48 on domain   1:    1.71500 elapsed seconds.
+Timing for main: time 2017-05-19_20:18:56 on domain   2:    0.34980 elapsed seconds.
+Timing for main: time 2017-05-19_20:19:04 on domain   2:    0.34810 elapsed seconds.
+Timing for main: time 2017-05-19_20:19:12 on domain   2:    0.34850 elapsed seconds.
+Timing for main: time 2017-05-19_20:19:12 on domain   1:    1.70600 elapsed seconds.
+Timing for main: time 2017-05-19_20:19:20 on domain   2:    0.34860 elapsed seconds.
+Timing for main: time 2017-05-19_20:19:28 on domain   2:    0.35160 elapsed seconds.
+Timing for main: time 2017-05-19_20:19:36 on domain   2:    0.35380 elapsed seconds.
+Timing for main: time 2017-05-19_20:19:36 on domain   1:    1.70890 elapsed seconds.
+Timing for main: time 2017-05-19_20:19:44 on domain   2:    0.35250 elapsed seconds.
+Timing for main: time 2017-05-19_20:19:52 on domain   2:    0.35320 elapsed seconds.
+Timing for main: time 2017-05-19_20:20:00 on domain   2:    0.34990 elapsed seconds.
+Timing for main: time 2017-05-19_20:20:00 on domain   1:    1.71990 elapsed seconds.
+Timing for main: time 2017-05-19_20:20:08 on domain   2:    0.77060 elapsed seconds.
+Timing for main: time 2017-05-19_20:20:16 on domain   2:    0.35090 elapsed seconds.
+Timing for main: time 2017-05-19_20:20:24 on domain   2:    0.34540 elapsed seconds.
+Timing for main: time 2017-05-19_20:20:24 on domain   1:    2.46620 elapsed seconds.
+Timing for main: time 2017-05-19_20:20:32 on domain   2:    0.34930 elapsed seconds.
+Timing for main: time 2017-05-19_20:20:40 on domain   2:    0.34640 elapsed seconds.
+Timing for main: time 2017-05-19_20:20:48 on domain   2:    0.35050 elapsed seconds.
+Timing for main: time 2017-05-19_20:20:48 on domain   1:    1.70220 elapsed seconds.
+Timing for main: time 2017-05-19_20:20:56 on domain   2:    0.34770 elapsed seconds.
+Timing for main: time 2017-05-19_20:21:04 on domain   2:    0.34240 elapsed seconds.
+Timing for main: time 2017-05-19_20:21:12 on domain   2:    0.34590 elapsed seconds.
+Timing for main: time 2017-05-19_20:21:12 on domain   1:    1.69490 elapsed seconds.
+Timing for main: time 2017-05-19_20:21:20 on domain   2:    0.34870 elapsed seconds.
+Timing for main: time 2017-05-19_20:21:28 on domain   2:    0.35020 elapsed seconds.
+Timing for main: time 2017-05-19_20:21:36 on domain   2:    0.34810 elapsed seconds.
+Timing for main: time 2017-05-19_20:21:36 on domain   1:    1.70760 elapsed seconds.
+Timing for main: time 2017-05-19_20:21:44 on domain   2:    0.35010 elapsed seconds.
+Timing for main: time 2017-05-19_20:21:52 on domain   2:    0.35080 elapsed seconds.
+Timing for main: time 2017-05-19_20:22:00 on domain   2:    0.34970 elapsed seconds.
+Timing for main: time 2017-05-19_20:22:00 on domain   1:    1.70740 elapsed seconds.
+Timing for main: time 2017-05-19_20:22:08 on domain   2:    0.35070 elapsed seconds.
+Timing for main: time 2017-05-19_20:22:16 on domain   2:    0.34720 elapsed seconds.
+Timing for main: time 2017-05-19_20:22:24 on domain   2:    0.34990 elapsed seconds.
+Timing for main: time 2017-05-19_20:22:24 on domain   1:    1.71290 elapsed seconds.
+Timing for main: time 2017-05-19_20:22:32 on domain   2:    0.34780 elapsed seconds.
+Timing for main: time 2017-05-19_20:22:40 on domain   2:    0.34870 elapsed seconds.
+Timing for main: time 2017-05-19_20:22:48 on domain   2:    0.34370 elapsed seconds.
+Timing for main: time 2017-05-19_20:22:48 on domain   1:    1.69850 elapsed seconds.
+Timing for main: time 2017-05-19_20:22:56 on domain   2:    0.34470 elapsed seconds.
+Timing for main: time 2017-05-19_20:23:04 on domain   2:    0.34580 elapsed seconds.
+Timing for main: time 2017-05-19_20:23:12 on domain   2:    0.34640 elapsed seconds.
+Timing for main: time 2017-05-19_20:23:12 on domain   1:    1.69510 elapsed seconds.
+Timing for main: time 2017-05-19_20:23:20 on domain   2:    0.34740 elapsed seconds.
+Timing for main: time 2017-05-19_20:23:28 on domain   2:    0.34810 elapsed seconds.
+Timing for main: time 2017-05-19_20:23:36 on domain   2:    0.34890 elapsed seconds.
+Timing for main: time 2017-05-19_20:23:36 on domain   1:    1.70380 elapsed seconds.
+Timing for main: time 2017-05-19_20:23:44 on domain   2:    0.34500 elapsed seconds.
+Timing for main: time 2017-05-19_20:23:52 on domain   2:    0.34610 elapsed seconds.
+Timing for main: time 2017-05-19_20:24:00 on domain   2:    0.34640 elapsed seconds.
+Timing for main: time 2017-05-19_20:24:00 on domain   1:    1.69510 elapsed seconds.
+Timing for main: time 2017-05-19_20:24:08 on domain   2:    0.34620 elapsed seconds.
+Timing for main: time 2017-05-19_20:24:16 on domain   2:    0.34540 elapsed seconds.
+Timing for main: time 2017-05-19_20:24:24 on domain   2:    0.34420 elapsed seconds.
+Timing for main: time 2017-05-19_20:24:24 on domain   1:    1.69560 elapsed seconds.
+Timing for main: time 2017-05-19_20:24:32 on domain   2:    0.34540 elapsed seconds.
+Timing for main: time 2017-05-19_20:24:40 on domain   2:    0.34550 elapsed seconds.
+Timing for main: time 2017-05-19_20:24:48 on domain   2:    0.34620 elapsed seconds.
+Timing for main: time 2017-05-19_20:24:48 on domain   1:    1.69680 elapsed seconds.
+Timing for main: time 2017-05-19_20:24:56 on domain   2:    0.34910 elapsed seconds.
+Timing for main: time 2017-05-19_20:25:04 on domain   2:    0.35010 elapsed seconds.
+Timing for main: time 2017-05-19_20:25:12 on domain   2:    0.34890 elapsed seconds.
+Timing for main: time 2017-05-19_20:25:12 on domain   1:    1.70640 elapsed seconds.
+Timing for main: time 2017-05-19_20:25:20 on domain   2:    0.34560 elapsed seconds.
+Timing for main: time 2017-05-19_20:25:28 on domain   2:    0.34640 elapsed seconds.
+Timing for main: time 2017-05-19_20:25:36 on domain   2:    0.34750 elapsed seconds.
+Timing for main: time 2017-05-19_20:25:36 on domain   1:    1.69960 elapsed seconds.
+Timing for main: time 2017-05-19_20:25:44 on domain   2:    0.34910 elapsed seconds.
+Timing for main: time 2017-05-19_20:25:52 on domain   2:    0.34570 elapsed seconds.
+Timing for main: time 2017-05-19_20:26:00 on domain   2:    0.34590 elapsed seconds.
+Timing for main: time 2017-05-19_20:26:00 on domain   1:    1.70440 elapsed seconds.
+Timing for main: time 2017-05-19_20:26:08 on domain   2:    0.34380 elapsed seconds.
+Timing for main: time 2017-05-19_20:26:16 on domain   2:    0.34600 elapsed seconds.
+Timing for main: time 2017-05-19_20:26:24 on domain   2:    0.34480 elapsed seconds.
+Timing for main: time 2017-05-19_20:26:24 on domain   1:    1.69570 elapsed seconds.
+Timing for main: time 2017-05-19_20:26:32 on domain   2:    0.34740 elapsed seconds.
+Timing for main: time 2017-05-19_20:26:40 on domain   2:    0.34450 elapsed seconds.
+Timing for main: time 2017-05-19_20:26:48 on domain   2:    0.34400 elapsed seconds.
+Timing for main: time 2017-05-19_20:26:48 on domain   1:    1.69500 elapsed seconds.
+Timing for main: time 2017-05-19_20:26:56 on domain   2:    0.34280 elapsed seconds.
+Timing for main: time 2017-05-19_20:27:04 on domain   2:    0.34800 elapsed seconds.
+Timing for main: time 2017-05-19_20:27:12 on domain   2:    0.34490 elapsed seconds.
+Timing for main: time 2017-05-19_20:27:12 on domain   1:    1.69460 elapsed seconds.
+Timing for main: time 2017-05-19_20:27:20 on domain   2:    0.34740 elapsed seconds.
+Timing for main: time 2017-05-19_20:27:28 on domain   2:    0.34770 elapsed seconds.
+Timing for main: time 2017-05-19_20:27:36 on domain   2:    0.34760 elapsed seconds.
+Timing for main: time 2017-05-19_20:27:36 on domain   1:    1.70670 elapsed seconds.
+Timing for main: time 2017-05-19_20:27:44 on domain   2:    0.34670 elapsed seconds.
+Timing for main: time 2017-05-19_20:27:52 on domain   2:    0.34830 elapsed seconds.
+Timing for main: time 2017-05-19_20:28:00 on domain   2:    0.34730 elapsed seconds.
+Timing for main: time 2017-05-19_20:28:00 on domain   1:    1.70350 elapsed seconds.
+Timing for main: time 2017-05-19_20:28:08 on domain   2:    0.34970 elapsed seconds.
+Timing for main: time 2017-05-19_20:28:16 on domain   2:    0.34760 elapsed seconds.
+Timing for main: time 2017-05-19_20:28:24 on domain   2:    0.34590 elapsed seconds.
+Timing for main: time 2017-05-19_20:28:24 on domain   1:    1.70590 elapsed seconds.
+Timing for main: time 2017-05-19_20:28:32 on domain   2:    0.34800 elapsed seconds.
+Timing for main: time 2017-05-19_20:28:40 on domain   2:    0.34770 elapsed seconds.
+Timing for main: time 2017-05-19_20:28:48 on domain   2:    0.34780 elapsed seconds.
+Timing for main: time 2017-05-19_20:28:48 on domain   1:    1.70660 elapsed seconds.
+Timing for main: time 2017-05-19_20:28:56 on domain   2:    0.34820 elapsed seconds.
+Timing for main: time 2017-05-19_20:29:04 on domain   2:    0.34800 elapsed seconds.
+Timing for main: time 2017-05-19_20:29:12 on domain   2:    0.34680 elapsed seconds.
+Timing for main: time 2017-05-19_20:29:12 on domain   1:    1.70540 elapsed seconds.
+Timing for main: time 2017-05-19_20:29:20 on domain   2:    0.34670 elapsed seconds.
+Timing for main: time 2017-05-19_20:29:28 on domain   2:    0.34750 elapsed seconds.
+Timing for main: time 2017-05-19_20:29:36 on domain   2:    0.34900 elapsed seconds.
+Timing for main: time 2017-05-19_20:29:36 on domain   1:    1.70740 elapsed seconds.
+Timing for main: time 2017-05-19_20:29:44 on domain   2:    0.34680 elapsed seconds.
+Timing for main: time 2017-05-19_20:29:52 on domain   2:    0.34910 elapsed seconds.
+Timing for main: time 2017-05-19_20:30:00 on domain   2:    0.34780 elapsed seconds.
+Timing for main: time 2017-05-19_20:30:00 on domain   1:    1.70690 elapsed seconds.
+Timing for main: time 2017-05-19_20:30:08 on domain   2:    0.78010 elapsed seconds.
+Timing for main: time 2017-05-19_20:30:16 on domain   2:    0.34660 elapsed seconds.
+Timing for main: time 2017-05-19_20:30:24 on domain   2:    0.34750 elapsed seconds.
+Timing for main: time 2017-05-19_20:30:24 on domain   1:    2.48400 elapsed seconds.
+Timing for main: time 2017-05-19_20:30:32 on domain   2:    0.34760 elapsed seconds.
+Timing for main: time 2017-05-19_20:30:40 on domain   2:    0.34440 elapsed seconds.
+Timing for main: time 2017-05-19_20:30:48 on domain   2:    0.34290 elapsed seconds.
+Timing for main: time 2017-05-19_20:30:48 on domain   1:    1.69620 elapsed seconds.
+Timing for main: time 2017-05-19_20:30:56 on domain   2:    0.34590 elapsed seconds.
+Timing for main: time 2017-05-19_20:31:04 on domain   2:    0.34670 elapsed seconds.
+Timing for main: time 2017-05-19_20:31:12 on domain   2:    0.34700 elapsed seconds.
+Timing for main: time 2017-05-19_20:31:12 on domain   1:    1.69930 elapsed seconds.
+Timing for main: time 2017-05-19_20:31:20 on domain   2:    0.34780 elapsed seconds.
+Timing for main: time 2017-05-19_20:31:28 on domain   2:    0.34720 elapsed seconds.
+Timing for main: time 2017-05-19_20:31:36 on domain   2:    0.34720 elapsed seconds.
+Timing for main: time 2017-05-19_20:31:36 on domain   1:    1.70320 elapsed seconds.
+Timing for main: time 2017-05-19_20:31:44 on domain   2:    0.34400 elapsed seconds.
+Timing for main: time 2017-05-19_20:31:52 on domain   2:    0.34830 elapsed seconds.
+Timing for main: time 2017-05-19_20:32:00 on domain   2:    0.34600 elapsed seconds.
+Timing for main: time 2017-05-19_20:32:00 on domain   1:    1.69210 elapsed seconds.
+Timing for main: time 2017-05-19_20:32:08 on domain   2:    0.34680 elapsed seconds.
+Timing for main: time 2017-05-19_20:32:16 on domain   2:    0.34720 elapsed seconds.
+Timing for main: time 2017-05-19_20:32:24 on domain   2:    0.34560 elapsed seconds.
+Timing for main: time 2017-05-19_20:32:24 on domain   1:    1.70000 elapsed seconds.
+Timing for main: time 2017-05-19_20:32:32 on domain   2:    0.35380 elapsed seconds.
+Timing for main: time 2017-05-19_20:32:40 on domain   2:    0.59900 elapsed seconds.
+Timing for main: time 2017-05-19_20:32:48 on domain   2:    0.70980 elapsed seconds.
+Timing for main: time 2017-05-19_20:32:48 on domain   1:    2.38580 elapsed seconds.
+Timing for main: time 2017-05-19_20:32:56 on domain   2:    0.69280 elapsed seconds.
+Timing for main: time 2017-05-19_20:33:04 on domain   2:    0.71150 elapsed seconds.
+Timing for main: time 2017-05-19_20:33:12 on domain   2:    0.69480 elapsed seconds.
+Timing for main: time 2017-05-19_20:33:12 on domain   1:    3.43310 elapsed seconds.
+Timing for main: time 2017-05-19_20:33:20 on domain   2:    0.71150 elapsed seconds.
+Timing for main: time 2017-05-19_20:33:28 on domain   2:    0.70980 elapsed seconds.
+Timing for main: time 2017-05-19_20:33:36 on domain   2:    0.70200 elapsed seconds.
+Timing for main: time 2017-05-19_20:33:36 on domain   1:    3.44770 elapsed seconds.
+Timing for main: time 2017-05-19_20:33:44 on domain   2:    0.70500 elapsed seconds.
+Timing for main: time 2017-05-19_20:33:52 on domain   2:    0.70530 elapsed seconds.
+Timing for main: time 2017-05-19_20:34:00 on domain   2:    0.53220 elapsed seconds.
+Timing for main: time 2017-05-19_20:34:00 on domain   1:    3.21690 elapsed seconds.
+Timing for main: time 2017-05-19_20:34:08 on domain   2:    0.34910 elapsed seconds.
+Timing for main: time 2017-05-19_20:34:16 on domain   2:    0.35000 elapsed seconds.
+Timing for main: time 2017-05-19_20:34:24 on domain   2:    0.35050 elapsed seconds.
+Timing for main: time 2017-05-19_20:34:24 on domain   1:    1.71120 elapsed seconds.
+Timing for main: time 2017-05-19_20:34:32 on domain   2:    0.34950 elapsed seconds.
+Timing for main: time 2017-05-19_20:34:40 on domain   2:    0.34840 elapsed seconds.
+Timing for main: time 2017-05-19_20:34:48 on domain   2:    0.35650 elapsed seconds.
+Timing for main: time 2017-05-19_20:34:48 on domain   1:    1.71640 elapsed seconds.
+Timing for main: time 2017-05-19_20:34:56 on domain   2:    0.35060 elapsed seconds.
+Timing for main: time 2017-05-19_20:35:04 on domain   2:    0.35320 elapsed seconds.
+Timing for main: time 2017-05-19_20:35:12 on domain   2:    0.35260 elapsed seconds.
+Timing for main: time 2017-05-19_20:35:12 on domain   1:    1.71910 elapsed seconds.
+Timing for main: time 2017-05-19_20:35:20 on domain   2:    0.35160 elapsed seconds.
+Timing for main: time 2017-05-19_20:35:28 on domain   2:    0.34710 elapsed seconds.
+Timing for main: time 2017-05-19_20:35:36 on domain   2:    0.35120 elapsed seconds.
+Timing for main: time 2017-05-19_20:35:36 on domain   1:    1.70970 elapsed seconds.
+Timing for main: time 2017-05-19_20:35:44 on domain   2:    0.34410 elapsed seconds.
+Timing for main: time 2017-05-19_20:35:52 on domain   2:    0.35050 elapsed seconds.
+Timing for main: time 2017-05-19_20:36:00 on domain   2:    0.34980 elapsed seconds.
+Timing for main: time 2017-05-19_20:36:00 on domain   1:    1.70480 elapsed seconds.
+Timing for main: time 2017-05-19_20:36:08 on domain   2:    0.34810 elapsed seconds.
+Timing for main: time 2017-05-19_20:36:16 on domain   2:    0.35080 elapsed seconds.
+Timing for main: time 2017-05-19_20:36:24 on domain   2:    0.34880 elapsed seconds.
+Timing for main: time 2017-05-19_20:36:24 on domain   1:    1.71000 elapsed seconds.
+Timing for main: time 2017-05-19_20:36:32 on domain   2:    0.34680 elapsed seconds.
+Timing for main: time 2017-05-19_20:36:40 on domain   2:    0.34380 elapsed seconds.
+Timing for main: time 2017-05-19_20:36:48 on domain   2:    0.34520 elapsed seconds.
+Timing for main: time 2017-05-19_20:36:48 on domain   1:    1.69840 elapsed seconds.
+Timing for main: time 2017-05-19_20:36:56 on domain   2:    0.34790 elapsed seconds.
+Timing for main: time 2017-05-19_20:37:04 on domain   2:    0.34690 elapsed seconds.
+Timing for main: time 2017-05-19_20:37:12 on domain   2:    0.34820 elapsed seconds.
+Timing for main: time 2017-05-19_20:37:12 on domain   1:    1.70430 elapsed seconds.
+Timing for main: time 2017-05-19_20:37:20 on domain   2:    0.34610 elapsed seconds.
+Timing for main: time 2017-05-19_20:37:28 on domain   2:    0.34800 elapsed seconds.
+Timing for main: time 2017-05-19_20:37:36 on domain   2:    0.34720 elapsed seconds.
+Timing for main: time 2017-05-19_20:37:36 on domain   1:    1.70100 elapsed seconds.
+Timing for main: time 2017-05-19_20:37:44 on domain   2:    0.34250 elapsed seconds.
+Timing for main: time 2017-05-19_20:37:52 on domain   2:    0.34590 elapsed seconds.
+Timing for main: time 2017-05-19_20:38:00 on domain   2:    0.34520 elapsed seconds.
+Timing for main: time 2017-05-19_20:38:00 on domain   1:    1.68690 elapsed seconds.
+Timing for main: time 2017-05-19_20:38:08 on domain   2:    0.34340 elapsed seconds.
+Timing for main: time 2017-05-19_20:38:16 on domain   2:    0.34730 elapsed seconds.
+Timing for main: time 2017-05-19_20:38:24 on domain   2:    0.46720 elapsed seconds.
+Timing for main: time 2017-05-19_20:38:24 on domain   1:    1.86410 elapsed seconds.
+Timing for main: time 2017-05-19_20:38:32 on domain   2:    0.66040 elapsed seconds.
+Timing for main: time 2017-05-19_20:38:40 on domain   2:    0.67340 elapsed seconds.
+Timing for main: time 2017-05-19_20:38:48 on domain   2:    0.66910 elapsed seconds.
+Timing for main: time 2017-05-19_20:38:48 on domain   1:    3.21970 elapsed seconds.
+Timing for main: time 2017-05-19_20:38:56 on domain   2:    0.36520 elapsed seconds.
+Timing for main: time 2017-05-19_20:39:04 on domain   2:    0.34680 elapsed seconds.
+Timing for main: time 2017-05-19_20:39:12 on domain   2:    0.34700 elapsed seconds.
+Timing for main: time 2017-05-19_20:39:12 on domain   1:    2.01570 elapsed seconds.
+Timing for main: time 2017-05-19_20:39:20 on domain   2:    0.35010 elapsed seconds.
+Timing for main: time 2017-05-19_20:39:28 on domain   2:    0.34860 elapsed seconds.
+Timing for main: time 2017-05-19_20:39:36 on domain   2:    0.34950 elapsed seconds.
+Timing for main: time 2017-05-19_20:39:36 on domain   1:    1.71210 elapsed seconds.
+Timing for main: time 2017-05-19_20:39:44 on domain   2:    0.34520 elapsed seconds.
+Timing for main: time 2017-05-19_20:39:52 on domain   2:    0.34560 elapsed seconds.
+Timing for main: time 2017-05-19_20:40:00 on domain   2:    0.34520 elapsed seconds.
+Timing for main: time 2017-05-19_20:40:00 on domain   1:    1.70670 elapsed seconds.
+Timing for main: time 2017-05-19_20:40:08 on domain   2:    0.77900 elapsed seconds.
+Timing for main: time 2017-05-19_20:40:16 on domain   2:    0.34770 elapsed seconds.
+Timing for main: time 2017-05-19_20:40:24 on domain   2:    0.34690 elapsed seconds.
+Timing for main: time 2017-05-19_20:40:24 on domain   1:    2.48030 elapsed seconds.
+Timing for main: time 2017-05-19_20:40:32 on domain   2:    0.34570 elapsed seconds.
+Timing for main: time 2017-05-19_20:40:40 on domain   2:    0.35150 elapsed seconds.
+Timing for main: time 2017-05-19_20:40:48 on domain   2:    0.34740 elapsed seconds.
+Timing for main: time 2017-05-19_20:40:48 on domain   1:    1.70480 elapsed seconds.
+Timing for main: time 2017-05-19_20:40:56 on domain   2:    0.34520 elapsed seconds.
+Timing for main: time 2017-05-19_20:41:04 on domain   2:    0.34730 elapsed seconds.
+Timing for main: time 2017-05-19_20:41:12 on domain   2:    0.34600 elapsed seconds.
+Timing for main: time 2017-05-19_20:41:12 on domain   1:    1.70110 elapsed seconds.
+Timing for main: time 2017-05-19_20:41:20 on domain   2:    0.34600 elapsed seconds.
+Timing for main: time 2017-05-19_20:41:28 on domain   2:    0.34490 elapsed seconds.
+Timing for main: time 2017-05-19_20:41:36 on domain   2:    0.34470 elapsed seconds.
+Timing for main: time 2017-05-19_20:41:36 on domain   1:    1.69470 elapsed seconds.
+Timing for main: time 2017-05-19_20:41:44 on domain   2:    0.34530 elapsed seconds.
+Timing for main: time 2017-05-19_20:41:52 on domain   2:    0.34520 elapsed seconds.
+Timing for main: time 2017-05-19_20:42:00 on domain   2:    0.34480 elapsed seconds.
+Timing for main: time 2017-05-19_20:42:00 on domain   1:    1.69510 elapsed seconds.
+Timing for main: time 2017-05-19_20:42:08 on domain   2:    0.34540 elapsed seconds.
+Timing for main: time 2017-05-19_20:42:16 on domain   2:    0.34520 elapsed seconds.
+Timing for main: time 2017-05-19_20:42:24 on domain   2:    0.34760 elapsed seconds.
+Timing for main: time 2017-05-19_20:42:24 on domain   1:    1.69830 elapsed seconds.
+Timing for main: time 2017-05-19_20:42:32 on domain   2:    0.34660 elapsed seconds.
+Timing for main: time 2017-05-19_20:42:40 on domain   2:    0.34880 elapsed seconds.
+Timing for main: time 2017-05-19_20:42:48 on domain   2:    0.34930 elapsed seconds.
+Timing for main: time 2017-05-19_20:42:48 on domain   1:    1.70410 elapsed seconds.
+Timing for main: time 2017-05-19_20:42:56 on domain   2:    0.34680 elapsed seconds.
+Timing for main: time 2017-05-19_20:43:04 on domain   2:    0.34980 elapsed seconds.
+Timing for main: time 2017-05-19_20:43:12 on domain   2:    0.34680 elapsed seconds.
+Timing for main: time 2017-05-19_20:43:12 on domain   1:    1.70590 elapsed seconds.
+Timing for main: time 2017-05-19_20:43:20 on domain   2:    0.34860 elapsed seconds.
+Timing for main: time 2017-05-19_20:43:28 on domain   2:    0.34700 elapsed seconds.
+Timing for main: time 2017-05-19_20:43:36 on domain   2:    0.34950 elapsed seconds.
+Timing for main: time 2017-05-19_20:43:36 on domain   1:    1.71160 elapsed seconds.
+Timing for main: time 2017-05-19_20:43:44 on domain   2:    0.35260 elapsed seconds.
+Timing for main: time 2017-05-19_20:43:52 on domain   2:    0.34990 elapsed seconds.
+Timing for main: time 2017-05-19_20:44:00 on domain   2:    0.35000 elapsed seconds.
+Timing for main: time 2017-05-19_20:44:00 on domain   1:    1.72070 elapsed seconds.
+Timing for main: time 2017-05-19_20:44:08 on domain   2:    0.34710 elapsed seconds.
+Timing for main: time 2017-05-19_20:44:16 on domain   2:    0.34260 elapsed seconds.
+Timing for main: time 2017-05-19_20:44:24 on domain   2:    0.34710 elapsed seconds.
+Timing for main: time 2017-05-19_20:44:24 on domain   1:    1.70440 elapsed seconds.
+Timing for main: time 2017-05-19_20:44:32 on domain   2:    0.34320 elapsed seconds.
+Timing for main: time 2017-05-19_20:44:40 on domain   2:    0.34570 elapsed seconds.
+Timing for main: time 2017-05-19_20:44:48 on domain   2:    0.34650 elapsed seconds.
+Timing for main: time 2017-05-19_20:44:48 on domain   1:    1.69550 elapsed seconds.
+Timing for main: time 2017-05-19_20:44:56 on domain   2:    0.34960 elapsed seconds.
+Timing for main: time 2017-05-19_20:45:04 on domain   2:    0.34630 elapsed seconds.
+Timing for main: time 2017-05-19_20:45:12 on domain   2:    0.34700 elapsed seconds.
+Timing for main: time 2017-05-19_20:45:12 on domain   1:    1.70220 elapsed seconds.
+Timing for main: time 2017-05-19_20:45:20 on domain   2:    0.34870 elapsed seconds.
+Timing for main: time 2017-05-19_20:45:28 on domain   2:    0.35060 elapsed seconds.
+Timing for main: time 2017-05-19_20:45:36 on domain   2:    0.34860 elapsed seconds.
+Timing for main: time 2017-05-19_20:45:36 on domain   1:    1.72010 elapsed seconds.
+Timing for main: time 2017-05-19_20:45:44 on domain   2:    0.34660 elapsed seconds.
+Timing for main: time 2017-05-19_20:45:52 on domain   2:    0.34620 elapsed seconds.
+Timing for main: time 2017-05-19_20:46:00 on domain   2:    0.34580 elapsed seconds.
+Timing for main: time 2017-05-19_20:46:00 on domain   1:    1.69560 elapsed seconds.
+Timing for main: time 2017-05-19_20:46:08 on domain   2:    0.34960 elapsed seconds.
+Timing for main: time 2017-05-19_20:46:16 on domain   2:    0.35120 elapsed seconds.
+Timing for main: time 2017-05-19_20:46:24 on domain   2:    0.35260 elapsed seconds.
+Timing for main: time 2017-05-19_20:46:24 on domain   1:    1.71710 elapsed seconds.
+Timing for main: time 2017-05-19_20:46:32 on domain   2:    0.35140 elapsed seconds.
+Timing for main: time 2017-05-19_20:46:40 on domain   2:    0.35400 elapsed seconds.
+Timing for main: time 2017-05-19_20:46:48 on domain   2:    0.35170 elapsed seconds.
+Timing for main: time 2017-05-19_20:46:48 on domain   1:    1.73190 elapsed seconds.
+Timing for main: time 2017-05-19_20:46:56 on domain   2:    0.35170 elapsed seconds.
+Timing for main: time 2017-05-19_20:47:04 on domain   2:    0.35150 elapsed seconds.
+Timing for main: time 2017-05-19_20:47:12 on domain   2:    0.34950 elapsed seconds.
+Timing for main: time 2017-05-19_20:47:12 on domain   1:    1.72030 elapsed seconds.
+Timing for main: time 2017-05-19_20:47:20 on domain   2:    0.34770 elapsed seconds.
+Timing for main: time 2017-05-19_20:47:28 on domain   2:    0.34820 elapsed seconds.
+Timing for main: time 2017-05-19_20:47:36 on domain   2:    0.34990 elapsed seconds.
+Timing for main: time 2017-05-19_20:47:36 on domain   1:    1.70940 elapsed seconds.
+Timing for main: time 2017-05-19_20:47:44 on domain   2:    0.35240 elapsed seconds.
+Timing for main: time 2017-05-19_20:47:52 on domain   2:    0.35200 elapsed seconds.
+Timing for main: time 2017-05-19_20:48:00 on domain   2:    0.35210 elapsed seconds.
+Timing for main: time 2017-05-19_20:48:00 on domain   1:    1.72620 elapsed seconds.

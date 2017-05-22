@@ -1,0 +1,37 @@
+
+Source Root    = /home/glendeni/DRJACK/WRF/WRFSI
+Install Root   = /home/glendeni/DRJACK/WRF/WRFSI 
+Data Root      = /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche
+Template Path  = /home/glendeni/DRJACK/WRF/WRFSI/templates/panoche 
+Config Domain  = true 
+Removing dataroot: /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche
+Generate DATA_ROOT directory structure
+Copy template namelist files from /home/glendeni/DRJACK/WRF/WRFSI/templates/panoche to /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/static
+Copy /home/glendeni/DRJACK/WRF/WRFSI/templates/panoche/README file to /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/static 
+Copy /home/glendeni/DRJACK/WRF/WRFSI/templates/panoche/wrf.nl file to /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/static 
+Copy /home/glendeni/DRJACK/WRF/WRFSI/templates/panoche/wrf.nl.README file to /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/static 
+Copy /home/glendeni/DRJACK/WRF/WRFSI/templates/panoche/wrfsi.nl file to /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/static 
+Copy /home/glendeni/DRJACK/WRF/WRFSI/templates/panoche/wrfsi.nl~ file to /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/static 
+Copy /home/glendeni/DRJACK/WRF/WRFSI/templates/panoche/wrf.nl~ file to /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/static 
+Running /home/glendeni/DRJACK/WRF/WRFSI/etc/localize_domain.pl
+running localize_domain.pl with this command
+/usr/bin/perl /home/glendeni/DRJACK/WRF/WRFSI/etc/localize_domain.pl --dataroot=/home/glendeni/DRJACK/WRF/WRFSI/domains/panoche --srcroot=/home/glendeni/DRJACK/WRF/WRFSI --install_root=/home/glendeni/DRJACK/WRF/WRFSI --which_type=wrfsi > /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/log/localize_domain.log
+/usr/bin/perl /home/glendeni/DRJACK/WRF/WRFSI/etc/localize_domain.pl --dataroot=/home/glendeni/DRJACK/WRF/WRFSI/domains/panoche --srcroot=/home/glendeni/DRJACK/WRF/WRFSI --install_root=/home/glendeni/DRJACK/WRF/WRFSI --which_type=wrfsi > /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/log/localize_domain.log completed 
+
+Run /home/glendeni/DRJACK/WRF/WRFSI/bin/staticpost.exe
+/home/glendeni/DRJACK/WRF/WRFSI/bin/staticpost.exe > /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/log/staticpost.log completed 
+
+Routine: sync_wrfnl.pl
+MOAD_DATAROOT = /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche
+/usr/bin/perl /home/glendeni/DRJACK/WRF/WRFSI/etc/sync_wrfnl.pl /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche completed 
+
+Checking for static file 
+checking localize_domain.log
+-rw-rw-r--    1 glendeni glendeni    56057 Jan  1 17:50 /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/log/localize_domain.log
+/home/glendeni/DRJACK/WRF/WRFSI/etc/localize_domain.pl complete
+update prod subdirectory - synchronize with repository
+
+ log file: /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/log/localize_domain.log.01-Jan-05-17:50-PM 
+         ********************************************** 
+         *******   Domain Localization complete ****** 
+         ********************************************** 

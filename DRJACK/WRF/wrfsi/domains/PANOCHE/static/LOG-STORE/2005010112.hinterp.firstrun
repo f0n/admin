@@ -1,0 +1,722 @@
+Trying to open file: /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/static/wrfsi.nl                                                                                                                                                                                                
+
+Successfully read the project and filetimespec namelists
+HINTERP processing WRF
+for DrJack
+HINTERP: Processing WRF Domain:  1
+WRF Lat1 =      35.70 WRF lon1 =    -120.78
+WRF Delta-x =    4000.00 WRF Delta-y =    4000.00
+WRF Standard Lon =    -98.000
+WRF Standard Lats =     30.000    60.000
+ Nest info:  parent_id         =              1
+             parent_grid_ratio =              1
+             i_parent_start    =              1
+             j_parent_start    =              1
+             i_parent_end      =              1
+             j_parent_end      =              1
+             nest dims         =             40           49
+MOAD CENTER LAT/LON =   36.7500 -120.2260
+ in here latc,lonc:     36.75000       -120.2260    
+ Populating domain metadata for domain:             1
+landmask inq_varid status and vid =    0  14
+
+
+Processing time:        2005-01-01_12:00:00
+Trying to OPEN init file: ./ETA:2005-01-01_12
+Successfully OPENed file: ./ETA:2005-01-01_12
+Min/max landmask from FG:   0.  1.
+Initializing new projection for this input field.
+COMPARE_PROJECTIONS: Different lat1/lon1
+ Min/Max XLOC (SRC) =     46.55189        51.00365    
+ Min/Max YLOC (SRC) =     56.48550        61.77553    
+ Interpolating soil height with method:             1
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1871
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for SNOW    
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1872
+  POINTS NOT REQUIRED:                 0
+  POINTS NEEDING FIX:                  1
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          1
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for SKINTEMP
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1872
+  POINTS NOT REQUIRED:                 0
+  POINTS NEEDING FIX:                  1
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          1
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for ST000010
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1871
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for ST010040
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1871
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for ST040100
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1871
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for ST100200
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1871
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for SM000010
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1871
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for SM010040
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1871
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for SM040100
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1871
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for SM100200
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1871
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for SEAICE  
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using nearest neighbor value...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:               1
+  POINTS NOT REQUIRED:              1871
+  POINTS NEEDING FIX:                  1
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          1
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for SST     
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:               1
+  POINTS NOT REQUIRED:              1871
+  POINTS NEEDING FIX:                  1
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          1
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for CANWAT  
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1871
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Found EOF in the FIRST GUESS file, exiting READ loop.
+CLOSE file: ./ETA:2005-01-01_12
+
+Found    5 3d arrays and   18 2d arrays for this time.
+Opening output file: /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/siprd/hinterp.d01.2005-01-01_12:00:00                                                                                                                   
+ ISOBARIC OUTPUT LEVELS:       200100       100000        97500        95000 
+        92500        90000        87500        85000        82500        80000 
+        77500        75000        72500        70000        67500        65000 
+        62500        60000        57500        55000        52500        50000 
+        47500        45000        42500        40000        37500        35000 
+        32500        30000        27500        25000        22500        20000 
+        17500        15000        12500        10000         7500         5000
+Writing domain metadata...
+           40           49
+Writing output levels...
+Writing 3-d variables...
+Wrote T       
+Wrote U       
+Wrote V       
+Wrote RH      
+Wrote HGT     
+Minimum height of top level for this time =   20583.34
+New min top =   20583.34
+Writing 2-d variables...
+Wrote PMSL    
+Wrote PSFC    
+Wrote SNOW    
+Wrote SKINTEMP
+Wrote ST000010
+Wrote ST010040
+Wrote ST040100
+Wrote ST100200
+Wrote SM000010
+Wrote SM010040
+Wrote SM040100
+Wrote SM100200
+Wrote SEAICE  
+Wrote SST     
+Wrote CANWAT  
+Done with variable output.
+
+
+Processing time:        2005-01-01_18:00:00
+Trying to OPEN LBC file: ./ETA:2005-01-01_18
+Successfully OPENed file: ./ETA:2005-01-01_18
+Min/max landmask from FG:   0.  1.
+Initializing new projection for this input field.
+COMPARE_PROJECTIONS: Different lat1/lon1
+ Min/Max XLOC (SRC) =     46.55189        51.00365    
+ Min/Max YLOC (SRC) =     56.48550        61.77553    
+ Interpolating soil height with method:             1
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1871
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for SNOW    
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1872
+  POINTS NOT REQUIRED:                 0
+  POINTS NEEDING FIX:                  1
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          1
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for SKINTEMP
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1872
+  POINTS NOT REQUIRED:                 0
+  POINTS NEEDING FIX:                  1
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          1
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for ST000010
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1871
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for ST010040
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1871
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for ST040100
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1871
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for ST100200
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1871
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for SM000010
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1871
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for SM010040
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1871
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for SM040100
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1871
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for SM100200
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1871
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for SEAICE  
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using nearest neighbor value...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:               1
+  POINTS NOT REQUIRED:              1871
+  POINTS NEEDING FIX:                  1
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          1
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for SST     
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:               1
+  POINTS NOT REQUIRED:              1871
+  POINTS NEEDING FIX:                  1
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          1
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for CANWAT  
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1871
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Found EOF in the FIRST GUESS file, exiting READ loop.
+CLOSE file: ./ETA:2005-01-01_18
+
+Found    5 3d arrays and   18 2d arrays for this time.
+Opening output file: /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/siprd/hinterp.d01.2005-01-01_18:00:00                                                                                                                   
+ ISOBARIC OUTPUT LEVELS:       200100       100000        97500        95000 
+        92500        90000        87500        85000        82500        80000 
+        77500        75000        72500        70000        67500        65000 
+        62500        60000        57500        55000        52500        50000 
+        47500        45000        42500        40000        37500        35000 
+        32500        30000        27500        25000        22500        20000 
+        17500        15000        12500        10000         7500         5000
+Writing domain metadata...
+           40           49
+Writing output levels...
+Writing 3-d variables...
+Wrote T       
+Wrote U       
+Wrote V       
+Wrote RH      
+Wrote HGT     
+Minimum height of top level for this time =   20613.53
+Writing 2-d variables...
+Wrote PMSL    
+Wrote PSFC    
+Wrote SNOW    
+Wrote SKINTEMP
+Wrote ST000010
+Wrote ST010040
+Wrote ST040100
+Wrote ST100200
+Wrote SM000010
+Wrote SM010040
+Wrote SM040100
+Wrote SM100200
+Wrote SEAICE  
+Wrote SST     
+Wrote CANWAT  
+Done with variable output.
+
+
+Processing time:        2005-01-02_00:00:00
+Trying to OPEN LBC file: ./ETA:2005-01-02_00
+Successfully OPENed file: ./ETA:2005-01-02_00
+Min/max landmask from FG:   0.  1.
+Initializing new projection for this input field.
+COMPARE_PROJECTIONS: Different lat1/lon1
+ Min/Max XLOC (SRC) =     46.55189        51.00365    
+ Min/Max YLOC (SRC) =     56.48550        61.77553    
+ Interpolating soil height with method:             1
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1871
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for SNOW    
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1872
+  POINTS NOT REQUIRED:                 0
+  POINTS NEEDING FIX:                  1
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          1
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for SKINTEMP
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1872
+  POINTS NOT REQUIRED:                 0
+  POINTS NEEDING FIX:                  1
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          1
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for ST000010
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1871
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for ST010040
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1871
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for ST040100
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1871
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for ST100200
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1871
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for SM000010
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1871
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for SM010040
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1871
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for SM040100
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1871
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for SM100200
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1871
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for SEAICE  
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using nearest neighbor value...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:               1
+  POINTS NOT REQUIRED:              1871
+  POINTS NEEDING FIX:                  1
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          1
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for SST     
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:               1
+  POINTS NOT REQUIRED:              1871
+  POINTS NEEDING FIX:                  1
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          1
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Doing masked interpolation for CANWAT  
+INTERPOLATE_MASKED: Using source landmask field.
+Masked interpolation using 4-pt linear interpolation...
+----------------------------------------
+MASKED INTERPOLATION SUMMARY: 
+  TOTAL POINTS IN GRID:             1872
+  POINTS NEEDING VALUES:            1871
+  POINTS NOT REQUIRED:                 1
+  POINTS NEEDING FIX:                  0
+  POINTS FIXED WITH OUT GRID:          0
+  POINTS FIXED WITH SRC GRID:          0
+  POINTS FIXED WITH DEF VAL:           0
+----------------------------------------
+Found EOF in the FIRST GUESS file, exiting READ loop.
+CLOSE file: ./ETA:2005-01-02_00
+
+Found    5 3d arrays and   18 2d arrays for this time.
+Opening output file: /home/glendeni/DRJACK/WRF/WRFSI/domains/panoche/siprd/hinterp.d01.2005-01-02_00:00:00                                                                                                                   
+ ISOBARIC OUTPUT LEVELS:       200100       100000        97500        95000 
+        92500        90000        87500        85000        82500        80000 
+        77500        75000        72500        70000        67500        65000 
+        62500        60000        57500        55000        52500        50000 
+        47500        45000        42500        40000        37500        35000 
+        32500        30000        27500        25000        22500        20000 
+        17500        15000        12500        10000         7500         5000
+Writing domain metadata...
+           40           49
+Writing output levels...
+Writing 3-d variables...
+Wrote T       
+Wrote U       
+Wrote V       
+Wrote RH      
+Wrote HGT     
+Minimum height of top level for this time =   20582.16
+New min top =   20582.16
+Writing 2-d variables...
+Wrote PMSL    
+Wrote PSFC    
+Wrote SNOW    
+Wrote SKINTEMP
+Wrote ST000010
+Wrote ST010040
+Wrote ST040100
+Wrote ST100200
+Wrote SM000010
+Wrote SM010040
+Wrote SM040100
+Wrote SM100200
+Wrote SEAICE  
+Wrote SST     
+Wrote CANWAT  
+Done with variable output.
+HINTERP: Completed for domain:  1
+******************************************
+*  IF RUNNING THE HEIGHT-BASED VERSION:  *
+** IN VINTERP YOU NEED TO MAKE SURE TO  **
+** SET MODEL TOP ZETA <= 20582.         **
+******************************************

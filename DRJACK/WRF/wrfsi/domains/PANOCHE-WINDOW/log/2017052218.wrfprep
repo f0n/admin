@@ -1,0 +1,23 @@
+Log for wrfprep.pl
+----------------------------------------------------------
+Opened Mon May 22 12:41:00 UTC 2017
+----------------------------------------------------------
+INSTALLROOT: /home/admin/DRJACK/WRF/WRFSI
+MOAD_DATAROOT: /home/admin/DRJACK/WRF/WRFSI/domains/PANOCHE-WINDOW
+CYCLE START: 2017/05/22 18:00:00
+CYCLE END:   2017/05/22 21:00:00
+FCST LENGTH: 3
+INTERVAL:    3
+
+===) Searching for init files...
+found and linking /home/admin/DRJACK/WRF/WRFSI/extdata/extprd/ETA:2017-05-22_18
+===) Searching for LBC files...
+found and linking /home/admin/DRJACK/WRF/WRFSI/extdata/extprd/ETA:2017-05-22_21
+Initialization source used: ETA
+Lateral boundary source:    ETA
+
+Mon May 22 12:41:00 UTC 2017 : Running hinterp
+Mon May 22 12:41:01 UTC 2017 : hinterp finished.
+Mon May 22 12:41:01 UTC 2017 : Running vinterp
+Mon May 22 12:41:02 UTC 2017 : vinterp finished.
+Mon May 22 12:41:02 UTC 2017 : wrfprep.pl ended normally.

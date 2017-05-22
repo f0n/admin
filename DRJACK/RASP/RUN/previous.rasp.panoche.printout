@@ -1,0 +1,264 @@
+START: ./rasp.panoche -M 0 at 05:03 May 22 for MON 22 May 2017 : process 2615 & perl 5.014002 & $Revision: 2.148 $ $Date: 2009/12/24 07:19:12 $Z
+FLAGS:  LPRINT=3  LGETGRIB=2  LMODELINIT=1   LMODELRUN=2  LSEND=2  LSAVE=0
+VARS:   BASEDIR=/home/admin/DRJACK 
+--- Run parameters were read from file:  rasp.run.parameters.PANOCHE 
+  >  #############################################################################
+   >  ################## RUN-ARGUMENT-SPECIFIC RASP PARAMETERS ####################
+   >  #############################################################################
+   >  ### For updated information on these model parameters see                 ###
+   >  ### http://www.drjack.info/twiki/bin/view/RASPop/RunParametersDescription ###
+   >  #############################################################################
+   >  ###### SET REGIONS PROCESSED BY THIS RUN
+   >    @REGION_DOLIST = ( 'PANOCHE' );
+   >  ###### SET MODEL USED FOR DOWNLOADED GRIB FILES
+   >    ###    ( USA=ETA WORLD=GFSA/GFSN )
+   >    $GRIBFILE_MODEL = 'ETA' ;      
+   >  ###### SET OPTIONAL WEBSITE FILE CREATION (can be bypassed by certain run arguments)
+   >    ### $LSEND=  0 = images produced only in local "RASP/RUN/OUT" subdirectory
+   >    ##           1 = copy images to web directory using filenames pre-pended with "test"
+   >    ##           2 = copy images to web directory using normal filenames 
+   >    ##           -1,-2 = ftp images to remote server (NOT OPERATIONALLY TESTED)
+   >    ##           3 = also do firstofday processing (NOT IMPLEMENTED)
+   >    ### uses test so will not overwrite if set by run argument
+   >    if( not defined $LSEND ) { $LSEND =  2; }
+   >  ###### SET OPTIONAL ARCHIVE FILE CREATION (can be bypassed by certain run arguments)
+   >    ### $LSAVE=  0 = inhibits all archive saves to preserve disk space
+   >    ##           1 = saves data files - uses least disk space
+   >    ##           2 = saves data files and images - uses much less disk space than $LSAVE=2
+   >    ##           3 = saves data files and image files and initial condition files to a storage directory 
+   >    ### uses test so will not overwrite if set by run argument
+   >    if( not defined $LSAVE ) { $LSAVE =  0; }
+   >  ##################################################################
+   >  #############  START OF REGION DEPENDENT PARAMETERS  #############
+   >  ###### SET RUN TYPE
+   >    ### LRUN_WINDOW 0=> stage-1 only (no_windowing) 2=> stage-1+2 "windowed" run 
+   >    $LRUN_WINDOW{'PANOCHE'} = 2 ;
+   >    #ACTIVATE THE NEXT LINE TO PRODUCE 2-STAGE RUN: 
+   >    #for2stage: $LRUN_WINDOW{'PANOCHE'} = 2 ;
+   >  ###### SET BASIC PARAMETER LIST
+   >    @{$PARAMETER_DOLIST{'PANOCHE'}} = ( 'hbl','dbl','hwcrit','dwcrit','wstar','bsratio', 'sfcsunpct','sfcshf', 'blwind','sfcwind', 'zsfclcl','zsfclcldif','zsfclclmask', 'zblcl','zblcldif','zblclmask','blcloudpct','blcwbase', 'boxwmax','press850','press700','press500', 'bltopvariab','bltopwind','wblmaxmin','zwblmaxmin', 'blwindshear', 'sfctemp','sfcdewpt', 'cape', 'wstar_bsratio' );
+   >    ###### ADD POSSIBLE SOUNDINGS  (corresponding data must be set in file ../WRF/NCL/rasp.ncl.region.data)
+   >    #4soundings: push @{$PARAMETER_DOLIST{'PANOCHE'}}, ( 'sounding1','sounding2' );  
+   >  ######  SET GRID LOCAL TIME
+   >    $LOCALTIME_ID{'PANOCHE'} = 'PST' ;
+   >    $LOCALTIME_ADJ{'PANOCHE'} = -8 ; 
+   >  ###### SET GRIB FILE PROCESSING 
+   >    ### GRIBFILES_PER_FORECAST_PERIOD IS NUMBER OF GRIB FILES PROCESSED AT SAME TIME
+   >    #12hr_run:
+   >    $GRIBFILES_PER_FORECAST_PERIOD{'PANOCHE'} = 5 ;
+   >    #15hr_run:  $GRIBFILES_PER_FORECAST_PERIOD{'PANOCHE'} = 6 ;
+   >    ### BLIPMAPFILEDOLIST LISTS ALL GRIB FILES NEEDED
+   >    %GRIBFILE_DOLIST = 
+   >    (
+   >      #4immediaterun: 
+   >    'PANOCHE'   => [ '0Z+12','0Z+15','0Z+18','0Z+21','0Z+24' ],
+   >      #once-daily_12_hr_run (earlyAM):      'PANOCHE'   => [ '6Z+6','6Z+9','6Z+12','6Z+15','6Z+18' ],
+   >      #once-daily_15_hr_run (earlyAM):      'PANOCHE'   => [ '6Z+6','6Z+9','6Z+12','6Z+15','6Z+18','6Z+21' ],
+   >      #once-daily_15_hr_run (lateAM):      'PANOCHE'   => [ '12Z+0','12Z+3','12Z+6','12Z+9','12Z+12','12Z+15' ],
+   >      #twice-daily_15hr_run (earlyAM+lateAM):      'PANOCHE'   => [ '12Z+0','12Z+3','12Z+6','12Z+9','12Z+12','12Z+15', '6Z+6','6Z+9','6Z+12','6Z+15','6Z+18','6Z+21' ],
+   >      #thrice-daily_12hr_run:     'PANOCHE'   => [ '12Z+0','12Z+3','12Z+6','12Z+9','12Z+12', '6Z+6','6Z+9','6Z+12','6Z+15','6Z+18', '0Z+12','0Z+15','0Z+18','0Z+21','0Z+24' ],
+   >    );
+   >  ###### SET DOMAIN PARAMETERS FOR STAGE1 [NON-WINDOW] ITERATION
+   >    #12hr_run:
+   >    $FORECAST_PERIODHRS{'PANOCHE'}[0] = 12;              # used only by initialization programs
+   >    #15hr_run:    $FORECAST_PERIODHRS{'PANOCHE'}[0] = 15;       # used only by initialization programs
+   >    ### SET DOMAIN START/END TIMES
+   >    $DOMAIN1_STARTHH{'PANOCHE'}[0] = '12';               # must have grib file available for this time
+   >    #12hr_run:
+   >    $DOMAIN1_ENDHH{'PANOCHE'}[0] = '00';                 # 
+   >    #15hr_run:    $DOMAIN1_ENDHH{'PANOCHE'}[0] = '03';              # 
+   >    $DOMAIN2_START_DELTAMINS{'PANOCHE'}[0] = 0;          # if non-zero, must set namelist.template INPUT_FROM_FILE=false
+   >    $DOMAIN2_END_DELTAMINS{'PANOCHE'}[0] = 0;            # relative to domain1
+   >    $DOMAIN3_START_DELTAMINS{'PANOCHE'}[0] = 420;        # if non-zero, must set namelist.template INPUT_FROM_FILE=false
+   >    $DOMAIN3_END_DELTAMINS{'PANOCHE'}[0] = -120;         # relative to domain1
+   >    ### SET MODEL TIME STEP
+   >    $DOMAIN1_TIMESTEP{'PANOCHE'}[0] = 60.;               # over-rides namelist.template TIME_STEP
+   >    ### SET BOUNDARY UPDATE PERIODS
+   >    $BOUNDARY_UPDATE_PERIODHRS{'PANOCHE'}[0] = 3;        # used only by initialization programs
+   >    $NDOWN_BOUNDARY_UPDATE_PERIODHRS{'PANOCHE'}[0] = 0 ; # should always be 0 for non-windowed case
+   >    ### SET BLIPMAP IMAGE SIZES  - 1st,2nd value for 1st,2nd domain - blank=NOplot
+   >    @{$PLOT_IMAGE_SIZE{'PANOCHE'}[0]} = ( '', '800x800' );
+   >    ### SET HISTORY HOUR FOR IMAGES PLOTTED WHEN $PLOT_IMAGE_SIZE FOR THAT DOMAIN NOT BLANK
+   >    #12hr_run:
+   >    @{$PLOT_HHMMLIST{'PANOCHE'}[0]} =  ( '1200', '1500', '1800', '2100', '0000' );
+   >    #15hr_run:  @{$PLOT_HHMMLIST{'PANOCHE'}[0]} =  ( '1200', '1500', '1800', '2100', '0000','0300' );
+   >    ### CREATE WEBSITE IMAGE LOOP
+   >    #12hr_run:
+   >    @{$PLOT_LOOP_HHMMLIST{'PANOCHE'}[0]} =  ( 'title', '1200', '1500', '1800', '2100', '0000' );
+   >    #15hr:  @{$PLOT_LOOP_HHMMLIST{'PANOCHE'}[0]} =  ( 'title', '1200', '1500','1800', '2100', '0000', '0300' );
+   >    ### SET HISTORY HOUR FOR IMAGES SAVED WHEN LSAVE>0 AND $PLOT_IMAGE_SIZE FOR THAT DOMAIN NOT BLANK
+   >    #12hr_run:
+   >    @{$SAVE_PLOT_HHMMLIST{'PANOCHE'}[0]} = ( '2100' );
+   >    #15hr:  @{$SAVE_PLOT_HHMMLIST{'PANOCHE'}[0]} = ( '1800','2100','0000','0300' );
+   >  ###### SET DOMAIN PARAMETERS FOR STAGE2 [WINDOWED] ITERATION (not used if no windowing done)
+   >    $FORECAST_PERIODHRS{'PANOCHE'}[1] = 3;       
+   >    ### SET DOMAIN START/END TIMES
+   >    $DOMAIN1_STARTHH{'PANOCHE'}[1] = '18';               # must have grib file available at this time
+   >    $DOMAIN1_ENDHH{'PANOCHE'}[1] = '21';          
+   >    $DOMAIN2_START_DELTAMINS{'PANOCHE'}[1] = 0;          # if non-zero, must set namelist.template INPUT_FROM_FILE=false
+   >    $DOMAIN2_END_DELTAMINS{'PANOCHE'}[1] = 0;            # relative to domain1
+   >    $DOMAIN3_START_DELTAMINS{'PANOCHE'}[1] = 0;          # if non-zero, must set namelist.template INPUT_FROM_FILE=false
+   >    $DOMAIN3_END_DELTAMINS{'PANOCHE'}[1] = 0;            # relative to domain1
+   >    ### SET MODEL TIME STEP
+   >    $DOMAIN1_TIMESTEP{'PANOCHE'}[1] = 24.;               # over-rides namelist.template TIME_STEP
+   >    ### SET BOUNDARY UPDATE PERIODS
+   >    $BOUNDARY_UPDATE_PERIODHRS{'PANOCHE'}[1] = 1;     
+   >    ### NDOWN_BOUNDARY_UPDATE_PERIODHRS must agree with stage 1 output interval (in hours)
+   >    $NDOWN_BOUNDARY_UPDATE_PERIODHRS{'PANOCHE'}[1] = 1 ;  
+   >    ### SET BLIPMAP IMAGE SIZES  - 1st,2nd value for 1st,2nd domain - blank=NOplot
+   >    @{$PLOT_IMAGE_SIZE{'PANOCHE'}[1]} = ( '', '800x800' );
+   >    ### SET HISTORY HOUR FOR IMAGES PLOTTED WHEN $PLOT_IMAGE_SIZE FOR THAT DOMAIN NOT BLANK
+   >    @{$PLOT_HHMMLIST{'PANOCHE'}[1]} =  ( '2000', '2030', '2100' );
+   >    ### CREATE WEBSITE IMAGE LOOP
+   >    @{$PLOT_LOOP_HHMMLIST{'PANOCHE'}[1]} =  ( );
+   >    ### SET HISTORY HOUR FOR IMAGES SAVED WHEN LSAVE>0 AND $PLOT_IMAGE_SIZE FOR THAT DOMAIN NOT BLANK
+   >    @{$SAVE_PLOT_HHMMLIST{'PANOCHE'}[1]} = ( '2100' );
+   >  ##############  END OF REGION DEPENDENT PARAMETERS  ##############
+   >  ##################################################################
+   >  ##########    ADDITIONS MUST BE MADE ABOVE THIS LINE    ##########
+   >  ##################################################################
+   >  1.;
+--- SITE ALTERATIONS were read from file: rasp.site.parameters 
+  >  ############################################################################
+   >  ###############  THIS FILE READ AFTER NORMAL PARAMETERS SET  ############### 
+   >  ###############         SO CAN BE USED TO ALTER THEM         ############### 
+   >  ###############            (utilizes perl coding)            ############### 
+   >  ############################################################################
+   >  
+   >  ############  SITE-SPECIFIC PARAMETERS FOLLOW  ################## 
+   >  
+   >  ### EMAIL ADDRESS where fatal error messages are sent (when std.err file not empty)
+   >  ### also used for anonymous ftp login password so CANNOT BE BLANK!
+   >  $ADMIN_EMAIL_ADDRESS = 'fonseca414@gmail.com';
+   >  
+   >  ### ERROR MESSAGES TO BE REPORTED TO ADMIN VIA EMAIL
+   >  ### activate any errors you wish to be advised of via email
+   >  ### * REPORT FAILIURE OF WRF FORECAST PROGRAM wrf.exe 
+   >  #   $ADMIN_EMAIL{'WRF_EXECUTION'} = 1 ;
+   >  ### * REPORT TIMEOUT FAILIURE OF NCL PLOTTING PROGRAM
+   >  #   $ADMIN_EMAIL{'NCL_TIMEOUT'} = 1 ;
+   >  ### * REPORT FAILIURE TO FIND EXPECTED FINAL IMAGE FILE AT JOB END
+   >  #   $ADMIN_EMAIL{'JOBEND_IMAGE'} = 1 ;
+   >  
+   >  ### ALTER NUMBER OF CPUS from default=2 (which is also ok for 1 cpu)
+   >  $NCPUS = 16;
+   >  
+   >  #################################################################
+   >  ######  PUT LOCAL SITE PARAMETERS CHANGES BELOW THIS LINE  ######
+   >  #################################################################
+   >  
+   >  #################################################################
+   >  ######        ADDITIONS MUST BE MADE ABOVE THIS LINE       ######
+   >  #################################################################
+   >  1.;
+RUNDATE= MON 22 May 2017  JULIANDAY= 142 
+  PANOCHE  GRIBFILE_DOLIST= ( 0Z+12 0Z+15 0Z+18 0Z+21 0Z+24 )
+   Scheduled availability:   0Z+12 @ 01:48Z
+   Scheduled availability:   0Z+15 @ 01:51Z
+   Scheduled availability:   0Z+18 @ 01:53Z
+   Scheduled availability:   0Z+21 @ 01:56Z
+   Scheduled availability:   0Z+24 @ 01:59Z
+   filenamedolist=   0Z+12 =>  nam.t00z.awip3d12.tm00.grib2
+   filenamedolist=   0Z+15 =>  nam.t00z.awip3d15.tm00.grib2
+   filenamedolist=   0Z+18 =>  nam.t00z.awip3d18.tm00.grib2
+   filenamedolist=   0Z+21 =>  nam.t00z.awip3d21.tm00.grib2
+   filenamedolist=   0Z+24 =>  nam.t00z.awip3d24.tm00.grib2
+FILENAMEdolist   count = 5
+   filename= 0 0Z+12 1  nam.t00z.awip3d12.tm00.grib2
+   filename= 1 0Z+15 1  nam.t00z.awip3d15.tm00.grib2
+   filename= 2 0Z+18 1  nam.t00z.awip3d18.tm00.grib2
+   filename= 3 0Z+21 1  nam.t00z.awip3d21.tm00.grib2
+   filename= 4 0Z+24 1  nam.t00z.awip3d24.tm00.grib2
+Begin CYCLE loop over Time/Filename
+CYCLE: TOP 1/708  0.0/23.6hr 00(00/05) - last=  at 05:03:13
+   PS:  2615  20   0  6.0  0.8  6164  8236  8762    4  35048
+SCHEDULED GETGRIB: 1 trialfile =   0Z+12 (0) =>  nam.t00z.awip3d12.tm00.grib2
+0Z+12: pre-grib-download rm of previous grib file: removed `/home/admin/DRJACK/RASP/RUN/ETA/GRIB/nam.t00z.awip3d12.tm00.grib2.cnvgrib.out'
+removed `/home/admin/DRJACK/RASP/RUN/ETA/GRIB/nam.t00z.awip3d15.tm00.grib2.cnvgrib.out'
+removed `/home/admin/DRJACK/RASP/RUN/ETA/GRIB/nam.t00z.awip3d18.tm00.grib2.cnvgrib.out'
+removed `/home/admin/DRJACK/RASP/RUN/ETA/GRIB/nam.t00z.awip3d21.tm00.grib2.cnvgrib.out'
+removed `/home/admin/DRJACK/RASP/RUN/ETA/GRIB/nam.t00z.awip3d24.tm00.grib2.cnvgrib.out'
+0Z+12: FTP REQUEST /home/admin/DRJACK/RASP/RUN/UTIL/gribftpget.pl at 05:03:130Z+12: call child gribftpget routine: 900 nam.t00z.awip3d12.tm00.grib2 ftpprd.ncep.noaa.gov pub/data/nccf/com/nam/prod/nam.20170522
+CYCLE: TOP 2/708  0.0/23.6hr 00(00/05) - last=  at 05:03:13
+-> 0Z+12 CHILDFTP 2774 05:03:13 1/60 >> GRIBARCHIVEGET LOOP TOP: nam.t00z.awip3d12.tm00.grib2
+   PS:  2615  20   0  6.0  0.8  6164  8252  8762    4  35048
+SCHEDULED GETGRIB: 1 trialfile =   0Z+15 (0) => nam.20170522 nam.t00z.awip3d15.tm00.grib2
+0Z+15: pre-grib-download rm of previous grib file: rm: cannot remove `/home/admin/DRJACK/RASP/RUN/ETA/GRIB/*.cnvgrib.out': No such file or directory
+0Z+15: FTP REQUEST /home/admin/DRJACK/RASP/RUN/UTIL/gribftpget.pl at 05:03:130Z+15: call child gribftpget routine: 900 nam.t00z.awip3d15.tm00.grib2 ftpprd.ncep.noaa.gov pub/data/nccf/com/nam/prod/nam.20170522
+CYCLE: TOP 3/708  0.0/23.6hr 00(00/05) - last=  at 05:03:13
+-> 0Z+15 CHILDFTP 2796 05:03:13 1/60 >> GRIBARCHIVEGET LOOP TOP: nam.t00z.awip3d15.tm00.grib2
+   PS:  2615  20   0  6.0  0.8  6164  8252  8762    4  35048
+SCHEDULED GETGRIB: 1 trialfile =   0Z+18 (0) => nam.20170522 nam.t00z.awip3d18.tm00.grib2
+0Z+18: pre-grib-download rm of previous grib file: rm: cannot remove `/home/admin/DRJACK/RASP/RUN/ETA/GRIB/*.cnvgrib.out': No such file or directory
+0Z+18: FTP REQUEST /home/admin/DRJACK/RASP/RUN/UTIL/gribftpget.pl at 05:03:130Z+18: call child gribftpget routine: 900 nam.t00z.awip3d18.tm00.grib2 ftpprd.ncep.noaa.gov pub/data/nccf/com/nam/prod/nam.20170522
+-> 0Z+18 CHILDFTP 2819 05:03:13 1/60 >> GRIBARCHIVEGET LOOP TOP: nam.t00z.awip3d18.tm00.grib2
+CYCLE: TOP 4/708  0.0/23.6hr 00(00/05) - last=  at 05:03:13
+   PS:  2615  20   0  7.0  0.8  6164  8252  8762    4  35048
+SCHEDULED GETGRIB: 1 trialfile =   0Z+21 (0) => nam.20170522 nam.t00z.awip3d21.tm00.grib2
+0Z+21: pre-grib-download rm of previous grib file: rm: cannot remove `/home/admin/DRJACK/RASP/RUN/ETA/GRIB/*.cnvgrib.out': No such file or directory
+0Z+21: FTP REQUEST /home/admin/DRJACK/RASP/RUN/UTIL/gribftpget.pl at 05:03:130Z+21: call child gribftpget routine: 900 nam.t00z.awip3d21.tm00.grib2 ftpprd.ncep.noaa.gov pub/data/nccf/com/nam/prod/nam.20170522
+-> 0Z+21 CHILDFTP 2843 05:03:13 1/60 >> GRIBARCHIVEGET LOOP TOP: nam.t00z.awip3d21.tm00.grib2
+CYCLE: TOP 5/708  0.0/23.6hr 00(00/05) - last=  at 05:03:13
+   PS:  2615  20   0  7.0  0.8  6164  8256  8762    4  35048
+SCHEDULED GETGRIB: 1 trialfile =   0Z+24 (0) => nam.20170522 nam.t00z.awip3d24.tm00.grib2
+0Z+24: pre-grib-download rm of previous grib file: rm: cannot remove `/home/admin/DRJACK/RASP/RUN/ETA/GRIB/*.cnvgrib.out': No such file or directory
+0Z+24: FTP REQUEST /home/admin/DRJACK/RASP/RUN/UTIL/gribftpget.pl at 05:03:130Z+24: call child gribftpget routine: 900 nam.t00z.awip3d24.tm00.grib2 ftpprd.ncep.noaa.gov pub/data/nccf/com/nam/prod/nam.20170522
+-> 0Z+24 CHILDFTP 2868 05:03:13 1/60 >> GRIBARCHIVEGET LOOP TOP: nam.t00z.awip3d24.tm00.grib2
+CYCLE: TOP 6/708  0.0/23.6hr 00(00/05) - last=  at 05:03:13
+   PS:  2615  20   0  7.0  0.8  6164  8256  8762    4  35048
+   PAUSE CYCLE LOOP FOR 30 sec
+GRIB FULL_Download 05:03:13 - 05:03:43 PT =   0.5 min for nam.20170522/nam.t00z.awip3d24.tm00.grib2[ 11997944] & 11997944 b = 400 Kb/s  @ 140.90.101.61 34037
+   NEW_GRIB_FILE_RECEIVED : 05:03:43  01(00/05)    0Z+24 => curr+1.  0Z  nam.20170522 nam.t00z.awip3d24.tm00.grib2
+      Removed yesterday's grib_prep output file /home/admin/DRJACK/WRF/WRFSI/extdata/extprd/ETA:2017-05-22_00 
+   Grib Prep using 2017052300 
+      Exited 0Z+24 grib_prep.pl with no detected error 
+   Check for needed PANOCHE files of rungroup 1 found 1/5 received with 1 grib_prep success at 05:03:45 
+   GRIB_FILE_PROCESSING_COMPLETE : 05:03:45 
+GRIB FULL_Download 05:03:13 - 05:03:45 PT =   0.5 min for nam.20170522/nam.t00z.awip3d21.tm00.grib2[ 11902974] & 11902974 b = 372 Kb/s  @ 140.90.101.61 39767
+   NEW_GRIB_FILE_RECEIVED : 05:03:45  02(01/05)    0Z+21 =>   curr. 21Z  nam.20170522 nam.t00z.awip3d21.tm00.grib2
+      Removed yesterday's grib_prep output file /home/admin/DRJACK/WRF/WRFSI/extdata/extprd/ETA:2017-05-21_21 
+   Grib Prep using 2017052221 
+      Exited 0Z+21 grib_prep.pl with no detected error 
+   Check for needed PANOCHE files of rungroup 1 found 2/5 received with 2 grib_prep success at 05:03:48 
+   GRIB_FILE_PROCESSING_COMPLETE : 05:03:48 
+GRIB FULL_Download 05:03:13 - 05:03:48 PT =   0.6 min for nam.20170522/nam.t00z.awip3d18.tm00.grib2[ 11704942] & 11704942 b = 334 Kb/s  @ 140.90.101.61 29795
+   NEW_GRIB_FILE_RECEIVED : 05:03:48  03(02/05)    0Z+18 =>   curr. 18Z  nam.20170522 nam.t00z.awip3d18.tm00.grib2
+      Removed yesterday's grib_prep output file /home/admin/DRJACK/WRF/WRFSI/extdata/extprd/ETA:2017-05-21_18 
+   Grib Prep using 2017052218 
+      Exited 0Z+18 grib_prep.pl with no detected error 
+   Check for needed PANOCHE files of rungroup 1 found 3/5 received with 3 grib_prep success at 05:03:51 
+   GRIB_FILE_PROCESSING_COMPLETE : 05:03:51 
+GRIB FULL_Download 05:03:13 - 05:03:51 PT =   0.6 min for nam.20170522/nam.t00z.awip3d15.tm00.grib2[ 11495014] & 11495014 b = 303 Kb/s  @ 140.90.101.61 29788
+   NEW_GRIB_FILE_RECEIVED : 05:03:51  04(03/05)    0Z+15 =>   curr. 15Z  nam.20170522 nam.t00z.awip3d15.tm00.grib2
+      Removed yesterday's grib_prep output file /home/admin/DRJACK/WRF/WRFSI/extdata/extprd/ETA:2017-05-21_15 
+   Grib Prep using 2017052215 
+      Exited 0Z+15 grib_prep.pl with no detected error 
+   Check for needed PANOCHE files of rungroup 1 found 4/5 received with 4 grib_prep success at 05:03:53 
+   GRIB_FILE_PROCESSING_COMPLETE : 05:03:53 
+GRIB FULL_Download 05:03:13 - 05:03:53 PT =   0.7 min for nam.20170522/nam.t00z.awip3d12.tm00.grib2[ 11344437] & 11344437 b = 284 Kb/s  @ 140.90.101.61 4254
+   NEW_GRIB_FILE_RECEIVED : 05:03:53  05(04/05)    0Z+12 =>   curr. 12Z  nam.20170522 nam.t00z.awip3d12.tm00.grib2
+      Removed yesterday's grib_prep output file /home/admin/DRJACK/WRF/WRFSI/extdata/extprd/ETA:2017-05-21_12 
+   Grib Prep using 2017052212 
+      Exited 0Z+12 grib_prep.pl with no detected error 
+   Check for needed PANOCHE files of rungroup 1 found 5/5 received with 5 grib_prep success at 05:03:56 
+   ALL needed PANOCHE rungroup 1 files received so initiate run
+   >>> PANOCHE CHILD RUNMODEL 3110 SPUN OFF by 2615 for ./rasp.panoche PANOCHE 
+   >>> LOOK FOR RUNNING RUNMODEL CHILDREN with #children = 1 & 1 and sleepsec= 180 sec at 05:03:56 
+   >>> PANOCHE THREADED CHILD RUNMODEL STARTED under 2615 for PANOCHE at 05:03 
+   START PANOCHE MODEL RUN LOOP 0 FOR PANOCHE at 05:03:56
+      PANOCHE DOMAIN 1 START-END = 2017-05-22:12Z - 2017-05-23:00Z 
+      PANOCHE DOMAIN 2 START-END = 2017-05-22:12Z - 2017-05-23:00Z 
+      Previous PANOCHE real.out* files found and pre-pended with "previous." 
+      Previous PANOCHE namelist.input file found and pre-pended with "previous." 
+   PANOCHE MODEL INITIALIZATION using 2017052212 at 05:03:56 
+      Exited PANOCHE wrfprep.pl with no detected error 
+*** PANOCHE ERROR EXIT: REAL.EXE successtest= 0 != 1 => error reported in log file /home/admin/DRJACK/WRF/WRFV2/RASP/PANOCHE/real.out.2 
+   > 0 JUST-FINISHED CHILD RUNMODEL PID= 3110 = 3110  RCs= 1 & 0 at 05:06:56 
+   > END CHILD RUNMODEL PROCESSING WITH 1/1 CHILDREN ENDED - AFTER 1 ITERS OF 180 sec at 05:06:56 
+   GRIB_FILE_PROCESSING_COMPLETE : 05:06:56 
+LOOP-END CYCLE EXIT: OKtimescount = DOfilecount = 5 
+Doing BLIP - call final blip processing
+FINALPROCESSING-TESTING finalprocessing0 0 
+UN-PROCESSED TIMES AT FINAL PROCESSING:
+PROCESSED BUT UNSUCCESFUL TIMES AT FINAL PROCESSING:
+05:07 : END ./rasp.panoche for PANOCHE & -M on MON 22 May 2017 : process 2615 (runhr= 0.0/23.6 cycle=6/708 files=5/5)
